@@ -76,7 +76,7 @@ from the definitions of $\tHI$ and $\ihomHI$.
 As constructed, the functor $F \mapsto \LHI{F}$ is left adjoint to 
 $F \mapsto \RHI{F}$. In this case,
 
-\begin{prop}
+\begin{prop}\label{prop_unit_eq}
 Let $F \in \HI$. The unit map $F \to \RHI{(\LHI{F})}$ is an
 isomorphism.
 \end{prop}
@@ -90,12 +90,29 @@ Prop. \ref{prop_LRDM_eq_LRHI}.
 \end{proof}
 
 Now consider the counit map $\cuHI_F: \LHI[n]{\RHI[n]{F}} \to F$, 
-and write $\slHI{n} F$ for the cokernel of $\cuHI_F$. We want to 
+and write $\sgHI{n} F$ for the cokernel of $\cuHI_F$. We want to 
 show that the functors $F \mapsto \LHI[n]{\RHI[n]{F}}$ 
-defines a weak filtration of and $\slHI{n}$ defines a
+defines a weak filtration of and $\sgHI{n}$ defines a
 strong cofiltration of $\HI$.
 
-To see this, let $\LHI[n]{\HI}$ denote the full subcategory of
-$F \in \HI$ where $F = \LHI[n]{F'}$ for some $F' \in \HI$. It
-is clear that if $m \geq n$, then $\LHI[m]{\HI} \subseteq 
-\LHI[n]{\HI}$.
+To see this, let $\LHI[0]{\HI} = \HI$ and let $\LHI[n]{\HI}$ 
+denote the full subcategory of $F \in \HI$ where $F = \LHI[n]{F'}$ 
+for some $F' \in \HI$. It is clear that if $m \geq n$, then 
+$\LHI[m]{\HI} \subseteq \LHI[n]{\HI}$. In particular, we have a 
+tower of subcategories
+\[
+\HI = \LHI[0]{\HI} \supset \LHI[1]{\HI} \supset \LHI[2]{\HI} 
+\subset \cdots.
+%\cdots \subset \LHI[2]{\HI} \subset \LHI[1]{\HI} \subset \LHI[0]{\HI} 
+% = \HI 
+\]
+Since for the constant sheaf $\Z$, $\RHI{\Z} = 0$, by Prop.
+\ref{prop_unit_eq}, $\LHI[1]{\HI} \neq \HI$. Inductively, we
+see that $\LHI[n]{\HI} \neq \LHI[n + 1]{\HI}$.
+
+\begin{prop}
+Let $\sgHI{n}$ denote the functor $F \mapsto 
+\LHI[n]{(\RHI[n]{F})}$. Then $\sgHI{n}$ is left adjoint to the 
+inclusion of $\LHI[n]{\HI}$. In particular, $(\HI, \sgHI{n})$ 
+form is weak filtration of $\HI$.
+\end{prop}
