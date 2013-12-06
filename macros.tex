@@ -10,6 +10,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
 
 % phrases that are often written but should not
 % have to be
@@ -26,6 +27,7 @@
 \renewcommand{\ker}{\mathrm{ker}\;}
 \newcommand{\im}{\mathrm{im}\;}
 \newcommand{\cok}{\mathrm{cok}\;}
+\renewcommand{\to}{\longrightarrow}
 
 % greek symbols make-over
 \renewcommand{\phi}{\varphi}
@@ -42,10 +44,10 @@
 % categories, sets, class
 \newcommand{\Class}[1]{\mathscr{#1}}
 \newcommand{\Cat}[1]{\mathscr{#1}}
-%\newcommand{\hom}{\mathrm{Hom}}
+\renewcommand{\hom}{\mathrm{Hom}}
 
 % homological algebra
-\newcommand{\rhom}{\math{RHom}}
+\newcommand{\rhom}{\mathrm{RHom}}
 
 % algebraic geometry
 \renewcommand{\O}{\mathcal{O}}
@@ -56,6 +58,7 @@
 % sheaves with transfers
 \newcommand{\Cor}{Cor}
 \newcommand{\ShCor}{ShCor}
+\newcommand{\DSh}{\mathbf{DSh}}
 
 % homotopy invariant sheaves with transfers
 \newcommand{\HI}{\mathbf{HI}}
@@ -64,12 +67,23 @@
 \newcommand{\tHI}{\otimes^H}
 \newcommand{\homHI}{\hom_{\HI}}
 \newcommand{\ihomHI}{\sheaf{\hom}_{\HI}}
+\newcommand{\cuHI}{\chi}
 
 % motives
-\newcommand{\DM}{DM}
+\newcommand{\DM}{\mathbf{DM}}
 \newcommand{\DMeff}{\DM^{\mathrm{eff}}}
+\newcommand{\tDM}{\otimes^L}
+\newcommand{\ihomDM}{\sheaf{\rhom}_{\DM}}
+\newcommand{\ihomDMf}{\sheaf{\rhom}_{\DMeff}}
+\newcommand{\RHomDM}{\rhom_{\DM}}
+\newcommand{\RHomDMf}{\rhom_{\DMf}}
 
 % cycle modules
 \newcommand{\CycMod}{\mathbf{CycMod}}
 \newcommand{\field}[1]{k}
 
+% slice filtration
+\newcommand{\slHI}[1]{\phi_{\leq #1}}
+\newcommand{\sgHI}[1]{\phi_{\geq #1}}
+\newcommand{\slDM}[1]{f_{\leq #1}}
+\newcommand{\sgDM}[1]{f_{\geq #1}}
