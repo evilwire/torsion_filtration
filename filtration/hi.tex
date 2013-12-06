@@ -1,0 +1,47 @@
+\section*{Filtration on $\HI$}
+
+Recall that a weak filtration of a category $\Cat{C}$ is a tower 
+of subcategories
+\[
+\cdots \subset F_n\Cat{C} \subset F_{n - 1}\Cat{C} \subset \cdots 
+   \subset \Cat{C}
+\]
+together with reflection functors $f_n : \Cat{C} \to F_n\Cat{C}_n$
+(cf. \ref{def_cat_filtration}.) If we have a suitable notion of
+subobjects in $\Cat{C}$, e.g. if $\Cat{C}$ is abelian, we can 
+define a stronger notion (as the name suggests).
+
+For the remainder, let $\Cat{C}$ be an abelian category. We have:
+
+\begin{defn}
+We say that a filtration $(\Cat{C}, f_*)$ is \emph{strong} if for
+each $A \in \Cat{C}$ and $n \in \Z$, $f_n A$ is a subobject of 
+$A$. Similarly a cofiltration $(\Cat{C}, c_*)$ is a \emph{strong} 
+if $c_n A$ is a quotient of $A$ for each $n$.
+\end{defn}
+
+The purpose of this section and the next is to construct a 
+strong filtration on the category $\CycMod$. To do this, we first
+construct a weak filtration structure on $\HI$ using a pair
+of adjoint functors obtained from the closed monoidal structure of
+$\HI$. Recall that this structure is first defined in Section 
+\ref{subsect_cls_monoid_struct_hi}.
+
+Recall that the sheaf $\Ox$ of units given by 
+\[
+\Ox(X) = \{\textrm{invertible elements of }\O(X)\}
+\]
+is a homotopy invariant sheaf with transfers. For $F \in \HI$, 
+set
+\[
+\LHI{F} = F \tHI \Ox \hspace{10pt} \textrm{and}\hspace{10pt} 
+   \RHI{F} = \ihomHI(\Ox, F).  
+\]
+We write $\LHI[n]{F}$ for the $n$-th iteration of the functor
+$\LHI{-}$ on $F$, and similarly $\RHI[n]{F}$ for the $n$-th 
+iteration of $\RHI{?}$ on $F$.
+
+In literature, the notation $\RHI{F}$ is often used to represent
+the contraction of $F$, which is the sheaf that sends $X \in 
+\Cor$ to $\cok( F(X \times \A^1) \to F(X \times (\A^1 - 0))).$
+We are justified writing $\RHI{F}$ for $\ihomHI{\Ox, F)$ 
