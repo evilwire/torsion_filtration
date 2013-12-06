@@ -1,3 +1,4 @@
+\newpage
 \section{Filtration on $\HI$}\label{sect_filtration_hi}
 
 Recall that a weak filtration of a category $\Cat{C}$ is a tower 
@@ -24,7 +25,13 @@ The purpose of this section and the next is to construct a
 strong filtration on the category $\CycMod$. To do this, we first
 construct a weak filtration structure on $\HI$ using a pair
 of adjoint functors obtained from the closed symmetric monoidal 
-structure of $\HI$. 
+structure of $\HI$. We adopt the same convention as in Sections
+\ref{sect_heart_struct} and \ref{sect_slice_filt_dm}: we identify 
+$\DMeff$ with the full subcategory of $\DSh$ with homotopy 
+invariant cohomologies, and identify $\HI$ with the heart of 
+$\DMeff$ under the $t$-structure induced by that of $\DSh$. Once
+again, let $\sheaf{H}^0$ denote the reflection functor $\DMeff
+\to \HI$.
 
 Recall that the sheaf $\Ox$ of units given by 
 \[
@@ -36,13 +43,59 @@ set
 \LHI{F} = F \tHI \Ox \hspace{10pt} \textrm{and}\hspace{10pt} 
    \RHI{F} = \ihomHI(\Ox, F).  
 \]
-We write $\LHI[n]{F}$ for the $n$-th iteration of the functor
-$\LHI{-}$ on $F$, and similarly $\RHI[n]{F}$ for the $n$-th 
-iteration of $\RHI{?}$ on $F$.
+We write $\LHI[n]{F}$ for $\LHI{(\LHI[n - 1]{F})}$ and 
+$\RHI[n]{F}$ for $\RHI{(\RHI[n - 1]{F})}$.
 
 \begin{rmk}
-In writing $\RHI{F}$ 
 In literature, the notation $\RHI{F}$ is often used to represent
 the contraction of $F$, which is the sheaf that sends $X \in 
-\Cor$ to $\cok( F(X \times \A^1) \to F(X \times (\A^1 - 0))).$
+\Cor$ to 
+\[
+\cok( F(X \times \A^1) \to F(X \times (\A^1 - 0))).
+\]
+In fact, there is no ambiguity here, since the contraction of
+$F$ is isomorphic to $\ihomHI(\Ox, F)$ by Prop. 
+\ref{prop_contraction}.
 \end{rmk}
+
+The following proposition highlights the connection between the
+pair of adjoint functors in the construction of $\DMeff$ (cf.
+Section \ref{sect_slice_filt_dm}).
+
+\begin{prop}\label{prop_LRDM_eq_LRHI}
+Fix any $F \in \HI$, which we also consider as an object of 
+$\DMeff$. Then we have $\sheaf{H}^0(F \tDM \Z(1)[1]) \simeq 
+\LHI{F}$ and $\sheaf{H}^0\ihomDMf(\Z(1)[1], F) \simeq \RHI{F}$.
+\end{prop}
+\begin{proof}
+By Prop. \ref{prop_Z1_eq_Ox}, $\Z(1)[1] \simeq \Ox$ in $\DSh$
+and hence in $\DMeff$ as well. The isomorphisms now follow
+from the definitions of $\tHI$ and $\ihomHI$.
+\end{proof}
+
+As constructed, the functor $F \mapsto \LHI{F}$ is left adjoint to 
+$F \mapsto \RHI{F}$. In this case,
+
+\begin{prop}
+Let $F \in \HI$. The unit map $F \to \RHI{(\LHI{F})}$ is an
+isomorphism.
+\end{prop}
+\begin{proof}
+Given $F \in \HI$, consider $F$ as an object in $\DMeff$. By
+Cancellation Theorem (Thm. \ref{thm_dm_cancellation}), we have
+that $\ihomDMf(\Z(1)[1], F(1)[1]) \simeq \ihomDMf(\Z, F) 
+\simeq F$. Now apply $\sheaf{H}^0$ to this chain of isomorphisms,
+and note that $\sheaf{H}^0(F) = F$. The proposition follows from 
+Prop. \ref{prop_LRDM_eq_LRHI}.
+\end{proof}
+
+Now consider the counit map $\cuHI_F: \LHI[n]{\RHI[n]{F}} \to F$, 
+and write $\slHI{n} F$ for the cokernel of $\cuHI_F$. We want to 
+show that the functors $F \mapsto \LHI[n]{\RHI[n]{F}}$ 
+defines a weak filtration of and $\slHI{n}$ defines a
+strong cofiltration of $\HI$.
+
+To see this, let $\LHI[n]{\HI}$ denote the full subcategory of
+$F \in \HI$ where $F = \LHI[n]{F'}$ for some $F' \in \HI$. It
+is clear that if $m \geq n$, then $\LHI[m]{\HI} \subseteq 
+\LHI[n]{\HI}$.
