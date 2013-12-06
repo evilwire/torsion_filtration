@@ -16,6 +16,7 @@
 
 \newcounter{items}[section]
 \setcounter{items}{1}
+\setcounter{tocdepth}{4}
 
 % The following causes equations to be numbered within sections
 \numberwithin{equation}{section}
@@ -31,9 +32,13 @@
 \newtheorem{rmk}[equation]{Remark}
 \newtheorem{ex}[equation]{Example}
 
+\title{Thesis}
 
 \begin{document}
 \maketitle
+\tableofcontents
+
 \input{macros}
+\input{filtration/hi}
 \input{biblio}
 \end{document}
