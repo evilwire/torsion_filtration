@@ -15,10 +15,11 @@ define a stronger notion (as the name suggests).
 For the remainder, let $\Cat{C}$ be an abelian category. We have:
 
 \begin{defn}
-We say that a filtration $(\Cat{C}, f_*)$ is \emph{strong} if for
-each $A \in \Cat{C}$ and $n \in \Z$, $f_n A$ is a subobject of 
-$A$. Similarly a cofiltration $(\Cat{C}, c_*)$ is a \emph{strong} 
-if $c_n A$ is a quotient of $A$ for each $n$.
+We say that a filtration $(\Cat{C}, f_*)$ is a \DEF{strong 
+filtration} if for each $A \in \Cat{C}$ and $n \in \Z$, $f_n A$ is 
+a subobject of $A$. Similarly a cofiltration $(\Cat{C}, c_*)$ is a 
+\DEF{strong cofiltration} if $c_n A$ is a quotient of $A$ for each 
+$n$.
 \end{defn}
 
 The purpose of this section and the next is to construct a 
@@ -38,10 +39,10 @@ Recall that the sheaf $\Ox$ of units given by
 \Ox(X) = \{\textrm{invertible elements of }\O(X)\}
 \]
 is a homotopy invariant sheaf with transfers. For $F \in \HI$, 
-set
+let
 \[
-\LHI{F} = F \tHI \Ox \hspace{10pt} \textrm{and}\hspace{10pt} 
-   \RHI{F} = \ihomHI(\Ox, F).  
+\LHI{F} \defeq F \tHI \Ox \hspace{10pt} \textrm{and}\hspace{10pt} 
+   \RHI{F} \defeq \ihomHI(\Ox, F).  
 \]
 We write $\LHI[n]{F}$ for $\LHI{(\LHI[n - 1]{F})}$ and 
 $\RHI[n]{F}$ for $\RHI{(\RHI[n + 1]{F})}$.
@@ -89,11 +90,18 @@ and note that $\sheaf{H}^0(F) = F$. The proposition follows from
 Prop. \ref{prop_LRDM_eq_LRHI}.
 \end{proof}
 
-Consider the counit map $\cuHI_F: \LHI[n]{\RHI[n]{F}} \to F$, and 
-write $\tgHI{n} F$ for the cokernel of $\cuHI_F$. We want to show 
-that the functors $F \mapsto \LHI[n]{\RHI[n]{F}}$ defines a weak 
-filtration of and $\tgHI{n}$ defines a strong cofiltration of 
-$\HI$.
+Fix $n > 0$, and consider the counit map $\cuHI_F^n: 
+\LHI[n]{\RHI[n]{F}} \to F$, and write $\tlHI{n} F$ for the 
+cokernel of $\cuHI_F$. First we make the following observation:
+
+\begin{prop}\label{prop_counit_iso_for_HIn}
+Let $\cuHI^n$ denote the counit, described above. If $F \in 
+\LHI[n]{\HI}$, then $\cuHI^n : \LHI[n]{\RHI[n]{F}} \to F$ is
+an isomorphism.
+\end{prop}
+\begin{proof}
+By the counit-unit adjunction, 
+\end{proof}
 
 To see this, let $\LHI[0]{\HI} = \HI$ and let $\LHI[n]{\HI}$ 
 denote the full subcategory of $F \in \HI$ where $F = \LHI[n]{F'}$ 
@@ -114,9 +122,54 @@ that $\LHI[n]{\HI} \neq \LHI[n + 1]{\HI}$ for all $n \in \N$.
 
 \begin{prop}
 Let $\sgHI{n}$ denote the functor $F \mapsto 
-\LHI[n]{(\RHI[n]{F})}$. Then $\sgHI{n}$ is left adjoint to the 
-inclusion of $\LHI[n]{\HI}$. In particular, $(\HI, \sgHI{n})$ 
-defines a (nontrivial) weak filtration of $\HI$.
+\LHI[n]{(\RHI[n]{F})}$. Then $\sgHI{n}$ is right adjoint to the 
+inclusion of $\LHI[n]{\HI}$. In particular, $(\HI, \sgHI{n})_{n 
+\in \N}$ defines a (nontrivial) weak filtration of $\HI$.
+\end{prop}
+\begin{proof}
+Fix $F \in \LHI[n]{HI}$ and $G \in \HI$, and fix a map $f : 
+F \to G$. By naturality of $\cuHI$, we have the following 
+commutative diagram:
+\[
+\begin{tikzcd}
+\LHI[n]{\RHI[n]{F}} \arrow{r}{\cuHI^n f}\arrow{d}{\cuHI^n_F} 
+& \LHI[n]{\RHI[n]{G}} \arrow{d}{\cuHI^n_G} \\
+F \arrow{r}{f}
+& G.
+\end{tikzcd}
+\]
+Since $F \in \LHI[n]{\HI}$, by Prop. \ref{prop_counit_iso_for_HIn} 
+the counit map $\cuHI_F$ is an isomorphism.
+
+Define $\chi: \homHI(F, G) \to \hom_{\LHI[n]{\HI}}(F, 
+\LHI[n]{\RHI[n]{G}})$ given by $f \mapsto (\cuHI^n_F)^{-1} \comp 
+\cuHI^n f$. Since $\cuHI_F$ is an isomorphism, $\chi$ is 
+injective. Moreover, given a map $g: F \to \LHI[n]{\RHI[n]{G}}$,
+set $f' = \cuHI_G \comp g$. Then $\chi(f') = g$. Hence $\chi$
+is an isomorphism as desired.
+\end{proof}
+
+For $n > 0$, let $\tlHI{n}\HI$ be the full subcategories of 
+objects $F \in \HI$ such that $\RHI[n]{F} = 0$ (where $\RHI[0]{F} 
+\defeq F$). It is clear that we also have the following ascending 
+tower of subcategories
+\[
+0 = \tlHI{0}\HI \subset \tlHI{1}\HI \subset \tlHI{2}\HI \subset 
+   \cdots \subset \HI
+\]
+It is also clear that $\tlHI{n} \neq \tlHI{n + 1}$ since 
+$\RHI{\Ox} = \Z$ and by Prop. \ref{prop_unit_iso} $\LHI[n]{\Ox} 
+\in \tlHI{n + 1}\HI$ but not in $\tlHI{n}\HI$.
+
+In fact, we have the following
+\begin{prop}\label{prop_HI_lower_slice}
+Fix a positive integer $n$ and let $\tlHI{n}F$ be cokernel of the 
+counit $\cuHI^n_F: \LHI[n]{\RHI[n]{F}} \to F$. Then the 
+association $F \mapsto \tlHI{n}F$ is a functor, and is left 
+adjoint to the inclusion $\tlHI{n} \to \HI$.
+
+Thus, $(\HI, \tlHI{n})_{n \in \N}$ defines a strong cofiltration
+of $\HI$.
 \end{prop}
 \begin{proof}
 
