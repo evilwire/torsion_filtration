@@ -47,7 +47,7 @@ let
 We write $\LHI[n]{F}$ for $\LHI{(\LHI[n - 1]{F})}$ and 
 $\RHI[n]{F}$ for $\RHI{(\RHI[n + 1]{F})}$.
 
-\begin{rmk}
+\begin{rmk}\label{rmk_contract_rhi_eq}
 In literature, the notation $\RHI{F}$ is often used to represent
 the contraction of $F$, which is the sheaf that sends $X \in 
 \Cor$ to 
@@ -193,4 +193,25 @@ diagram:
 with the dotted arrow $g$ given by the universal property of 
 cokernels. Set $\tlHI{n}f = g$. It is clear from definition that
 $\tlHI{n}$ is a functor.
+
+\pfitem{Essential image is $\tlHI{n}\HI$} : Fix $F \in \HI$. To
+show that $\tlHI{n}F \in \tlHI{n}\HI$, we need only to verify
+that $\RHI[n]{(\tlHI{n}F)}$ is 0.
+
+By definition, we have
+\[
+\LHI[n]{\RHI[n]{F}} \to F \to \tlHI{n}F \to 0
+\]
+Since the functor $\RHI{?}$ is exact (see Prop. 
+\ref{prop_contract_is_exact} and Prop. \ref{prop_contraction}), 
+we then have the following exact sequence
+\[
+\RHI[n]{(\LHI[n]{\RHI[n]{F}})} \to \RHI[n]{F} \to
+\RHI[n]{(\tlHI{n}F)} \to 0.
+\]
+By Prop. \ref{prop_unit_iso}, $\RHI[n]{(\LHI[n]{\RHI[n]{F}})}
+\to \RHI[n]{F}$ is an isomorphism. It follows that $\tlHI{n}F = 
+0$ as desired.
+
+\pfitem{$\tlHI[n]$ is left adjoint to inclusion} :
 \end{proof}
