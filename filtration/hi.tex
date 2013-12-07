@@ -7,7 +7,7 @@ of subcategories
 \cdots \subset F_n\Cat{C} \subset F_{n - 1}\Cat{C} \subset \cdots 
    \subset \Cat{C}
 \]
-together with reflection functors $f_n : \Cat{C} \to F_n\Cat{C}_n$
+together with reflection functors $\nu_n : \Cat{C} \to F_n\Cat{C}_n$
 (cf. \ref{def_cat_filtration}.) If we have a suitable notion of
 subobjects in $\Cat{C}$, e.g. if $\Cat{C}$ is abelian, we can 
 define a stronger notion (as the name suggests).
@@ -15,11 +15,11 @@ define a stronger notion (as the name suggests).
 For the remainder, let $\Cat{C}$ be an abelian category. We have:
 
 \begin{defn}
-We say that a filtration $(\Cat{C}, f_*)$ is a \DEF{strong 
+We say that a filtration $(\Cat{C}, \nu_*)$ is a \DEF{strong 
 filtration} if for each $A \in \Cat{C}$ and $n \in \Z$, $f_n A$ is 
-a subobject of $A$. Similarly a cofiltration $(\Cat{C}, c_*)$ is a 
-\DEF{strong cofiltration} if $c_n A$ is a quotient of $A$ for each 
-$n$.
+a subobject of $A$. Similarly a cofiltration $(\Cat{C}, \gamma_*)$ 
+is a \DEF{strong cofiltration} if $c_n A$ is a quotient of $A$ for 
+each $n$.
 \end{defn}
 
 The purpose of this section and the next is to construct a 
@@ -60,8 +60,8 @@ $F$ is isomorphic to $\ihomHI(\Ox, F)$ by Prop.
 \end{rmk}
 
 The following proposition highlights the connection between the
-pair of adjoint functors in the construction of $\DMeff$ (cf.
-Section \ref{sect_slice_filt_dm}).
+pair of adjoint functors in the construction of the slice 
+filtration on $\DMeff$ (cf.  Section \ref{sect_slice_filt_dm}).
 
 \begin{prop}\label{prop_LRDM_eq_LRHI}
 Fix any $F \in \HI$, which we also consider as an object of 
@@ -166,11 +166,31 @@ In fact, we have the following
 Fix a positive integer $n$ and let $\tlHI{n}F$ be cokernel of the 
 counit $\cuHI^n_F: \LHI[n]{\RHI[n]{F}} \to F$. Then the 
 association $F \mapsto \tlHI{n}F$ is a functor, and is left 
-adjoint to the inclusion $\tlHI{n} \to \HI$.
+adjoint to the inclusion $\tlHI{n}\HI \to \HI$.
 
 Thus, $(\HI, \tlHI{n})_{n \in \N}$ defines a strong cofiltration
 of $\HI$.
 \end{prop}
 \begin{proof}
+\pfitem{Functoriality} : on objects, $\tlHI{n}$ sends $F$ to the 
+cokernel $\tlHI{n}F$ of the counit $\LHI[n]{\RHI[n]{F}} \to F$.
 
+Let $f: F \to G$ be a morphism in $\HI$.
+By naturality of $\cuHI^n_F$, we have the following commutative
+diagram:
+\[
+\begin{tikzcd}
+\LHI[n]{\RHI[n]{F}} \arrow{r}{\cuHI_F^n} \arrow{d}{\LHI[n]{\RHI[n]{f}}}
+& F \arrow{r} \arrow{d}{f}
+& \tlHI{n} F \arrow[dotted]{d}{g} \arrow{r}
+& 0 \\
+\LHI[n]{\RHI[n]{G}} \arrow{r}{\cuHI_F^n}
+& G \arrow{r}
+& \tlHI{n}G \arrow{r}
+& 0
+\end{tikzcd}
+\]
+with the dotted arrow $g$ given by the universal property of 
+cokernels. Set $\tlHI{n}f = g$. It is clear from definition that
+$\tlHI{n}$ is a functor.
 \end{proof}
