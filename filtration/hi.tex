@@ -142,11 +142,11 @@ Since $F \in \LHI[n]{\HI}$, by Prop. \ref{prop_counit_iso_for_HIn}
 the counit map $\cuHI_F$ is an isomorphism.
 
 Define $\chi: \homHI(F, G) \to \hom_{\LHI[n]{\HI}}(F, 
-\LHI[n]{\RHI[n]{G}})$ given by $f \mapsto (\cuHI^n_F)^{-1} \comp 
-\cuHI^n f$. Since $\cuHI_F$ is an isomorphism, $\chi$ is 
-injective. Moreover, given a map $g: F \to \LHI[n]{\RHI[n]{G}}$,
-set $f' = \cuHI_G \comp g$. Then $\chi(f') = g$. Hence $\chi$
-is an isomorphism as desired.
+\LHI[n]{\RHI[n]{G}})$ by $f \mapsto (\cuHI^n_F)^{-1} \comp \cuHI^n 
+f$. Since $\cuHI_F$ is an isomorphism, $\chi$ is injective. 
+Moreover, given a map $g: F \to \LHI[n]{\RHI[n]{G}}$, set $f' = 
+\cuHI_G \comp g$. Then $\chi(f') = g$. Hence $\chi$ is an 
+isomorphism as desired.
 \end{proof}
 
 For $n > 0$, let $\tlHI{n}\HI$ be the full subcategories of 
@@ -161,7 +161,8 @@ It is also clear that $\tlHI{n} \neq \tlHI{n + 1}$ since
 $\RHI{\Ox} = \Z$ and by Prop. \ref{prop_unit_iso} $\LHI[n]{\Ox} 
 \in \tlHI{n + 1}\HI$ but not in $\tlHI{n}\HI$.
 
-In fact, we have the following
+In fact, we have the following result:
+
 \begin{prop}\label{prop_HI_lower_slice}
 Fix a positive integer $n$ and let $\tlHI{n}F$ be cokernel of the 
 counit $\cuHI^n_F: \LHI[n]{\RHI[n]{F}} \to F$. Then the 
@@ -213,5 +214,47 @@ By Prop. \ref{prop_unit_iso}, $\RHI[n]{(\LHI[n]{\RHI[n]{F}})}
 \to \RHI[n]{F}$ is an isomorphism. It follows that $\tlHI{n}F = 
 0$ as desired.
 
-\pfitem{$\tlHI[n]$ is left adjoint to inclusion} :
+\pfitem{$\tlHI{n}$ is left adjoint to inclusion} : the proof
+of this will rely on the following lemma:
+
+\begin{lem}\label{lem_tlHI_id}
+The functor $\tlHI{n}$, restricted to $\tlHI{n}\HI$ is the 
+identity. Consequently, the functor $\tlHI{n}$ is idempotent. 
+That is, $(\tlHI{n})^2 = \tlHI{n}$ (see Def. \ref{def_idempotence})
+\end{lem}
+\begin{proof}[Proof of Lemma]
+For $F \in \tlHI{n}\HI$, we have
+\[
+\LHI[n]{\RHI[n]{F}} \to F \to \tlHI{n}F \to 0
+\]
+However, since $F \in \tlHI{n}\HI$, $\RHI[n]{\tlHI{n}F} = 0$, and 
+therefore counit map is $0$. It follows that $\tlHI{n}F = F$ as 
+desired.
+
+The second statement follows from the fact that $\tlHI{n}F \in 
+\tlHI{n}\HI$.
+\end{proof}
+
+Continuing with the proof of Prop. \ref{prop_HI_lower_slice}, let
+$F \in \HI$ and $G \in \tlHI{n}\HI$. For all $f: F \to G$ we have 
+the following commutative diagram:
+\[
+\begin{tikzcd}
+F \arrow{r}{\pi} \arrow{d}{f}
+& \tlHI{n}F \arrow{r} \arrow{d}{\tlHI{n}f}
+& 0 \\
+G \arrow{r}{\pi'}
+& \tlHI{n}G \arrow{r}
+& 0
+\end{tikzcd}
+\]
+By Lemma \ref{lem_tlHI_id}, since $G \in \tlHI{n}\HI$, the map
+$G \stackrel{\pi'}{\to} \tlHI{n}G$ is the identity. Define
+\[
+\chi : \homHI(F, G) \to \hom_{\tlHI{n}\HI}(\tlHI{n}F, G)
+\]
+by $f \mapsto \tlHI{n}f$. If $\tlHI{n}f = 0$, then $f = 0$.
+Therefore $\chi$ is injective. For $g: \tlHI{n}F \to G$, then
+set $f' = \pi \comp g$. It is easy to see that $\chi(f') = g$.
+Thus, $\chi$ is a bijection, as desired.
 \end{proof}
