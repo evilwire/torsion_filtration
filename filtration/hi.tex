@@ -16,10 +16,10 @@ For the remainder, let $\Cat{C}$ be an abelian category. We have:
 
 \begin{defn}
 We say that a filtration $(\Cat{C}, \nu_*)$ is a \DEF{strong 
-filtration} if for each $A \in \Cat{C}$ and $n \in \Z$, $f_n A$ is 
+filtration} if for each $A \in \Cat{C}$ and $n \in \Z$, $nu_n A$ is 
 a subobject of $A$. Similarly a cofiltration $(\Cat{C}, \gamma_*)$ 
-is a \DEF{strong cofiltration} if $c_n A$ is a quotient of $A$ for 
-each $n$.
+is a \DEF{strong cofiltration} if $\gamma_n A$ is a quotient of 
+$A$ for each $n$.
 \end{defn}
 
 The purpose of this section and the next is to construct a 
@@ -375,7 +375,8 @@ the lemma follows.
 \begin{lem}[D\'eglise]\label{lem_H_com_ihom_DM}
 For $M \in \DMeff$, 
 \[
-\sheaf{H}^i\ihomDMf(\Z(1)[1], M) = \ihomDMf(\Z(1)[1], \sheaf{H}^i(M)).
+\sheaf{H}^i\ihomDMf(\Z(1)[1], M) = \ihomDMf(\Z(1)[1], \sheaf{H}^i(M)) = 
+   \RHI{\sheaf{H}^i(M)}
 \]
 \end{lem}
 \begin{proof}
@@ -408,4 +409,34 @@ of $\sgDM{n}\DMeff$ under $\sheaf{H}^0$. To show the converse, we
 establish that $\RHI[n]{(\sheaf{H}^0 M)} = 0$ for $M \in 
 \slDM{n}\DMeff$. This follows from Prop. 
 \ref{prop_lower_slice_char}. Indeed, if $M \in \slDM{n}\DMeff$, 
-then $\ihomDMf(\Z(n)[n], M) = 0$. Applying Lemma 
+then 
+\[
+\ihomDMf(\Z(n)[n], M) = 0.
+\] 
+Applying Lemma \ref{lem_H_com_ihom_DM}, it follows that
+\[
+0 = \sheaf{H}^0\ihomDMf(\Z(n)[n], M) = \RHI[n](\sheaf{H}^0(M))
+\]
+and thus $\sheaf{H}^0 M \in \tlHI{n}\HI$ by definition. We
+have just proved:
+
+\begin{prop}\label{prop_H_commute_with_slice}
+Let $(\HI, \sgHI{*})$ and $(\HI, \tlHI{*})$ be the respective 
+filtration and cofiltration defined above, and let $(\DMeff, 
+\sgDM{*})$ and $(\DMeff, \slDM{*})$ be the filtration and
+cofiltration defined in Sect. \ref{sect_slice_filt_dm}. Then
+for each $n > 0$, the following diagram of functors commute:
+\[
+\begin{tikzcd}
+\sgDM{n}\DMeff \arrow{d}{\sheaf{H}^0} &
+\DMeff \arrow{l}{\sgDM{n}} \arrow{r}{\slDM{n}} \arrow{d}{\sheaf{H}^0} &
+\slDM{n}\DMeff \arrow{d}{\sheaf{H}^0} \\
+\sgHI{n}\HI &
+\HI \arrow{l}{\sgHI{n}} \arrow{r}{\tlHI{n}} &
+\tlHI{n}\HI 
+\end{tikzcd}
+\]
+and all vertical arrows are essentially surjective.
+\end{prop}
+
+In spite of the result in Prop. \ref{prop_H_commute_with_slice}, 
