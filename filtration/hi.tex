@@ -380,13 +380,13 @@ For $M \in \DMeff$,
 \]
 \end{lem}
 \begin{proof}
-First, the cohomological functor $\rhomDMf(\Z(1)[1], -)$ is left 
+First, the cohomological functor $\ihomDMf(\Z(1)[1], -)$ is left 
 $t$-exact (being the right adjoint of $-\tDM \Z(1)[1]$. By the 
 preceding lemma and Prop \ref{prop_contract_is_exact},
-$\rhomDMf(\Z(1)[1], -)$ is also exact on the heart of $\DMeff$,
+$\ihomDMf(\Z(1)[1], -)$ is also exact on the heart of $\DMeff$,
 whence it is $t$-exact.
 
-That is, $\rhomDMf(\Z(1)[1], -)$ commutes with $\sheaf{H}^0$,
+That is, $\ihomDMf(\Z(1)[1], -)$ commutes with $\sheaf{H}^0$,
 and the lemma is established.
 \end{proof}
 
@@ -415,12 +415,12 @@ then
 \] 
 Applying Lemma \ref{lem_H_com_ihom_DM}, it follows that
 \[
-0 = \sheaf{H}^0\ihomDMf(\Z(n)[n], M) = \RHI[n](\sheaf{H}^0(M))
+0 = \sheaf{H}^0\ihomDMf(\Z(n)[n], M) = \RHI[n]{(\sheaf{H}^0(M))}
 \]
 and thus $\sheaf{H}^0 M \in \tlHI{n}\HI$ by definition. We
 have just proved:
 
-\begin{prop}\label{prop_H_commute_with_slice}
+\begin{prop}\label{prop_H_commute_with_filt}
 Let $(\HI, \sgHI{*})$ and $(\HI, \tlHI{*})$ be the respective 
 filtration and cofiltration defined above, and let $(\DMeff, 
 \sgDM{*})$ and $(\DMeff, \slDM{*})$ be the filtration and
@@ -439,4 +439,81 @@ for each $n > 0$, the following diagram of functors commute:
 and all vertical arrows are essentially surjective.
 \end{prop}
 
-In spite of the result in Prop. \ref{prop_H_commute_with_slice}, 
+As in the case of $\DMeff$, we can also define the structure 
+invariants associated to the filtration and cofiltration. In this
+case, for every $n$, there exists a functorial exact sequence
+\[
+\sgHI{n} \to \sgHI{n - 1} \to \tlHI{n}\sgHI{n - 1} \to 0.
+\]
+\begin{defn}
+We define \DEF{the structure constants on $\HI$} or simply 
+to be the functors $\slice{n} \defeq \tlHI{n + 1}\sgHI{n}$. In
+this case we call $\slice{n}$ the $n$-th structure constant.
+\end{defn}
+
+Recall the definition of the structure constants of $(\DMeff, 
+\sgDM{*})$ to be the triangulated endofunctor $\sliceDM{*}$ that
+fits into the following exact triangle
+\[
+\slDM{n} \to \slDM{n - 1} \to \sliceDM{n - 1} \to \slDM{n}[1].
+\]
+A direct consequence of Prop. \ref{prop_H_commute_with_filt} is 
+that the structure constants of $(\HI, \sgHI{*})$ agree with the 
+structure constants of $(\DMeff, \sgDM{*})$:
+
+\begin{cor}\label{cor_H_commute_with_slice}
+Let the structure constants $\slice{*}$ for $(\HI, \sgHI{*})$ be 
+defined as above. Then
+\[
+\sheaf{H}^0 \sliceDM{n} = \slice{n}.
+\]
+\end{cor}
+
+% and we can talk more about the relationship between the slices
+
+In spite of the results of Prop. \ref{prop_H_commute_with_filt} 
+and Cor. \ref{cor_H_commute_with_slice}, $(\HI, \sgHI{*})$ does 
+not define a strong filtration of $\HI$. The problem here is 
+that the counit is not injective in general, as demonstrated by 
+the following example: 
+
+\begin{ex}\label{ex_Oxn}
+Let $(\Ox)^n$ be the sheaf of $n$-th power of global units 
+associated to the presheaf where sections of $X \in \Cor$ is the 
+abelian subgroup of $\Ox$ given by 
+\[
+\{x \in \Ox(X) : x=y^n\textrm{ for some }y \in \Ox(X)\}.
+\]
+It is clear that $(\Ox)^n \in \HI$. Furthermore, there exists the 
+following exact sequence 
+\[
+0 \to \mu_n \to \Ox \to (\Ox)^n \to 0
+\]
+where $\mu_n$ is the constant sheaf of $n$-th roots of unity.
+In particular, $\RHI{(\mu_n)} = 0$. Therefore, we have
+\[
+0 \to \RHI{\Ox} \to \RHI{(\Ox)^{n}} \to 0.
+\]
+In particular, $\LHI{\RHI{(\Ox)^n}} \simeq \LHI{\RHI{\Ox}} = \Ox$, 
+and the counit $\LHI{\RHI{(\Ox)^n}} \to (\Ox)^n$ is precisely $x 
+\mapsto x^n$, which has a nontrivial kernel.
+\end{ex}
+
+We can understand the problem in another way, which is that the 
+categories $\sgHI{*}\HI$ are too small and do not include all
+the kernels of counits $\LHI[n]{(\RHI[n]{F})} \to F$. This can be 
+fixed by enlarging the filtration at each level, and to do so, we 
+turn to torsion theory.
+
+The goal is to construct a torsion theory ($\TCat{n}$,$TFCat{n}$) 
+for each $n > 0$, and that the torsion subcategories fits into 
+tower of inclusion of full subcategories:
+\[
+\cdots \to \TCat{i} \to \TCat{i-1} \to \TCat{i-2} \to \cdots \to 
+   \TCat{0} = \HI,
+\]
+and the $\into$
+
+In this case, the reflection functor will be given by the 
+associated radical. 
+
