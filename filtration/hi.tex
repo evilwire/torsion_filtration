@@ -92,7 +92,7 @@ Prop. \ref{prop_LRDM_eq_LRHI}.
 
 Fix $n > 0$, and consider the counit map $\cuHI_F^n: 
 \LHI[n]{\RHI[n]{F}} \to F$, and write $\tlHI{n} F$ for the 
-cokernel of $\cuHI_F$. First we make the following observation:
+cokernel of $\cuHI_F$. First, we make the following observation:
 
 \begin{prop}\label{prop_counit_iso_for_HIn}
 Let $\cuHI^n$ denote the counit, described above. If $F \in 
@@ -100,7 +100,18 @@ Let $\cuHI^n$ denote the counit, described above. If $F \in
 an isomorphism.
 \end{prop}
 \begin{proof}
-By the counit-unit adjunction, 
+Suppose $F \in \LHI[n]{\HI}$. That is, $F = LHI[n]{F'}$ for some 
+$F' \in \HI$. Writing $L$ for the functor $F \mapsto \LHI[n]F$, 
+by counit-unit adjunction, the composition
+\[
+\LHI[n]{F'} \xrightarrow{L\eta} \LHI[n]{(\RHI[n]{(\LHI[n]{F'})})}
+   \xrightarrow{\cuHI L} \LHI[n]{F'}
+\]
+is the identity, where $\eta_{F'}$ is the unit, and $\cuHI_{F'}$ 
+is the counit maps. However, by Prop. \ref{prop_unit_iso}, 
+$\eta_{F'}$ is an isomorphism, and so is $L\eta_{F'}$. It follows
+that $\cuHI L$ is an isomorphism. But $\cuHI L$ is the counit
+map for $LF' = \LHI[n]{F'} = F$, and the proposition follows.
 \end{proof}
 
 To see this, let $\LHI[0]{\HI} = \HI$ and let $\LHI[n]{\HI}$ 
@@ -302,7 +313,7 @@ show that $\sheaf{H}^1 \sgDM{n} F = 0$, then it is clear that
 $\sheaf{H}^0 \slDM{n} F = \tlHI{n} F$. The claim that $\sheaf{H}^1 
 \sgDM{n}F = 0$ is precisely the content of Lemma 
 \ref{lem_H1_sgDM_vanishes}, which we prove shortly. First, we have
-the following
+the following.
 
 \begin{lem}[D\'eglise]\label{lem_contract_exact}
 For $F \in \HI$,
@@ -361,10 +372,6 @@ Thus, we are reduced to showing that $H^{-1}\homDSh(\Ztr(S \times
 the lemma follows.
 \end{proof}
 
-\begin{rmk}
-Lemmas \ref{lem_contract_exact} and also appears in \cite{DegGenMot} Lem. 3.4.5. However,
-we give a slightly different proof here.
-\end{rmk}
 \begin{lem}[D\'eglise]\label{lem_H_com_ihom_DM}
 For $M \in \DMeff$, 
 \[
@@ -374,6 +381,13 @@ For $M \in \DMeff$,
 \begin{proof}
 
 \end{proof}
+
+\begin{rmk}
+Lemma \ref{lem_contract_exact} appears in \cite{DegGenMot} as Lem. 
+3.4.5. However, we give a slightly different proof here. Lemma 
+\ref{lem_H_com_ihom_DM} follows from Prop. 3.4.4 of \emph{Loc. Cit.}
+and 
+\end{rmk}
 
 \begin{lem}\label{lem_H1_sgDM_vanishes}
 For $F \in \HI$, $\sheaf{H}^1 \sgDM{n} F = 0$.
