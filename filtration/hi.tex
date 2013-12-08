@@ -310,12 +310,12 @@ in Eq. \ref{eq_slice_DM_exact_seq} reduces to the following
 \]
 where the map $\LHI[n]{(\RHI[n]{F}} \to F$ is the counit. If we 
 show that $\sheaf{H}^1 \sgDM{n} F = 0$, then it is clear that
-$\sheaf{H}^0 \slDM{n} F = \tlHI{n} F$. The claim that $\sheaf{H}^1 
-\sgDM{n}F = 0$ is precisely the content of Lemma 
+$\sheaf{H}^0 \slDM{n} F \simeq \tlHI{n} F$. The claim that 
+$\sheaf{H}^1 \sgDM{n}F = 0$ is precisely the content of Lemma 
 \ref{lem_H1_sgDM_vanishes}, which we prove shortly. First, we have
 the following.
 
-\begin{lem}[D\'eglise]\label{lem_contract_exact}
+\begin{lem}[D\'eglise]\label{lem_rhomDM_and_contract}
 For $F \in \HI$,
 \[
 \ihomDMf(\Z(1)[1], F) \simeq \RHI{F}
@@ -379,24 +379,33 @@ For $M \in \DMeff$,
 \]
 \end{lem}
 \begin{proof}
+First, the cohomological functor $\rhomDMf(\Z(1)[1], -)$ is left 
+$t$-exact (being the right adjoint of $-\tDM \Z(1)[1]$. By the 
+preceding lemma and Prop \ref{prop_contract_is_exact},
+$\rhomDMf(\Z(1)[1], -)$ is also exact on the heart of $\DMeff$,
+whence it is $t$-exact.
 
+That is, $\rhomDMf(\Z(1)[1], -)$ commutes with $\sheaf{H}^0$,
+and the lemma is established.
 \end{proof}
-
-\begin{rmk}
-Lemma \ref{lem_contract_exact} appears in \cite{DegGenMot} as Lem. 
-3.4.5. However, we give a slightly different proof here. Lemma 
-\ref{lem_H_com_ihom_DM} follows from Prop. 3.4.4 of \emph{Loc. Cit.}
-and 
-\end{rmk}
 
 \begin{lem}\label{lem_H1_sgDM_vanishes}
 For $F \in \HI$, $\sheaf{H}^1 \sgDM{n} F = 0$.
 \end{lem}
 \begin{proof}
-First, note that
+Applying Lemma \ref{lem_rhomDM_and_contract}, we see that the
+complex
+\[
+\ihomDMf(\Z(n)[n], F) \tDM \Z(n)[n] \simeq \RHI{F} \tDM \Z(n)[n]
+\] 
+is concentrated entirely in negative degrees (see Def. \ref{def_z_n}).
+It follows that $\sheaf{H}^i$ vanishes for $i > 0$, and in particular,
+for $i = 1$.
 \end{proof}
 
 This shows that $\tlHI{n}\HI$ is contained in the essential image 
 of $\sgDM{n}\DMeff$ under $\sheaf{H}^0$. To show the converse, we 
-establish that $\RHI[n](\sheaf{H}^0 M) = 0$ for $M \in 
-\slDM{n}\DMeff$. It is a 
+establish that $\RHI[n]{(\sheaf{H}^0 M)} = 0$ for $M \in 
+\slDM{n}\DMeff$. This follows from Prop. 
+\ref{prop_lower_slice_char}. Indeed, if $M \in \slDM{n}\DMeff$, 
+then $\ihomDMf(\Z(n)[n], M) = 0$. Applying Lemma 
