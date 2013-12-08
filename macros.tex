@@ -28,6 +28,7 @@
 % related to exposition
 \newcommand{\DEF}[1]{\emph{#1}}
 \newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}
+\newcommand{\comment}[1]{}
 
 % phrases that are often written but should not
 % have to be
@@ -102,8 +103,11 @@
 \newcommand{\field}[1]{k}
 
 % slice filtration
-\newcommand{\sgHI}[1]{\widehat{\phi}_n}
+\newcommand{\sgHI}[1]{\sigma^#1}
 \newcommand{\tlHI}[1]{\phi_{\leq #1}}
 \newcommand{\tgHI}[1]{\phi_{\geq #1}}
 \newcommand{\slDM}[1]{\nu^{\leq #1}}
 \newcommand{\sgDM}[1]{\nu^{\geq #1}}
+\newcommand{\sliceTriangle}[2]{
+   \sgDM{#1}#2 \to #2 \to \slDM{#1}#2 \to \sgDM{#1}#2[1]
+}
