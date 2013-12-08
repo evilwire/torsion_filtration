@@ -14,6 +14,11 @@
 % Rings: R, S
 % Ideals: \mathfrak{p}, \mathfrak{q}
 
+% extending latex
+\newcommand{\longhookrightarrow}{
+   \ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}
+}
+
 % unions, intersections
 \newcommand{\dU}{\sqcup}
 \newcommand{\U}{\bigcup}
@@ -46,6 +51,7 @@
 \newcommand{\im}{\mathrm{im}\;}
 \newcommand{\cok}{\mathrm{cok}\;}
 \renewcommand{\to}{\longrightarrow}
+\newcommand{\into}{\longhookrightarrow}
 
 % greek symbols make-over
 \renewcommand{\phi}{\varphi}
@@ -74,6 +80,7 @@
 \newcommand{\sheaf}[1]{\underline{#1}}
 \newcommand{\A}{\mathbb{A}}
 \newcommand{\Gm}{\mathbb{G}_m}
+\newcommand{\Sm}[1][k]{Sm_{#1}}
 
 % sheaves with transfers
 \newcommand{\Cor}{Cor}
@@ -108,12 +115,16 @@
 \newcommand{\CycMod}{\mathbf{CycMod}}
 \newcommand{\field}[1]{k}
 
-% slice filtration
-\newcommand{\sgHI}[1]{\sigma^#1}
-\newcommand{\tlHI}[1]{\phi_{\leq #1}}
-\newcommand{\tgHI}[1]{\phi_{\geq #1}}
+% slice filtration, torsion filtration
+\newcommand{\slice}[1]{s_#1}
+\newcommand{\sgHI}[1]{\sigma^{#1}}
+\newcommand{\tlHI}[1]{\phi^{\leq #1}}
+\newcommand{\tgHI}[1]{\phi^{\geq #1}}
+\newcommand{\TCat}[1]{\mathbf{T}_{#1}}
+\newcommand{\TFCat}[1]{\mathbf{F}_{#1}}
 \newcommand{\slDM}[1]{\nu^{\leq #1}}
 \newcommand{\sgDM}[1]{\nu^{\geq #1}}
+\newcommand{\sliceDM}[1]{\nu_{#1}}
 \newcommand{\sliceTriangle}[2]{
    \sgDM{#1}#2 \to #2 \to \slDM{#1}#2 \to \sgDM{#1}#2[1]
 }
