@@ -304,8 +304,85 @@ $\sheaf{H}^0 \slDM{n} F = \tlHI{n} F$. The claim that $\sheaf{H}^1
 \ref{lem_H1_sgDM_vanishes}, which we prove shortly. First, we have
 the following
 
-\begin{lem}
-For $F \in \HI$ considered as an object of $\DMeff$, $\ihomDMf(\Z(1)[1], F)
-\simeq \RHI{F}$ as objects in $\DMeff$.
+\begin{lem}[D\'eglise]\label{lem_contract_exact}
+For $F \in \HI$,
+\[
+\ihomDMf(\Z(1)[1], F) \simeq \RHI{F}
+\]
+as objects in $\DMeff$.
 \end{lem}
+\begin{proof}
+Since $\sheaf{H}^0 \ihomDMf(\Z(1)[1], F) \simeq \RHI{F}$ by 
+\ref{prop_LRDM_eq_LRHI}, it suffices to show that 
+$\ihomDMf(\Z(1)[1], F)$, now regarded as a chain complex of
+sheafs with transfers, is quasi-isomorphic to a chain complex 
+concentrated in degree 0, the Nisnevich sheaf
+\[
+\sheaf{H}^i\ihomDMf(\Z(1)[1], F)
+\]
+vanishes for all Hensel local schemes.
 
+Fix $S$ a Hensel local scheme. Note that, since $F$ is $\A^1$-local,
+\begin{align*}
+\sheaf{H}^i\ihomDMf(\Z(1)[1], F)(S) &= H^i\rhomDMf(\CZtr(S) 
+   \tDM \Z(1)[1], F) \\
+   &\simeq H^i\homDSh(\Ztr(S \times 
+   \Gm), F).
+\end{align*}
+Furthermore, there exists a split exact triangle
+\[
+\Ztr(S \times \A^1) \to \Ztr(S \times (\A^1 - 0)) \to 
+   \Ztr(S \times \Gm) \to \Ztr(S \times \A^1)[1],
+\]
+in $\DSh$ and upon applying $\homDSh(-, F)$, we have a long exact 
+sequence in cohomology:
+\begin{align*}
+\cdots & \rightarrow H^i\homDSh(\Ztr(S \times \A^1), F) 
+   \rightarrow H^i\homDSh(\Ztr(S \times (\A^1 - 0)), F) \\
+ & \rightarrow H^i\homDSh(\Ztr(S \times \Gm), F) \rightarrow 
+   H^i\homDSh(\Ztr(S \times \A^1), F) \rightarrow \cdots
+\end{align*}
+Note that $H^i\homDSh(\Ztr(X), F) = H_{\Nis}^i(X; F)$. Since
+$H^i_{\Nis}(X; F) = 0$ for $i < 0$, and for all $i > 0$, 
+\[
+H_{\Nis}^i(S \times \A^1; F) = H_{\Nis}^i(S; F) = 0
+\] 
+and 
+\[
+H_{\Nis}^i(S \times (\A^1 - 0); F) = 0
+\] 
+(\cite{MVW} Cor. 24.5), it follows that 
+\[
+H^i\homDSh(\Ztr(S \times \Gm), F) = 0 \quad\textrm{for all $i \neq -1, 0$.}
+\] 
+Thus, we are reduced to showing that $H^{-1}\homDSh(\Ztr(S \times 
+\Gm), F) = 0$. This follows from the fact that the map $F(S \times 
+\A^1) = F(S) \to F(S \times (\A^1 - 0))$ is a split injection, and 
+the lemma follows.
+\end{proof}
+
+\begin{rmk}
+Lemmas \ref{lem_contract_exact} and also appears in \cite{DegGenMot} Lem. 3.4.5. However,
+we give a slightly different proof here.
+\end{rmk}
+\begin{lem}[D\'eglise]\label{lem_H_com_ihom_DM}
+For $M \in \DMeff$, 
+\[
+\sheaf{H}^i\ihomDMf(\Z(1)[1], M) = \ihomDMf(\Z(1)[1], \sheaf{H}^i(M)).
+\]
+\end{lem}
+\begin{proof}
+
+\end{proof}
+
+\begin{lem}\label{lem_H1_sgDM_vanishes}
+For $F \in \HI$, $\sheaf{H}^1 \sgDM{n} F = 0$.
+\end{lem}
+\begin{proof}
+First, note that
+\end{proof}
+
+This shows that $\tlHI{n}\HI$ is contained in the essential image 
+of $\sgDM{n}\DMeff$ under $\sheaf{H}^0$. To show the converse, we 
+establish that $\RHI[n](\sheaf{H}^0 M) = 0$ for $M \in 
+\slDM{n}\DMeff$. It is a 
