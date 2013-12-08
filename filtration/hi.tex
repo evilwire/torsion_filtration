@@ -169,7 +169,7 @@ counit $\cuHI^n_F: \LHI[n]{\RHI[n]{F}} \to F$. Then the
 association $F \mapsto \tlHI{n}F$ is a functor, and is left 
 adjoint to the inclusion $\tlHI{n}\HI \to \HI$.
 
-Thus, $(\HI, \tlHI{n})_{n \in \N}$ defines a strong cofiltration
+Thus, $(\HI, \tlHI{*})$ defines a strong cofiltration
 of $\HI$.
 \end{prop}
 \begin{proof}
@@ -257,4 +257,54 @@ by $f \mapsto \tlHI{n}f$. If $\tlHI{n}f = 0$, then $f = 0$.
 Therefore $\chi$ is injective. For $g: \tlHI{n}F \to G$, then
 set $f' = \pi \comp g$. It is easy to see that $\chi(f') = g$.
 Thus, $\chi$ is a bijection, as desired.
+\end{proof}
+
+We now relate the weak filtration $(\HI, \sgHI{*})$ and the strong 
+cofiltration $(\HI, \tlHI{*})$ to the slice filtration on 
+$\DMeff$. Recall that the slice filtration structure on $\DMeff$ 
+is associated with the (weak) filtration $(\DMeff, \sgDM{*})$ and 
+the (weak) cofiltration $(\DMeff, \slDM{*})$ (see Sect. 
+\ref{sect_slice_filt_dm}).
+
+It is clear from Prop. \ref{prop_LRDM_eq_LRHI} that the essential 
+image of $\sgDM{n}\DMeff$ under $\sheaf{H}^0$ is $\sgHI{n}\HI$. 
+However, showing that the essential image $\slDM{n}\DMeff$ under 
+$\sheaf{H}^0$ is $\tlHI{n}\HI$ requires more proof. 
+First, observe that by Prop. \ref{prop_DM_slice_triangle} for 
+every $n > 0$ and every $F \in \HI$ (regarded as an object of 
+$\DMeff$), there exists a slice triangle:
+\[
+\sliceTriangle{n}{F}
+\]
+Applying the cohomologicaly functor $\sheaf{H}^0$, we obtain the
+following long exact sequence
+\[
+\cdots \stackrel{\delta_{-1}}{\to} \sheaf{H}^0 \sgDM{n} F \to 
+   \sheaf{H}^0 F \to \sheaf{H}^0 \slDM{n} F
+   \stackrel{\delta_0}{\to} \sheaf{H}^1 \sgDM{n} F \to \cdots
+\]
+where $\sheaf{H}^i F \defeq \sheaf{H}^0F[i]$. In particular, we
+have the following exact sequence
+\begin{equation}\label{eq_slice_DM_exact_seq}
+\sheaf{H}^0 \slDM{n} F \to \sheaf{H}^0 F \to \sheaf{H}^0 
+\sgDM{n} F \stackrel{\delta_0}{\to} \sheaf{H}^1 \sgDM{n} F.
+\end{equation}
+Notice that $\sheaf{H}^0F = F$ and $\sgDM{n} F = \ihomDMf(\Z(1)[1], 
+F)(1)[1]$. So by Prop. \ref{prop_LRDM_eq_LRHI}, $\sheaf{H}^0 
+\sgDM{n}F = \LHI[n]{(\RHI[n]{F})}$. Therefore, the exact sequence
+in Eq. \ref{eq_slice_DM_exact_seq} reduces to the following
+\[
+\LHI[n]{(\RHI[n]{F})} \to F \to \sheaf{H}^0{\slDM{n} F} 
+   \stackrel{\delta_0}{\to} \sheaf{H}^1 \sgDM{n} F.
+\]
+where the map $\LHI[n]{(\RHI[n]{F}} \to F$ is the counit. If we 
+show that $\sheaf{H}^1 \sgDM{n} F = 0$, then it is clear that
+$\sheaf{H}^0 \slDM{n} F = \tlHI{n} F$. The claim that $\sheaf{H}^1 
+\sgDM{n}F = 0$ is precisely the content of the following lemma :
+
+\begin{lem}\label{lem_H1_sgDM_vanishes}
+For $F \in \HI$, $\sheaf{H}^1 \sgDM{n} F = 0$.
+\end{lem}
+\begin{proof}
+
 \end{proof}
