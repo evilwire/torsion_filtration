@@ -226,7 +226,7 @@ By Prop. \ref{prop_unit_iso}, $\RHI[n]{(\LHI[n]{\RHI[n]{F}})}
 0$ as desired.
 
 \pfitem{$\tlHI{n}$ is left adjoint to inclusion} : the proof
-of this will rely on the following lemma:
+of this claim will rely on the following lemma:
 
 \begin{lem}\label{lem_tlHI_id}
 The functor $\tlHI{n}$, restricted to $\tlHI{n}\HI$ is the 
@@ -498,22 +498,48 @@ In particular, $\LHI{\RHI{(\Ox)^n}} \simeq \LHI{\RHI{\Ox}} = \Ox$,
 and the counit $\LHI{\RHI{(\Ox)^n}} \to (\Ox)^n$ is precisely $x 
 \mapsto x^n$, which has a nontrivial kernel.
 \end{ex}
-
+\vskip 10pt
 We can understand the problem in another way, which is that the 
 categories $\sgHI{*}\HI$ are too small and do not include all
 the kernels of counits $\LHI[n]{(\RHI[n]{F})} \to F$. This can be 
 fixed by enlarging the filtration at each level, and to do so, we 
 turn to torsion theory.
 
-The goal is to construct a torsion theory ($\TCat{n}$,$TFCat{n}$) 
-for each $n > 0$, and that the torsion subcategories fits into 
-tower of inclusion of full subcategories:
+Recall from Thm. \ref{thm_corad_hered_tor} that there is a 
+one-to-one correspondence between radical/coradicals and hereditary
+torsion theories on a well-powered abelian category (See Sect.
+\ref{sect_torsion_theory}).
+
+The goal is to show that we have a sequence of coradicals, and
+that the associated torsion theory $(\TCat{n}, \TFCat{n})$ has
+the properties that for each $n > 0$, and that the torsion 
+subcategories fits into descending tower of inclusion of full 
+subcategories:
 \[
-\cdots \to \TCat{i} \to \TCat{i-1} \to \TCat{i-2} \to \cdots \to 
-   \TCat{0} = \HI,
+\HI = \TCat{0} \supset \TCat{1} \supset \cdots \supset \TCat{n} 
+   \supset \TCat{n + 1} \supset \cdots
+%\cdots \into \TCat{i} \into \TCat{i-1} \into \TCat{i-2} \into 
+%   \cdots \into \TCat{0} = \HI,
 \]
-and the $\into$
+and the torsionfree subcategories fits into an ascending tower
+of inclusion of full subcategories
+\[
+0 = \TFCat{0} \subset \TFCat{1} \subset \cdots \subset \TFCat{n}
+   \subset \TCat{n + 1} \subset \cdots \subset \HI
+\]
+In this case, the coreflection and reflection will be given by
+the radical and coradical respectively. In fact, we have a
+natural set of candidates for the coradicals:
 
-In this case, the reflection functor will be given by the 
-associated radical. 
-
+\begin{prop}
+The functors $\tlHI{n}$ are coradicals for each $n > 0$.
+\end{prop}
+\begin{proof}
+By Lemma \ref{lem_tlHI_id}, $\tlHI{n}$ is idempotent. By Prop. 
+\ref{prop_HI_lower_slice}, $\tlHI{n}$ is a left adjoint, and
+is therefore right exact. All that remains to show is that for
+each $F \in \HI$,
+\[
+\tlHI{n}(\ker (F \to \tlHI{n} F)) = 0.
+\]
+\end{proof}
