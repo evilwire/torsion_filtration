@@ -596,9 +596,82 @@ Once again, the astute reader may take issue with using $\tlHI{n}
 \HI$ to represent the torsion-free subcategory of $\HI$ associated
 to $\tlHI{n}$, since we have also used $\tlHI{n} \HI$ to represent
 the full subcategory of $\HI$ consisting of those objects $F$ for
-which $\RHI{n} F = 0$.
+which $\RHI[n]{F} = 0$.
 
-In fact, there is no issue here. We argue that these two 
-subcategories are the same. This is precisely the content of
-Prop.
+In fact, there is no ambiguities here. We argue that these two 
+subcategories are the same. This is precisely the content of the
+first part of the next proposition.
 \end{rmk}
+
+\begin{prop}\label{prop_HI_tor_filt_prop}
+For each $n$, let $(\THI{n}, \TFHI{n})$ and $\tlHI{n}$ be given
+as above. Then we the following are true:
+
+\begin{enumerate}
+\item for all $n \geq 0$, and each $F$ in the torsion category 
+$\TFHI{n}$, $\RHI[n] F = 0$. Conversely, if $\RHI[n] F = 0$, then
+$F \in \TFHI{n}$.
+
+\item for $m > n$, $\TFHI{n}$ is a full subcategory of $\TFHI{m}$.
+
+\item for $m > n$, $\tlHI{n}\tlHI{m} = \tlHI{m}\tlHI{n} = \tlHI{n}$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+\pfitem{(1)} : Since $\RHI[n]{(\tlHI{n} F)} = 0$ for all $F \in 
+\HI$ (see Prop. \ref{prop_HI_lower_slice}), then for all $F \in 
+\TFHI{n}$, $\RHI[n]{F} = \RHI[n]{(\tlHI{n} F)} = 0$.
+
+Conversely, if $\RHI[n]{F} = 0$, then $\tlHI{n} F = F$ by Lemma
+\ref{lem_tlHI_id}. That is, $F \in \TFHI{n}$. In particular, the
+torsion-free subcategory $\TFHI{n}$ is precisely the full 
+subcategory of $F \in \HI$ for which $\RHI[n]{F} = 0$.
+
+\pfitem{(2)} : Suppose $m > n > 0$, and $F \in \TFHI{n}$, then
+$\RHI[m]{F} = 0$. By part (1), $F \in \TFHI{m}$.
+
+\pfitem{(3)} : Suppose, as in (2), that $m > n > 0$.
+
+By part (2) and the fact that $\tlHI{m}$ is the identity on 
+$\TFHI{m}$ (Lemma \ref{lem_tlHI_id}), it is clear that 
+$\tlHI{m}\tlHI{n} = \tlHI{n}$. It remains to show that 
+$\tlHI{n}\tlHI{m} = \tlHI{n}$.
+
+Fix $F \in \HI$. We have the following commutative diagram:
+\[
+\begin{tikzcd}
+\sgHI{n}(\sgHI{m} F) \arrow{r}\arrow{d}{\cuHI_{\sgHI{m} F}} &
+\sgHI{n} F \arrow{r}\arrow{d}{\cuHI_F} &
+\sgHI{n}(\tlHI{m} F) \arrow{r}\arrow{d}{\cuHI_{\tlHI{m}F}} &
+0 \\
+\sgHI{m} F \arrow{r} &
+F \arrow{r} &
+\tlHI{m} F \arrow{r}&
+0.
+\end{tikzcd}
+\]
+Where $\sgHI{l}$ denotes the functor $F \mapsto \LHI[l]\RHI[l]{F}$.
+Notice that the vertical arrows are the counits, which we have 
+labelled $\cuHI_{\sgHI{m}F}$, $\cuHI_F$, and $\cuHI_{\tlHI{m}F}$. 
+Furthermore, by the same arguments as in the Snake Lemma, we have 
+the ``snake tail'' exact sequence:
+\[
+\cok \cuHI_{\sgHI{m}F} \to \tlHI{n}F \to \tlHI{n}\tlHI{m}F \to 0.
+\]
+However, by Prop. \ref{prop_unit_iso} $\cuHI_{\sgHI{m} F}$ is an 
+isomorphism, whence $\tlHI{n}F \simeq \tlHI{n}\tlHI{m} F$. 
+Equality follows from the fact that both are quotients by the 
+image of $\sgHI{n} F$ in $F$.
+\end{proof}
+
+It is clear that $\TFHI{*}$ define the same strong cofiltration as
+defined previously.
+
+\begin{prop}
+\begin{enumerate}
+\item for $m > n$, $\THI{m} \subset \THI{n}$.
+
+\item let $\tgHI{n}$ denote the association given by $F \mapsto
+\ker F \to \tlHI{n} F$. 
+\end{enumerate}
+\end{prop}
