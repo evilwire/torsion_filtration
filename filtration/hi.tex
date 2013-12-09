@@ -603,7 +603,7 @@ subcategories are the same. This is precisely the content of the
 first part of the next proposition.
 \end{rmk}
 
-\begin{prop}\label{prop_HI_tor_filt_prop}
+\begin{prop}\label{prop_TFHI_properties}
 For each $n$, let $(\THI{n}, \TFHI{n})$ and $\tlHI{n}$ be given
 as above. Then we the following are true:
 
@@ -668,12 +668,45 @@ image of $\sgHI{n} F$ in $F$.
 \end{proof}
 
 It is clear that $\TFHI{*}$ define the same strong cofiltration as
-defined previously.
+defined previously. 
 
-\begin{prop}
+We end this section with a more complete description of the 
+torsion subcategories, $\THI{*}$, and its associated coreflection. 
+The following are a few properties that are straight-forward to
+verify:
+
+\begin{prop} 
+Let $\tgHI{n}$ denote the functor that sends $F$ to the kernel of
+the surjection $F \to \tlHI{n}F$. Then the following are true:
+\begin{enumerate}
+\item $\tgHI{n}$ is a radical.
+\tinyskip
+
+\item the essential image of $\tgHI{n}$ is $\THI{n}$, the 
+restriction to which $\tgHI{n}$ is the identity.
+\tinyskip
+
+\item $\tgHI{n}$ is right adjoint to the inclusion $\THI{n} \into 
+\HI$.
+\tinyskip
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Statement (1) follows from Prop. \ref{prop_rad_corad_relation} and
+the fact that $\tlHI{n}$ is a coradical. To see that $\tgHI{n}$
+acts as the identity on $\THI{n}$, note that for any $F \in \THI{n}$
+$\tlHI{n} F = 0$. 
+
+Finally, for $F \in \HI$, we have the short exact sequence
+\[
+0 (\tgHI{n})^2 F \to \tgHI{n}F \to \tlHI{n} \tgHI{n}F \to 0.
+\]
+Since $\tgHI{n}$ is a radical, $\tlHI{n} \tgHI{n}F = 0$. Therefore,
+$\tgHI{n} \in \THI{n}$ as desired.
+\end{proof}
+
+\begin{prop}\label{prop_THI_properties}
 Let $\THI{n}$, $n = 0, 1,\dots$ be defined as above. Furthermore,
-let $\tgHI{n}$ denote the functor that sends $F$ to the kernel of
-the surjection $F \to \tlHI{n}F$. Then we have the following:
 
 \begin{enumerate}
 \item for all $n \geq 0$, $\THI{n}$ is the full subcategory of
@@ -687,7 +720,7 @@ objects $F \in \HI$ such that $\sgHI{n}F \to F$ is surjective.
 $\THI{n}$.
 \tinyskip
 
-\item for $m > n > 0$, $\tgHI{n}\tgHI{m} = \tgHI{m}\tgHI{n} =
+\item for $m \geq n \geq 0$, $\tgHI{n}\tgHI{m} = \tgHI{m}\tgHI{n} =
 \tgHI{m}$.
 \tinyskip
 
@@ -695,11 +728,28 @@ $\THI{n}$.
 and $\tgHI{n}\tlHI{m} = \tlHI{m}\tgHI{n}$.
 \tinyskip
 
-\item $\tlHI{n}$ is a radical in the sense of Def. \ref{def_rad}.
-\tinyskip
-
-\item $\tgHI{n}$ is right adjoint to the inclusion $\THI{n} \into 
-\HI$.
-\tinyskip
 \end{enumerate}
 \end{prop}
+
+\begin{proof}
+\pfitem{(1)} : For all $F \in \HI$ and $n \geq 0$, we have the 
+following exact sequence
+\[
+\sgHI{n} F \to F \to \tlHI{n} F \to 0.
+\]
+It is clear that $\tlHI{n} = 0$ if and only if $\sgHI{n} F \to F$
+is a surjection.
+
+\pfitem{(2)} : Let $m > n > 0$, and fix $F \in \THI{m}$. Then 
+$\tlHI{m} F = 0$, and by Prop. \ref{prop_TFHI_properties} (3)
+\[
+0 = \tlHI{n}\tlHI{m} F = \tlHI{n} F.
+\]
+Thus $F \in \THI{m}$.
+
+\pfitem{(3)} : Let $F \in \sgHI{n} \HI$, then $F = \LHI[n]{F'}$ 
+for some $F' \in \HI$. By Prop. \ref{prop_counit_iso_for_HIn},
+the counit map is an isomorphism. By part (1), $F \in \THI{n}$.
+
+\pfitem{(4)} : This follows from
+\end{proof}
