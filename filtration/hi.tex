@@ -611,10 +611,13 @@ as above. Then we the following are true:
 \item for all $n \geq 0$, and each $F$ in the torsion category 
 $\TFHI{n}$, $\RHI[n] F = 0$. Conversely, if $\RHI[n] F = 0$, then
 $F \in \TFHI{n}$.
+\tinyskip
 
 \item for $m > n$, $\TFHI{n}$ is a full subcategory of $\TFHI{m}$.
+\tinyskip
 
 \item for $m > n$, $\tlHI{n}\tlHI{m} = \tlHI{m}\tlHI{n} = \tlHI{n}$.
+\tinyskip
 \end{enumerate}
 \end{prop}
 \begin{proof}
@@ -650,11 +653,11 @@ F \arrow{r} &
 0.
 \end{tikzcd}
 \]
-Where $\sgHI{l}$ denotes the functor $F \mapsto \LHI[l]\RHI[l]{F}$.
-Notice that the vertical arrows are the counits, which we have 
-labelled $\cuHI_{\sgHI{m}F}$, $\cuHI_F$, and $\cuHI_{\tlHI{m}F}$. 
-Furthermore, by the same arguments as in the Snake Lemma, we have 
-the ``snake tail'' exact sequence:
+Where $\sgHI{l}$ denotes the functor $F \mapsto 
+\LHI[l]{\RHI[l]{F}}$. Notice that the vertical arrows are the 
+counits, which we have labelled $\cuHI_{\sgHI{m}F}$, $\cuHI_F$, 
+and $\cuHI_{\tlHI{m}F}$. Furthermore, by the same arguments as in 
+the Snake Lemma, we have the ``snake tail'' exact sequence:
 \[
 \cok \cuHI_{\sgHI{m}F} \to \tlHI{n}F \to \tlHI{n}\tlHI{m}F \to 0.
 \]
@@ -668,10 +671,35 @@ It is clear that $\TFHI{*}$ define the same strong cofiltration as
 defined previously.
 
 \begin{prop}
-\begin{enumerate}
-\item for $m > n$, $\THI{m} \subset \THI{n}$.
+Let $\THI{n}$, $n = 0, 1,\dots$ be defined as above. Furthermore,
+let $\tgHI{n}$ denote the functor that sends $F$ to the kernel of
+the surjection $F \to \tlHI{n}F$. Then we have the following:
 
-\item let $\tgHI{n}$ denote the association given by $F \mapsto
-\ker F \to \tlHI{n} F$. 
+\begin{enumerate}
+\item for all $n \geq 0$, $\THI{n}$ is the full subcategory of
+objects $F \in \HI$ such that $\sgHI{n}F \to F$ is surjective.
+\tinyskip
+
+\item for $m > n > 0$, $\THI{m} \subset \THI{n}$.
+\tinyskip
+
+\item for $n > 0$, $\sgHI{n} \HI$ is a proper full subcategory 
+$\THI{n}$.
+\tinyskip
+
+\item for $m > n > 0$, $\tgHI{n}\tgHI{m} = \tgHI{m}\tgHI{n} =
+\tgHI{m}$.
+\tinyskip
+
+\item for $m > n > 0$, $\tlHI{n}\tgHI{m} = \tgHI{m}\tlHI{n} = 0$, 
+and $\tgHI{n}\tlHI{m} = \tlHI{m}\tgHI{n}$.
+\tinyskip
+
+\item $\tlHI{n}$ is a radical in the sense of Def. \ref{def_rad}.
+\tinyskip
+
+\item $\tgHI{n}$ is right adjoint to the inclusion $\THI{n} \into 
+\HI$.
+\tinyskip
 \end{enumerate}
 \end{prop}
