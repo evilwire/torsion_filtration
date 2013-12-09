@@ -542,4 +542,51 @@ each $F \in \HI$,
 \[
 \tlHI{n}(\ker (F \to \tlHI{n} F)) = 0.
 \]
+Fix an $F \in \HI$ and $n > 0$, and let $K$ denote the kernel of 
+the surjection $F \to \tlHI{n}F \to 0$. We have the following
+short exact sequence 
+\[
+0 \to K \to F \to \tlHI{n} F \to 0
+\]
+Since $\tlHI{n} F \in \tlHI{n}\HI$, by definition 
+$\RHI[n]{(\tlHI{n} F)} = 0$, and therefore, we have the following
+commutative diagram
+\[
+\begin{tikzcd}
+{} &\LHI[n]{(\RHI[n]{K})} \arrow{d}{\cuHI_F} \arrow{r}
+   &\LHI[n]{(\RHI[n]{F})} \arrow{d}{\cuHI_F} \arrow{r}
+   &0 \arrow{d} \arrow{r}
+   &0 \\
+0 \arrow{r} &
+  K \arrow{r}&
+  F \arrow{r}&
+  \tlHI{n}F \arrow{r}&
+  0
+\end{tikzcd}
+\]
+By the Snake Lemma, and using the fact that $\cok \cuHI_F = 
+\tlHI{n} F$ for $F \in \HI$, we have the exact sequence
+\[
+0 \to \tlHI{n}K \to \tlHI{n}F \to \tlHI{n} F \to 0.
+\]
+And the map $\tlHI{n}F \to \tlHI{n}$ is the identity. It follows 
+that $\tlHI{n} K = 0$ as desired.
 \end{proof}
+
+The following is a straightforward consequence of the preceding 
+proposition and Thm. \ref{thm_corad_hered_tor}, and Thm.
+\ref{thm_rad_and_coref}:
+
+\begin{cor}
+Let the functor $\tlHI{n}$ be given as above.
+
+For each $n \geq 0$, there exists a torsion pair
+\[
+(\tgHI{n}\HI, \tlHI{n}\HI)
+\]
+where $\tgHI{n}\HI$ is the full subcategory of objects $F \in \HI$
+for which $\tlHI{n} F = 0$, and $\tlHI{n}\HI$ is the full 
+subcategory of $F \in \HI$ such that $\tlHI{n} F = F$. Furthermore, 
+$\tlHI{n} : \HI \to \tlHI{n}\HI$ is a reflection functor for the
+inclusion of $\tlHI{n} \HI$ into $\HI$.
+\end{cor}
