@@ -161,9 +161,9 @@ isomorphism as desired.
 \end{proof}
 
 For $n > 0$, let $\tlHI{n}\HI$ be the full subcategories of 
-objects $F \in \HI$ such that $\RHI[n]{F} = 0$ (where $\RHI[0]{F} 
-\defeq F$). It is clear that we also have the following ascending 
-tower of subcategories
+objects $F \in \HI$ such that $\RHI[n]{F} = 0$ (and for $n = 0$, 
+we define $\RHI[0]{F} \defeq F$). It is clear that we also have 
+the following ascending tower of subcategories
 \[
 0 = \tlHI{0}\HI \subset \tlHI{1}\HI \subset \tlHI{2}\HI \subset 
    \cdots \subset \HI
@@ -671,9 +671,9 @@ It is clear that $\TFHI{*}$ define the same strong cofiltration as
 defined previously. 
 
 We end this section with a more complete description of the 
-torsion subcategories, $\THI{*}$, and its associated coreflection. 
-The following are a few properties that are straight-forward to
-verify:
+torsion subcategories, $\THI{*}$, its associated coreflections, and
+the structure invariants. The following are a few properties that 
+are straight-forward to verify:
 
 \begin{prop} 
 Let $\tgHI{n}$ denote the functor that sends $F$ to the kernel of
@@ -726,8 +726,8 @@ $\THI{n}$.
 \tgHI{m}$.
 \tinyskip
 
-\item for $m > n > 0$, $\tlHI{n}\tgHI{m} = \tgHI{m}\tlHI{n} = 0$, 
-and $\tgHI{n}\tlHI{m} = \tlHI{m}\tgHI{n}$.
+\item for $m, n > 0$, $\tlHI{n}\tgHI{m}$ is naturally isomorphic 
+to $\tgHI{m}\tlHI{n}$, and is the (constant) $0$ functor if $m > n$.
 \tinyskip
 
 \end{enumerate}
@@ -758,4 +758,60 @@ it is clear that $\tgHI{n} \tgHI{m} = \tgHI{m}$. For the other
 part, it is precisely the dual of the argument in Prop. 
 \ref{prop_TFHI_properties} part (3).
 
+\pfitem{(5)} : Let $F \in \HI$. In the case where $m \geq n$,
+the claim follows since $\tgHI{m} F \in \THI{n}$, and by 
+definition $\tlHI{n} \tgHI{m} F = 0$ for all $n \leq m$. 
+Furthermore, $\tgHI{m} F = 0$ since it is the kernel of the 
+$\tlHI{m} \tlHI{n} F \to \tlHI{n} F$ which is the identity map
+by part (3) of the preceding proposition.
+
+Now, consider the case $n > m$. We have the following 
+commutative diagram:
+\[
+\begin{tikzcd}
+{} &
+\sgHI{n} \tgHI{m} F \arrow{r} \arrow{d}{\cuHI_{\tgHI{m}F}} &
+\sgHI{n} F \arrow{r} \arrow{d}{\cuHI_{F}} &
+\sgHI{n} \tlHI{m} F \arrow{r} \arrow{d}{\cuHI_{\tlHI{m}F}} &
+0 \\
+0 \arrow{r} &
+\tgHI{m} F \arrow{r} &
+F \arrow{r} &
+\tlHI{m} F \arrow{r}&
+0
+\end{tikzcd}
+\]
+where vertical maps are the counits, labeled with their respective
+targets. Notice that the top row is exact on the right because 
+$\sgHI{n}$ is right exact. This follows from the fact that the 
+functor $F \mapsto \LHI[n]{F}$ is a left adjoint, and $F \mapsto 
+\RHI[n]{F}$ is exact (Prop. \ref{prop_contract_is_exact}), and 
+$\sgHI{n}$ is their composition.
+
+Since $n > m$, since $\RHI[n](\tlHI{m} F) = 0$ (Prop. 
+\ref{prop_HI_lower_slice}) $\sgHI{n}\tlHI{m} F = 0$. By the Snake
+Lemma, we have the following exact sequence
+\[
+0 \to \tlHI{n}\tgHI{m} F \to \tlHI{n} F \to \tlHI{n} \tlHI{m} F 
+   \to 0.
+\]
+Notice that $\tlHI{n} \tlHI{m} F = \tlHI{m} F$, and the map from
+$\tlHI{n} F \to \tlHI{m} F$ is precisely the unit map associated
+to the functor $\tlHI{m}$. It follows that
+\[
+\tlHI{n} \tgHI{m} F \simeq \tgHI{m} \tlHI{n} F.
+\]
+Naturality follows from the construction of the isomorphism.
 \end{proof}
+
+As for the filtration $(\HI, \sgHI{*})$, we can define the 
+structure invariants for $(\HI, \tgHI{*})$. For each $F \in \HI$
+and $n \geq 0$ let $\tconst{n}$ denote $\tlHI{n + 1} \tgHI{n} F$,
+called that $n$-th structure invariant of $\tgHI{*}$. As it turns 
+out, this is the same as the structure invariants of $\sgHI{*}$:
+
+\begin{prop}
+Let $m > n > 0$. Then $\tlHI{n} \sgHI{m}$ is naturally isomorphic 
+to $\tlHI{n} \tgHI{m}$. In particular, $\slice{n} = \tconst{n}$.
+\end{prop}
+
