@@ -592,11 +592,11 @@ inclusion of $\tlHI{n} \HI$ into $\HI$.
 \end{cor}
 
 \begin{rmk}
-Once again, the astute reader may take issue with using $\tlHI{n} 
-\HI$ to represent the torsion-free subcategory of $\HI$ associated
-to $\tlHI{n}$, since we have also used $\tlHI{n} \HI$ to represent
-the full subcategory of $\HI$ consisting of those objects $F$ for
-which $\RHI[n]{F} = 0$.
+Once again, the astute reader may take issue with our using 
+$\tlHI{n} \HI$ to represent the torsion-free subcategory of $\HI$ 
+associated to $\tlHI{n}$, since we have also used $\tlHI{n} \HI$ 
+to represent the full subcategory of $\HI$ consisting of those 
+objects $F$ for which $\RHI[n]{F} = 0$.
 
 In fact, there is no ambiguities here. We argue that these two 
 subcategories are the same. This is precisely the content of the
@@ -804,14 +804,51 @@ to the functor $\tlHI{m}$. It follows that
 Naturality follows from the construction of the isomorphism.
 \end{proof}
 
-As for the filtration $(\HI, \sgHI{*})$, we can define the 
+\begin{rmk}
+In case the indexing becomes difficult to keep track, one might
+wish to consider a ``bread'' analogy. Imagine a half-infinite loaf 
+of bread is laid out on a line marked from 0 to $\infty$, and one 
+is allowed to take cuts at the marked points, and subsequently 
+pick up all the bread lying greater than $n$ or less than
+$n$. The former describe the functors $\tgHI{n}$ and $\sgHI{n}$ 
+are analogous, and therefore, the higher the $n$, the less bread
+one takes; the latter, functors $\tlHI{n}$.
+
+If one finds the analogy useful, one might wish to interpret
+Prop. \ref{prop_TFHI_properties} (3) and \ref{prop_THI_properties} (4)
+and (5) with this culinary picture in mind.
+\end{rmk}
+
+As we did for the filtration $(\HI, \sgHI{*})$, we can define the 
 structure invariants for $(\HI, \tgHI{*})$. For each $F \in \HI$
 and $n \geq 0$ let $\tconst{n}$ denote $\tlHI{n + 1} \tgHI{n} F$,
 called that $n$-th structure invariant of $\tgHI{*}$. As it turns 
-out, this is the same as the structure invariants of $\sgHI{*}$:
+out, this is \emph{not} the same as the structure invariants of 
+$\sgHI{*}$, but we do have the following:
 
 \begin{prop}
-Let $m > n > 0$. Then $\tlHI{n} \sgHI{m}$ is naturally isomorphic 
-to $\tlHI{n} \tgHI{m}$. In particular, $\slice{n} = \tconst{n}$.
+Let $m > n > 0$. Then there exists a natural surjection from 
+$\tlHI{m} \sgHI{n}$ to $\tlHI{m} \tgHI{n}$. In particular, for 
+each $F \in \HI$, $\pi: \slice{n} F \to \tconst{n} F$ is a 
+surjection.
 \end{prop}
+\begin{proof}
+Let $F \in \HI$, and notice that
+\[
+0 \to \tgHI{n} \tlHI{m} F \to \tlHI{n} F \to 
+  \tlHI{m} \tlHI{n} F \to 0.
+\]
+By Prop. \ref{prop_TFHI_properties} part (3), $\tlHI{n - 1} 
+\tlHI{n} F = \tlHI{n - 1} F$, and notice that $\tgHI{n - 1} 
+\tlHI{n} F$ is precisely the structure invariant $tconst{n} F$.
+Hence we can identify $\tconst{n} F$ as the kernel of the 
+surjection $\tlHI{n} F \to \tlHI{n - 1} F$.
+
+Furthermore, we have the following commutative diagram:
+\[
+\begin{tikzcd}
+\sgHI{n} F
+\end{tikzcd}
+\]
+\end{proof}
 
