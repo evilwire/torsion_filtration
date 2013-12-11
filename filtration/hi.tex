@@ -207,8 +207,8 @@ cokernels. Set $\tlHI{n}f = g$. It is clear from definition that
 $\tlHI{n}$ is a functor.
 
 \pfitem{Essential image is $\tlHI{n}\HI$} : Fix $F \in \HI$. To
-show that $\tlHI{n}F \in \tlHI{n}\HI$, we need only to verify
-that $\RHI[n]{(\tlHI{n}F)}$ is 0.
+show that $\tlHI{n}F \in \tlHI{n}\HI$, we verify that 
+$\RHI[n]{(\tlHI{n}F)}$ is 0.
 
 By definition, we have
 \[
@@ -238,7 +238,7 @@ For $F \in \tlHI{n}\HI$, we have
 \[
 \LHI[n]{\RHI[n]{F}} \to F \to \tlHI{n}F \to 0
 \]
-However, since $F \in \tlHI{n}\HI$, $\RHI[n]{\tlHI{n}F} = 0$, and 
+However, since $F \in \tlHI{n}\HI$, $\RHI[n]{(\tlHI{n}F)} = 0$, and 
 therefore counit map is $0$. It follows that $\tlHI{n}F = F$ as 
 desired.
 
@@ -469,6 +469,51 @@ defined as above. Then
 \]
 \end{cor}
 
+Before we proceed, let us record for subsequent results the 
+following proposition.
+
+\begin{prop}\label{prop_sg_tl_commuute}
+For each $m, n \geq 0$, $\sgHI{n} \tlHI{m}$ is naturally
+isomorphic to $\tlHI{m} \sgHI{n}$, and are both 0 if $m \leq n$.
+\end{prop}
+\begin{proof}
+For $F \in \HI$, notice that by Prop. \ref{prop_unit_iso}, 
+$\LHI[n]{\RHI[n]{(\LHI[m]{\RHI[m]{F}})}} \simeq
+\LHI[m]{\RHI[m]{(\LHI[n]{\RHI[n]{F}})}}$. Furthermore, the 
+isomorphism fits into a commutative square
+\begin{equation}\label{eq_prop_sg_tl_com_sq}
+\begin{tikzcd}
+\sgHI{m}\sgHI{n} F \arrow{r}{f} \arrow{d}{\simeq} & 
+\sgHI{n} F \arrow[equal]{d} \\
+\sgHI{n}\sgHI{m} F \arrow{r}{g} &
+\sgHI{n} F,
+\end{tikzcd}
+\end{equation}
+where, the map $f$ is counit of $\sgHI{n} F$, and the map $g$
+is obtained from applying $\sgHI{n}$ to the counit $\sgHI{m} F 
+\to F$.
+
+The cokernel of $f$ is precisely $\tlHI{m} \sgHI{n} F$, and we 
+claim that the cokernel of the map on the bottom row map is 
+$\sgHI{n} \tlHI{m} F$. Indeed, $\sgHI{n}$ is right exact. Applying 
+$\sgHI{n}$ to the exact sequence
+\[
+\sgHI{m} F \to F \to \tlHI{m} F \to 0,
+\]
+we have
+\[
+\sgHI{n} \sgHI{m} F \to \sgHI{n} F \to \sgHI{n} \tlHI{m} F \to 0.
+\]
+It is clear that $\tlHI{m} \sgHI{n} F \simeq \sgHI{n} \tlHI{m} F$.
+Since the square in Display \ref{eq_prop_sg_tl_com_sq} is 
+functorial, it follows that the isomorphism identified above is
+natural in $F$.
+
+To conclude, suppose $m \leq n$. Then $\RHI[n]{(\tlHI{m} F)} = 0$
+(Prop \ref{prop_HI_lower_slice}). It follows that $\sgHI{n} 
+\tlHI{m} F = 0$, and so is true of $\tlHI{m} \sgHI{n} F$.
+\end{proof}
+
 % and we can talk more about the relationship between the slices
 
 In spite of the results of Prop. \ref{prop_H_commute_with_filt} 
@@ -650,14 +695,15 @@ Fix $F \in \HI$. We have the following commutative diagram:
 \sgHI{m} F \arrow{r} &
 F \arrow{r} &
 \tlHI{m} F \arrow{r}&
-0.
+0,
 \end{tikzcd}
 \]
-Where $\sgHI{l}$ denotes the functor $F \mapsto 
-\LHI[l]{\RHI[l]{F}}$. Notice that the vertical arrows are the 
-counits, which we have labelled $\cuHI_{\sgHI{m}F}$, $\cuHI_F$, 
-and $\cuHI_{\tlHI{m}F}$. Furthermore, by the same arguments as in 
-the Snake Lemma, we have the ``snake tail'' exact sequence:
+where $\sgHI{n}$ denotes the functor $F \mapsto 
+\LHI[n]{\RHI[n]{F}}$, and likewise for $\sgHI{m}$. Notice that the 
+vertical arrows are the counits, which we have labelled 
+$\cuHI_{\sgHI{m}F}$, $\cuHI_F$, and $\cuHI_{\tlHI{m}F}$. 
+Furthermore, by the same arguments as in the Snake Lemma, we have 
+the ``snake tail'' exact sequence:
 \[
 \cok \cuHI_{\sgHI{m}F} \to \tlHI{n}F \to \tlHI{n}\tlHI{m}F \to 0.
 \]
@@ -806,13 +852,15 @@ Naturality follows from the construction of the isomorphism.
 
 \begin{rmk}
 In case the indexing becomes difficult to keep track, one might
-wish to consider a ``bread'' analogy. Imagine a half-infinite loaf 
-of bread is laid out on a line marked from 0 to $\infty$, and one 
-is allowed to take cuts at the marked points, and subsequently 
-pick up all the bread lying greater than $n$ or less than
-$n$. The former describe the functors $\tgHI{n}$ and $\sgHI{n}$ 
-are analogous, and therefore, the higher the $n$, the less bread
-one takes; the latter, functors $\tlHI{n}$.
+wish to consider a ``bread'' analogy. Imagine that a half-infinite 
+loaf of bread is laid out on a line marked from 0 to $\infty$ 
+(representing an $F \in \HI$), and one is allowed to take cuts at 
+the marked points, and subsequently pick up all the bread lying 
+greater than $n$ or less than $n$. The former action describes the 
+functors $\tgHI{n}$ and $\sgHI{n}$, and therefore, the higher the 
+$n$, the \emph{less} bread one would take; the latter, functors 
+$\tlHI{n}$, wherein the greater the $n$, the \emph{more} bread one 
+would takes.
 
 If one finds the analogy useful, one might wish to interpret
 Prop. \ref{prop_TFHI_properties} (3) and \ref{prop_THI_properties} (4)
@@ -820,13 +868,17 @@ and (5) with this culinary picture in mind.
 \end{rmk}
 
 As we did for the filtration $(\HI, \sgHI{*})$, we can define the 
-structure invariants for $(\HI, \tgHI{*})$. For each $F \in \HI$
-and $n \geq 0$ let $\tconst{n}$ denote $\tlHI{n + 1} \tgHI{n} F$,
-called that $n$-th structure invariant of $\tgHI{*}$. As it turns 
-out, this is \emph{not} the same as the structure invariants of 
-$\sgHI{*}$, but we do have the following:
+structure invariants for $(\HI, \tgHI{*})$. 
+\begin{defn}
+For each $F \in \HI$ and $n \geq 0$, write $\tconst{n}$ for the functor 
+$\tgHI{n + 1} \tgHI{n}$, which we hereafter refer to as the 
+\DEF{$n$-th structure invariant of $F$ associated to $\tgHI{*}$}. 
+\end{defn}
 
-\begin{prop}
+As it turns out, this is \emph{not} the same as the structure 
+invariants of $\sgHI{*}$, though they are related in the following:
+
+\begin{prop}\label{prop_struct_consts}
 Let $m > n > 0$. Then there exists a natural surjection from 
 $\tlHI{m} \sgHI{n}$ to $\tlHI{m} \tgHI{n}$. In particular, for 
 each $F \in \HI$, $\pi: \slice{n} F \to \tconst{n} F$ is a 
@@ -844,11 +896,11 @@ By Prop. \ref{prop_TFHI_properties} part (3), $\tlHI{n - 1}
 Hence we can identify $\tconst{n} F$ as the kernel of the 
 surjection $\tlHI{n} F \to \tlHI{n - 1} F$.
 
-Furthermore, we have the following commutative diagram:
+But the sequence
 \[
-\begin{tikzcd}
-\sgHI{n} F
-\end{tikzcd}
+\sgHI{n} \tlHI{m} F \to \tlHI{m} F \to \tlHI{n} F \to 0
 \]
+is exact. Therefore, the induced map from $\sgHI{n} \tlHI{m} F$
+is exact
+\label{prop_sg_tl_commuute}
 \end{proof}
-
