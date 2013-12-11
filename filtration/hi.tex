@@ -472,7 +472,7 @@ defined as above. Then
 Before we proceed, let us record for subsequent results the 
 following proposition.
 
-\begin{prop}\label{prop_sg_tl_commuute}
+\begin{prop}\label{prop_sg_tl_commute}
 For each $m, n \geq 0$, $\sgHI{n} \tlHI{m}$ is naturally
 isomorphic to $\tlHI{m} \sgHI{n}$, and are both 0 if $m \leq n$.
 \end{prop}
@@ -881,26 +881,46 @@ invariants of $\sgHI{*}$, though they are related in the following:
 \begin{prop}\label{prop_struct_consts}
 Let $m > n > 0$. Then there exists a natural surjection from 
 $\tlHI{m} \sgHI{n}$ to $\tlHI{m} \tgHI{n}$. In particular, for 
-each $F \in \HI$, $\pi: \slice{n} F \to \tconst{n} F$ is a 
-surjection.
+each $F \in \HI$, there exists a surjection $\pi_m: \slice{m} F \to 
+\tconst{m} F$.
 \end{prop}
 \begin{proof}
 Let $F \in \HI$, and notice that
 \[
-0 \to \tgHI{n} \tlHI{m} F \to \tlHI{n} F \to 
-  \tlHI{m} \tlHI{n} F \to 0.
+0 \to \tgHI{n} \tlHI{m} F \to \tlHI{m} F \to 
+  \tlHI{n} \tlHI{m} F \to 0.
 \]
-By Prop. \ref{prop_TFHI_properties} part (3), $\tlHI{n - 1} 
-\tlHI{n} F = \tlHI{n - 1} F$, and notice that $\tgHI{n - 1} 
-\tlHI{n} F$ is precisely the structure invariant $tconst{n} F$.
-Hence we can identify $\tconst{n} F$ as the kernel of the 
-surjection $\tlHI{n} F \to \tlHI{n - 1} F$.
+By Prop. \ref{prop_TFHI_properties} part (3), $\tlHI{m} \tlHI{n} F 
+= \tlHI{n} F$, and notice that $\tgHI{n} \tlHI{m} F$ is the kernel 
+of the surjection $\tlHI{m} F \to \tlHI{n} F$.
 
 But the sequence
 \[
 \sgHI{n} \tlHI{m} F \to \tlHI{m} F \to \tlHI{n} F \to 0
 \]
 is exact. Therefore, the induced map from $\sgHI{n} \tlHI{m} F$
-is exact
-\label{prop_sg_tl_commuute}
+to $\tgHI{n} \tlHI{m} F$ is a surjection as well. Furthermore,
+since the commutative diagram
+\[
+\begin{tikzcd}
+{} & \sgHI{n} \tlHI{m} F \arrow{r} \arrow[twoheadrightarrow]{d} &
+\tlHI{m} F \arrow{r} \arrow[equal]{d} &
+\tlHI{n} F \arrow{r} \arrow[equal]{d} &
+0 \\
+0 \arrow{r} &
+\tgHI{n} \tlHI{m} F \arrow{r} &
+\tlHI{m} F \arrow{r} &
+\tlHI{n} F \arrow{r} &
+0
+\end{tikzcd}
+\] 
+is functorial in $F$, the surjection is natural.
+
+To prove the first claim of the proposition, notice that 
+$\tgHI{n} \tlHI{m}$ is naturally isomorphic to $\tlHI{m} \tgHI{n}$ 
+(Prop. \ref{prop_THI_properties}) and $\sgHI{n} \tlHI{m}$ is 
+naturally isomorphic to $\tlHI{m} \sgHI{n}$ (Prop 
+\ref{prop_sg_tl_commute}).
+
+The second claim follows from setting $n = m - 1$.
 \end{proof}
