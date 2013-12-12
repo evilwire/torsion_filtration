@@ -75,9 +75,9 @@ reader to formulate or look up in \cite{DTor}.
 Any right exact quotient functor $\phi$ is idempotent. 
 \end{prop}
 \begin{proof}
-Fix $A \in \Cat{A}$, and let $\eta_A: A \to \phi A$ be the natural
-surjection associated to $\phi$ as a quotient functor. Let $K$ be
-the kernel of $A \to \phi(A)$, and consider the sequence
+Fix $A \in \Cat{A}$, and let $\eta$ denote the natural surjection 
+associated to the quotient functor $\phi$. Let $K$ be the kernel 
+of $\eta_A: A \to \phi(A)$, and consider the sequence
 \[
 0 \to K \to A \to \phi(A) \to 0.
 \]
@@ -87,6 +87,30 @@ Applying $\phi$, which is right exact, we have
 \]
 Namely, $\phi^2(A)$ is the cokernel of $\phi(K) \to \phi(A)$.
 
-However, we have
+Moreover, we have the following commutative diagram:
+\[
+\begin{tikzcd}
+K \arrow{r} \arrow{d}{\eta_K} &
+A \arrow{d}{\eta_A} \\
+\phi(K) \arrow{r} \arrow{d} &
+\phi(A) \arrow{d} \\
+0 & 0
+\end{tikzcd}
+\]
+and notice that since $K \to \phi(K)$ is a surjection,
+\begin{align*}
+\phi^2(A) &= \cok (\phi(K) \to \phi(A)) \\
+          &= \cok (K \to \phi(K) \to \phi(A)) \\
+          &= \cok (K \to A \to \phi(A)).
+\end{align*}
+But $K \to A \to \phi(A)$ is the $0$ map. Therefore, $\phi^2(A) = 
+\phi(A)$ as desired.
+\end{proof}
+
+\begin{prop}
+Let $\phi$ be a pre-coradical of $\Cat{A}$. If $B$ is a subobject 
+of $\phi(A)$, then $\phi(A/B)$ is isomorphic to $\phi(A)/Y$. 
+\end{prop}
+\begin{proof}
 
 \end{proof}
