@@ -4,10 +4,40 @@
 In this section, we develop the basics of torsion theory in a 
 categorical setting. The concepts and results here closely follow
 those of \cite{BJV} and \cite{DTor}, except we develop the theory
-from the dual perspective of the coradicals. 
+from the dual perspective of the coradicals. The ideas are not new;
+neither is the methodology. 
 
-Recall that an abelian category $\Cat{A}$ is \emph{well-powered} 
-if for every object $A \in \Cat{A}$, the collection of subobjects 
-of $A$ form a set. For the following, let $\Cat{A}$ be a 
-well-powered
+For the following, let $\Cat{A}$ be a well-powered abelian category.
+That is, for every object $A \in \Cat{A}$, the collection of 
+subobjects of $A$ form a set.
+
+The following notions will be important to us:
+
+\begin{defn}\label{def_coradical}
+Let $\phi: \Cat{A} \to \Cat{A}$ be an endofunctor. 
+\begin{enumerate}
+\item We say that $\phi$ is a \emph{quotient functor} if there 
+exists a natural surjection $\eta: \id \to \phi$. 
+
+That is, for every $f: A \to B$, the following diagram commutes.
+\[
+\begin{tikzcd}
+A \arrow{r}{f} \arrow{d}{\id_A} &
+B \arrow{d}{\id_B} \\
+\phi A \arrow{r}{\phi f} 
+&\phi B
+\end{tikzcd}
+\]
+
+\item We say that $\phi$ is \emph{idempotent} if $\phi^2 = \phi$.
+
+\item a quotient functor $\phi$ is a \emph{pre-coradical} if for all
+$A \in \Cat{A}$, $\phi$ applied to the kernel of the surjection 
+$A \to \phi(A)$ is $0$.
+
+\item finally, a pre-coradical is a \emph{coradical} if $\phi$ is
+right exact.
+\end{enumerate}
+\end{defn}
+
 
