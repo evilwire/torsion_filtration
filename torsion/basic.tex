@@ -5,7 +5,8 @@ In this section, we develop the basics of torsion theory in a
 categorical setting. The concepts and results here closely follow
 those of \cite{BJV} and \cite{DTor}, except we develop the theory
 from the dual perspective of the coradicals. The ideas are not new;
-neither is the methodology. 
+neither is the methodology. We have included the proof for 
+convenience of the reader.
 
 For the following, let $\Cat{A}$ be a well-powered abelian category.
 That is, for every object $A \in \Cat{A}$, the collection of 
@@ -31,13 +32,61 @@ B \arrow{d}{\id_B} \\
 
 \item We say that $\phi$ is \emph{idempotent} if $\phi^2 = \phi$.
 
-\item a quotient functor $\phi$ is a \emph{pre-coradical} if for all
+\item A quotient functor $\phi$ is a \emph{pre-coradical} if for all
 $A \in \Cat{A}$, $\phi$ applied to the kernel of the surjection 
 $A \to \phi(A)$ is $0$.
 
-\item finally, a pre-coradical is a \emph{coradical} if $\phi$ is
+\item Finally, a pre-coradical is a \emph{coradical} if $\phi$ is
 right exact.
 \end{enumerate}
 \end{defn}
 
+Torsion theory is usually developed for radical functors, which 
+are the dual of a coradical. Formally:
 
+\begin{defn}\label{def_radical}
+Let $\phi: \Cat{A} \to \Cat{A}$ be an endofunctor of an abelian 
+category $\Cat{A}$. We say that $\phi$ is a \emph{pre-radical} if 
+there exists a natural monomorphism $\phi \to \id$ (in which case, we
+say that $\phi$ is a \emph{subobject functor})such that 
+$\phi(A/\phi(A)) = 0$ for all $A$. $\phi$ is a \emph{radical} if 
+$\phi$ is additionally left exact.
+\end{defn}
+
+\begin{rmk}
+In the case where $\Cat{A}$ is small, via Mitchell embedding 
+there exists an embedding of $\Cat{A}$ as a subcategory of $R$-mod
+for some suitable ring $R$. In this case, the subobject functors, 
+quotient functors, idempotence, (pre-)radicals, and 
+(pre-)coradicals corresponds to their counterparts in the ring 
+theoretic setting.
+\end{rmk}
+
+\begin{rmk}
+Notice that being a quotient and being a subobject are dual 
+notions. All the proofs in this section for coradicals have an 
+corresponding dual, which proves a parallel statement for radicals.
+Throughout this section, we consider only statements for 
+(pre-)coradicals functors. We leave the dual statements to the 
+reader to formulate or look up in \cite{DTor}.
+\end{rmk}
+
+\begin{prop}
+Any right exact quotient functor $\phi$ is idempotent. 
+\end{prop}
+\begin{proof}
+Fix $A \in \Cat{A}$, and let $\eta_A: A \to \phi A$ be the natural
+surjection associated to $\phi$ as a quotient functor. Let $K$ be
+the kernel of $A \to \phi(A)$, and consider the sequence
+\[
+0 \to K \to A \to \phi(A) \to 0.
+\]
+Applying $\phi$, which is right exact, we have
+\[
+\phi(K) \to \phi(A) \to \phi^2(A) \to 0.
+\]
+Namely, $\phi^2(A)$ is the cokernel of $\phi(K) \to \phi(A)$.
+
+However, we have
+
+\end{proof}
