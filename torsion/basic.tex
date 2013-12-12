@@ -23,8 +23,8 @@ exists a natural surjection $\eta: \id \to \phi$.
 That is, for every $f: A \to B$, the following diagram commutes.
 \[
 \begin{tikzcd}
-A \arrow{r}{f} \arrow{d}{\id_A} &
-B \arrow{d}{\id_B} \\
+A \arrow{r}{f} \arrow{d}{\eta_A} &
+B \arrow{d}{\eta_B} \\
 \phi A \arrow{r}{\phi f} 
 &\phi B
 \end{tikzcd}
@@ -108,9 +108,31 @@ But $K \to A \to \phi(A)$ is the $0$ map. Therefore, $\phi^2(A) =
 \end{proof}
 
 \begin{prop}
-Let $\phi$ be a pre-coradical of $\Cat{A}$. If $B$ is a subobject 
+Let $\phi$ be a pre-coradical of $\Cat{A}$. If $B$ is a quotient 
 of $\phi(A)$, then $\phi(A/B)$ is isomorphic to $\phi(A)/Y$. 
 \end{prop}
 \begin{proof}
+Let $\phi$ be a pre-coradical, and $\eta$ its associated natural
+surjection. Let $A, B \in \Cat{A}$ such that $B$ is a quotient of
+$\phi(A)$. That is, there is a surjection $\phi(A) \to B$. 
+Composing with $\eta_A$, we have a surjection $f: A \to B$. Let 
+$K$ be the kernel of $\pi$.
 
+Consider the exact sequence $0 \to K \to A \to B \to 0$. We claim
+that $\phi(K) \to \phi(A) \to B \to 0$ is exact and fits into the 
+following commutative diagram:
+\[
+\begin{tikzcd}
+0 \arrow{r} &
+K \arrow{r}{g} \arrow[twoheadrightarrow]{d}{\eta_K} &
+A \arrow{r}{f} \arrow[twoheadrightarrow]{d}{\eta_A} &
+B \arrow{r} \arrow[equal]{d} &
+0 \\
+& \phi(K) \arrow{r}{\phi f} &
+\phi(A) \arrow{r} &
+B \arrow{r} &
+0
+\end{tikzcd}
+\]
+In particular, we show that $\cok \phi f = B$.
 \end{proof}
