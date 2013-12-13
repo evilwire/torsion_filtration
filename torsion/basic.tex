@@ -108,15 +108,15 @@ But $K \to A \to \phi(A)$ is the $0$ map. Therefore, $\phi^2(A) =
 \end{proof}
 
 \begin{prop}
-Let $\phi$ be a pre-coradical of $\Cat{A}$. If $B$ is a quotient 
-of $\phi(A)$, then $\phi(A/B)$ is isomorphic to $\phi(A)/Y$. 
+Let $\phi$ be a pre-coradical of $\Cat{A}$. Suppose $B$ is a 
+quotient of $\phi(A)$, and let $K$ be the kernel of the 
+composition $A \to \phi(A) \to B$. Then $\phi(K)$ is isomorphic 
+to the kernel of the surjection $\phi(A) \to B$.
 \end{prop}
 \begin{proof}
-Let $\phi$ be a pre-coradical, and $\eta$ its associated natural
-surjection. Let $A, B \in \Cat{A}$ such that $B$ is a quotient of
-$\phi(A)$. That is, there is a surjection $\phi(A) \to B$. 
-Composing with $\eta_A$, we have a surjection $f: A \to B$. Let 
-$K$ be the kernel of $\pi$.
+Let $\eta$ denote the natural surjection associated to the 
+quotient functor $\phi$, and let $f$ denote the surjection given 
+by the composition $A \to \phi(A) \to B$.
 
 Consider the exact sequence $0 \to K \to A \to B \to 0$. We claim
 that $\phi(K) \to \phi(A) \to B \to 0$ is exact and fits into the 
@@ -134,5 +134,71 @@ B \arrow{r} &
 0
 \end{tikzcd}
 \]
-In particular, we show that $\cok \phi f = B$.
+In particular, we show that $\cok \phi f = B$. Indeed, we have
+that $\eta_K: K \to \phi(K)$ is surjective. Therefore,
+\begin{align*}
+\cok \phi f  &= \cok K \to \phi(K) \to \phi(A) \\
+             &= \cok K \to A \to \phi(A)
+\end{align*}
+But the map from $A \to B$ factors through $\phi(A)$. It follows
+that $\cok \phi f = B$.
+
+Now consider the following commutative diagram:
+\[
+\begin{tikzcd}
+{}
+&\phi(K) \arrow{r} \arrow[dotted]{d}{h}
+&\phi(A) \arrow{r} \arrow[equals]{d}
+&B \arrow{r} \arrow[equals]{d}
+&0\\
+0 \arrow{r}
+& K' \arrow{r}
+&\phi(A) \arrow{r}
+&B \arrow{r}
+&0
+\end{tikzcd}
+\]
+where $K'$ is the kernel of $\phi(A) \to B$, and the dotted arrow
+follows from the fact that $K'$ is a kernel. Call this map $h$. 
+By the Snake Lemma, the map $\phi(K) \to K'$ is surjective.
+
+Furthermore, we have the following commutative diagram, with
+exact rows:
+\[
+\begin{tikzcd}
+0 \arrow{r} &
+K \arrow{r} \arrow{d} &
+A \arrow{r} \arrow{d} &
+B \arrow{r} \arrow{d} &
+0 \\
+0 \arrow{r} &
+K' \arrow{r} &
+\phi(A) \arrow{r} &
+B \arrow{r} &
+0.
+\end{tikzcd}
+\]
+Applying Snake Lemma once again, we see that the kernel of $K \to 
+K'$ is isomorphic to the kernel $A \to \phi(A)$. Let $L$ denote
+this kernel.
+
+Furthermore, $h$ fits into the following commutative diagram:
+\[
+\begin{tikzcd}
+0 \arrow{r} &
+L \arrow{r} \arrow{d} &
+K \arrow{r} \arrow{d} &
+K' \arrow{r} \arrow[equals]{d} \arrow[dotted]{ld} &
+0 \\
+& \phi(L) \arrow{r} &
+\phi(K) \arrow{r}{h} &
+K' \arrow{r} &
+0
+\end{tikzcd}
+\]
+where the top row is exact. Since $\phi$ is a pre-coradical, 
+$\phi(L) = 0$. Thus, the composition $L \to K \to \phi(K)$ is also
+$0$. However, $K'$ is the cokernel, and therefore, there exists a
+map $K' \to \phi(K)$ (represented by the dotted arrow in the above 
+diagram). It follows that $h$ is an isomorphism as desired.
 \end{proof}
