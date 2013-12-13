@@ -343,3 +343,33 @@ inclusion $FY \to Y$ is the zero map, and hence $Y/FY = Y \in
 \Cat{F}.$
 \end{proof}
 
+\begin{defn}
+Let $\Cat{C}$ be a subcategory of an abelian category; fix $X \in
+\Cat{A}$. We say $Y$ is the \emph{largest $\Cat{C}$-subobject of 
+$X$} if $Y \in \Cat{C}$ is a subobject of $X$ that factors all 
+monomorphisms from objects in $\Cat{C}$ to $X$. That is, for 
+every diagram
+\[
+\begin{tikzcd}
+{} &
+Y \arrow[hook]{d}{i} \arrow[dotted]{ld}{g} \\
+Z \arrow[hook]{r}{j} & X
+\end{tikzcd}
+\]
+where $Z \in \Cat{C}$, there exists a map $Z \stackrel{f}{to} Y$ 
+such that $gj = i$.
+\end{defn}
+
+\begin{por}
+For any well-powered abelian category $\Cat{A}$ and any full 
+subcategory $\Cat{C}$ closed under sums and quotients, any $X \in 
+\Cat{A}$ has a largest $\Cat{C}$-subobject.
+\end{por}
+
+\begin{prop}
+Let $(\Cat{T}, \Cat{F})$ be a torsion theory on $\Cat{A}$. Then
+the functor $F: \Cat{A} \to \Cat{T}$ that sends $X \in \Cat{A}$
+to its largest $\Cat{T}$-subobject is a idempotent preradical.
+\end{prop}
+
+
