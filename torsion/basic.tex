@@ -226,3 +226,85 @@ subcategory of $\Cat{A}$ if and only if $\Cat{F}$ is closed under
 extensions, direct products, and submodules.
 \end{prop}
 
+\begin{proof}
+It suffices to verify the statement for torsion subcategories.
+
+Suppose $\Cat{T}$ is a torsion subcategory with $\Cat{F}'$ its 
+corresponding torsionfree subcategory. 
+
+\emph{Closed under quotients:} suppose $X \in \Cat{T}$. For any 
+surjection $X \to Y \to 0$, we have 
+\[
+0 \to \hom_{\Cat{A}}(Y, F) \to \hom_{\Cat{A}}(X, F)
+\]
+for any $F \in \Cat{F}'$. However, $\hom_{\Cat{A}}(X, F) = 0$.
+Therefore, $\hom_{\Cat{A}}(Y, F) = 0$ for all $F$, and $Y \in
+\Cat{T}$.
+
+\emph{Closed under sums:} suppose $\{X_i| i \in I\}$ is a 
+collection of objects of $\Cat{T}$. We have
+\[
+\hom_{\Cat{A}}( \oplus_{i \in I} X_i, F) = \prod_{i \in I}
+\hom_{\Cat{A}}( X_i, F) = 0
+\]
+for all $F \in \Cat{F}'$. It follows that $\oplus_{i \in I} X_i$
+is an object of $\Cat{T}$.
+
+\emph{Closed under extensions:} Suppose 
+\[
+0 \to X' \to X \to X'' \to 0
+\]
+is an exact sequence in $\Cat{A}$ with $X', X'' \in \Cat{T}$.
+Then for any $F \in \Cat{F}$, 
+\[
+0 \to \hom_{\Cat{A}}(X'', F) \to \hom_{\Cat{A}}(X, F) \to
+\hom_{\Cat{A}}(X', F).
+\]
+Since $\hom_{\Cat{A}}(X'', F) = \hom_{\Cat{A}}(X', F) = 0$,
+it follows that $\hom_{\Cat{A}}(X, F) = 0$ for all $F$, and
+$X \in \Cat{T}$.
+
+Conversely, suppose $\Cat{T}$ is closed under extensions, direct 
+sums and quotients. Let $\Cat{F}'$ be the full subcategory of $Y$ 
+such that $\hom_{\Cat{A}}(X, Y) = 0$ for all $X \in \Cat{T}$, and 
+$\Cat{T}'$ be the full subcategory of $X'$ such that 
+$\hom_{\Cat{A}}(X', Y) = 0$ for all $Y \in \Cat{F}$. We proceed
+by showing that $\Cat{T'} = \Cat{T}.$
+
+We show that $\Cat{T} = \Cat{T'}$. Certainly $\Cat{T}$ is a full
+subcategory of $\Cat{T'}$. Fix $X \in \Cat{T'}$. Then there exists
+a maximal $\Cat{T}$ subobject of $X$. Indeed, let $S = \{X_i| i 
+\in I\}$ be the set of subobjects of $X$ in $\Cat{T'}$. Setting 
+$X' = \displaystyle \oplus_{i \in I} X_i$, we see that $X''$ is 
+an object of $\Cat{T}$, whose image in $X$ is a quotient of 
+$X''$, and therefore, is also in $\Cat{T}$. 
+
+Let $\tilde{X}$ be this maximal subobject. We proceed by showing 
+that $X/\tilde{X}$ is an object of $\Cat{F}'$, and hence is 0.
+Suppose not. Then there exists some $X' \in \Cat{T}$ with a 
+nonzero map $f: X' \to X/\tilde{X}$. Since $f(X') \in \Cat{T}$,
+replacing $X'$ by its image in $X/\tilde{X}$, we may assume
+without loss of generality that $f$ is injective.
+
+Pullback $X \to X/\tilde{X}$ by $f$, and we have:
+\[
+\begin{tikzcd}
+0 \arrow{r} &
+\tilde{X} \arrow{r}\arrow[equals]{d} &
+P \arrow{r}{p} \arrow{d}{i} &
+X' \arrow{r} \arrow[hook]{d} &
+0 \\
+0 \arrow{r} &
+\tilde{X} \arrow{r} &
+X \arrow{r} &
+X/\tilde{X} \arrow{r} &
+0
+\end{tikzcd}
+\]
+As $i$ is a pullback of an injection, $i$ is itself injective.
+Similarly, as $X \to X/\tilde{X}$ is surjective, so is $p$.
+Furthermore, $\ker p = \tilde{X}$. Since $\tilde{X}$ and $X'$
+are both in $\Cat{T}$, it follows that $P$ must, too. However,
+$X'$ is nontrivial, contradicting the maximality of $\tilde{X}$.
+Thus, $X/\tilde{X} \in \Cat{F}$, and $X \in \Cat{T}$.
+\end{proof}
