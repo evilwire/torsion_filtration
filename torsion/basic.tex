@@ -321,4 +321,25 @@ conditions hold:
 \Cat{T}$ and $X/Y \in \Cat{F}$.
 \end{enumerate}
 \end{prop}
+\begin{proof}
+\noindent $\Rightarrow$: Fix $X \in \Cat{T}$ and $X \in \Cat{F}$, 
+then $\hom_{\Cat{A}}(X,X) = 0$, so the identity is the 0 map, and
+$X = 0$.
+
+Now fix $X \in \Cat{A}$, and let $\{X_i\;:\;i \in I\}$ be the set
+of $\Cat{T}$ subobjects of $X$. The image in $X$ of the direct 
+sum of the subobjects is an object of $\Cat{T}$, the quotient by 
+which is an object in $\Cat{F}$ by the same reasoning as above.
+
+\noindent $\Leftarrow$, suppose $\Cat{T}, \Cat{F}$ satisfy the 
+condition of the proposition. Suppose we have $X \in \Cat{A}$ such 
+that for all $Y \in \Cat{Y}$,
+\[
+\hom_{\Cat{A}}(X, Y) = 0.
+\]
+Since $X/FX \in \Cat{F}$, $X \to X/FX$ is the zero map. Hence, $X 
+= FX \in \Cat{T}$. Similarly, if $Y \in \Cat{F}$, then the 
+inclusion $FY \to Y$ is the zero map, and hence $Y/FY = Y \in 
+\Cat{F}.$
+\end{proof}
 
