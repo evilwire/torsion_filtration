@@ -110,7 +110,7 @@ But $K \to A \to \phi(A)$ is the $0$ map. Therefore, $\phi^2(A) =
 The duality alluded to in Remark \ref{rmk_rad_corad_dual} can
 be made more exact by the following proposition:
 
-\begin{prop}
+\begin{prop}\label{prop_rad_eq_corad}
 Let $\phi$ be a coradical, and $\eta$ be its corresponding natural 
 surjection. Write $\kappa(X) = \ker X \stackrel{\eta_X}{\to} 
 \phi(X)$. Then $\kappa$ is a radical.
@@ -123,7 +123,62 @@ a coradical.
 It suffices to prove this statement for the coradicals, as the
 arguments for radical can be straightforwardly obtained by 
 dualizing. In this case, let $\phi$, $\eta$ and $\kappa$ be given as
-above.
+above. We proceed as follows:
+
+\pfitem{$\kappa$ is functorial}: This follows from the naturality 
+of $\eta$. Indeed, we need only to define $\kappa$ for morphisms. 
+Consider $f: X \to Y$ a map in $\Cat{A}$. From naturality of 
+$\eta$, we have the following commutative diagram:
+\[
+\begin{tikzcd}
+0 \arrow{r} &
+\kappa(X) \arrow{r} \arrow[dotted]{d} &
+X \arrow{r}{\eta_X} \arrow{d}{f} &
+\phi(X) \arrow{r} \arrow{d}{\phi f} &
+0 \\
+0 \arrow{r} &
+\kappa(Y) \arrow{r} &
+Y \arrow{r}{\eta_Y} &
+\phi(Y) \arrow{r} &
+0.
+\end{tikzcd}
+\]
+By the universality of $\kappa(Y)$ as the kernel, we have the 
+induced map $\kappa(X) \to \kappa(Y)$ (shown as the dotted arrow 
+in the preceding diagram). We define $\kappa f$ to be this induced
+map. It is clear that $\kappa$ and is functorial.
+
+\pfitem{$\kappa$ is a pre-radical}: From the above, it is clear 
+that $\kappa$ is a subobject functor. To see that $\kappa$ is also
+a pre-radical, we show that $\kappa(X/\kappa(X)) = 0$ for all $X 
+\in \Cat{A}$. Fix such an $X$, and notice that $X/\kappa(X) = 
+\phi(X)$. Then we have the associated short exact sequence:
+\[
+0 \to \kappa(\phi(X)) \to \phi(X) \to \phi^2(X) \to 0.
+\]
+But $\phi(X) \to \phi^2(X)$ is the identity by Prop. 
+\ref{prop_idempotence}. It follows that $\kappa(\phi(X)) = 
+\kappa(X/\kappa(X)) = 0$.
+
+\pfitem{$\kappa$ is left exact}: Fix an injection $f: X \to Y$,
+and consider the corresponding commutative diagram:
+\[
+\begin{tikzcd}
+0 \arrow{r} &
+\kappa(X) \arrow{r} \arrow{d}{\kappa f} &
+X \arrow{r}{\eta_X} \arrow{d}{f} &
+\phi(X) \arrow{r} \arrow{d}{\phi f} &
+0 \\
+0 \arrow{r} &
+\kappa(Y) \arrow{r} &
+Y \arrow{r}{\eta_Y} &
+\phi(Y) \arrow{r} &
+0
+\end{tikzcd}
+\]
+By the Snake Lemma, $\ker \kappa f$ injects into $\ker f = 0$ 
+(since $f$ is assumed to be injective). Therefore, $\ker \kappa 
+f = 0$ as well. Hence $\kappa$ is left exact.
 \end{proof}
 
 \begin{prop}
@@ -233,16 +288,19 @@ $\hom_{\Cat{A}}(X, Y) = 0$ for every object $X \in \Cat{T}$.
 \end{defn}
 
 Certainly $0 \in \Cat{T} \cap \Cat{F}$. Therefore, neither 
-subcategories are empty.
+subcategories are empty. We also have the following characterization
+for the torsion and torsionfree subcategories.
 
 \begin{prop}
 Let $\Cat{A}$ be a well-powered abelian category with a torsion 
 theory, and $\Cat{T}$ and $\Cat{F}$ are two nonempty full 
 subcategories. Then, $\Cat{T}$ is a torsion subcategory of 
 $\Cat{A}$ if and only if $\Cat{T}$ is closed under extensions, 
-direct sums and quotients. Dually, $\Cat{F}$ is a torsionfree 
-subcategory of $\Cat{A}$ if and only if $\Cat{F}$ is closed under 
-extensions, direct products, and submodules.
+direct sums and quotients. 
+
+Dually, $\Cat{F}$ is a torsionfree subcategory of $\Cat{A}$ if and 
+only if $\Cat{F}$ is closed under extensions, direct products, and 
+submodules.
 \end{prop}
 
 \begin{proof}
@@ -260,7 +318,7 @@ for any $F \in \Cat{F}'$. However, $\hom_{\Cat{A}}(X, F) = 0$.
 Therefore, $\hom_{\Cat{A}}(Y, F) = 0$ for all $F$, and $Y \in
 \Cat{T}$.
 
-\emph{Closed under sums:} suppose $\{X_i| i \in I\}$ is a 
+\emph{Closed under sums:} suppose $\{X_i\}_{i \in I}$ is a 
 collection of objects of $\Cat{T}$. We have
 \[
 \hom_{\Cat{A}}( \oplus_{i \in I} X_i, F) = \prod_{i \in I}
@@ -348,7 +406,7 @@ $X = 0$.
 Now fix $X \in \Cat{A}$, and let $\{X_i\;:\;i \in I\}$ be the set
 of $\Cat{T}$ subobjects of $X$. The image in $X$ of the direct 
 sum of the subobjects is an object of $\Cat{T}$, the quotient by 
-which is an object in $\Cat{F}$ by the same reasoning as above.
+which is an object in $\Cat{F}$.
 \vskip 10pt
 \noindent $\Leftarrow$, suppose $\Cat{T}, \Cat{F}$ satisfy the 
 condition of the proposition. Suppose we have $X \in \Cat{A}$ such 
