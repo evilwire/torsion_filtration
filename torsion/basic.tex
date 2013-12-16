@@ -17,7 +17,7 @@ The following notions will be important to us:
 \begin{defn}\label{def_coradical}
 Let $\phi: \Cat{A} \to \Cat{A}$ be an endofunctor. 
 \begin{enumerate}
-\item We say that $\phi$ is a \emph{quotient functor} if there 
+\item We say that $\phi$ is a \DEF{quotient functor} if there 
 exists a natural surjection $\eta: \id \to \phi$. 
 
 That is, for every $f: A \to B$, the following diagram commutes.
@@ -30,12 +30,12 @@ B \arrow{d}{\eta_B} \\
 \end{tikzcd}
 \]
 
-\item We say that $\phi$ is \emph{idempotent} if the natural 
+\item We say that $\phi$ is \DEF{idempotent} if the natural 
 surjection is the identity on the essential image of $\phi$.
 That is, if we set $\eta: \id \to \phi$ to be natural surjection,
 then $\eta_{\phi(A)}: \phi(A) \to \phi^2(A)$ is the identity map.
 
-\item A quotient functor $\phi$ is a \emph{coradical} if for all
+\item A quotient functor $\phi$ is a \DEF{coradical} if for all
 $A \in \Cat{A}$, $\phi$ applied to the kernel of the surjection 
 $A \to \phi(A)$ is $0$.
 \end{enumerate}
@@ -46,9 +46,9 @@ are the dual of a coradical. Formally:
 
 \begin{defn}\label{def_radical}
 Let $\phi: \Cat{A} \to \Cat{A}$ be an endofunctor of an abelian 
-category $\Cat{A}$. We say that $\phi$ is a \emph{radical} if 
+category $\Cat{A}$. We say that $\phi$ is a \DEF{radical} if 
 there exists a natural monomorphism $\phi \to \id$ (in which case, we
-say that $\phi$ is a \emph{subobject functor}) such that 
+say that $\phi$ is a \DEF{subobject functor}) such that 
 $\phi(A/\phi(A)) = 0$ for all $A$. 
 \end{defn}
 
@@ -152,17 +152,6 @@ arguments for radical can be straightforwardly obtained by
 dualizing. In this case, let $\phi$, $\eta$ and $\kappa$ be given as
 above. We proceed as follows:
 
-\begin{lem}\label{lem_idem_precorad_eq_idem_prerad}
-Let $\phi$ be an \emph{idempotent pre-coradical}, and $\eta$ be its 
-corresponding natural surjection. Write $\kappa(X) = \ker (X 
-\stackrel{\eta_X}{\to} \phi(X))$. Then $\kappa$ is an 
-\emph{idempotent pre-radical}.
-
-Dually, if $\psi$ is an \emph{idempotent pre-radical} with natural 
-injection $\epsilon$. Writing $\gamma(X) = \cok \epsilon_X$, we 
-have that $\gamma$ is an \emph{idempotent pre-coradical}.
-\end{lem}
-\begin{proof}{Proof of Lemma}
 \pfitem{$\kappa$ is functorial}: This follows from the naturality 
 of $\eta$. Indeed, we need only to define $\kappa$ for morphisms. 
 Consider $f: X \to Y$ a map in $\Cat{A}$. From naturality of 
@@ -184,7 +173,9 @@ Y \arrow{r}{\eta_Y} &
 By the universality of $\kappa(Y)$ as the kernel, we have the 
 induced map $\kappa(X) \to \kappa(Y)$ (shown as the dotted arrow 
 in the preceding diagram). We define $\kappa f$ to be this induced
-map. It is clear that $\kappa$ and is functorial.
+map. To finish, we need to show that for $f, g$ morphisms in 
+$\Cat{A}$, $\kappa(fg) = \kappa(f)\kappa(g)$. This follows from
+the uniqueness of induced map from the kernel.
 
 \pfitem{$\kappa$ is a pre-radical}: From the above, it is clear 
 that $\kappa$ is a subobject functor. To see that $\kappa$ is also
@@ -196,31 +187,6 @@ a pre-radical, we show that $\kappa(X/\kappa(X)) = 0$ for all $X
 \]
 But $\phi(X) \to \phi^2(X)$ is the identity. It follows that 
 $\kappa(\phi(X)) = \kappa(X/\kappa(X)) = 0$.
-\end{proof}
-
-Resuming, by Prop. \ref{prop_idempotence} and the preceding lemma,
-$\phi$ (a coradical in this case) defines an idempotent 
-pre-radical $\kappa$. To finish, we only need to show that
-
-\pfitem{$\kappa$ is left exact}: Fix an injection $f: X \to Y$,
-and consider the corresponding commutative diagram:
-\[
-\begin{tikzcd}
-0 \arrow{r} &
-\kappa(X) \arrow{r} \arrow{d}{\kappa f} &
-X \arrow{r}{\eta_X} \arrow{d}{f} &
-\phi(X) \arrow{r} \arrow{d}{\phi f} &
-0 \\
-0 \arrow{r} &
-\kappa(Y) \arrow{r} &
-Y \arrow{r}{\eta_Y} &
-\phi(Y) \arrow{r} &
-0
-\end{tikzcd}
-\]
-By the Snake Lemma, $\ker \kappa f$ injects into $\ker f = 0$ 
-(since $f$ is assumed to be injective). Therefore, $\ker \kappa 
-f = 0$ as well. Hence $\kappa$ is left exact.
 \end{proof}
 
 \begin{prop}
@@ -334,11 +300,10 @@ subcategories are empty. We also have the following characterization
 for the torsion and torsionfree subcategories.
 
 \begin{prop}
-Let $\Cat{A}$ be a well-powered abelian category with a torsion 
-theory, and $\Cat{T}$ and $\Cat{F}$ are two nonempty full 
-subcategories. Then, $\Cat{T}$ is a torsion subcategory of 
-$\Cat{A}$ if and only if $\Cat{T}$ is closed under extensions, 
-direct sums and quotients. 
+Let $\Cat{A}$ be a well-powered abelian category, and $\Cat{T}$ 
+and $\Cat{F}$ are two nonempty full subcategories. Then, $\Cat{T}$ 
+is a torsion subcategory of $\Cat{A}$ if and only if $\Cat{T}$ is 
+closed under extensions, direct sums and quotients. 
 
 Dually, $\Cat{F}$ is a torsionfree subcategory of $\Cat{A}$ if and 
 only if $\Cat{F}$ is closed under extensions, direct products, and 
@@ -452,10 +417,7 @@ which is an object in $\Cat{F}$.
 \vskip 10pt
 \noindent $\Leftarrow$, suppose $\Cat{T}, \Cat{F}$ satisfy the 
 condition of the proposition. Suppose we have $X \in \Cat{A}$ such 
-that for all $Y \in \Cat{Y}$,
-\[
-\hom_{\Cat{A}}(X, Y) = 0.
-\]
+that for all $Y \in \Cat{Y}$, $\hom_{\Cat{A}}(X, Y) = 0$.
 Since $X/FX \in \Cat{F}$, $X \to X/FX$ is the zero map. Hence, $X 
 = FX \in \Cat{T}$. Similarly, if $Y \in \Cat{F}$, then the 
 inclusion $FY \to Y$ is the zero map, and hence $Y/FY = Y \in 
@@ -513,8 +475,52 @@ certainly,
 \end{proof}
 }
 
-\begin{thm} Let $\Cat{A}$ be a well-powered Abelian category. Then
-there exists a one-to-one correspondence between the collection 
-of torsion theories on $\Cat{A}$ and the collection of idempotent
-preradicals of $\Cat{A}$.
+\begin{thm}\label{thm_corad_implies_tt}
+Let $\Cat{A}$ be a well-powered Abelian category. Then every 
+coradical $\phi$ gives rise to a torsion theory on $\Cat{A}$ 
+defined by:
+\begin{align*}
+\Cat{T} = \{ X \in \Cat{A} : \phi(X) = 0 \} \\
+\Cat{F} = \{ X \in \Cat{A} : \phi(X) = X \}.
+\end{align*}
+
+Dually, every radical $\kappa$ gives rise to a torsion theory
+on $\Cat{A}$ defined by
+\begin{align*}
+\Cat{T} = \{ X \in \Cat{A} : \kappa(X) = X \} \\
+\Cat{F} = \{ X \in \Cat{A} : \kappa{X} = 0 \}.
+\end{align*}
+
+In the case that $\kappa$ is the radical associated to the
+coradical $\phi$ (see Prop. \ref{prop_rad_eq_corad}), then the
+two torsion theories agree.
 \end{thm}
+
+The converse of Theorem \ref{thm_corad_implies_tt} need not hold. 
+However, the converse does hold in the case that the torsion 
+theory is hereditary as defined in the following 
+(See Theorem \ref{thm_corad_equiv_htt}).
+
+\begin{defn}
+Let $(\Cat{T}, \Cat{F})$ be a torsion theory on $\Cat{A}$. We say 
+that $(\Cat{T}, \Cat{F})$ is \DEF{hereditary} if $\Cat{T}$ is 
+closed with respect to subobjects. That is, if $A \into B$ is an 
+monomorphism in $\Cat{A}$ such that $B \in \Cat{T}$, then $A \in 
+\Cat{T}$.
+\end{defn}
+
+\begin{thm}\label{thm_corad_equiv_htt}
+Let $\Cat{A}$ be a well-powered Abelian category. Then there 
+exists a one-to-one correspondence between coradicals of $\Cat{A}$ 
+and \emph{hereditary} torsion theories on $\Cat{A}$.
+\end{thm}
+\begin{proof}
+
+\pfitem{From coradicals to hereditary torsion theories} : Let 
+$\phi$ be a coradical.
+
+In view of Theorem \ref{thm_corad_implies_tt}, to associate a 
+coradical with a hereditary torsion theory, we need only to show
+that $\Cat{T}$ defined by $\{X : \phi(X) = 0\}$ is closed under
+subobjects.
+\end{proof}
