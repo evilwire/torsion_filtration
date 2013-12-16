@@ -35,12 +35,9 @@ surjection is the identity on the essential image of $\phi$.
 That is, if we set $\eta: \id \to \phi$ to be natural surjection,
 then $\eta_{\phi(A)}: \phi(A) \to \phi^2(A)$ is the identity map.
 
-\item A quotient functor $\phi$ is a \emph{pre-coradical} if for all
+\item A quotient functor $\phi$ is a \emph{coradical} if for all
 $A \in \Cat{A}$, $\phi$ applied to the kernel of the surjection 
 $A \to \phi(A)$ is $0$.
-
-\item Finally, a pre-coradical is a \emph{coradical} if $\phi$ is
-right exact.
 \end{enumerate}
 \end{defn}
 
@@ -49,35 +46,59 @@ are the dual of a coradical. Formally:
 
 \begin{defn}\label{def_radical}
 Let $\phi: \Cat{A} \to \Cat{A}$ be an endofunctor of an abelian 
-category $\Cat{A}$. We say that $\phi$ is a \emph{pre-radical} if 
+category $\Cat{A}$. We say that $\phi$ is a \emph{radical} if 
 there exists a natural monomorphism $\phi \to \id$ (in which case, we
 say that $\phi$ is a \emph{subobject functor}) such that 
-$\phi(A/\phi(A)) = 0$ for all $A$. $\phi$ is a \emph{radical} if 
-$\phi$ is additionally left exact.
+$\phi(A/\phi(A)) = 0$ for all $A$. 
 \end{defn}
 
 \begin{rmk}
 In the case where $\Cat{A}$ is small, via Mitchell embedding 
 there exists an embedding of $\Cat{A}$ as a subcategory of $R$-mod
 for some suitable ring $R$. In this case, the subobject functors, 
-quotient functors, idempotence, (pre-)radicals, and 
-(pre-)coradicals corresponds to their counterparts in the ring 
-theoretic setting.
+quotient functors, idempotence, radicals, and coradicals 
+corresponds to their counterparts in the ring theoretic setting.
 \end{rmk}
 
 \begin{rmk}\label{rmk_rad_corad_dual}
-Notice that quotient subobject functors are dual notions. So are 
-(pre)-radical and (pre)-coradicals. In fact, all the results in 
-this section for coradicals have an corresponding dual, i.e. a 
-parallel statement for radicals. Throughout this section, we 
-mostly consider statements for only (pre-)coradicals functors. We 
-leave some dual statements to the reader to formulate or look up 
-in \cite{DTor}.
+Notice that quotient and subobject functors are dual notions. So 
+are radical and coradicals. In fact, all the results in this 
+section for coradicals have an corresponding dual, i.e. a parallel 
+statement for radicals. Throughout this section, we mostly 
+consider statements for only (pre-)coradicals functors. We leave 
+some dual statements to the reader to formulate or look up in 
+\cite{DTor}.
 \end{rmk}
 
+\begin{prop}\label{prop_quotient_right_exact}
+Any quotient functor is right exact.
+\end{prop}
+\begin{proof}
+Let $\phi$ be a quotient functor, and fix $f: A \to B$ a 
+surjection in $\Cat{A}$. Then we have the following commutative 
+diagram:
+\[
+\begin{tikzcd}
+0 \arrow{r} &
+K \arrow{r} \arrow{d} &
+A \arrow{r} \arrow{d}{f} &
+\phi(A) \arrow{r} \arrow{d}{\phi f} &
+0 \\
+0 \arrow{r} &
+K' \arrow{r} &
+B \arrow{r} &
+\phi(B) \arrow{r} &
+0.
+\end{tikzcd}
+\]
+Applying Snake Lemma, we have that $\cok f$ surjects onto
+$\cok \phi f$. But $\cok f = 0$, and therefore the natural map 
+$\phi f$ is surjective.
+\end{proof}
+
 \begin{prop}\label{prop_idempotence}
-Any right exact quotient functor $\phi$ is idempotent. In
-particular, any coradical is idempotent.
+Any quotient functor $\phi$ is idempotent. In particular, any 
+coradical is idempotent.
 \end{prop}
 \begin{proof}
 Fix $A \in \Cat{A}$, and let $\eta$ denote the natural surjection 
@@ -86,7 +107,8 @@ of $\eta_A: A \to \phi(A)$, and consider the sequence
 \[
 0 \to K \to A \to \phi(A) \to 0.
 \]
-Applying $\phi$, which is right exact, we have
+Applying $\phi$, which is right exact by the preceding 
+proposition, we have
 \[
 \phi(K) \to \phi(A) \to \phi^2(A) \to 0.
 \]
@@ -463,6 +485,7 @@ subcategory $\Cat{C}$ closed under sums and quotients, any $X \in
 \Cat{A}$ has a largest $\Cat{C}$-subobject.
 \end{por}
 
+\comment{
 \begin{prop}
 Let $(\Cat{T}, \Cat{F})$ be a torsion theory on $\Cat{A}$. Then
 the functor $F: \Cat{A} \to \Cat{T}$ that sends $X \in \Cat{A}$
@@ -488,6 +511,7 @@ certainly,
 \phi(X/\phi(X)) = 0.
 \]
 \end{proof}
+}
 
 \begin{thm} Let $\Cat{A}$ be a well-powered Abelian category. Then
 there exists a one-to-one correspondence between the collection 
