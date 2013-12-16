@@ -30,7 +30,10 @@ B \arrow{d}{\eta_B} \\
 \end{tikzcd}
 \]
 
-\item We say that $\phi$ is \emph{idempotent} if $\phi^2 = \phi$.
+\item We say that $\phi$ is \emph{idempotent} if the natural 
+surjection is the identity on the essential image of $\phi$.
+That is, if we set $\eta: \id \to \phi$ to be natural surjection,
+then $\eta_{\phi(A)}: \phi(A) \to \phi^2(A)$ is the identity map.
 
 \item A quotient functor $\phi$ is a \emph{pre-coradical} if for all
 $A \in \Cat{A}$, $\phi$ applied to the kernel of the surjection 
@@ -48,7 +51,7 @@ are the dual of a coradical. Formally:
 Let $\phi: \Cat{A} \to \Cat{A}$ be an endofunctor of an abelian 
 category $\Cat{A}$. We say that $\phi$ is a \emph{pre-radical} if 
 there exists a natural monomorphism $\phi \to \id$ (in which case, we
-say that $\phi$ is a \emph{subobject functor})such that 
+say that $\phi$ is a \emph{subobject functor}) such that 
 $\phi(A/\phi(A)) = 0$ for all $A$. $\phi$ is a \emph{radical} if 
 $\phi$ is additionally left exact.
 \end{defn}
@@ -63,16 +66,18 @@ theoretic setting.
 \end{rmk}
 
 \begin{rmk}\label{rmk_rad_corad_dual}
-Notice that being a quotient and being a subobject are dual 
-notions. All the results in this section for coradicals have an 
-corresponding dual, i.e. a parallel statement for radicals.
-Throughout this section, we consider only statements for 
-(pre-)coradicals functors. We leave the dual statements to the 
-reader to formulate or look up in \cite{DTor}.
+Notice that quotient subobject functors are dual notions. So are 
+(pre)-radical and (pre)-coradicals. In fact, all the results in 
+this section for coradicals have an corresponding dual, i.e. a 
+parallel statement for radicals. Throughout this section, we 
+mostly consider statements for only (pre-)coradicals functors. We 
+leave some dual statements to the reader to formulate or look up 
+in \cite{DTor}.
 \end{rmk}
 
 \begin{prop}\label{prop_idempotence}
-Any right exact quotient functor $\phi$ is idempotent. 
+Any right exact quotient functor $\phi$ is idempotent. In
+particular, any coradical is idempotent.
 \end{prop}
 \begin{proof}
 Fix $A \in \Cat{A}$, and let $\eta$ denote the natural surjection 
@@ -112,8 +117,8 @@ be made more exact by the following proposition:
 
 \begin{prop}\label{prop_rad_eq_corad}
 Let $\phi$ be a coradical, and $\eta$ be its corresponding natural 
-surjection. Write $\kappa(X) = \ker X \stackrel{\eta_X}{\to} 
-\phi(X)$. Then $\kappa$ is a radical.
+surjection. Write $\kappa(X) = \ker (X \stackrel{\eta_X}{\to} 
+\phi(X))$. Then $\kappa$ is a radical.
 
 Dually, if $\psi$ is a radical with natural injection $\epsilon$.
 Writing $\gamma(X) = \cok \epsilon_X$, we have that $\gamma$ is
@@ -125,6 +130,17 @@ arguments for radical can be straightforwardly obtained by
 dualizing. In this case, let $\phi$, $\eta$ and $\kappa$ be given as
 above. We proceed as follows:
 
+\begin{lem}\label{lem_idem_precorad_eq_idem_prerad}
+Let $\phi$ be an \emph{idempotent pre-coradical}, and $\eta$ be its 
+corresponding natural surjection. Write $\kappa(X) = \ker (X 
+\stackrel{\eta_X}{\to} \phi(X))$. Then $\kappa$ is an 
+\emph{idempotent pre-radical}.
+
+Dually, if $\psi$ is an \emph{idempotent pre-radical} with natural 
+injection $\epsilon$. Writing $\gamma(X) = \cok \epsilon_X$, we 
+have that $\gamma$ is an \emph{idempotent pre-coradical}.
+\end{lem}
+\begin{proof}{Proof of Lemma}
 \pfitem{$\kappa$ is functorial}: This follows from the naturality 
 of $\eta$. Indeed, we need only to define $\kappa$ for morphisms. 
 Consider $f: X \to Y$ a map in $\Cat{A}$. From naturality of 
@@ -156,9 +172,13 @@ a pre-radical, we show that $\kappa(X/\kappa(X)) = 0$ for all $X
 \[
 0 \to \kappa(\phi(X)) \to \phi(X) \to \phi^2(X) \to 0.
 \]
-But $\phi(X) \to \phi^2(X)$ is the identity by Prop. 
-\ref{prop_idempotence}. It follows that $\kappa(\phi(X)) = 
-\kappa(X/\kappa(X)) = 0$.
+But $\phi(X) \to \phi^2(X)$ is the identity. It follows that 
+$\kappa(\phi(X)) = \kappa(X/\kappa(X)) = 0$.
+\end{proof}
+
+Resuming, by Prop. \ref{prop_idempotence} and the preceding lemma,
+$\phi$ (a coradical in this case) defines an idempotent 
+pre-radical $\kappa$. To finish, we only need to show that
 
 \pfitem{$\kappa$ is left exact}: Fix an injection $f: X \to Y$,
 and consider the corresponding commutative diagram:
@@ -309,7 +329,7 @@ It suffices to verify the statement for torsion subcategories.
 Suppose $\Cat{T}$ is a torsion subcategory with $\Cat{F}'$ its 
 corresponding torsionfree subcategory. 
 
-\emph{Closed under quotients:} suppose $X \in \Cat{T}$. For any 
+\pfitem{Closed under quotients:} suppose $X \in \Cat{T}$. For any 
 surjection $X \to Y \to 0$, we have 
 \[
 0 \to \hom_{\Cat{A}}(Y, F) \to \hom_{\Cat{A}}(X, F)
@@ -327,7 +347,7 @@ collection of objects of $\Cat{T}$. We have
 for all $F \in \Cat{F}'$. It follows that $\oplus_{i \in I} X_i$
 is an object of $\Cat{T}$.
 
-\emph{Closed under extensions:} Suppose 
+\pfitem{Closed under extensions:} Suppose 
 \[
 0 \to X' \to X \to X'' \to 0
 \]
@@ -450,12 +470,14 @@ to its largest $\Cat{T}$-subobject is an idempotent preradical.
 \end{prop}
 
 \begin{proof}
-Let $f: X \to Y$ be any morphism and $\phi(X) \stackrel{i_{\phi(X)}}{\to} X$ 
-and $\phi(Y)\stackrel{i_{\phi(Y)}}{\to} Y$ be the $\Cat{T}$-subobjects of $X$ 
-and $Y$ respectively. Consider the image of $\phi(X)$ under $i_{\phi(X)}f$, 
-which is a $\Cat{T}$ subobject of $Y$. Hence, there exists a map 
-$\im i_{\phi(X)}f \to \phi(Y)$, and define the map $\phi f$ to be the 
-composition of $\phi(X) \to \im i_{\phi(X)}f \to \phi(Y)$.
+Let $f: X \to Y$ be any morphism and $\phi(X) 
+\stackrel{i_{\phi(X)}}{\to} X$ and 
+$\phi(Y)\stackrel{i_{\phi(Y)}}{\to} Y$ be the $\Cat{T}$-subobjects 
+of $X$ and $Y$ respectively. Consider the image of $\phi(X)$ under 
+$f i_{\phi(X)}$, which is a $\Cat{T}$ subobject of $Y$. Hence, 
+there exists a map $\im i_{\phi(X)}f \to \phi(Y)$, and define the 
+map $\phi f$ to be the composition of $\phi(X) \to \im 
+i_{\phi(X)}f \to \phi(Y)$.
 
 It is clear from the construction that $\phi$ is a subobject functor.
 Since $\phi(X) \in \Cat{T}$, it is clear that the largest suboboject
