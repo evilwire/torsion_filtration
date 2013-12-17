@@ -446,7 +446,7 @@ subcategory $\Cat{C}$ closed under sums and quotients, any $X \in
 
 \begin{prop}
 Let $(\Cat{T}, \Cat{F})$ be a torsion theory on $\Cat{A}$. Then
-the functor $F: \Cat{A} \to \Cat{T}$ that sends $X \in \Cat{A}$
+the functor $\phi: \Cat{A} \to \Cat{T}$ that sends $X \in \Cat{A}$
 to its largest $\Cat{T}$-subobject is an idempotent preradical.
 \end{prop}
 
@@ -471,30 +471,31 @@ certainly,
 \end{proof}
 
 \begin{thm}\label{thm_corad_implies_tt}
-Let $\Cat{A}$ be a well-powered Abelian category. Then every 
-coradical $\phi$ gives rise to a torsion theory on $\Cat{A}$ 
-defined by:
+Let $\Cat{A}$ be a well-powered Abelian category. Then there exists
+a one-to-one correspondence between idempotent pre-coradicals and
+torsion theories on $\Cat{A}$ defined by
 \begin{align*}
 \Cat{T} = \{ X \in \Cat{A} : \phi(X) = 0 \} \\
 \Cat{F} = \{ X \in \Cat{A} : \phi(X) = X \}.
 \end{align*}
 
-Dually, every radical $\kappa$ gives rise to a torsion theory
-on $\Cat{A}$ defined by
+Dually, every idempotent pre-radical $\kappa$ is in one-to-one 
+correspondence with torsion theories on $\Cat{A}$ defined by
 \begin{align*}
 \Cat{T} = \{ X \in \Cat{A} : \kappa(X) = X \} \\
 \Cat{F} = \{ X \in \Cat{A} : \kappa{X} = 0 \}.
 \end{align*}
 
-In the case that $\kappa$ is the radical associated to the
-coradical $\phi$ (see Prop. \ref{prop_rad_eq_corad}), then the
-two torsion theories agree.
+In the case that $\kappa$ is the idempotent pre-radical associated 
+to the idempotent pre-coradical $\phi$ (see Prop. 
+\ref{prop_rad_eq_corad}), then the two torsion theories agree. In
+this case, $\phi$ is left adjoint to the inclusion $\Cat{F} \to 
+\Cat{A}$ and $\kappa$ is right adjoint to the inclusion $\Cat{T} 
+\to \Cat{A}$.
 \end{thm}
+\begin{proof}
 
-The converse of Theorem \ref{thm_corad_implies_tt} need not hold. 
-However, the converse does hold in the case that the torsion 
-theory is hereditary as defined in the following 
-(See Theorem \ref{thm_corad_equiv_htt}).
+\end{proof}
 
 \begin{defn}
 Let $(\Cat{T}, \Cat{F})$ be a torsion theory on $\Cat{A}$. We say 
