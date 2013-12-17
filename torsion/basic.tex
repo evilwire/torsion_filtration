@@ -35,11 +35,21 @@ surjection is the identity on the essential image of $\phi$.
 That is, if we set $\eta: \id \to \phi$ to be natural surjection,
 then $\eta_{\phi(A)}: \phi(A) \to \phi^2(A)$ is the identity map.
 
-\item A quotient functor $\phi$ is a \DEF{coradical} if for all
+\item A quotient functor $\phi$ is a \DEF{pre-coradical} if for all
 $A \in \Cat{A}$, $\phi$ applied to the kernel of the surjection 
 $A \to \phi(A)$ is $0$.
+
+\item Finally, we say $\phi$ is a \DEF{coradical} if $\phi$ is
+right exact.
 \end{enumerate}
 \end{defn}
+
+\begin{rmk}
+Notice that quotient functors always take surjections to 
+surjections. However, pre-coradicals are not always right exact.
+If $0 \to A' \to A \to A'' \to 0$ is an exact sequence, and $\phi$
+is a pre-coradical, exactness can fails at $\phi(A)$.
+\end{rmk}
 
 Torsion theory is usually developed for radical functors, which 
 are the dual of a coradical. Formally:
@@ -70,35 +80,9 @@ some dual statements to the reader to formulate or look up in
 \cite{DTor}.
 \end{rmk}
 
-\begin{prop}\label{prop_quotient_right_exact}
-Any quotient functor is right exact.
-\end{prop}
-\begin{proof}
-Let $\phi$ be a quotient functor, and fix $f: A \to B$ a 
-surjection in $\Cat{A}$. Then we have the following commutative 
-diagram:
-\[
-\begin{tikzcd}
-0 \arrow{r} &
-K \arrow{r} \arrow{d} &
-A \arrow{r} \arrow{d}{f} &
-\phi(A) \arrow{r} \arrow{d}{\phi f} &
-0 \\
-0 \arrow{r} &
-K' \arrow{r} &
-B \arrow{r} &
-\phi(B) \arrow{r} &
-0.
-\end{tikzcd}
-\]
-Applying Snake Lemma, we have that $\cok f$ surjects onto
-$\cok \phi f$. But $\cok f = 0$, and therefore the natural map 
-$\phi f$ is surjective.
-\end{proof}
-
 \begin{prop}\label{prop_idempotence}
-Any quotient functor $\phi$ is idempotent. In particular, any 
-coradical is idempotent.
+Any right exact quotient functor $\phi$ is idempotent. In 
+particular, any coradical is idempotent.
 \end{prop}
 \begin{proof}
 Fix $A \in \Cat{A}$, and let $\eta$ denote the natural surjection 
@@ -107,8 +91,7 @@ of $\eta_A: A \to \phi(A)$, and consider the sequence
 \[
 0 \to K \to A \to \phi(A) \to 0.
 \]
-Applying $\phi$, which is right exact by the preceding 
-proposition, we have
+Applying $\phi$, which is right exact, we have
 \[
 \phi(K) \to \phi(A) \to \phi^2(A) \to 0.
 \]
@@ -134,23 +117,24 @@ But $K \to A \to \phi(A)$ is the $0$ map. Therefore, $\phi^2(A) =
 \phi(A)$ as desired.
 \end{proof}
 
-The duality alluded to in Remark \ref{rmk_rad_corad_dual} can
-be made more exact by the following proposition:
+In addition to being dual notions, coradicals (or idempotent 
+pre-radicals) are related to idempotent pre-coradicals in the
+following way:
 
 \begin{prop}\label{prop_rad_eq_corad}
-Let $\phi$ be a coradical, and $\eta$ be its corresponding natural 
-surjection. Write $\kappa(X) = \ker (X \stackrel{\eta_X}{\to} 
-\phi(X))$. Then $\kappa$ is a radical.
+Let $\phi$ be an idempotent pre-coradical, and $\eta$ be its 
+corresponding natural surjection. Write $\kappa(X) = \ker (X 
+\stackrel{\eta_X}{\to} \phi(X))$. Then $\kappa$ is a radical.
 
-Dually, if $\psi$ is a radical with natural injection $\epsilon$.
-Writing $\gamma(X) = \cok \epsilon_X$, we have that $\gamma$ is
-a coradical.
+Dually, if $\psi$ is an idempotent pre-radical with natural 
+injection $\epsilon$. Writing $\gamma(X) = \cok \epsilon_X$, we 
+have that $\gamma$ is a coradical.
 \end{prop}
 \begin{proof}
-It suffices to prove this statement for the coradicals, as the
-arguments for radical can be straightforwardly obtained by 
-dualizing. In this case, let $\phi$, $\eta$ and $\kappa$ be given as
-above. We proceed as follows:
+It suffices to prove this statement for the idempotent 
+pre-coradicals, as the arguments for pre-radical can be 
+straightforwardly obtained by dualizing. In this case, let $\phi$, 
+$\eta$ and $\kappa$ be given as above. We proceed as follows:
 
 \pfitem{$\kappa$ is functorial}: This follows from the naturality 
 of $\eta$. Indeed, we need only to define $\kappa$ for morphisms. 
@@ -187,6 +171,19 @@ a pre-radical, we show that $\kappa(X/\kappa(X)) = 0$ for all $X
 \]
 But $\phi(X) \to \phi^2(X)$ is the identity. It follows that 
 $\kappa(\phi(X)) = \kappa(X/\kappa(X)) = 0$.
+
+\pfitem{$\kappa$ is idempotent}: Fix $X \in \Cat{A}$, and consider
+the following short exact sequence associated to $\kappa(X)$:
+\[
+0 \to \kappa(\kappa(X)) \to \kappa(X) 
+   \stackrel{\eta_{\kappa(X)}}{\to} \phi(\kappa(X)) \to 0.
+\]
+However, $\phi$ is a pre-radical, and therefore, 
+\[
+\phi(\kappa(X)) = \phi(\ker(X \to \phi(X))) = 0.
+\]
+It follows that $\kappa^2(X) = \kappa(X)$, and the proposition 
+follows.
 \end{proof}
 
 \begin{prop}
@@ -447,7 +444,6 @@ subcategory $\Cat{C}$ closed under sums and quotients, any $X \in
 \Cat{A}$ has a largest $\Cat{C}$-subobject.
 \end{por}
 
-\comment{
 \begin{prop}
 Let $(\Cat{T}, \Cat{F})$ be a torsion theory on $\Cat{A}$. Then
 the functor $F: \Cat{A} \to \Cat{T}$ that sends $X \in \Cat{A}$
@@ -473,7 +469,6 @@ certainly,
 \phi(X/\phi(X)) = 0.
 \]
 \end{proof}
-}
 
 \begin{thm}\label{thm_corad_implies_tt}
 Let $\Cat{A}$ be a well-powered Abelian category. Then every 
