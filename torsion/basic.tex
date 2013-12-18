@@ -475,27 +475,35 @@ Let $\Cat{A}$ be a well-powered Abelian category. Then there exists
 a one-to-one correspondence between idempotent pre-coradicals and
 torsion theories on $\Cat{A}$ defined by
 \begin{align*}
-\Cat{T} = \{ X \in \Cat{A} : \phi(X) = 0 \} \\
-\Cat{F} = \{ X \in \Cat{A} : \phi(X) = X \}.
+\Cat{T} &= \{ X \in \Cat{A} : \phi(X) = 0 \} \\
+\Cat{F} &= \{ X \in \Cat{A} : \phi(X) = X \}.
 \end{align*}
-
-Dually, every idempotent pre-radical $\kappa$ is in one-to-one 
-correspondence with torsion theories on $\Cat{A}$ defined by
-\begin{align*}
-\Cat{T} = \{ X \in \Cat{A} : \kappa(X) = X \} \\
-\Cat{F} = \{ X \in \Cat{A} : \kappa{X} = 0 \}.
-\end{align*}
-
-In the case that $\kappa$ is the idempotent pre-radical associated 
-to the idempotent pre-coradical $\phi$ (see Prop. 
-\ref{prop_rad_eq_corad}), then the two torsion theories agree. In
-this case, $\phi$ is left adjoint to the inclusion $\Cat{F} \to 
-\Cat{A}$ and $\kappa$ is right adjoint to the inclusion $\Cat{T} 
-\to \Cat{A}$.
 \end{thm}
 \begin{proof}
 
 \end{proof}
+
+As we have mentioned in Remark \ref{rmk_rad_corad_dual}, there is
+a result corresponding to Theorem \ref{thm_corad_implies_tt} for 
+radicals: every idempotent pre-radical $\kappa$ is in one-to-one 
+correspondence with torsion theories on $\Cat{A}$ defined by
+\begin{align*}
+\Cat{T} &= \{ X \in \Cat{A} : \kappa(X) = X \} \\
+\Cat{F} &= \{ X \in \Cat{A} : \kappa(X) = 0 \}.
+\end{align*}
+In fact, we have the following.
+
+\begin{cor}
+Let $\phi$ be an idempotent pre-coradical, and let $\kappa$ be the 
+idempotent pre-radical associated to $\phi$ (see Prop. 
+\ref{prop_rad_eq_corad}). Then the torsion theory defined by $\phi$
+in Theorem \ref{thm_corad_implies_tt} is the same as the one for
+$\kappa$ as defined above.
+
+In this case, $\phi$ is left adjoint to the inclusion $\Cat{F} \to 
+\Cat{A}$ and $\kappa$ is right adjoint to the inclusion $\Cat{T} 
+\to \Cat{A}$.
+\end{cor}
 
 \begin{defn}
 Let $(\Cat{T}, \Cat{F})$ be a torsion theory on $\Cat{A}$. We say 
