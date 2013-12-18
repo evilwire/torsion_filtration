@@ -527,10 +527,30 @@ In this case, $\phi$ is left adjoint to the inclusion $\Cat{F} \to
 \to \Cat{A}$.
 \end{cor}
 \begin{proof}
-The only thing left to verify is that $\phi$ defines a left adjoint to
-the inclusion of $\Cat{F}$ into $\Cat{A}$ and $\kappa$ defines a right
-adjoint to the inclusion of $\Cat{T}$ into $\Cat{A}$. We verify the
-statement only for $\phi$ and leave the latter to the reader.
+The only thing left to verify is that $\phi$ defines a left 
+adjoint to the inclusion of $\Cat{F}$ into $\Cat{A}$ and $\kappa$ 
+defines a right adjoint to the inclusion of $\Cat{T}$ into 
+$\Cat{A}$. We verify the statement only for $\phi$ and leave the 
+latter to the reader.  
+
+For $\phi$, fix $X \in \Cat{A}$, and let $Y \in \Cat{F}$. 
+Consider the short exact sequence
+\[
+0 \to \kappa(X) \to X \to \phi(X) \to 0.
+\]
+Applying $\hom_{\Cat{A}}(-, Y)$, we have the exact sequence
+\[
+0 \to \hom_{\Cat{A}}(\phi(X), Y) \to \hom_{\Cat{A}}(X, Y) \to
+\hom_{\Cat{A}}(\kappa(X), Y)
+\]
+Since $\kappa(X) \in \Cat{T}$ (Theorem 
+\ref{thm_corad_implies_tt}) and $\phi(X) \in \Cat{F}$, 
+$\hom_{\Cat{A}}(\kappa(X), Y) = 0$. Thus,
+\[
+\hom_{\Cat{A}}(\phi(X), Y) = \hom_{\Cat{F}}(\phi(X), Y) \simeq 
+   \hom_{\Cat{A}}(X, Y)
+\]
+as desired.
 \end{proof}
 
 \begin{defn}
