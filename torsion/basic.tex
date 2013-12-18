@@ -390,7 +390,7 @@ $X'$ is nontrivial, contradicting the maximality of $\tilde{X}$.
 Thus, $X/\tilde{X} \in \Cat{F}$, and $X \in \Cat{T}$.
 \end{proof}
 
-\begin{prop}
+\begin{prop}\label{prop_tt_suff_cond}
 Let $(\Cat{T}, \Cat{F})$ be a pair of non-empty full subcategories
 of a well-powered abelian category $\Cat{A}$. Then $(\Cat{T}, 
 \Cat{F})$ is a torsion theory if and only if the following 
@@ -444,13 +444,19 @@ subcategory $\Cat{C}$ closed under sums and quotients, any $X \in
 \Cat{A}$ has a largest $\Cat{C}$-subobject.
 \end{por}
 
-\begin{prop}
+\begin{prop}\label{prop_tt_to_corad}
 Let $(\Cat{T}, \Cat{F})$ be a torsion theory on $\Cat{A}$. Then
 the functor $\phi: \Cat{A} \to \Cat{T}$ that sends $X \in \Cat{A}$
-to its largest $\Cat{T}$-subobject is an idempotent preradical.
-\end{prop}
+to its quotient by its largest $\Cat{T}$-subobject is an 
+idempotent pre-coradical.
 
+Dually, the functor that sends $X$ to its largest 
+$\Cat{T}$-subobject is an idempotent pre-radical.
+\end{prop}
 \begin{proof}
+In this case, it is easier to prove the statement for idempotent 
+pre-radicals.
+
 Let $f: X \to Y$ be any morphism and $\phi(X) 
 \stackrel{i_{\phi(X)}}{\to} X$ and 
 $\phi(Y)\stackrel{i_{\phi(Y)}}{\to} Y$ be the $\Cat{T}$-subobjects 
@@ -468,19 +474,35 @@ certainly,
 \[
 \phi(X/\phi(X)) = 0.
 \]
+
+The dual statement follows from Prop. \ref{prop_rad_eq_corad}.
 \end{proof}
 
 \begin{thm}\label{thm_corad_implies_tt}
 Let $\Cat{A}$ be a well-powered Abelian category. Then there exists
 a one-to-one correspondence between idempotent pre-coradicals and
-torsion theories on $\Cat{A}$ defined by
+torsion theories on $\Cat{A}$ whose full subcategories are defined 
+by
 \begin{align*}
 \Cat{T} &= \{ X \in \Cat{A} : \phi(X) = 0 \} \\
 \Cat{F} &= \{ X \in \Cat{A} : \phi(X) = X \}.
 \end{align*}
 \end{thm}
 \begin{proof}
+Obtaining an idempotent pre-coradical from a torsion theory is
+established by Prop. \ref{prop_tt_to_corad}. Therefore, it suffices
+to show that $(\Cat{T}, \Cat{F})$ as given in the statement of the
+theorem defines a torsion theory on $\Cat{A}$.
 
+To do this, we appeal to Prop. \ref{prop_tt_suff_cond}. In 
+particular, we show that the only object common to both $\Cat{T}$
+and $\Cat{F}$ is $0$, and that for every $X \in \Cat{A}$, there 
+exists $X \in \Cat{T}$ such that $X/Y \in \Cat{F}$.
+
+This is clear, since if $X \in \Cat{T}$ and $X \in \Cat{F}$, then
+$X = \phi(X) = 0$. Furthermore, given $X \in \Cat{A}$, since 
+$\phi$ is idempotent, $\phi(X) \in \Cat{F}$. Since $\phi$ is a 
+pre-coradical, $\ker(X \to \phi(X)) \in \Cat{T}$.
 \end{proof}
 
 As we have mentioned in Remark \ref{rmk_rad_corad_dual}, there is
@@ -504,6 +526,12 @@ In this case, $\phi$ is left adjoint to the inclusion $\Cat{F} \to
 \Cat{A}$ and $\kappa$ is right adjoint to the inclusion $\Cat{T} 
 \to \Cat{A}$.
 \end{cor}
+\begin{proof}
+The only thing left to verify is that $\phi$ defines a left adjoint to
+the inclusion of $\Cat{F}$ into $\Cat{A}$ and $\kappa$ defines a right
+adjoint to the inclusion of $\Cat{T}$ into $\Cat{A}$. We verify the
+statement only for $\phi$ and leave the latter to the reader.
+\end{proof}
 
 \begin{defn}
 Let $(\Cat{T}, \Cat{F})$ be a torsion theory on $\Cat{A}$. We say 
