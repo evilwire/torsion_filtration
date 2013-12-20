@@ -551,10 +551,10 @@ the kernels of counits $\LHI[n]{(\RHI[n]{F})} \to F$. This can be
 fixed by enlarging the filtration at each level, and to do so, we 
 turn to torsion theory.
 
-Recall from Thm. \ref{thm_corad_hered_tor} that there is a 
-one-to-one correspondence between radical/coradicals and hereditary
-torsion theories on a well-powered abelian category (See Sect.
-\ref{sect_torsion_theory}).
+Recall from Thm. \ref{thm_precorad_eq_tt} that there is a 
+one-to-one correspondence between idempotent pre-coradicals and 
+cohereditary torsion theories on a well-powered abelian category 
+(See Sect.  \ref{sect_torsion_theory}).
 
 The goal is to show that we have a sequence of coradicals, and
 that the associated torsion theory $(\TCat{n}, \TFCat{n})$ has
@@ -620,8 +620,8 @@ that $\tlHI{n} K = 0$ as desired.
 \end{proof}
 
 The following is a straightforward consequence of the preceding 
-proposition and Thm. \ref{thm_corad_hered_tor}, and Prop.
-\ref{prop_corad_and_ref}:
+proposition and Thm. \ref{thm_precorad_eq_tt}, and Cor. 
+\ref{cor_tt_ref_and_coref}:
 
 \begin{cor}
 Let the functor $\tlHI{n}$ be given as above.
@@ -726,7 +726,7 @@ are straight-forward to verify:
 Let $\tgHI{n}$ denote the functor that sends $F$ to the kernel of
 the surjection $F \to \tlHI{n}F$. Then the following are true:
 \begin{enumerate}
-\item $\tgHI{n}$ is a radical.
+\item $\tgHI{n}$ is an idempotent pre-radical.
 \tinyskip
 
 \item the essential image of $\tgHI{n}$ is $\THI{n}$, the 
@@ -740,7 +740,8 @@ restriction to which $\tgHI{n}$ is the identity.
 \end{prop}
 \begin{proof}
 Statement (1) follows from Prop. \ref{prop_rad_eq_corad} and
-the fact that $\tlHI{n}$ is a coradical. To see that $\tgHI{n}$
+the fact that $\tlHI{n}$ is a coradical (and thus an idempotent 
+pre-coradical). To see that $\tgHI{n}$
 acts as the identity on $\THI{n}$, note that for any $F \in \THI{n}$
 $\tlHI{n} F = 0$. 
 
@@ -751,7 +752,7 @@ Finally, for $F \in \HI$, we have the short exact sequence
 Since $\tgHI{n}$ is a radical, $\tlHI{n} \tgHI{n}F = 0$. Therefore,
 $\tgHI{n} \in \THI{n}$ as desired.
 
-Finally, (3) follows from Prop. \ref{prop_rad_and_coref}.
+Finally, (3) follows from Cor. \ref{cor_tt_ref_and_coref}.
 \end{proof}
 
 \begin{prop}\label{prop_THI_properties}

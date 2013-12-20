@@ -478,7 +478,7 @@ certainly,
 The dual statement follows from Prop. \ref{prop_rad_eq_corad}.
 \end{proof}
 
-\begin{thm}\label{thm_corad_implies_tt}
+\begin{thm}\label{thm_precorad_eq_tt}
 Let $\Cat{A}$ be a well-powered Abelian category. Then there exists
 a one-to-one correspondence between idempotent pre-coradicals and
 torsion theories on $\Cat{A}$ whose full subcategories are defined 
@@ -492,7 +492,8 @@ by
 Obtaining an idempotent pre-coradical from a torsion theory is
 established by Prop. \ref{prop_tt_to_corad}. Therefore, it suffices
 to show that $(\Cat{T}, \Cat{F})$ as given in the statement of the
-theorem defines a torsion theory on $\Cat{A}$.
+theorem defines a torsion theory on $\Cat{A}$, and the associations
+define quasi-inverses of one another.
 
 To do this, we appeal to Prop. \ref{prop_tt_suff_cond}. In 
 particular, we show that the only object common to both $\Cat{T}$
@@ -506,7 +507,7 @@ pre-coradical, $\ker(X \to \phi(X)) \in \Cat{T}$.
 \end{proof}
 
 As we have mentioned in Remark \ref{rmk_rad_corad_dual}, there is
-a result corresponding to Theorem \ref{thm_corad_implies_tt} for 
+a result corresponding to Theorem \ref{thm_precorad_eq_tt} for 
 radicals: every idempotent pre-radical $\kappa$ is in one-to-one 
 correspondence with torsion theories on $\Cat{A}$ defined by
 \begin{align*}
@@ -515,11 +516,11 @@ correspondence with torsion theories on $\Cat{A}$ defined by
 \end{align*}
 In fact, we have the following.
 
-\begin{cor}
+\begin{cor}\label{cor_tt_ref_and_coref}
 Let $\phi$ be an idempotent pre-coradical, and let $\kappa$ be the 
 idempotent pre-radical associated to $\phi$ (see Prop. 
 \ref{prop_rad_eq_corad}). Then the torsion theory defined by $\phi$
-in Theorem \ref{thm_corad_implies_tt} is the same as the one for
+in Theorem \ref{thm_precorad_eq_tt} is the same as the one for
 $\kappa$ as defined above.
 
 In this case, $\phi$ is left adjoint to the inclusion $\Cat{F} \to 
@@ -544,7 +545,7 @@ Applying $\hom_{\Cat{A}}(-, Y)$, we have the exact sequence
 \hom_{\Cat{A}}(\kappa(X), Y)
 \]
 Since $\kappa(X) \in \Cat{T}$ (Theorem 
-\ref{thm_corad_implies_tt}) and $\phi(X) \in \Cat{F}$, 
+\ref{thm_precorad_eq_tt}) and $\phi(X) \in \Cat{F}$, 
 $\hom_{\Cat{A}}(\kappa(X), Y) = 0$. Thus,
 \[
 \hom_{\Cat{A}}(\phi(X), Y) = \hom_{\Cat{F}}(\phi(X), Y) \simeq 
@@ -579,7 +580,7 @@ and \emph{hereditary} torsion theories on $\Cat{A}$.
 \pfitem{From coradicals to hereditary torsion theories} : Let 
 $\phi$ be a coradical.
 
-In view of Theorem \ref{thm_corad_implies_tt}, to associate a 
+In view of Theorem \ref{thm_precorad_eq_tt}, to associate a 
 coradical with a hereditary torsion theory, we need only to show
 that $\Cat{T}$ defined by $\{X : \phi(X) = 0\}$ is closed under
 subobjects.
