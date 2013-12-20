@@ -25,7 +25,7 @@ That is, for every $f: A \to B$, the following diagram commutes.
 \begin{tikzcd}
 A \arrow{r}{f} \arrow{d}{\eta_A} &
 B \arrow{d}{\eta_B} \\
-\phi A \arrow{r}{\phi f} 
+\phi A \arrow{r}{\phi(f)} 
 &\phi B
 \end{tikzcd}
 \]
@@ -145,7 +145,7 @@ $\eta$, we have the following commutative diagram:
 0 \arrow{r} &
 \kappa(X) \arrow{r} \arrow[dotted]{d} &
 X \arrow{r}{\eta_X} \arrow{d}{f} &
-\phi(X) \arrow{r} \arrow{d}{\phi f} &
+\phi(X) \arrow{r} \arrow{d}{\phi(f)} &
 0 \\
 0 \arrow{r} &
 \kappa(Y) \arrow{r} &
@@ -207,20 +207,20 @@ K \arrow{r}{g} \arrow[twoheadrightarrow]{d}{\eta_K} &
 A \arrow{r}{f} \arrow[twoheadrightarrow]{d}{\eta_A} &
 B \arrow{r} \arrow[equal]{d} &
 0 \\
-& \phi(K) \arrow{r}{\phi f} &
+& \phi(K) \arrow{r}{\phi(f)} &
 \phi(A) \arrow{r} &
 B \arrow{r} &
 0
 \end{tikzcd}
 \]
-In particular, we show that $\cok \phi f = B$. Indeed, we have
+In particular, we show that $\cok \phi(f) = B$. Indeed, we have
 that $\eta_K: K \to \phi(K)$ is surjective. Therefore,
 \begin{align*}
-\cok \phi f  &= \cok K \to \phi(K) \to \phi(A) \\
+\cok \phi(f) &= \cok K \to \phi(K) \to \phi(A) \\
              &= \cok K \to A \to \phi(A)
 \end{align*}
 But the map from $A \to B$ factors through $\phi(A)$. It follows
-that $\cok \phi f = B$.
+that $\cok \phi(f) = B$.
 
 Now consider the following commutative diagram:
 \[
@@ -463,7 +463,7 @@ $\phi(Y)\stackrel{i_{\phi(Y)}}{\to} Y$ be the $\Cat{T}$-subobjects
 of $X$ and $Y$ respectively. Consider the image of $\phi(X)$ under 
 $f i_{\phi(X)}$, which is a $\Cat{T}$ subobject of $Y$. Hence, 
 there exists a map $\im i_{\phi(X)}f \to \phi(Y)$, and define the 
-map $\phi f$ to be the composition of $\phi(X) \to \im 
+map $\phi(f)$ to be the composition of $\phi(X) \to \im 
 i_{\phi(X)}f \to \phi(Y)$.
 
 It is clear from the construction that $\phi$ is a subobject functor.
@@ -556,8 +556,9 @@ as desired.
 
 It should be evident from the definition that coradicals are not
 in one-to-one correspondence with torsion theories, although they
-do give rise to them. We now characterize the properties of the 
-torsion theories that arise from coradicals.
+do give rise to unique torsion theories (see Theorem 
+\ref{thm_corad_equiv_htt}). We now characterize the properties of 
+the torsion theories that arise from coradicals.
 
 \begin{defn}
 Let $(\Cat{T}, \Cat{F})$ be a torsion theory on $\Cat{A}$. We say 
@@ -598,7 +599,7 @@ X \arrow{r}{f} \arrow[equals]{d} &
 Y \arrow{r} \arrow{d} &
 0 \\
 & \phi(K) = K \arrow{r}{\phi i = i} &
-\phi(X) = X \arrow{r}{\phi f} &
+\phi(X) = X \arrow{r}{\phi(f)} &
 \phi(Y) \arrow{r} &
 0,
 \end{tikzcd}
@@ -611,11 +612,72 @@ and let $\phi$ be its associated idempotent pre-coradical. We show
 that $\phi$ is right exact.
 
 We begin by demonstrating that for $f: X \to Y$ a surjection in 
-$\Cat{A}$, then $\phi(Y)$ is isomorphic to the pushout of
+$\Cat{A}$, then $\phi(Y)$ is isomorphic to the push-out $P$ of
 \[
 \begin{tikzcd}
-X \arrow{r} \arrow{d} & Y \\
-\phi(X).
+X \arrow{r} \arrow{d} & Y \arrow[dotted]{d}\\
+\phi(X) \arrow[dotted]{r} & P
+\end{tikzcd}
+\]
+To do this, we first show that $\phi(Y)$ has the following 
+property: for all $Y' \in \Cat{F}$ and surjections $Y \onto Y'$, 
+there exists an unique map $\phi(Y) \to Y'$ such that
+\[
+\begin{tikzcd}
+Y \arrow[twoheadrightarrow]{rd}{\eta_Y} \arrow{rr} & & Y' \\
+&\phi(Y) \arrow[dotted]{ru}.
+\end{tikzcd}
+\]
+To see this, notice that $\kappa(Y) = \ker( Y 
+\stackrel{\eta_Y}{\to} \phi(Y))$ is an object of $\Cat{T}$.
+Therefore,
+\[
+\kappa(Y) \to Y \to Y'
+\]
+is the zero map. Since $\phi(Y)$ is the cokernel of $\kappa(Y)
+\to Y$, there exists a map $\phi(Y) \to Y'$ with the desired 
+property.
+
+Now, since $P$ is the push-out, and $\phi(Y)$ fits into the 
+commutative diagram
+\begin{equation}\label{eq_corad_pushout}
+\begin{tikzcd}
+X \arrow{r} \arrow{d} & Y \arrow{d} \\
+\phi(X) \arrow{r} &\phi(Y)
+\end{tikzcd}
+\end{equation}
+certainly there exists an unique map $P \to \phi(Y)$. Furthermore,
+the map $\phi(X) \to P$ is a surjection since it is the push-out
+of the surjection $X \to Y$. Since $\phi(X) \in \Cat{F}$ which is
+closed under quotients, it follows that $P \in \Cat{F}$. 
+The map $Y \to P$ is also a surjection (once again
+because it is the push-out of a surjection $X \to \phi(X)$. It 
+follows by the previous point that there exists an unique map
+$\phi(Y) \to P$.
+
+Since both maps are unique, it follows that each map is an 
+isomorphism and define the inverse of the other. Furthermore,
+Diagram \ref{eq_corad_pushout} is a push-out diagram.
+
+To complete the proof that $\phi$ is right exact, we need only to 
+show that for an exact sequence 
+\[
+0 \to X \stackrel{f}{\to} Y \stackrel{g}{\to} Z \to 0
+\] 
+in $\Cat{A}$, $\phi(Z)$ is the cokernel of $\phi(X) \to \phi(Y)$. 
+Consider the commutative diagram
+\[
+\begin{tikzcd}
+0 \arrow{r} & 
+X \arrow{r}{f} \arrow{d}{\eta_X} &
+Y \arrow{r}{g} \arrow{d}{\eta_Y}&
+Z \arrow{r} &
+0 \\
+& \phi(X) \arrow{r}{\phi(f)} &
+\phi(Y) \arrow{r}{\phi g} \arrow{rd} &
+\phi(Z) \arrow{r} &
+0 \\
+& & & \cok \phi(f)
 \end{tikzcd}
 \]
 \end{proof}
