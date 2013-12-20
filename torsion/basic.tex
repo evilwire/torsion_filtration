@@ -296,7 +296,7 @@ Certainly $0 \in \Cat{T} \cap \Cat{F}$. Therefore, neither
 subcategories are empty. We also have the following characterization
 for the torsion and torsionfree subcategories.
 
-\begin{prop}
+\begin{prop}\label{prop_tt_properties}
 Let $\Cat{A}$ be a well-powered abelian category, and $\Cat{T}$ 
 and $\Cat{F}$ are two nonempty full subcategories. Then, $\Cat{T}$ 
 is a torsion subcategory of $\Cat{A}$ if and only if $\Cat{T}$ is 
@@ -304,7 +304,7 @@ closed under extensions, direct sums and quotients.
 
 Dually, $\Cat{F}$ is a torsionfree subcategory of $\Cat{A}$ if and 
 only if $\Cat{F}$ is closed under extensions, direct products, and 
-submodules.
+subobjects.
 \end{prop}
 
 \begin{proof}
@@ -577,11 +577,36 @@ and \emph{hereditary} torsion theories on $\Cat{A}$.
 \end{thm}
 \begin{proof}
 
-\pfitem{From coradicals to hereditary torsion theories} : Let 
+\pfitem{From coradicals to cohereditary torsion theories} : Let 
 $\phi$ be a coradical.
 
 In view of Theorem \ref{thm_precorad_eq_tt}, to associate a 
 coradical with a hereditary torsion theory, we need only to show
 that $\Cat{F}$ defined by $\{X : \phi(X) = X\}$ is closed under
-subobjects.
+quotients.
+
+Therefore, Let $f: X \to Y$ be a surjection with $X \in \Cat{F}$,
+and write $K$ for the kernel of $f$. It follows from Prop. 
+\ref{prop_tt_properties} that $\Cat{F}$ is closed under 
+subobjects. Hence, $K \in \Cat{F}$. Furthermore, we have, by the
+right exactness of $\phi$, we have
+\[
+\begin{tikzcd}
+0 \arrow{r} & 
+K \arrow{r}{i} \arrow[equals]{d} &
+X \arrow{r}{f} \arrow[equals]{d} &
+Y \arrow{r} \arrow{d} &
+0 \\
+& \phi(K) = K \arrow{r}{\phi i = i} &
+\phi(X) = X \arrow{r}{\phi f} &
+\phi(Y) \arrow{r} &
+0,
+\end{tikzcd}
+\]
+whence $Y = \phi(Y)$ as desired. It follows that $Y \in \Cat{F}$.
+
+\pfitem{From cohereditary torsion theory to coradicals} : Let
+$(\Cat{T}, \Cat{F})$ be a cohereditary torsion theory on $\Cat{A}$,
+and let $\phi$ be its associated idempotent pre-coradical. We show
+that $\phi$ is right exact.
 \end{proof}
