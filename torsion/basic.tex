@@ -25,8 +25,8 @@ That is, for every $f: A \to B$, the following diagram commutes.
 \begin{tikzcd}
 A \arrow{r}{f} \arrow{d}{\eta_A} &
 B \arrow{d}{\eta_B} \\
-\phi A \arrow{r}{\phi(f)} 
-&\phi B
+\phi(A) \arrow{r}{\phi(f)} 
+&\phi(B)
 \end{tikzcd}
 \]
 
@@ -598,8 +598,8 @@ K \arrow{r}{i} \arrow[equals]{d} &
 X \arrow{r}{f} \arrow[equals]{d} &
 Y \arrow{r} \arrow{d} &
 0 \\
-& \phi(K) = K \arrow{r}{\phi i = i} &
-\phi(X) = X \arrow{r}{\phi(f)} &
+& \phi(K) \arrow{r}{\phi(i) = i} &
+\phi(X) \arrow{r}{\phi(f)} &
 \phi(Y) \arrow{r} &
 0,
 \end{tikzcd}
@@ -671,13 +671,35 @@ Consider the commutative diagram
 0 \arrow{r} & 
 X \arrow{r}{f} \arrow{d}{\eta_X} &
 Y \arrow{r}{g} \arrow{d}{\eta_Y}&
-Z \arrow{r} &
+Z \arrow{r}\arrow{d}{\eta_Z} &
 0 \\
 & \phi(X) \arrow{r}{\phi(f)} &
-\phi(Y) \arrow{r}{\phi g} \arrow{rd} &
+\phi(Y) \arrow{r}{\phi(g)} \arrow{rd}{h} &
 \phi(Z) \arrow{r} &
 0 \\
-& & & \cok \phi(f)
+& & & \cok \phi(f) \arrow[dotted]{u}{p} \arrow{r} &0,
 \end{tikzcd}
 \]
+where the top row is exact. Since the composition $\phi(X) \to 
+\phi(Y) \to \phi(Z)$ is 0, there exists an unique map $\cok 
+\phi(f) \stackrel{p}{\to} \phi(Z)$ (shown as the dotted arrow in 
+the diagram above), such that $ph = \phi(g)$.
+
+However, we also have that $h \eta_Y f = h \phi(f) \eta_X = 0$.
+It follows that there exists a map $Z \to \cok \phi(f)$ 
+(represented by the dotted arrow in the following diagram) such 
+that
+\[
+\begin{tikzcd}
+Y \arrow{r}{g}\arrow{d}{\eta_Y} & Z \arrow[dotted]{d} \\
+\phi(Y) \arrow{r} &\cok \phi(f)
+\end{tikzcd}
+\]
+is commutative. But $\phi(Z)$, as a push-out, emits an unique map
+$\phi(Z) \stackrel{p'}{\to} \cok \phi(f)$. Once again, since the 
+maps defined between $\phi(Z)$ and $\cok \phi(f)$ are unique with
+respect to $\phi(g)$ and $h$, it follows that $p$ and $p'$ are 
+isomorphisms and define inverses of one another. This concludes 
+the theorem.
 \end{proof}
+
