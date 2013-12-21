@@ -1,23 +1,23 @@
 \newpage
 \section{Filtration on $\HI$}\label{sect_filtration_hi}
 
-Recall that a weak filtration of a category $\Cat{C}$ is a tower 
+Recall that a weak filtration of a category $\Cat{A}$ is a tower 
 of subcategories
 \[
-\cdots \subset \phi_n\Cat{C} \subset \phi_{n - 1}\Cat{C} \subset \cdots 
-   \subset \Cat{C}
+\cdots \subseteq \phi_n\Cat{A} \subseteq \phi_{n - 1}\Cat{A} 
+   \subseteq \cdots \subseteq \Cat{A}
 \]
-together with reflection functors $\nu_n : \Cat{C} \to F_n\Cat{C}_n$
+together with reflection functors $\phi_n : \Cat{A} \to \phi_n\Cat{A}_n$
 (cf. \ref{def_cat_filtration}.) If we have a suitable notion of
-subobjects in $\Cat{C}$, e.g. if $\Cat{C}$ is abelian, we can 
+subobjects in $\Cat{A}$, e.g. if $\Cat{A}$ is abelian, we can 
 define a stronger notion (as the name suggests).
 
-For the remainder, let $\Cat{C}$ be an abelian category. We have:
+For the remainder, let $\Cat{A}$ be an abelian category. We have:
 
 \begin{defn}
-We say that a filtration $(\Cat{C}, \nu_*)$ is a \DEF{strong 
-filtration} if for each $A \in \Cat{C}$ and $n \in \Z$, $nu_n A$ is 
-a subobject of $A$. Similarly a cofiltration $(\Cat{C}, \gamma_*)$ 
+We say that a filtration $(\Cat{A}, \nu_*)$ is a \DEF{strong 
+filtration} if for each $A \in \Cat{A}$ and $n \in \Z$, $nu_n A$ is 
+a subobject of $A$. Similarly a cofiltration $(\Cat{A}, \gamma_*)$ 
 is a \DEF{strong cofiltration} if $\gamma_n A$ is a quotient of 
 $A$ for each $n$.
 \end{defn}
