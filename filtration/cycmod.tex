@@ -1,15 +1,23 @@
 \newpage
 \section{Filtration on $\CycMod$}\label{sect_filtration_cycmod}
 
-In this section, we extend the filtration defined on $\HI$ to the 
-category of homotopy modules $\HM$. Via the categorical 
-equivalence between $\CycMod$ and $\HM$ (Thm. 
+In this section, we extend the filtration structure defined on 
+$\HI$ to the category of homotopy modules $\HM$. Via the 
+categorical equivalence between $\CycMod$ and $\HM$ (Thm. 
 \ref{thm_cycmod_eq_hm}), we obtain a filtration on the abelian 
 category $\CycMod$.
 
 Throughout the section, we adopt the same notation convention as 
-in Section \ref{sect_cycmod_and_hm} and write $(F_*, \deloop_*)$ for 
-a homotopy module where the $\deloop_n: F_{n} \to \RHI{(F_{n + 1})}$ 
-denotes the $n$-th delooping map (see Def. \ref{def_hm}).
+in Section \ref{sect_cycmod_and_hm} and write $(F_*, \deloop_*)$ 
+for a homotopy module where the $\deloop_n: F_{n} \to 
+\RHI{(F_{n + 1})}$ denotes the $n$-th delooping map (see Def. 
+\ref{def_hm}).
 
+The following lemma will be key to extending the functors 
+$\tlHI{n}$, $\tgHI{n}$ and $\sgHI{n}$ on $\HM$:
 
+\begin{prop}\label{prop_sg_L_R}
+For $F \in \HI$, $\LHI{(\sgHI{n} F)} \simeq \sgHI{n + 1}(\LHI{F})$. 
+Similarly, $\RHI{(\sgHI{n} F)} \simeq \sgHI{n - 1}(\RHI{F})$. Both 
+isomorphisms are natural in $F$.
+\end{prop}
