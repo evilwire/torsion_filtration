@@ -16,8 +16,125 @@ for a homotopy module where the $\deloop_n: F_{n} \to
 The following lemma will be key to extending the functors 
 $\tlHI{n}$, $\tgHI{n}$ and $\sgHI{n}$ on $\HM$:
 
-\begin{prop}\label{prop_sg_L_R}
-For $F \in \HI$, $\LHI{(\sgHI{n} F)} \simeq \sgHI{n + 1}(\LHI{F})$. 
-Similarly, $\RHI{(\sgHI{n} F)} \simeq \sgHI{n - 1}(\RHI{F})$. Both 
-isomorphisms are natural in $F$.
+\begin{prop}\label{prop_tl_L_R}
+For $F \in \HI$, 
+\[
+\LHI{(\tlHI{n} F)} \simeq \tlHI{n + 1}(\LHI{F})
+\]
+and
+\[
+\RHI{(\tlHI{n} F)} \simeq \tlHI{n - 1}(\RHI{F}).
+\] 
+Both isomorphisms are natural in $F$.
 \end{prop}
+\begin{proof}
+For ease of notation, let $L$ be the functor defined by $F \mapsto
+\LHI{F}$, and $R$ be the functor given by $F \mapsto \RHI{F}$, and
+$(L, R)$ form an adjoint pair, and $RL$ is naturally ismorphic to
+the identity (Prop. \ref{prop_unit_iso}).
+
+The key is to prove that the diagram
+\begin{equation}\label{eq_Ltl_com_diag}
+\begin{tikzcd}
+\L^{n + 1}R^{n + 1}LF \arrow{r}{\eta^{n + 1}_{LF}} \arrow{d} &
+LF \arrow[equals]{d} \\
+L(L^{n}R^nF) \arrow{r}{L\eta^{n}_F} &
+LF.
+\end{tikzcd}
+\end{equation}
+is commutative. Here, $\eta^n$ denotes the counit $L^nR^n \to \id$,
+and the vertical map $L^{n + 1}R^{n + 1}LF \to L(L^nR^n F)$ is 
+given by the map $L^{n + 1}R^n \epsilon^{-1}$, where $\epsilon$ is
+the unit $\id \to RL$ and an isomorphism.
+
+To establish that the above diagram is commutative, we proceed by 
+induction on $n$. The case $n = 0$ follows by the counit-unit 
+adjunction. That is, the composition
+\[
+LF \stackrel{L\epsilon}{\to} LRLF \stackrel{\eta L}{\to} LF.
+\]
+is the identity. Therefore, $\eta L = L\epsilon^{-1}$, and the
+following diagram commutes:
+\[
+\begin{tikzcd}
+LRL F \arrow{r}{\eta L} \arrow{d}{L \epsilon^{-1}} &
+LF \arrow[equals]{d} \\
+LF \arrow[equals]{r} & LF.
+\end{tikzcd}
+\]
+
+Now, suppose we have
+\begin{equation}\label{eq_induct_hyp_tl_diag}
+\begin{tikzcd}
+\L^{n}R^{n}LF \arrow{r}{\eta^{n}_{LF}} \arrow{d} &
+LF \arrow[equals]{d} \\
+L(L^{n - 1}R^{n - 1}F) \arrow{r}{L\eta^{n - 1}_F} &
+LF.
+\end{tikzcd}
+\end{equation}
+There exists a natural transformation $\eta': L^n R^n \to 
+L^{n - 1} R^{n - 1}$. Applying this to $\epsilon^{-1}: RL F \to 
+F$, we have the following commutative diagram
+\[
+\begin{tikzcd}
+L^n R^n RL F \arrow{r}{\eta'_{RLF}} 
+   \arrow{d}{L^nR^n \epsilon^{-1}} &
+L^{n - 1}R^{n - 1} RLF 
+   \arrow{d}{L^{n - 1}R^{n - 1}\epsilon^{-1}} \\
+L^nR^n F \arrow{r}{\eta'_F} &
+L^{n - 1}R^{n - 1} F,
+\end{tikzcd}
+\]
+and applying $L$, we have
+\[
+\begin{tikzcd}
+L^{n + 1} R^{n + 1} L F \arrow{r}{L\eta'_{RLF}} 
+   \arrow{d}{L^{n + 1}R^n \epsilon^{-1}} &
+L^{n}R^n LF \arrow{d}{L^nR^{n - 1}\epsilon^{-1}} \\
+L^{n + 1}R^n F \arrow{r}{L\eta'_F} &
+L^{n}R^{n - 1} F,
+\end{tikzcd}
+\]
+which fits together with Diagram \ref{eq_induct_hyp_tl_diag} to 
+give the following commutative diagram:
+\[
+\begin{tikzcd}
+L^{n + 1} R^{n + 1} L F \arrow{r}{L\eta'_{RLF}} 
+   \arrow{d}{L^{n + 1}R^n \epsilon^{-1}}
+   \arrow[bend left]{rr}{\eta^{n + 1}_{LF}} &
+L^{n}R^n LF \arrow{d}{L^nR^{n - 1}\epsilon^{-1}}
+   \arrow{r}{\eta^{n}_{LF}} &
+LF \arrow[equals]{d} \\
+L^{n + 1}R^n F \arrow{r}{L\eta'_F} 
+   \arrow[bend right]{rr}{L\eta^n_F} &
+L^{n}R^{n - 1} F \arrow{r}{L\eta^{n - 1}_F} &
+LF.
+\end{tikzcd}
+\]
+Notice that the composition of the top and bottom horizontal 
+arrows (indicated by the bent arrows) in the diagram above are 
+precisely $\eta^{n + 1}_KF$ and $L \eta^n_F$ respectively, and
+the claim is proved.
+
+Returning to Diagram \ref{eq_Ltl_com_diag}, which we now know to 
+be commutative, notice that the cokernel of the top row is 
+$\tlHI{n + 1}LF$, and since $L$ is right exact, the cokernel of 
+the bottom row is $L\tlHI{n} F$. By the Five Lemma, it is clear 
+that $\tlHI{n + 1}LF \simeq L\tlHI{n} F$.
+
+For the other isomorphism, apply similar arguments to the
+diagram
+\[
+\begin{tikzcd}
+L^{n - 1}R^{n - 1}(RF) \arrow{r}{\eta^n_{RF}} 
+   \arrow{d}{\eta_{L^{n - 1}R^{n - 1}F}} &
+RF \arrow[equals]{d} \\
+R (L^n R^n F) \arrow{r}{R \eta^n} &
+RF,
+\end{tikzcd}
+\]
+using the fact that the functor $R$ is exact. The diagram itself
+can be shown to be commutative by using similar arguments as in
+the case for Diagram \ref{eq_Ltl_com_diag}.
+\end{proof}
+
