@@ -155,7 +155,8 @@ $\HM$. Indeed, if $F_{k - 1} \simeq \RHI{(F_{k})}$, then
    \RHI{(\tlHI{n + k}(F_{k}))} \defeq
    \RHI{(\tlHM{n}(F_{k}))},
 \]
-for $n + k > 0$, (and trivially for $n + k \leq 0$).
+for $n + k > 0$, (and trivially for $n + k \leq 0$). Call this
+map $\deloop$.
 
 From the above, we may define a map $\susp: 
 \LHI{\tlHM{n}(F_*)_{k - 1}} \to \tlHM{n}(F_*)_{k}$ given by 
@@ -167,6 +168,11 @@ with the counit map
 \[
 \LHI{\RHI{(\tlHM{n}(F_*)_{k})}}\to \tlHM{n}(F_*)_{k}.
 \]
+\begin{lem}
+The map $w$ and $s$ are adjoints under the adjunction between the 
+functors $L: F \mapsto \LHI{F}$ and $R: F \mapsto \RHI{F}$.
+\end{lem}
+\begin{proof}
 Since the isomorphism $\tlHM{n}(F_*)_{k - 1} \simeq 
 \RHI{(\tlHM{n}(F_*)_k)}$ given above is the composition
 \[
@@ -174,9 +180,15 @@ Since the isomorphism $\tlHM{n}(F_*)_{k - 1} \simeq
    \to \RHI{(\tlHI{n + k} F_k)},
 \]
 it is easy to see that $\susp$ is its adjoint.
+\end{proof}
 
 Furthermore, functoriality of $\tlHM{n}$ follows from the 
 naturality of the isomorphisms above (Prop. \ref{prop_tl_L_R}).
+What we have just established is the following:
+
+\begin{lem}
+For each $n \in \Z$, $\tlHM{n}$ is an endofunctor of $\HM$.
+\end{lem}
 
 For ease of notation, we write $\tlHM{n}(F)$ for the essential 
 image of $(F_*, \deloop_*)$ (dropping the ``$_*$'' on $F$ to avoid 
@@ -184,3 +196,23 @@ redundancy) and we write $\tlHM[k]{n}(F_*)$ for the $k$-th graded
 component of $\tlHM{n}(F_*)$.
 
 We have the following:
+
+\begin{prop}
+For each $n$, the functor $\tlHM{n}$ is a coradical.
+\end{prop}
+
+\begin{cor}
+There exists a strong filtration of $\HM$
+\[
+\cdots \subseteq \tgHM{i}\HM \subseteq \tgHM{i - 1} \subseteq 
+   \cdots \subseteq \HM
+\]
+and a strong cofiltration of $\HM$
+\[
+\cdots \subseteq \tlHM{i}\HM \subseteq \tlHM{i + 1} \subseteq 
+   \cdots \subseteq \HM
+\]
+where $(F_*, \deloop_*) \in \tgHM{i}\HM$ is characterized by
+$\tgHM{i}(F) = 0$, and $(F_*, \deloop_*) \in \tlHM{i}\HM$ is
+characterized by $\tlHM{i}(F) = F_*$.
+\end{cor}
