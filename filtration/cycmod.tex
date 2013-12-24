@@ -149,18 +149,27 @@ for the graded homotopy invariant sheaf with transfers where
 \end{cases}
 \]
 By the previous proposition, $\tlHM{n}(F_*)$ is an object of 
-$\HM$. Indeed, if $F_{k} \simeq \LHI{F_{k - 1}}$, then 
-\[
-\tlHM{n}(F_*)_k \defeq \tlHI{n + k}(F_{k}) \simeq 
-   \LHI{\tlHI{n + k - 1}(F_{k - 1})}
-   \defeq \LHI{\tlHM{n}(F_*)_{k - 1}}.
-\]
-Furthermore, if $F_{k - 1} \simeq \RHI{(F_{k})}$, then
+$\HM$. Indeed, if $F_{k - 1} \simeq \RHI{(F_{k})}$, then
 \[
 \tlHM{n}(F_*)_{k - 1} \defeq \tlHI{n + k - 1}(F_{k - 1}) \simeq 
    \RHI{(\tlHI{n + k}(F_{k}))} \defeq
-   \RHI{(\tlHM{n}(F_{k}))}.
+   \RHI{(\tlHM{n}(F_{k}))},
 \]
+for $n + k > 0$, (and trivially for $n + k \leq 0$).
+
+The suspension $\LHI{\tlHM{n}(F_*)_{k - 1}} \to 
+\tlHM{n}(F_*)_{k}$ is given by composing the isomorphism
+\[
+\LHI{\tlHM{n}(F_*)_{k - 1}} \simeq \LHI{\RHI{(\tlHM{n}(F_*)_{k})}}
+\]
+with the counit map
+\[
+\LHI{\RHI{(\tlHM{n}(F_*)_{k})}}\to \tlHM{n}(F_*)_{k}.
+\]
+It is straight-forward to verify that if $\LHI{F_{k - 1}} \to 
+F_{k}$ is the suspension map for which its adjunction 
+$\RHI{(F_{k})} \to F_{k - 1}$ is the isomorphism given above,
+
 Functoriality of $\tlHM{n}$ follows from the naturality of the
 isomorphisms above (Prop. \ref{prop_tl_L_R}).
 
@@ -168,3 +177,5 @@ For ease of notation, we write $\tlHM{n}(F)$ for the essential
 image of $(F_*, \deloop_*)$ (dropping the ``$_*$'' on $F$ to avoid 
 redundancy) and we write $\tlHM[k]{n}(F_*)$ for the $k$-th graded 
 component of $\tlHM{n}(F_*)$.
+
+We have the following:
