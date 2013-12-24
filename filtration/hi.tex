@@ -291,28 +291,29 @@ $\DMeff$), there exists a slice triangle:
 Applying the cohomologicaly functor $\sheaf{H}^0$, we obtain the
 following long exact sequence
 \[
-\cdots \stackrel{\delta_{-1}}{\to} \sheaf{H}^0 \sgDM{n} F \to 
-   \sheaf{H}^0 F \to \sheaf{H}^0 \slDM{n} F
-   \stackrel{\delta_0}{\to} \sheaf{H}^1 \sgDM{n} F \to \cdots
+\cdots \stackrel{\delta_{-1}}{\to} \sheaf{H}^0 \sgDM{n}(F) \to 
+   \sheaf{H}^0 F \to \sheaf{H}^0 \slDM{n}(F)
+   \stackrel{\delta_0}{\to} \sheaf{H}^1 \sgDM{n}(F) \to \cdots
 \]
 where $\sheaf{H}^i F \defeq \sheaf{H}^0F[i]$. In particular, we
 have the following exact sequence
 \begin{equation}\label{eq_slice_DM_exact_seq}
-\sheaf{H}^0 \slDM{n} F \to \sheaf{H}^0 F \to \sheaf{H}^0 
-\sgDM{n} F \stackrel{\delta_0}{\to} \sheaf{H}^1 \sgDM{n} F.
+\sheaf{H}^0 \slDM{n}(F) \to \sheaf{H}^0 F \to \sheaf{H}^0 
+\sgDM{n}(F) \stackrel{\delta_0}{\to} \sheaf{H}^1 \sgDM{n}(F).
 \end{equation}
-Notice that $\sheaf{H}^0F = F$ and $\sgDM{n} F = \ihomDMf(\Z(1)[1], 
-F)(1)[1]$. So by Prop. \ref{prop_LRDM_eq_LRHI}, $\sheaf{H}^0 
-\sgDM{n}F = \LHI[n]{(\RHI[n]{F})}$. Therefore, the exact sequence
-in Eq. \ref{eq_slice_DM_exact_seq} reduces to the following
+Notice that $\sheaf{H}^0F = F$ and $\sgDM{n}(F) = 
+\ihomDMf(\Z(1)[1], F)(1)[1]$. So by Prop. \ref{prop_LRDM_eq_LRHI}, 
+$\sheaf{H}^0 \sgDM{n}(F) = \LHI[n]{(\RHI[n]{F})}$. Therefore, the 
+exact sequence in Eq. \ref{eq_slice_DM_exact_seq} reduces to the 
+following:
 \[
-\LHI[n]{(\RHI[n]{F})} \to F \to \sheaf{H}^0{\slDM{n} F} 
-   \stackrel{\delta_0}{\to} \sheaf{H}^1 \sgDM{n} F.
+\LHI[n]{(\RHI[n]{F})} \to F \to \sheaf{H}^0{\slDM{n}(F)} 
+   \stackrel{\delta_0}{\to} \sheaf{H}^1 \sgDM{n}(F).
 \]
 where the map $\LHI[n]{(\RHI[n]{F}} \to F$ is the counit. If we 
-show that $\sheaf{H}^1 \sgDM{n} F = 0$, then it is clear that
-$\sheaf{H}^0 \slDM{n} F \simeq \tlHI{n}(F)$. The claim that 
-$\sheaf{H}^1 \sgDM{n}F = 0$ is precisely the content of Lemma 
+show that $\sheaf{H}^1 \sgDM{n}(F) = 0$, then it is clear that
+$\sheaf{H}^0 \slDM{n}(F) \simeq \tlHI{n}(F)$. The claim that 
+$\sheaf{H}^1 \sgDM{n}(F) = 0$ is precisely the content of Lemma 
 \ref{lem_H1_sgDM_vanishes}, which we prove shortly. First, we have
 the following.
 
@@ -391,7 +392,7 @@ and the lemma is established.
 \end{proof}
 
 \begin{lem}\label{lem_H1_sgDM_vanishes}
-For $F \in \HI$, $\sheaf{H}^1 \sgDM{n} F = 0$.
+For $F \in \HI$, $\sheaf{H}^1 \sgDM{n}(F) = 0$.
 \end{lem}
 \begin{proof}
 Applying Lemma \ref{lem_rhomDM_and_contract}, we see that the
