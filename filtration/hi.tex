@@ -134,8 +134,8 @@ that $\LHI[n]{\HI} \neq \LHI[n + 1]{\HI}$ for all $n \in \N$.
 \begin{prop}
 Let $\sgHI{n}$ denote the functor $F \mapsto 
 \LHI[n]{(\RHI[n]{F})}$. Then $\sgHI{n}$ is right adjoint to the 
-inclusion of $\LHI[n]{\HI}$. In particular, $(\HI, \sgHI{n})_{n 
-\in \N}$ defines a (nontrivial) weak filtration of $\HI$.
+inclusion of $\LHI[n]{\HI}$. In particular, $(\HI, \sgHI{*})$ 
+defines a (nontrivial) weak filtration of $\HI$.
 \end{prop}
 \begin{proof}
 Fix $F \in \LHI[n]{HI}$ and $G \in \HI$, and fix a map $f : 
@@ -483,35 +483,35 @@ $\LHI[n]{\RHI[n]{(\LHI[m]{\RHI[m]{F}})}} \simeq
 isomorphism fits into a commutative square
 \begin{equation}\label{eq_prop_sg_tl_com_sq}
 \begin{tikzcd}
-\sgHI{m}\sgHI{n} F \arrow{r}{f} \arrow{d}{\simeq} & 
-\sgHI{n} F \arrow[equal]{d} \\
-\sgHI{n}\sgHI{m} F \arrow{r}{g} &
-\sgHI{n} F,
+\sgHI{m}\sgHI{n}(F) \arrow{r}{f} \arrow{d}{\simeq} & 
+\sgHI{n}(F) \arrow[equal]{d} \\
+\sgHI{n}\sgHI{m}(F) \arrow{r}{g} &
+\sgHI{n}(F),
 \end{tikzcd}
 \end{equation}
-where, the map $f$ is counit of $\sgHI{n} F$, and the map $g$
-is obtained from applying $\sgHI{n}$ to the counit $\sgHI{m} F 
+where, the map $f$ is counit of $\sgHI{n}(F)$, and the map $g$
+is obtained from applying $\sgHI{n}$ to the counit $\sgHI{m}(F) 
 \to F$.
 
-The cokernel of $f$ is precisely $\tlHI{m} \sgHI{n} F$, and we 
+The cokernel of $f$ is precisely $\tlHI{m} \sgHI{n}(F)$, and we 
 claim that the cokernel of the map on the bottom row map is 
 $\sgHI{n} \tlHI{m}(F)$. Indeed, $\sgHI{n}$ is right exact. Applying 
 $\sgHI{n}$ to the exact sequence
 \[
-\sgHI{m} F \to F \to \tlHI{m}(F) \to 0,
+\sgHI{m}(F) \to F \to \tlHI{m}(F) \to 0,
 \]
 we have
 \[
-\sgHI{n} \sgHI{m} F \to \sgHI{n} F \to \sgHI{n} \tlHI{m}(F) \to 0.
+\sgHI{n} \sgHI{m}(F) \to \sgHI{n}(F) \to \sgHI{n} \tlHI{m}(F) \to 0.
 \]
-It is clear that $\tlHI{m} \sgHI{n} F \simeq \sgHI{n} \tlHI{m}(F)$.
+It is clear that $\tlHI{m} \sgHI{n}(F) \simeq \sgHI{n} \tlHI{m}(F)$.
 Since the square in Display \ref{eq_prop_sg_tl_com_sq} is 
 functorial, it follows that the isomorphism identified above is
 natural in $F$.
 
 To conclude, suppose $m \leq n$. Then $\RHI[n]{(\tlHI{m}(F))} = 0$
 (Prop \ref{prop_HI_lower_slice}). It follows that $\sgHI{n} 
-\tlHI{m}(F) = 0$, and so is true of $\tlHI{m} \sgHI{n} F$.
+\tlHI{m}(F) = 0$, and so is true of $\tlHI{m} \sgHI{n}(F)$.
 \end{proof}
 
 % and we can talk more about the relationship between the slices
@@ -688,11 +688,11 @@ $\tlHI{n}\tlHI{m} = \tlHI{n}$.
 Fix $F \in \HI$. We have the following commutative diagram:
 \[
 \begin{tikzcd}
-\sgHI{n}(\sgHI{m} F) \arrow{r}\arrow{d}{\cuHI_{\sgHI{m} F}} &
-\sgHI{n} F \arrow{r}\arrow{d}{\cuHI_F} &
-\sgHI{n}(\tlHI{m}(F)) \arrow{r}\arrow{d}{\cuHI_{\tlHI{m}(F)}} &
+\sgHI{n}\sgHI{m}(F) \arrow{r}\arrow{d}{\cuHI_{\sgHI{m}(F)}} &
+\sgHI{n}(F) \arrow{r}\arrow{d}{\cuHI_F} &
+\sgHI{n}\tlHI{m}(F) \arrow{r}\arrow{d}{\cuHI_{\tlHI{m}(F)}} &
 0 \\
-\sgHI{m} F \arrow{r} &
+\sgHI{m}(F) \arrow{r} &
 F \arrow{r} &
 \tlHI{m}(F) \arrow{r}&
 0,
@@ -701,16 +701,17 @@ F \arrow{r} &
 where $\sgHI{n}$ denotes the functor $F \mapsto 
 \LHI[n]{\RHI[n]{F}}$, and likewise for $\sgHI{m}$. Notice that the 
 vertical arrows are the counits, which we have labelled 
-$\cuHI_{\sgHI{m}F}$, $\cuHI_F$, and $\cuHI_{\tlHI{m}(F)}$. 
+$\cuHI_{\sgHI{m}(F)}$, $\cuHI_F$, and $\cuHI_{\tlHI{m}(F)}$. 
 Furthermore, by the same arguments as in the Snake Lemma, we have 
 the ``snake tail'' exact sequence:
 \[
-\cok \cuHI_{\sgHI{m}F} \to \tlHI{n}(F) \to \tlHI{n}\tlHI{m}(F) \to 0.
+\cok \cuHI_{\sgHI{m}(F)} \to \tlHI{n}(F) \to \tlHI{n}\tlHI{m}(F) 
+   \to 0.
 \]
-However, by Prop. \ref{prop_unit_iso} $\cuHI_{\sgHI{m} F}$ is an 
+However, by Prop. \ref{prop_unit_iso} $\cuHI_{\sgHI{m}(F)}$ is an 
 isomorphism, whence $\tlHI{n}(F) \simeq \tlHI{n}\tlHI{m}(F)$. 
 Equality follows from the fact that both are quotients by the 
-image of $\sgHI{n} F$ in $F$.
+image of $\sgHI{n}(F)$ in $F$.
 \end{proof}
 
 It is clear that $\TFHI{*}$ define the same strong cofiltration as
@@ -759,7 +760,7 @@ Let $\THI{n}$, $n = 0, 1,\dots$ be defined as above. Furthermore,
 
 \begin{enumerate}
 \item for all $n \geq 0$, $\THI{n}$ is the full subcategory of
-objects $F \in \HI$ such that $\sgHI{n}F \to F$ is surjective.
+objects $F \in \HI$ such that $\sgHI{n}(F) \to F$ is surjective.
 \tinyskip
 
 \item for $m > n > 0$, $\THI{m} \subset \THI{n}$.
@@ -784,9 +785,9 @@ to $\tgHI{m}\tlHI{n}$, and is the (constant) $0$ functor if $m > n$.
 \pfitem{(1)} : For all $F \in \HI$ and $n \geq 0$, we have the 
 following exact sequence
 \[
-\sgHI{n} F \to F \to \tlHI{n}(F) \to 0.
+\sgHI{n}(F) \to F \to \tlHI{n}(F) \to 0.
 \]
-It is clear that $\tlHI{n} = 0$ if and only if $\sgHI{n} F \to F$
+It is clear that $\tlHI{n} = 0$ if and only if $\sgHI{n}(F) \to F$
 is a surjection.
 
 \pfitem{(2)} : Let $m > n > 0$, and fix $F \in \THI{m}$. Then 
@@ -818,7 +819,7 @@ commutative diagram:
 \begin{tikzcd}
 {} &
 \sgHI{n} \tgHI{m} F \arrow{r} \arrow{d}{\cuHI_{\tgHI{m}F}} &
-\sgHI{n} F \arrow{r} \arrow{d}{\cuHI_{F}} &
+\sgHI{n}(F) \arrow{r} \arrow{d}{\cuHI_{F}} &
 \sgHI{n} \tlHI{m}(F) \arrow{r} \arrow{d}{\cuHI_{\tlHI{m}(F)}} &
 0 \\
 0 \arrow{r} &
