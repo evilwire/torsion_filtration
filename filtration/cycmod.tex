@@ -157,8 +157,9 @@ $\HM$. Indeed, if $F_{k - 1} \simeq \RHI{(F_{k})}$, then
 \]
 for $n + k > 0$, (and trivially for $n + k \leq 0$).
 
-The suspension $\LHI{\tlHM{n}(F_*)_{k - 1}} \to 
-\tlHM{n}(F_*)_{k}$ is given by composing the isomorphism
+From the above, we may define a map $\susp: 
+\LHI{\tlHM{n}(F_*)_{k - 1}} \to \tlHM{n}(F_*)_{k}$ given by 
+composing the isomorphism
 \[
 \LHI{\tlHM{n}(F_*)_{k - 1}} \simeq \LHI{\RHI{(\tlHM{n}(F_*)_{k})}}
 \]
@@ -166,12 +167,16 @@ with the counit map
 \[
 \LHI{\RHI{(\tlHM{n}(F_*)_{k})}}\to \tlHM{n}(F_*)_{k}.
 \]
-It is straight-forward to verify that if $\LHI{F_{k - 1}} \to 
-F_{k}$ is the suspension map for which its adjunction 
-$\RHI{(F_{k})} \to F_{k - 1}$ is the isomorphism given above,
+Since the isomorphism $\tlHM{n}(F_*)_{k - 1} \simeq 
+\RHI{(\tlHM{n}(F_*)_k)}$ given above is the composition
+\[
+\tlHI{n + k - 1}F_{k - 1} \to \tlHI{n + k - 1}F_k
+   \to \RHI{(\tlHI{n + k} F_k)},
+\]
+it is easy to see that $\susp$ is its adjoint.
 
-Functoriality of $\tlHM{n}$ follows from the naturality of the
-isomorphisms above (Prop. \ref{prop_tl_L_R}).
+Furthermore, functoriality of $\tlHM{n}$ follows from the 
+naturality of the isomorphisms above (Prop. \ref{prop_tl_L_R}).
 
 For ease of notation, we write $\tlHM{n}(F)$ for the essential 
 image of $(F_*, \deloop_*)$ (dropping the ``$_*$'' on $F$ to avoid 
