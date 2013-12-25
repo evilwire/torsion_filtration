@@ -194,7 +194,22 @@ For each $n \in \Z$, $\tlHM{n}$ is a coradical of $\HM$.
 
 We proceed as follows.
 
-
+\begin{lem}\label{lem_tlHM_is_functor}
+$\tlHM{n}$ is an endofunctor of $\HM$.
+\end{lem}
+\begin{proof}
+Fix $(F_*, \deloop_*)$, we show that $\tlHM{n}(F)$ is an object of
+$\HM$. We have already established the graded structure of 
+$\tlHM{n}(F)$. We also have the candidate suspension and delooping
+maps; these are $\suspTL{n}$ and $\deloopTL{n}$ respectively. It
+remains to show that $\suspTL[k + 1]{n}$ and $\deloopTL[k]{n}$ are 
+adjoint in the sense that $\suspTL{n}$ is mapped to $\deloopTL{n}$ 
+via the adjunction 
+\[
+\Phi: \homHM(\LHI{\tlHM[k]{n}(F)}, \tlHM[k + 1]{n}(F))
+\to \homHM(\tlHM[k]{n}(F), \RHI{(\tlHM[k + 1]{n}(F))})
+\]
+given that $\susp_{k + 1}$ is adjoint to $\deloop_k$.
 Since the isomorphism $\tlHM{n}(F_*)_{k - 1} \simeq 
 \RHI{(\tlHM{n}(F_*)_k)}$ given above is the composition
 \[
