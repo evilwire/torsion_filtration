@@ -192,11 +192,12 @@ $\tlHM{n}(F)$ is an object of $\HM$ (proved in Lem.
 For each $n \in \Z$, $\tlHM{n}$ is a coradical of $\HM$.
 \end{thm}
 
-We proceed as follows.
+We proceed first prove the following lemma.
 
 \begin{lem}\label{lem_tlHM_is_functor}
 $\tlHM{n}$ is an endofunctor of $\HM$.
 \end{lem}
+
 \begin{proof}
 Fix $(F_*, \deloop_*)$, we show that $\tlHM{n}(F)$ is an object of
 $\HM$. We have already established the graded structure of 
@@ -210,31 +211,34 @@ via the adjunction
 \to \homHM(\tlHM[k]{n}(F), \RHI{(\tlHM[k + 1]{n}(F))})
 \]
 given that $\susp_{k + 1}$ is adjoint to $\deloop_k$.
-Since the isomorphism $\tlHM{n}(F_*)_{k - 1} \simeq 
-\RHI{(\tlHM{n}(F_*)_k)}$ given above is the composition
+
+To simplify notations, let
 \[
-\tlHI{n + k - 1}F_{k - 1} \to \tlHI{n + k - 1}F_k
-   \to \RHI{(\tlHI{n + k} F_k)},
+\lambda : L\tlHI{k} \to \tlHI{k + 1}L
 \]
-it is easy to see that $\susp$ is its adjoint.
+and 
+\[
+\rho : R\tlHI{k} \to \tlHI{k - 1}R
+\]
+be the natural isomorphisms given in Prop. \ref{prop_tl_L_R}. 
+Following the convention in the proof of Prop. \ref{prop_tl_L_R}, 
+let $L$ and $R$ denote the functors $F \mapsto \LHI{F}$ and $F 
+\mapsto \RHI{F}$ respectively, and let $\epsilon : \id \to RL$ and 
+$\eta: LR \to \id$ denote respectively the unit and counit maps.
+Finally, we abuse notation and write $\Phi$ for the adjunction
+isomorphism between any pair of objects $F, G \in \HI$.
+
+Notice that for $f: L(F) \to G$ in $\HI$, $\Phi(f) = \eta_F$
+
 \end{proof}
 
 Furthermore, functoriality of $\tlHM{n}$ follows from the 
 naturality of the isomorphisms above (Prop. \ref{prop_tl_L_R}).
-What we have just established is the following:
 
-\begin{lem}
-For each $n \in \Z$, $\tlHM{n}$ is an endofunctor of $\HM$.
-\end{lem}
-
-
-We have the following:
-
-\begin{prop}
-For each $n$, the functor $\tlHM{n}$ is a coradical.
-\end{prop}
+Now we proceed with the proof of Theorem \ref{thm_tlHM_funct}:
 
 \begin{proof}
+
 \pfitem{$\tlHM{n}$ is a quotient functor} : certainly
 $F_* \to \tlHM{n}(F)$ is surjective for each $n$ since it is
 a surjection at each degree.
