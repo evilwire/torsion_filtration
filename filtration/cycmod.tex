@@ -148,31 +148,53 @@ for the graded homotopy invariant sheaf with transfers where
    0               & \textrm{otherwise}.
 \end{cases}
 \]
-By the previous proposition, $\tlHM{n}(F_*)$ is an object of 
-$\HM$. Indeed, if $F_{k - 1} \simeq \RHI{(F_{k})}$, then
-\[
-\tlHM{n}(F_*)_{k - 1} \defeq \tlHI{n + k - 1}(F_{k - 1}) \simeq 
-   \RHI{(\tlHI{n + k}(F_{k}))} \defeq
-   \RHI{(\tlHM{n}(F_{k}))},
-\]
-for $n + k > 0$, (and trivially for $n + k \leq 0$). Call this
-map $\deloop$.
+For ease of notation, we write $\tlHM{n}(F)$ for the essential 
+image of $F_*$ (dropping the ``$_*$'' on $F$ to avoid 
+redundancy) and we write $\tlHM[k]{n}(F)$ for the $k$-th graded 
+component of $\tlHM{n}(F)$.
 
-From the above, we may define a map $\susp: 
-\LHI{\tlHM{n}(F_*)_{k - 1}} \to \tlHM{n}(F_*)_{k}$ given by 
-composing the isomorphism
+By the previous proposition, there are two maps that we can
+define between the graded pieces of $\tlHM{n}(F)$. Let
 \[
-\LHI{\tlHM{n}(F_*)_{k - 1}} \simeq \LHI{\RHI{(\tlHM{n}(F_*)_{k})}}
+\suspTL[k]{n} : \LHI{\tlHM[k]{n}(F)} \defeq 
+   \LHI{\tlHI{n + k}(F_k)} \to \tlHM[k + 1]{n}(F) \defeq 
+   \tlHI{n + k + 1}(F_{k + 1})
 \]
-with the counit map
+denote the composition
+\begin{equation}\label{eq_susp_def}
+\LHI{\tlHI{n + k}(F_k)} \stackrel{\simeq}{\to} 
+   \tlHI{n + k + 1}(\LHI{F_k}) 
+   \xrightarrow{\;\tlHI{n + k + 1}(\susp_k)\;} 
+   \tlHI{n + k + 1}(F_{k + 1})
+\end{equation}
+where $\susp_k: \LHI{F_k} \to F_{k + 1}$ is the $k$-th suspension 
+map of $(F_*, \deloop_*)$. Let
 \[
-\LHI{\RHI{(\tlHM{n}(F_*)_{k})}}\to \tlHM{n}(F_*)_{k}.
+\deloopTL[k]{n} : \tlHM[k - 1]{n}(F) \defeq 
+   \tlHI{n + k - 1}(F_{k - 1}) \to \RHI{\tlHM[k]{n}(F)} \defeq 
+   \RHI{\tlHI{n + k}(F_{k})} 
 \]
-\begin{lem}
-The map $w$ and $s$ are adjoints under the adjunction between the 
-functors $L: F \mapsto \LHI{F}$ and $R: F \mapsto \RHI{F}$.
-\end{lem}
-\begin{proof}
+be given by
+\begin{equation}\label{eq_deloop_def}
+\tlHI{n + k - 1}(F_{k - 1})
+   \xrightarrow{\;\tlHI{n + k - 1}(\deloop_k)\;} 
+   \tlHI{n + k - 1}(\RHI{(F_k)}) \stackrel{\simeq}{\to} 
+   \RHI{(\tlHI{n + k}(F_k))},
+\end{equation}
+where $\deloop_k: F_{k - 1} \to \RHI{(F_k)}$ is the $k$-th delooping
+of $(F_*, \deloop_*)$. Notice that, in this case, $\deloop_k$ is
+an isomorphism for all $k$. Therefore, $\deloopTL[k]{n}$ is an 
+isomorphism for all $k$. We claim that with the maps defined above,
+$\tlHM{n}(F)$ is an object of $\HM$ (proved in Lem. 
+\ref{lem_tlHM_is_functor} below). In fact, we have that:
+
+\begin{thm}\label{thm_tlHM_funct}
+For each $n \in \Z$, $\tlHM{n}$ is a coradical of $\HM$.
+\end{thm}
+
+We proceed as follows.
+
+
 Since the isomorphism $\tlHM{n}(F_*)_{k - 1} \simeq 
 \RHI{(\tlHM{n}(F_*)_k)}$ given above is the composition
 \[
@@ -190,10 +212,6 @@ What we have just established is the following:
 For each $n \in \Z$, $\tlHM{n}$ is an endofunctor of $\HM$.
 \end{lem}
 
-For ease of notation, we write $\tlHM{n}(F)$ for the essential 
-image of $(F_*, \deloop_*)$ (dropping the ``$_*$'' on $F$ to avoid 
-redundancy) and we write $\tlHM[k]{n}(F_*)$ for the $k$-th graded 
-component of $\tlHM{n}(F_*)$.
 
 We have the following:
 
