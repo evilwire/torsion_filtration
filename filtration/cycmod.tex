@@ -28,15 +28,15 @@ and
 Both isomorphisms are natural in $F$.
 \end{prop}
 \begin{proof}
-For ease of notation, let $L$ be the functor defined by $F \mapsto
-\LHI{F}$, and $R$ be the functor given by $F \mapsto \RHI{F}$, and
-$(L, R)$ form an adjoint pair, and $RL$ is naturally ismorphic to
-the identity (Prop. \ref{prop_unit_iso}).
+For ease of notation, let $L$ be the functor $F \mapsto \LHI{F}$, 
+and $R$ be given by $F \mapsto \RHI{F}$, and $(L, R)$ form an 
+adjoint pair, such that $RL$ is naturally ismorphic to the 
+identity (Prop. \ref{prop_unit_iso}).
 
 The key is to prove that the diagram
 \begin{equation}\label{eq_Ltl_com_diag}
 \begin{tikzcd}
-\L^{n + 1}R^{n + 1}LF \arrow{r}{\eta^{n + 1}_{LF}} \arrow{d} &
+L^{n + 1}R^{n + 1}LF \arrow{r}{\eta^{n + 1}_{LF}} \arrow{d} &
 LF \arrow[equals]{d} \\
 L(L^{n}R^nF) \arrow{r}{L\eta^{n}_F} &
 LF.
@@ -66,7 +66,7 @@ LF \arrow[equals]{r} & LF.
 Now, suppose we have
 \begin{equation}\label{eq_induct_hyp_tl_diag}
 \begin{tikzcd}
-\L^{n}R^{n}LF \arrow{r}{\eta^{n}_{LF}} \arrow{d} &
+L^{n}R^{n}LF \arrow{r}{\eta^{n}_{LF}} \arrow{d} &
 LF \arrow[equals]{d} \\
 L(L^{n - 1}R^{n - 1}F) \arrow{r}{L\eta^{n - 1}_F} &
 LF.
@@ -202,11 +202,13 @@ For each $n$, the functor $\tlHM{n}$ is a coradical.
 \end{prop}
 
 \begin{proof}
-\pfitem{$\tlHM{n}$ is a quotient functor}
+\pfitem{$\tlHM{n}$ is a quotient functor} : certainly
+$F_* \to \tlHM{n}(F)$ is surjective for each $n$ since it is
+a surjection at each degree.
 
-\pfitem{$\tlHM{n}$ is a pre-coradical}
+\pfitem{$\tlHM{n}$ is a pre-coradical} :
 
-\pfitem{$\tlHM{n}$ is a right exact}
+\pfitem{$\tlHM{n}$ is a right exact} :
 \end{proof}
 
 By Thm. \ref{thm_corad_equiv_htt}, the following is a 
