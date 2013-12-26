@@ -229,10 +229,11 @@ and
 be the natural isomorphisms given in Prop. \ref{prop_tl_L_R}. 
 Following the convention in the proof of Prop. \ref{prop_tl_L_R}, 
 let $L$ and $R$ denote the functors $F \mapsto \LHI{F}$ and $F 
-\mapsto \RHI{F}$ respectively, and let $\epsilon : \id \to RL$ and 
-$\eta: LR \to \id$ denote respectively the unit and counit maps.
-Finally, we abuse notation and write $\Phi$ for the adjunction
-isomorphism
+\mapsto \RHI{F}$ respectively, and let $\epsilon^n : \id \to 
+R^nL^n$ and $\eta^n: L^nR^n \to \id$ denote respectively the unit 
+and counit maps; we abbreviate $\eta^1$ as $\eta$, and $\epsilon^1$
+as $\epsilon$. Finally, we abuse notation and write $\Phi$ for the 
+adjunction isomorphism
 \[
 \Phi: \homHI(L-, -) \to \homHI(-,R-)
 \]
@@ -265,7 +266,73 @@ labelled (1) and (2), along the map $\lambda \rho: RL
 \tlHI{n}(F_0) \to \tlHI{n} RL(F_0)$. We proceed by showing that 
 each square is commutative.
 
-\pfitem{Square (1) is commutative} :
+\pfitem{Square (1) is commutative} : Applying the naturality of
+$\eta^n$ to the map $\epsilon: F_0 \to RL(F_0)$, we obtain the 
+following commutative diagram:
+\begin{equation}\label{eq_LR_rear_face}
+\begin{tikzcd}[column sep=large]
+L^nR^n(F_0) \arrow{r}{L^nR^n\epsilon} \arrow{d}{\eta^n} &
+L^nR^nRL(F_0) \arrow{d}{\eta^n(\epsilon)} \\
+F_0 \arrow{r}{\epsilon} &
+RL(F_0).
+\end{tikzcd}
+\end{equation}
+Similarly, applying the naturality of $\epsilon$ to $\eta^n$, we
+have
+\begin{equation}\label{eq_LR_front_face}
+\begin{tikzcd}[column sep=large]
+L^nR^n(F_0) \arrow{d}{\epsilon} \arrow{r}{\eta^n} &
+F_0 \arrow{d}{\epsilon} \\
+RLL^nR^n(F_0) \arrow{r}{RL(\eta^n)} &
+RL(F_0)
+\end{tikzcd}
+\end{equation}
+which fits together in a ``cube'':
+\[
+\begin{tikzcd}[row sep=scriptsize, column sep=scriptsize]
+& L^nR^n(F_0) \arrow[equals]{dl}\arrow{rr}\arrow{dd}{\eta} & & 
+   L^nR^nRL(F_0) \arrow{dd} \\
+L^nR^n(F_0) \arrow[crossing over]{rr}\arrow{dd}{\eta} & & RLL^nR^n(F_0) 
+   \arrow[dotted]{ur} \\
+& F_0 \arrow[equals]{dl}\arrow{rr} & & RL(F_0) 
+   \arrow[equals]{dl} \\
+F_0 \arrow{rr} & & RL(F_0) \arrow[crossing over, leftarrow]{uu}
+\end{tikzcd}
+\]
+where the faces parallel to the page are precisely (from front to
+rear) Diagrams \ref{eq_LR_front_face} and \ref{eq_LR_rear_face}
+respectively. Since unit maps are an isomorphisms, if we let the 
+dotted arrow be given by the composition
+\[
+RLL^nR^n(F_0) \stackrel{\epsilon^{-1}}{\to} L^nR^n(F_0) 
+\xrightarrow{L^nR^n(\epsilon)} L^nR^nRL(F_0)
+\]
+then all faces of the cube are commutative.
+
+At last, notice that the Square (1) form the ``cokernel'' of the
+cube, where Square (1) is precisely the bottom face of the bottom
+cube in the following:
+\[
+\begin{tikzcd}[row sep=scriptsize, column sep=scriptsize]
+& L^nR^n(F_0) \arrow[equals]{dl}\arrow{rr}\arrow{dd}{\eta} & & 
+   L^nR^nRL(F_0) \arrow{dd} \\
+L^nR^n(F_0) \arrow[crossing over]{rr}\arrow{dd}{\eta} & & 
+   RLL^nR^n(F_0) \arrow{ur} \\
+& F_0 \arrow[equals]{dl}\arrow{rr} \arrow{dd} & & RL(F_0) \arrow{dd}
+   \arrow[equals]{dl} \\
+F_0 \arrow{rr} \arrow{dd} & & 
+   RL(F_0) \arrow[crossing over, leftarrow]{uu} \\
+& \tlHI{n}(F_0) \arrow[equals]{dl}\arrow{rr} \arrow{dd} & & 
+   \tlHI{n} RL(F_0) \arrow[leftarrow]{dl} \arrow{dd}\\
+\tlHI(F_0) \arrow{rr} \arrow{dd} & & 
+   RL\tlHI{n}(F_0) \arrow[crossing over, leftarrow]{uu} \\
+& 0 & & 0 \\ 0 & & 0. \arrow[crossing over, leftarrow]{uu} \\
+\end{tikzcd}
+\]
+Here, each of the vertical faces of the bottom cube is commutative.
+It follows that the Square (1) must also be commutative.
+
+\pfitem{Square (2) is commutative} :
 \end{proof}
 
 Furthermore, functoriality of $\tlHM{n}$ follows from the 
