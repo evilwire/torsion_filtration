@@ -192,7 +192,7 @@ $\tlHM{n}(F)$ is an object of $\HM$ (proved in Lem.
 For each $n \in \Z$, $\tlHM{n}$ is a coradical of $\HM$.
 \end{thm}
 
-We proceed first prove the following lemma.
+We proceed first by proving the following lemma.
 
 \begin{lem}\label{lem_tlHM_is_functor}
 $\tlHM{n}$ is an endofunctor of $\HM$.
@@ -201,24 +201,30 @@ $\tlHM{n}$ is an endofunctor of $\HM$.
 \begin{proof}
 Fix $(F_*, \deloop_*)$, we show that $\tlHM{n}(F)$ is an object of
 $\HM$. We have already established the graded structure of 
-$\tlHM{n}(F)$. We also have the candidate suspension and delooping
-maps; these are $\suspTL{n}$ and $\deloopTL{n}$ respectively. It
-remains to show that $\suspTL[k + 1]{n}$ and $\deloopTL[k]{n}$ are 
-adjoint in the sense that $\suspTL{n}$ is mapped to $\deloopTL{n}$ 
-via the adjunction 
+$\tlHM{n}(F)$. We also have candidates for the suspension and 
+delooping maps; these are $\suspTL{n}$ and $\deloopTL{n}$ 
+respectively. It remains to show that $\suspTL[k]{n}$ and 
+$\deloopTL[k + 1]{n}$ are adjoint in the sense that $\suspTL{n}$ is 
+mapped to $\deloopTL{n}$ via the adjunction 
 \[
 \Phi: \homHM(\LHI{\tlHM[k]{n}(F)}, \tlHM[k + 1]{n}(F))
 \to \homHM(\tlHM[k]{n}(F), \RHI{(\tlHM[k + 1]{n}(F))})
 \]
 given that $\susp_{k + 1}$ is adjoint to $\deloop_k$.
 
+Recall that $\shift[k]{F_*}$ denotes a shift in grading as given by 
+$\shift[k]{F_*}_n = F_{n + k}$. (See Sect. \ref{sect_cycmod_and_hm} 
+for definition of $\shift[k]{F_*}$.) Noting that 
+$\tlHM{n}(\shift[k]{F}) = \shift[k]{\tlHM{n - k}(F)}$, we may 
+assume without loss of generality that $k = 0$. 
+
 To simplify notations, let
 \[
-\lambda : L\tlHI{k} \to \tlHI{k + 1}L
+\lambda : L\tlHI{n} \to \tlHI{n + 1}L
 \]
 and 
 \[
-\rho : R\tlHI{k} \to \tlHI{k - 1}R
+\rho : R\tlHI{n} \to \tlHI{n - 1}R
 \]
 be the natural isomorphisms given in Prop. \ref{prop_tl_L_R}. 
 Following the convention in the proof of Prop. \ref{prop_tl_L_R}, 
@@ -226,10 +232,40 @@ let $L$ and $R$ denote the functors $F \mapsto \LHI{F}$ and $F
 \mapsto \RHI{F}$ respectively, and let $\epsilon : \id \to RL$ and 
 $\eta: LR \to \id$ denote respectively the unit and counit maps.
 Finally, we abuse notation and write $\Phi$ for the adjunction
-isomorphism between any pair of objects $F, G \in \HI$.
+isomorphism
+\[
+\Phi: \homHI(L-, -) \to \homHI(-,R-)
+\]
+between any pair of objects in $\HI$.
 
-Notice that for $f: L(F) \to G$ in $\HI$, $\Phi(f) = \eta_F$
+Notice that for $f: L(F) \to G$ in $\HI$, $\Phi(f) = \eta R(f)$.
+Since $\suspTL[0]{n}$ is given by
+\[
+L\tlHI{n}(F_0) \stackrel{\lambda}{\to} \tlHI{n + 1} L(F_0)
+   \xrightarrow{\;\tlHI{n + 1}(\susp_0)\;} \tlHI{n + 1}(F_1),
+\]
+to show that $\suspTL[0]{n}$ is adjoint to $\deloopTL[0]{n}$ is to
+verify that the following diagram commute:
+\[
+\begin{tikzcd}
+\tlHI{n}(F_0) \arrow{rr}{\epsilon} \arrow[equals]{dd} &&
+RL (\tlHI{n}F_0) \arrow{rr}{R(\lambda \tlHI{n + 1}(f))} 
+\arrow[dotted]{dd}{\lambda \rho}&&
+R \tlHI{n + 1} (F_1) \arrow[equals]{dd} \\
+& (1) && (2) \\
+\tlHI{n}(F_0) \arrow{rr}{\tlHI{n}(\epsilon)} &&
+\tlHI{n} RL(X) \arrow{rr}{\tlHI{n} R(f) \rho} &&
+R\tlHI{n}(F_1)
+\end{tikzcd}
+\]
+where composition along the top row is precisely 
+$\Phi(\suspTL[0]{n})$, and the bottom is precisely 
+$\deloopTL[1]{n}$. The diagram breaks up into two squares,
+labelled (1) and (2), along the map $\lambda \rho: RL 
+\tlHI{n}(F_0) \to \tlHI{n} RL(F_0)$. We proceed by showing that 
+each square is commutative.
 
+\pfitem{Square (1) is commutative} :
 \end{proof}
 
 Furthermore, functoriality of $\tlHM{n}$ follows from the 
