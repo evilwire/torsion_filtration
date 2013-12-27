@@ -251,7 +251,7 @@ verify that the following diagram commute:
 \begin{tikzcd}
 \tlHI{n}(F_0) \arrow{rr}{\epsilon} \arrow[equals]{dd} &&
 RL (\tlHI{n}F_0) \arrow{rr}{R(\tlHI{n + 1}(\susp) \lambda)} 
-\arrow[dotted]{dd}{\lambda \rho}&&
+\arrow[dotted]{dd}{\rho R(\lambda)}&&
 R \tlHI{n + 1} (F_1) \arrow[equals]{dd} \\
 & (1) && (2) \\
 \tlHI{n}(F_0) \arrow{rr}{\tlHI{n}(\epsilon)} &&
@@ -310,8 +310,7 @@ RLL^nR^n(F_0) \stackrel{\epsilon^{-1}}{\to} L^nR^n(F_0)
 then all faces of the cube are commutative.
 
 At last, notice that the Square (1) form the ``cokernel'' of the
-cube, where Square (1) is precisely the bottom face of the bottom
-cube in the following:
+cube and is the bottom face of the lower cube in the following:
 \[
 \begin{tikzcd}[row sep=scriptsize, column sep=scriptsize]
 & L^nR^n(F_0) \arrow[equals]{dl}\arrow{rr}\arrow{dd}{\eta} & & 
@@ -336,7 +335,7 @@ It follows that the Square (1) must also be commutative.
 subdivided into:
 \[
 \begin{tikzcd}[row sep=huge, column sep=huge]
-RL\tlHI{n}(F_0) \arrow{r}{R(\lambda)} \arrow{d}{\rho\lambda} &
+RL\tlHI{n}(F_0) \arrow{r}{R(\lambda)} \arrow{d}{\rho R(\lambda)} &
 R\tlHI{n}(LF_0) \arrow{ld}{\rho} \arrow{r}{R\tlHI{n}(\susp)} &
 R\tlHI{n + 1}(F_1) \arrow{ld}{\rho} \arrow[equals]{d} \\
 \tlHI{n} RL(F_0) \arrow{r}{\tlHI{n} R(f)} &
@@ -440,8 +439,8 @@ right exact for each $k$, $\tlHM{n}$ for each associated graded
 term. It follows that $\tlHM{n}$ is right exact.
 \end{proof}
 
-By Thm. \ref{thm_corad_equiv_htt}, the following is a 
-straightforward consequence:
+The following is a straightforward consequence of Theorem 
+\ref{thm_corad_equiv_htt} and Theorem \ref{thm_corad_equiv_htt}.
 
 \begin{cor}
 There exists a strong filtration of $\HM$
@@ -458,3 +457,4 @@ where $(F_*, \deloop_*) \in \tgHM{i}\HM$ is characterized by
 $\tgHM{i}(F) = 0$, and $(F_*, \deloop_*) \in \tlHM{i}\HM$ is
 characterized by $\tlHM{i}(F) = F_*$.
 \end{cor}
+\noproof
