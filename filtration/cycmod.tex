@@ -387,16 +387,23 @@ respects composition follows from the functoriality of $\tlHI{*}$.
 The lemma is established.
 \end{proof}
 
-Furthermore, functoriality of $\tlHM{n}$ follows from the 
-naturality of the isomorphisms above (Prop. \ref{prop_tl_L_R}).
-
 Now we proceed with the proof of Theorem \ref{thm_tlHM_funct}:
 
-\begin{proof}
+\begin{proof}[Proof of Theorem:]
 
-\pfitem{$\tlHM{n}$ is a quotient functor} : certainly
-$F_* \to \tlHM{n}(F)$ is surjective for each $n$ since it is
-a surjection at each degree.
+\pfitem{$\tlHM{n}$ is a quotient functor} : certainly $F_* \to 
+\tlHM{n}(F)$ is surjective for each $n$ since it is a surjection 
+at each degree. What we need to verify is that the degree-wise 
+surjection gives rise to a map of homotopy modules. In particular, 
+we need to verify that the following
+\[
+\begin{tikzcd}
+L(F_k) \arrow{r}{\susp} \arrow{d} &
+F_{k + 1} \arrow{d} \\
+L \tlHI{n + k}(F_k) \arrow{r}{\susp} &
+\tlHI{n + k - 1}(F_{k + 1})
+\end{tikzcd}
+\]
 
 \pfitem{$\tlHM{n}$ is a pre-coradical} :
 
