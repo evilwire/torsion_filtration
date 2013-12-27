@@ -412,15 +412,22 @@ square of the following
 \begin{tikzcd}
 L(F_k) \arrow{r}{\susp} \arrow{d} &
 F_{k + 1} \arrow{d} \\
-\tlHI{n + k + 1} L(F_k) \arrow{r}{\lambda^{-1}} \arrow{d} &
+\tlHI{n + k + 1} L(F_k) \arrow{r} \arrow{d}{\lambda^{-1}} &
 \tlHI{n + k + 1} F_{k + 1} \arrow[equals]{d} \\
-\tlHI{n + k + 1} L(F_k) \arrow{r}{\susp} &
+L \tlHI{n + k + 1}(F_k) \arrow{r}{\susp} &
 \tlHI{n + k + 1} F_{k + 1}.
 \end{tikzcd}
 \]
 Here, the top square commutes by the naturality of $\id \to 
-\tlHI{n + k}$ applied to $\susp: L(F_k) \to F_{k + 1}$, and the
-bottom square commutes by definition.
+\tlHI{n + k}$ applied to $\susp: L(F_k) \to F_{k + 1}$, and the 
+bottom square commutes by definition. Indeed, the definition of 
+the suspension map $\susp: L \tlHI{n + k}(F_k) \to 
+\tlHI{n + k + 1}(F_{k + 1})$ is precisely given by the composition
+$\lambda \tlHI{n + k + 1}(\susp)$.
+
+The fact that $\tlHM{n}$ respects delooping follows precisely by
+the duality of the suspension and delooping as established by the
+preceding lemma.
 
 \pfitem{$\tlHM{n}$ is a pre-coradical} :
 
