@@ -192,7 +192,7 @@ $\tlHM{n}(F)$ is an object of $\HM$ (proved in Lem.
 For each $n \in \Z$, $\tlHM{n}$ is a coradical of $\HM$.
 \end{thm}
 
-We proceed first by proving the following lemma.
+As a first step, we first establish that:
 
 \begin{lem}\label{lem_tlHM_is_functor}
 $\tlHM{n}$ is an endofunctor of $\HM$.
@@ -250,12 +250,12 @@ verify that the following diagram commute:
 \[
 \begin{tikzcd}
 \tlHI{n}(F_0) \arrow{rr}{\epsilon} \arrow[equals]{dd} &&
-RL (\tlHI{n}F_0) \arrow{rr}{R(\lambda \tlHI{n + 1}(f))} 
+RL (\tlHI{n}F_0) \arrow{rr}{R(\tlHI{n + 1}(\susp) \lambda)} 
 \arrow[dotted]{dd}{\lambda \rho}&&
 R \tlHI{n + 1} (F_1) \arrow[equals]{dd} \\
 & (1) && (2) \\
 \tlHI{n}(F_0) \arrow{rr}{\tlHI{n}(\epsilon)} &&
-\tlHI{n} RL(X) \arrow{rr}{\tlHI{n} R(f) \rho} &&
+\tlHI{n} RL(X) \arrow{rr}{\rho \tlHI{n} R(\susp)} &&
 R\tlHI{n}(F_1)
 \end{tikzcd}
 \]
@@ -332,7 +332,59 @@ F_0 \arrow{rr} \arrow{dd} & &
 Here, each of the vertical faces of the bottom cube is commutative.
 It follows that the Square (1) must also be commutative.
 
-\pfitem{Square (2) is commutative} :
+\pfitem{Square (2) is commutative} : Square (2) can be further 
+subdivided into:
+\[
+\begin{tikzcd}[row sep=huge, column sep=huge]
+RL\tlHI{n}(F_0) \arrow{r}{R(\lambda)} \arrow{d}{\rho\lambda} &
+R\tlHI{n}(LF_0) \arrow{ld}{\rho} \arrow{r}{R\tlHI{n}(\susp)} &
+R\tlHI{n + 1}(F_1) \arrow{ld}{\rho} \arrow[equals]{d} \\
+\tlHI{n} RL(F_0) \arrow{r}{\tlHI{n} R(f)} &
+\tlHI{n} R(F_1) \arrow{r}{\rho^{-1}} &
+R\tlHI{n + 1}(F_1).
+\end{tikzcd}
+\]
+The commutativity of the triangles in the diagram are clear. The 
+parallelogram in the center is commutative by the naturality of
+$\rho$ applied to $\susp: LF_0 \to F_1$.
+
+Finally, 
+\pfitem{$\tlHM{n}$ is functorial} : let $f_*: (F_*,\susp_*) \to 
+(G_*, \susp_*')$ be a map between homotopy modules. Let 
+$\tlHM{n}(f)$ be a map of graded homotopy invariant sheaves with 
+transfers where the map on the $k$-th associated graded is 
+$\tlHM[k]{n}(f) \defeq \tlHI{n + k}(f_k)$. 
+
+By naturality of $\rho : R\tlHI{n + 1} \to \tlHI{n} R$ and 
+$\lambda: L\tlHI{n} \to \tlHI{n + 1}L$ and the above arguments, 
+the following are commutative
+\[
+\begin{tikzcd}[column sep=12em, row sep=huge]
+R\tlHI{n + k}(F_k) \arrow{r}{R \tlHI{n + k}(f_k)} 
+   \arrow{d}{\tlHI{n + k - 1}R(\deloop) \rho} &
+R\tlHI{n + k}(G_k) 
+   \arrow{d}{\tlHI{n + k - 1}R(\deloop') \rho} \\
+\tlHI{n + k - 1}(F_{k - 1}) 
+   \arrow{r}{\tlHI{n + k - 1}(f_{k - 1})} &
+\tlHI{n + k - 1}(G_{k - 1}) 
+\end{tikzcd}
+\]
+\[
+\begin{tikzcd}[column sep=12em, row sep=huge]
+L\tlHI{n + k}(F_k) \arrow{r}{L \tlHI{n + k}(f_k)} 
+   \arrow{d}{\tlHI{n + k + 1}L(\susp) \rho} &
+L\tlHI{n + k}(G_k) 
+   \arrow{d}{\tlHI{n + k + 1}L(\susp') \rho} \\
+\tlHI{n + k + 1}(F_{k + 1}) 
+   \arrow{r}{\tlHI{n + k + 1}(f_{k - 1})} &
+\tlHI{n + k + 1}(G_{k + 1}).
+\end{tikzcd}
+\]
+
+It is clear that $\tlHM{n}(f)$ is a map from $\tlHM{n}(F)$ to 
+$\tlHM{n}(G)$ as homotopy modules. The fact that $\tlHM{n}$ 
+respects composition follows from the functoriality of $\tlHI{*}$.
+The lemma is established.
 \end{proof}
 
 Furthermore, functoriality of $\tlHM{n}$ follows from the 
