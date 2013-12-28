@@ -460,4 +460,31 @@ characterized by $\tlHM{i}(F) = F_*$.
 \end{cor}
 \noproof
 
+In what sense is $\tlHM{*}$ an extension of $\tlHI{*}$? Notice that
+$\HI$ embeds into $\HM$ as a subabelian category in the following 
+functor diagram:
+\[
+\begin{tikzcd}
+\DMeff \arrow[hookrightarrow]{r} \arrow{d}{\sheaf{H}^0} &
+\DM \arrow{d}{\sheaf{H}^0} \\
+\HI \arrow[hookrightarrow]{r} &
+\HM
+\end{tikzcd}
+\]
+
+It is clear that
+
+We conclude this section by describing the behavior of the 
+filtration with respect to the monoidal structure. We begin
+with the following result:
+
+\begin{prop}\label{prop_tensor_and_tfilt}
+Let $(\HI, \tgHI{*})$ and $(\HI, \tlHI{*})$ be the strong 
+filtration and cofiltration on $\HI$, then the following are true:
+\begin{enumerate}
+\item $\tlHI{n}\HI \tHI \tlHI{m}\HI \subseteq \tlHI{n + m}\HI$.
+
+\item $\tgHI{n}\HI \tHI \tlHI{m}\HI \subseteq \tgHI{n + m}\HI$.
+\end{enumerate}
+\end{prop}
 
