@@ -36,14 +36,14 @@ identity (Prop. \ref{prop_unit_iso}).
 The key is to prove that the diagram
 \begin{equation}\label{eq_Ltl_com_diag}
 \begin{tikzcd}
-L^{n + 1}R^{n + 1}LF \arrow{r}{\eta^{n + 1}_{LF}} \arrow{d} &
-LF \arrow[equals]{d} \\
-L(L^{n}R^nF) \arrow{r}{L\eta^{n}_F} &
-LF.
+L^{n + 1}R^{n + 1}L(F) \arrow{r}{\eta^{n + 1}_{L(F)}} \arrow{d} &
+L(F) \arrow[equals]{d} \\
+L(L^{n}R^n(F)) \arrow{r}{L\eta^{n}_(F)} &
+L(F).
 \end{tikzcd}
 \end{equation}
 is commutative. Here, $\eta^n$ denotes the counit $L^nR^n \to \id$,
-and the vertical map $L^{n + 1}R^{n + 1}LF \to L(L^nR^n F)$ is 
+and the vertical map $L^{n + 1}R^{n + 1}L(F) \to L(L^nR^n (F))$ is 
 given by the map $L^{n + 1}R^n \epsilon^{-1}$, where $\epsilon$ is
 the unit $\id \to RL$ and an isomorphism.
 
@@ -51,86 +51,87 @@ To establish that the above diagram is commutative, we proceed by
 induction on $n$. The case $n = 0$ follows by the counit-unit 
 adjunction. That is, the composition
 \[
-LF \stackrel{L\epsilon}{\to} LRLF \stackrel{\eta L}{\to} LF.
+L(F) \stackrel{L(\epsilon)}{\to} LRL(F) \stackrel{\eta L}{\to} 
+   L(F).
 \]
-is the identity. Therefore, $\eta L = L\epsilon^{-1}$, and the
+is the identity. Therefore, $\eta L = L(\epsilon^{-1})$, and the
 following diagram commutes:
 \[
 \begin{tikzcd}
-LRL F \arrow{r}{\eta L} \arrow{d}{L \epsilon^{-1}} &
-LF \arrow[equals]{d} \\
-LF \arrow[equals]{r} & LF.
+LRL(F) \arrow{r}{\eta L} \arrow{d}{L(\epsilon^{-1})} &
+L(F) \arrow[equals]{d} \\
+L(F) \arrow[equals]{r} & L(F).
 \end{tikzcd}
 \]
 
 Now, suppose we have
 \begin{equation}\label{eq_induct_hyp_tl_diag}
 \begin{tikzcd}
-L^{n}R^{n}LF \arrow{r}{\eta^{n}_{LF}} \arrow{d} &
-LF \arrow[equals]{d} \\
-L(L^{n - 1}R^{n - 1}F) \arrow{r}{L\eta^{n - 1}_F} &
-LF.
+L^{n}R^{n}L(F) \arrow{r}{\eta^{n}_{L(F)}} \arrow{d} &
+L(F) \arrow[equals]{d} \\
+L(L^{n - 1}R^{n - 1}(F)) \arrow{r}{L\eta^{n - 1}_F} &
+L(F).
 \end{tikzcd}
 \end{equation}
 There exists a natural transformation $\eta': L^n R^n \to 
-L^{n - 1} R^{n - 1}$. Applying this to $\epsilon^{-1}: RL F \to 
+L^{n - 1} R^{n - 1}$. Applying this to $\epsilon^{-1}: RL(F) \to 
 F$, we have the following commutative diagram
 \[
 \begin{tikzcd}
-L^n R^n RL F \arrow{r}{\eta'_{RLF}} 
+L^n R^n RL(F) \arrow{r}{\eta'_{RL(F)}} 
    \arrow{d}{L^nR^n \epsilon^{-1}} &
-L^{n - 1}R^{n - 1} RLF 
+L^{n - 1}R^{n - 1} RL(F) 
    \arrow{d}{L^{n - 1}R^{n - 1}\epsilon^{-1}} \\
-L^nR^n F \arrow{r}{\eta'_F} &
-L^{n - 1}R^{n - 1} F,
+L^nR^n(F) \arrow{r}{\eta'_F} &
+L^{n - 1}R^{n - 1} (F),
 \end{tikzcd}
 \]
 and applying $L$, we have
 \[
 \begin{tikzcd}
-L^{n + 1} R^{n + 1} L F \arrow{r}{L\eta'_{RLF}} 
+L^{n + 1} R^{n + 1} L(F) \arrow{r}{L\eta'_{RL(F)}} 
    \arrow{d}{L^{n + 1}R^n \epsilon^{-1}} &
-L^{n}R^n LF \arrow{d}{L^nR^{n - 1}\epsilon^{-1}} \\
-L^{n + 1}R^n F \arrow{r}{L\eta'_F} &
-L^{n}R^{n - 1} F,
+L^{n}R^n L(F) \arrow{d}{L^nR^{n - 1}\epsilon^{-1}} \\
+L^{n + 1}R^n(F) \arrow{r}{L\eta'_F} &
+L^{n}R^{n - 1}(F),
 \end{tikzcd}
 \]
 which fits together with Diagram \ref{eq_induct_hyp_tl_diag} to 
 give the following commutative diagram:
 \[
 \begin{tikzcd}
-L^{n + 1} R^{n + 1} L F \arrow{r}{L\eta'_{RLF}} 
-   \arrow{d}{L^{n + 1}R^n \epsilon^{-1}}
-   \arrow[bend left]{rr}{\eta^{n + 1}_{LF}} &
-L^{n}R^n LF \arrow{d}{L^nR^{n - 1}\epsilon^{-1}}
-   \arrow{r}{\eta^{n}_{LF}} &
-LF \arrow[equals]{d} \\
-L^{n + 1}R^n F \arrow{r}{L\eta'_F} 
+L^{n + 1} R^{n + 1} L(F) \arrow{r}{L\eta'_{RL(F)}} 
+   \arrow{d}{L^{n + 1}R^n(\epsilon^{-1})}
+   \arrow[bend left]{rr}{\eta^{n + 1}_{L(F)}} &
+L^{n}R^n L(F) \arrow{d}{L^nR^{n - 1}(\epsilon^{-1})}
+   \arrow{r}{\eta^{n}_{L(F)}} &
+L(F) \arrow[equals]{d} \\
+L^{n + 1}R^n(F) \arrow{r}{L\eta'_F} 
    \arrow[bend right]{rr}{L\eta^n_F} &
-L^{n}R^{n - 1} F \arrow{r}{L\eta^{n - 1}_F} &
-LF.
+L^{n}R^{n - 1}(F) \arrow{r}{L\eta^{n - 1}_F} &
+L(F).
 \end{tikzcd}
 \]
 Notice that the composition of the top and bottom horizontal 
 arrows (indicated by the bent arrows) in the diagram above are 
-precisely $\eta^{n + 1}_KF$ and $L \eta^n_F$ respectively, and
+precisely $\eta^{n + 1}_K(F)$ and $L \eta^n_F$ respectively, and
 the claim is proved.
 
 Returning to Diagram \ref{eq_Ltl_com_diag}, which we now know to 
 be commutative, notice that the cokernel of the top row is 
-$\tlHI{n + 1}LF$, and since $L$ is right exact, the cokernel of 
-the bottom row is $L\tlHI{n} F$. By the Five Lemma, it is clear 
-that $\tlHI{n + 1}LF \simeq L\tlHI{n} F$.
+$\tlHI{n + 1}L(F)$, and since $L$ is right exact, the cokernel of 
+the bottom row is $L\tlHI{n}(F)$. By the Five Lemma, it is clear 
+that $\tlHI{n + 1}L(F) \simeq L\tlHI{n}(F)$.
 
 For the other isomorphism, apply similar arguments to the
 diagram
 \[
 \begin{tikzcd}
-L^{n - 1}R^{n - 1}(RF) \arrow{r}{\eta^n_{RF}} 
-   \arrow{d}{\eta_{L^{n - 1}R^{n - 1}F}} &
-RF \arrow[equals]{d} \\
-R (L^n R^n F) \arrow{r}{R \eta^n} &
-RF,
+L^{n - 1}R^{n - 1}R(F) \arrow{r}{\eta^n_{R(F)}} 
+   \arrow{d}{\eta_{L^{n - 1}R^{n - 1}(F)}} &
+R(F) \arrow[equals]{d} \\
+R (L^n R^n(F)) \arrow{r}{R \eta^n} &
+R(F),
 \end{tikzcd}
 \]
 using the fact that the functor $R$ is exact. The diagram itself
@@ -144,8 +145,8 @@ for the graded homotopy invariant sheaf with transfers where
 \[
 (\tlHM{n}(F_*))_k \defeq
 \begin{cases}
-   \tlHI{n + k}F_k & \textrm{if } n + k > 0 \\
-   0               & \textrm{otherwise}.
+   \tlHI{n + k}(F_k) & \textrm{if } n + k > 0 \\
+   0                 & \textrm{otherwise}.
 \end{cases}
 \]
 For ease of notation, we write $\tlHM{n}(F)$ for the essential 
@@ -458,4 +459,5 @@ $\tgHM{i}(F) = 0$, and $(F_*, \deloop_*) \in \tlHM{i}\HM$ is
 characterized by $\tlHM{i}(F) = F_*$.
 \end{cor}
 \noproof
+
 
