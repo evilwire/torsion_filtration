@@ -440,8 +440,9 @@ right exact for each $k$, $\tlHM{n}$ for each associated graded
 term. It follows that $\tlHM{n}$ is right exact.
 \end{proof}
 
-The following is a straightforward consequence of Theorem 
-\ref{thm_corad_equiv_htt} and Theorem \ref{thm_tlHM_corad}.
+The following corollary is a straightforward consequence of 
+Theorem \ref{thm_corad_equiv_htt} and Theorem 
+\ref{thm_tlHM_corad}.
 
 \begin{cor}
 There exists a strong filtration of $\HM$
@@ -462,17 +463,36 @@ characterized by $\tlHM{i}(F) = F_*$.
 
 In what sense is $\tlHM{*}$ an extension of $\tlHI{*}$? Notice that
 $\HI$ embeds into $\HM$ as a subabelian category in the following 
-functor diagram:
+sense. There exists the following commutative diagram of categories:
 \[
 \begin{tikzcd}
 \DMeff \arrow[hookrightarrow]{r} \arrow{d}{\sheaf{H}^0} &
 \DM \arrow{d}{\sheaf{H}^0} \\
-\HI \arrow[hookrightarrow]{r} &
+\HI \arrow[hookrightarrow]{r}{\spectHI} &
 \HM
 \end{tikzcd}
 \]
+where $\spectHI(F)$ is the graded sheaf whose $k$-th associated
+graded is given by
+\[
+\spectHI(F)_k = \begin{cases}
+\LHI[k]{F}   & \textrm{for }k > 0 \\
+F            & k = 0 \\
+\RHI[|k|](F) & k < 0,
+\end{cases}
+\]
+which is compatible with the inclusion of $\DMeff$ into $\DM$,
+and realizes $\HI$ as a subcategory of $\HM$. The functor 
+$\spectHI$ also admits a adjoint $\loopHM : \HM \to HI$ given by 
+$(F_*, \susp_*) \mapsto F_0$ (see Sect. \ref{sect_cycmod_and_hm}), 
+such that $\loopHM \spectHI = \id$.
 
-It is clear that
+The following is clear from the definitions.
+
+\begin{prop}
+For each $n > 0$, $\loopHM \tlHM{n} = \tlHI{n}$, and $\spectHI 
+\tlHI{n} = \tlHM{n} \spectHI$.
+\end{prop}
 
 We conclude this section by describing the behavior of the 
 filtration with respect to the monoidal structure. We begin
