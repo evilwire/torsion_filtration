@@ -501,42 +501,33 @@ filtration and cofiltration on $\HI$, then $\tgHI{n}\HI \tHI
 \tgHI{m}\HI \subseteq \tgHI{n + m}\HI$.
 \end{prop}
 \begin{proof}
-Notice that $L^n(F) \tHI G = L^n(F \tHI G)$, and therefore, the
-counit map $L^nR^n (L^nR^n(F) \tHI G) \to (L^nR^nF) \tHI G$ is an 
-isomorphism. Now consider $L^nR^n(F) \tHI G 
-\stackrel{\epsilon \tHI G}{\to} F \tHI G$, where $\epsilon$ is the 
-counit. Applying the naturality of $L^nR^n \to \id$, we have the 
-following commutative diagram:
+Let $F \in \tgHI{n}\HI$, and $G \in \tgHI{m}\HI$. Then the counit 
+$\epsilon: L^nR^n(F) \to F$ is surjective (Prop. 
+\ref{prop_THI_properties} (1)), and since the functor $- \tHI G$ 
+is right exact, the map
 \[
-\begin{tikzcd}[column sep=11em, row sep=huge]
-L^nR^n(L^nR^n(F) \tHI G) \arrow{r}{\epsilon_{L^nR^n(F)\tHI G}}
-   \arrow{d}{L^nR^n(\epsilon_F \tHI G) }&
-(L^nR^n(F)) \tHI G) \arrow{d}{\epsilon_F \tHI G} \\
-L^nR^n(F \tHI G) \arrow{r}{\epsilon_{F \tHI G}} &
-F \tHI G.
-\end{tikzcd}
+L^nR^n(F) \tHI G \xrightarrow{\epsilon_F \tHI G}{\to} F \tHI G.
 \]
-As mentioned, $\epsilon_{L^nR^n(F) \tHI G}$ is an isomorphism, and
-we simplify its notation to simply $\epsilon$. Setting $\psi 
-\defeq L^nR^n(\epsilon_F \tHI G) \epsilon^{-1}$, we have the 
-following commutative diagram:
+Similarly,
 \[
-\begin{tikzcd}[column sep=huge, row sep=huge]
-(L^nR^n F) \tHI G \arrow{r}{\epsilon_F \tHI G} \arrow{d}{\psi} &
-F \tHI G \arrow[equals]{d} \\
-L^nR^n(F \tHI G) \arrow{r}{\epsilon_{F \tHI G}} &
-F \tHI G.
-\end{tikzcd}
+L^nR^n(F) \tHI L^mR^m(G) \xrightarrow{L^nR^n(F) \tHI \epsilon_G}
+L^nR^n(F) \tHI G.
 \]
-Similarly, we have that
+Composing these two surjection, we have a surjection
 \[
-\begin{tikzcd}[column sep=huge, row sep=huge]
-(L^nR^n F) \tHI (L^mR^m(G)) \arrow{r}{\epsilon_F \tHI \epsilon_G} 
-   \arrow{d}{\psi} &
-F \tHI G \arrow[equals]{d} \\
-L^{n + m}R^{n + m}(F \tHI G) \arrow{r}{\epsilon_{F \tHI G}} &
-F \tHI G.
-\end{tikzcd}
+L^nR^n(F) \tHI L^mR^m(G) \to F \tHI G.
 \]
-is also commutative,
+But 
+\[
+L^nR^n(F) \tHI L^mR^m(G) = L^{n + m}(R^n(F) \tHI R^m(G)) \in
+\sgHI{n + m}\HI.
+\]
+Therefore, $\tlHI{n + m}(L^nR^n(F) \tHI L^mR^m(G)) = 0$. However,
+the functor $\tlHI{n + m}$ is right exact; in particular, 
+\[
+\tlHI{n + m}(L^nR^n(F) \tHI L^mR^m(G)) \to
+   \tlHI{n + m}(F \tHI G)
+\]
+is a surjection. It follows that $\tlHI{n + m}(F \tHI G) = 0$ and
+$F \tHI G \in \tgHI{n + m}\HI$ as desired.
 \end{proof}
