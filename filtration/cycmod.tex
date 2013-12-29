@@ -10,8 +10,15 @@ category $\CycMod$.
 Throughout the section, we adopt the same notation convention as 
 in Section \ref{sect_cycmod_and_hm} and write $(F_*, \deloop_*)$ 
 for a homotopy module where the $\deloop_n: F_{n} \to 
-\RHI{(F_{n + 1})}$ denotes the $n$-th delooping map (see Def. 
-\ref{def_hm}).
+R(F_{n + 1})$ denotes the $n$-th delooping map (see Def. 
+\ref{def_hm}). 
+
+To further simplify notation, let $L: \HI \to \HI$ denote the 
+functor $F \mapsto \LHI{F}$, and let $R: \HI \to \HI$ denote the 
+functor given by $F \mapsto \RHI{F}$. We write $\epsilon^n : \id 
+\to R^nL^n$ and $\eta^n: L^nR^n \to \id$ for the unit and counit 
+maps; we abbreviate $\eta^1$ as $\eta$, and $\epsilon^1$ as 
+$\epsilon$.
 
 The following lemma will be key to extending the functors 
 $\tlHI{n}$, $\tgHI{n}$ and $\sgHI{n}$ on $\HM$:
@@ -19,20 +26,15 @@ $\tlHI{n}$, $\tgHI{n}$ and $\sgHI{n}$ on $\HM$:
 \begin{prop}\label{prop_tl_L_R}
 For $F \in \HI$, 
 \[
-\LHI{(\tlHI{n} F)} \simeq \tlHI{n + 1}(\LHI{F})
+L \tlHI{n}(F) \simeq \tlHI{n + 1} L(F)
 \]
 and
 \[
-\RHI{(\tlHI{n} F)} \simeq \tlHI{n - 1}(\RHI{F}).
+R\tlHI{n}(F) \simeq \tlHI{n - 1}R(F).
 \] 
 Both isomorphisms are natural in $F$.
 \end{prop}
 \begin{proof}
-For ease of notation, let $L$ be the functor $F \mapsto \LHI{F}$, 
-and $R$ be given by $F \mapsto \RHI{F}$, and $(L, R)$ form an 
-adjoint pair, such that $RL$ is naturally ismorphic to the 
-identity (Prop. \ref{prop_unit_iso}).
-
 The key is to prove that the diagram
 \begin{equation}\label{eq_Ltl_com_diag}
 \begin{tikzcd}
@@ -157,32 +159,32 @@ component of $\tlHM{n}(F)$.
 By the previous proposition, there are two maps that we can
 define between the graded pieces of $\tlHM{n}(F)$. Let
 \[
-\suspTL[k]{n} : \LHI{\tlHM[k]{n}(F)} \defeq 
-   \LHI{\tlHI{n + k}(F_k)} \to \tlHM[k + 1]{n}(F) \defeq 
+\suspTL[k]{n} : L\tlHM[k]{n}(F) \defeq 
+   L \tlHI{n + k}(F_k) \to \tlHM[k + 1]{n}(F) \defeq 
    \tlHI{n + k + 1}(F_{k + 1})
 \]
 denote the composition
 \begin{equation}\label{eq_susp_def}
-\LHI{\tlHI{n + k}(F_k)} \stackrel{\simeq}{\to} 
-   \tlHI{n + k + 1}(\LHI{F_k}) 
+L \tlHI{n + k}(F_k) \stackrel{\simeq}{\to} 
+   \tlHI{n + k + 1}L(F_k) 
    \xrightarrow{\;\tlHI{n + k + 1}(\susp_k)\;} 
    \tlHI{n + k + 1}(F_{k + 1})
 \end{equation}
-where $\susp_k: \LHI{F_k} \to F_{k + 1}$ is the $k$-th suspension 
+where $\susp_k: L(F_k) \to F_{k + 1}$ is the $k$-th suspension 
 map of $(F_*, \deloop_*)$. Let
 \[
 \deloopTL[k]{n} : \tlHM[k - 1]{n}(F) \defeq 
-   \tlHI{n + k - 1}(F_{k - 1}) \to \RHI{\tlHM[k]{n}(F)} \defeq 
-   \RHI{\tlHI{n + k}(F_{k})} 
+   \tlHI{n + k - 1}(F_{k - 1}) \to R \tlHM[k]{n}(F) \defeq 
+   R \tlHI{n + k}(F_{k}) 
 \]
 be given by
 \begin{equation}\label{eq_deloop_def}
 \tlHI{n + k - 1}(F_{k - 1})
    \xrightarrow{\;\tlHI{n + k - 1}(\deloop_k)\;} 
-   \tlHI{n + k - 1}(\RHI{(F_k)}) \stackrel{\simeq}{\to} 
-   \RHI{(\tlHI{n + k}(F_k))},
+   \tlHI{n + k - 1} R(F_k) \stackrel{\simeq}{\to} 
+   R \tlHI{n + k}(F_k),
 \end{equation}
-where $\deloop_k: F_{k - 1} \to \RHI{(F_k)}$ is the $k$-th delooping
+where $\deloop_k: F_{k - 1} \to R(F_k)$ is the $k$-th delooping
 of $(F_*, \deloop_*)$. Notice that, in this case, $\deloop_k$ is
 an isomorphism for all $k$. Therefore, $\deloopTL[k]{n}$ is an 
 isomorphism for all $k$. We claim that with the maps defined above,
@@ -208,8 +210,8 @@ respectively. It remains to show that $\suspTL[k]{n}$ and
 $\deloopTL[k + 1]{n}$ are adjoint in the sense that $\suspTL{n}$ is 
 mapped to $\deloopTL{n}$ via the adjunction 
 \[
-\Phi: \homHM(\LHI{\tlHM[k]{n}(F)}, \tlHM[k + 1]{n}(F))
-\to \homHM(\tlHM[k]{n}(F), \RHI{(\tlHM[k + 1]{n}(F))})
+\Phi: \homHM(L \tlHM[k]{n}(F), \tlHM[k + 1]{n}(F))
+\to \homHM(\tlHM[k]{n}(F), R \tlHM[k + 1]{n}(F))
 \]
 given that $\susp_{k + 1}$ is adjoint to $\deloop_k$.
 
@@ -228,12 +230,7 @@ and
 \rho : R\tlHI{n} \to \tlHI{n - 1}R
 \]
 be the natural isomorphisms given in Prop. \ref{prop_tl_L_R}. 
-Following the convention in the proof of Prop. \ref{prop_tl_L_R}, 
-let $L$ and $R$ denote the functors $F \mapsto \LHI{F}$ and $F 
-\mapsto \RHI{F}$ respectively, and let $\epsilon^n : \id \to 
-R^nL^n$ and $\eta^n: L^nR^n \to \id$ denote respectively the unit 
-and counit maps; we abbreviate $\eta^1$ as $\eta$, and $\epsilon^1$
-as $\epsilon$. Finally, we abuse notation and write $\Phi$ for the 
+Let $L$ and $R$ be given as above,  we abuse notation and write $\Phi$ for the 
 adjunction isomorphism
 \[
 \Phi: \homHI(L-, -) \to \homHI(-,R-)
@@ -476,9 +473,9 @@ where $\spectHI(F)$ is the graded sheaf whose $k$-th associated
 graded is given by
 \[
 \spectHI(F)_k = \begin{cases}
-\LHI[k]{F}   & \textrm{for }k > 0 \\
+L^k(F)   & \textrm{for }k > 0 \\
 F            & k = 0 \\
-\RHI[|k|](F) & k < 0,
+R^{|k|}(F) & k < 0,
 \end{cases}
 \]
 which is compatible with the inclusion of $\DMeff$ into $\DM$,
@@ -500,11 +497,23 @@ with the following result:
 
 \begin{prop}\label{prop_tensor_and_tfilt}
 Let $(\HI, \tgHI{*})$ and $(\HI, \tlHI{*})$ be the strong 
-filtration and cofiltration on $\HI$, then the following are true:
-\begin{enumerate}
-\item $\tlHI{n}\HI \tHI \tlHI{m}\HI \subseteq \tlHI{n + m}\HI$.
-
-\item $\tgHI{n}\HI \tHI \tlHI{m}\HI \subseteq \tgHI{n + m}\HI$.
-\end{enumerate}
+filtration and cofiltration on $\HI$, then $\tgHI{n}\HI \tHI 
+\tgHI{m}\HI \subseteq \tgHI{n + m}\HI$.
 \end{prop}
+\begin{proof}
+Notice that $L^n(F) \tHI G = L^n(F \tHI G)$, and therefore, the
+counit map $L^nR^n (L^nR^n(F) \tHI G) \to (L^nR^nF) \tHI G$ is an
+isomorphism. Now consider $L^nR^n(F) \tHI G \stackrel{\epsilon 
+\tHI G}{\to} F \tHI G$, where $\epsilon$ is the counit. 
 
+We claim that the following diagram is commutative
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+(L^nR^n F) \tHI G \arrow{r} \arrow{d} &
+F \tHI G \arrow[equals]{d} \\
+L^nR^n(F \tHI G) \arrow{r} &
+F \tHI G.
+\end{tikzcd}
+\]
+Indeed, if
+\end{proof}
