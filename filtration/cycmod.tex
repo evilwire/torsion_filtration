@@ -502,18 +502,41 @@ filtration and cofiltration on $\HI$, then $\tgHI{n}\HI \tHI
 \end{prop}
 \begin{proof}
 Notice that $L^n(F) \tHI G = L^n(F \tHI G)$, and therefore, the
-counit map $L^nR^n (L^nR^n(F) \tHI G) \to (L^nR^nF) \tHI G$ is an
-isomorphism. Now consider $L^nR^n(F) \tHI G \stackrel{\epsilon 
-\tHI G}{\to} F \tHI G$, where $\epsilon$ is the counit. 
-
-We claim that the following diagram is commutative
+counit map $L^nR^n (L^nR^n(F) \tHI G) \to (L^nR^nF) \tHI G$ is an 
+isomorphism. Now consider $L^nR^n(F) \tHI G 
+\stackrel{\epsilon \tHI G}{\to} F \tHI G$, where $\epsilon$ is the 
+counit. Applying the naturality of $L^nR^n \to \id$, we have the 
+following commutative diagram:
 \[
-\begin{tikzcd}[column sep=huge, row sep=huge]
-(L^nR^n F) \tHI G \arrow{r} \arrow{d} &
-F \tHI G \arrow[equals]{d} \\
-L^nR^n(F \tHI G) \arrow{r} &
+\begin{tikzcd}[column sep=11em, row sep=huge]
+L^nR^n(L^nR^n(F) \tHI G) \arrow{r}{\epsilon_{L^nR^n(F)\tHI G}}
+   \arrow{d}{L^nR^n(\epsilon_F \tHI G) }&
+(L^nR^n(F)) \tHI G) \arrow{d}{\epsilon_F \tHI G} \\
+L^nR^n(F \tHI G) \arrow{r}{\epsilon_{F \tHI G}} &
 F \tHI G.
 \end{tikzcd}
 \]
-Indeed, if
+As mentioned, $\epsilon_{L^nR^n(F) \tHI G}$ is an isomorphism, and
+we simplify its notation to simply $\epsilon$. Setting $\psi 
+\defeq L^nR^n(\epsilon_F \tHI G) \epsilon^{-1}$, we have the 
+following commutative diagram:
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+(L^nR^n F) \tHI G \arrow{r}{\epsilon_F \tHI G} \arrow{d}{\psi} &
+F \tHI G \arrow[equals]{d} \\
+L^nR^n(F \tHI G) \arrow{r}{\epsilon_{F \tHI G}} &
+F \tHI G.
+\end{tikzcd}
+\]
+Similarly, we have that
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+(L^nR^n F) \tHI (L^mR^m(G)) \arrow{r}{\epsilon_F \tHI \epsilon_G} 
+   \arrow{d}{\psi} &
+F \tHI G \arrow[equals]{d} \\
+L^{n + m}R^{n + m}(F \tHI G) \arrow{r}{\epsilon_{F \tHI G}} &
+F \tHI G.
+\end{tikzcd}
+\]
+is also commutative,
 \end{proof}
