@@ -10,8 +10,9 @@ homotopy modules which can be realized as the heart of $\DM$.
 
 Many results in this proof are shortened or omitted, and the 
 reader can find the complete exposition about cycle modules in 
-\cite{Rost96} and about homotopy modules its categorical 
-equivalence to $\CycMod$ in \cite{DegModHom}.
+\cite{Rost96} and about homotopy modules and its categorical 
+equivalence to $\CycMod$ in \cite{DegModHom}. The notation in this
+section follow closely the exposition of \cite{Rost96}.
 
 \begin{defn}\label{def_pre_cycmod}
 A \emph{cycle premodule} on $\fields(B)$ is an object function
@@ -107,6 +108,54 @@ one has
 \]
 \end{enumerate}
 \end{defn}
+
+For $X$ a $k$-scheme, let $\subsch{1}{X}$ denote the collection of 
+codimension 1 subscheme. Write $\xi_X$ be the generic point of an
+irreducible $X$ with $K_X = \O_X,\xi_X$. If $X$ is normal, then 
+for $x \in \codim{1}{X}$, the local ring $\O_X,x$ is a valuation 
+ring of $K_X$ with residue field $\resf{x}$. Write $M(x)$ for 
+$M(\resf{x})$, and $\res{x}: M(\xi_X) \to M(x)$ for the 
+restriction map.
+
+Furthermore, for $x, y \in X$, let $Z$ be the closed subscheme 
+determined by $x$, and $\overline{Z}$ be the normalization $Z$.
+Define
+\[
+\ptres{x}{y}: M(x) \to M(y)
+\]
+by
+\[
+\ptres{x}{y} = 
+\begin{cases}
+0 & y \notin \subsch{1}{Z} \\
+\sum_{z|y} \phi_{\resf{z},\resf{x}}^* \comp \res{z} & \textrm{otherwise}
+\end{cases}
+\]
+In case $\ptres{x}{y}$ is nonzero, the sum is taken over all $z$
+lying over $y \in \subsch{1}{Z}$, and
+$\phi_{\resf{z},\resf{y}}^*$ is the corestriction map associated to 
+the finite field extension $\resf{y} \to \resf{z}$.
+
+\begin{defn}
+A cycle module $M$ on $\fields(B)$ is a cycle premodule which
+satisfies the following conditions:
+
+\begin{enumerate}
+\item[\textbf{(FD)}] \itemhead{Finite support of divisors.} 
+$X$ be a normal scheme and $\rho \in M(\xi_X)$. Then $\res{x}: 
+M(\xi_X) \to M(X)$ is 0 for all but finitely many $x \in 
+\subsch{1}{X}$.
+
+\item[\textbf{(C)}] \itemhead{Closedness.} If $X$ is an integral
+local local of dimension 2 with closed point $x_0$, then the map 
+from $M(\xi_X)$ to $M(x_0)$ given by
+\[
+\sum_{x \in \subsch{1}{X}} \ptres{x_0}{x} \comp \ptres{x}{\xi}
+\]
+is 0.
+\end{enumerate}
+\end{defn}
+
 
 \begin{defn}\label{def_hm}
 Recall that a \DEF{homotopy module} is a $\Z$-graded homotopy 
