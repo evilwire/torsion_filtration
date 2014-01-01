@@ -17,15 +17,19 @@ $Y$}.
 \end{defn}
 
 Let $\Cor_{\basefield}$ be a collection of objects and morphisms 
-where the objects are those of $\Sm$ and morphism between any 
-$X, Y \in \Cor_{\basefield}$ is given by $\Cor(X, Y)$. We claim
-that $\Cor_{\basefield}$ form a category. The main missing piece 
-here is to the composition of morphisms. This is achieved by 
-pulling back correspondences as given by the following lemma:
+where 
+\[
+\Obj{Cor_k} = \Obj{\Sm}
+\]
+and
+\[
+\hom_{\Cor_k}(X, Y) = \Cor(X, Y).
+\]
+We claim that $\Cor_{\basefield}$ form a category. The main 
+missing piece here is to the composition of morphisms. This is 
+achieved by pulling back correspondences as given by the following 
+lemma:
 
-%
-% show that correspondences can be composed
-%
 \begin{lem}\label{lem_cor_composition}
 Let $V \in \Cor(X, Y)$ and $W \in \Cor(Y, Z)$ be elementary 
 correspondences. Writing
@@ -33,12 +37,54 @@ correspondences. Writing
 V = \sum_i n_i V_i, \;\;textrm{and}\;\; W = \sum_j m_i W_i
 \]
 where $V_i$ and $W_j$ are elementary correspondences, then
+the pushforward of
 \[
-V \circ W = \sum_{i, j} n_im_j \Sch{V_i} \times_Y \Sch{W_j}
+\sum_{i, j} n_im_j (V_i \times Z) \cap (X \times W_j)
 \]
-define a finite correspondence from $X$ to $Z$.
+in $X \times Z$ defines a finite correspondence from $X$ to $Z$.
 \end{lem}
+\begin{proof}(See \cite{MVW} Lemma 1.7.)
+% reduce to elementary correspondences,
+Notice that $\Cor(X, Y) = \sum_i \Cor(X, Y_i)$ where $Y_i$ are the 
+connected components of $Y$, and similarly for $X$. Therefore, 
+without loss of generality, we may assume that $V$ and $W$ are 
+elementary correspondences, and such that $X$ and $Y$ are 
+connected.
 
-\begin{proof}
+Form the pullback $\Sch{V} \times_Y \Sch{W}$ of $\Sch{V}$ and
+$\Sch{W}$ in the following:
+\[
+\begin{tikzcd}
+\Sch{V} \times_Y \Sch{W} \arrow{r} \arrow{d}
+&\Sch{W} \arrow{d} \\
+\Sch{V} \arrow{r}& Y.
+\end{tikzcd}
+\]
+Let $i: \Sch{V} \times_Y \Sch{W} \to X \times Y \times Z$ be the
+evident map, and consider its image $T$ in $X \times Y \times Z$. 
+We claim that each irreducible component $T_i$ of $T$ is finite 
+and surjective over $X$. 
+
+Indeed, since $T$ is the scheme theoretic intersection 
+of $\Sch{V} \times Z$ and $X \times \Sch{W}$, $T_i$ is the image 
+of an irreducible component of $\Sch{V} \times_Y \Sch{W}$. 
+However, each irreducible component of $\Sch{V} \times_Y \Sch{W}$ 
+maps finitely and surjectively to $\Sch{V}$. Since composition of
+finite surjections is a finite surjection, it follows that each
+such component maps finitely surjectively to $X$. Furthermore, 
+since the image under of an irreducible subscheme finite over $X$ is 
+also finite over $X$ (\cite{Hart} Ex. II.4.4 and \cite{EGA3} 
+4.4.2), it follows that $T_i$ is finite and surjective over $X$.
+
+To finish, consider the projection of $X \times Y \times Z \to 
+X \times Z$ of $X$ schemes. The image of each $T_i$ is again finite
+and surjective over $X$. It follows that the image of $T$ in $X 
+\times Z$ which given precisely by the integral scheme associated 
+to
+\[
+\sum_{i, j} (V \times Z) \cap (X \times W)
+\]
+defines an elementary correspondence from $X$ to $Z$.
 \end{proof}
+
 
