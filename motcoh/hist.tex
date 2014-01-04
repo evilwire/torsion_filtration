@@ -103,13 +103,10 @@ The significance
 \end{rmk}
 
 % 1. define etale topology
-% 2. define etale sheaves with transfers
-% 3. prove that Z_tr(X) is an etale sheaf with transfers
-% 4. define Z_tr of pairs
 
-\begin{defn}\label{def_nis_sheaf}
-A \DEF{Nisnevich sheaf} $F$ is a $\PST$ such that restricts to the 
-Nisnevich topos is a sheaf. That is 
+\begin{defn}\label{def_etale_sheaf}
+An \DEF{\'Etale sheaf with transfers} $F$ is a $\PST$ that is also
+an \'etale sheaf. That is,
 \begin{enumerate}
 \item for each Nisnevich cover $U \to X$, the following sequence 
 is exact:
@@ -124,5 +121,21 @@ p_1^*$ for $p_i$ the $i$-th projection map from $U \times_X U
 \end{enumerate}
 \end{defn}
 
+
+% 3. prove that Z_tr(X) is an etale sheaf with transfers
+% 4. define Z_tr of pairs
+
+% 5. define Nisnevich topology
+
+\begin{defn}\label{def_nis_sheaf}
+A \DEF{Nisnevich sheaf} $F$ is a $\PST$ such that $F$ is also a
+sheaf on the Nisnevich topos (i.e. satisfying the conditions of
+Def. \ref{def_etale_sheaf}
+\end{defn}
+
+\begin{rmk}
+It is clear from the definition that a Nisnevich sheaf is also
+an \'Etale sheaf.
+\end{rmk}
 % define homotopy invariant sheaves with transfers
 % define the bounded below derived category of sheaves
