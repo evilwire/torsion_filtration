@@ -121,6 +121,9 @@ p_1^*$ for $p_i$ the $i$-th projection map from $U \times_X U
 \end{enumerate}
 \end{defn}
 
+% since the category of sheaves of any locale is well-powered, the 
+% category of \'Etale sheaves with transfers is also well-powered. 
+% So is the category of Nisnevich sheaves with transfers.
 
 % 3. prove that Z_tr(X) is an etale sheaf with transfers
 % 4. define Z_tr of pairs
@@ -137,5 +140,16 @@ Def. \ref{def_etale_sheaf}
 It is clear from the definition that a Nisnevich sheaf is also
 an \'Etale sheaf.
 \end{rmk}
+
 % define homotopy invariant sheaves with transfers
+\begin{defn}
+A presheaf $F$ is \DEF{homotopy invariant} if the map $F(X) \to 
+F(X \times \A^1)$ induced by the projection $X \times \A^1 \to X$ 
+is an isomorphism.
+
+We write $\HI_{\Nis}$ (or simply $\HI$) for the full subcategory of 
+homotopy invariant Nisnevich sheaves with transfers. It is clear
+that $\HI$ is a well-powered abelian subcategory.
+\end{defn}
+
 % define the bounded below derived category of sheaves
