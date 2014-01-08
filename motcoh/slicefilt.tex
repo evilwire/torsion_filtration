@@ -54,4 +54,33 @@ Let $\sgDM{n}\DMeff$ be the full subcategory of objects of the
 type $M(n)$ where $M \in \DMeff$, and let $\DMeff_{n}$ be the full 
 subcategory of $M \in \DMeff$ such that $M_{-n} = 0$.
 
+Furthermore, we have two towers --- one ascending, one descending 
+--- of subcategories:
+\begin{equation}
+\DMeff \subset \sgDM{1}\DMeff \subset \sgDM{2}\DMeff \subset \cdots \\
+\end{equation}
+\vskip 5pt
+\begin{equation}
+0 \subset \slDM{1}\DMeff \subset \slDM{2}\DMeff \subset \cdots \subset
+\end{equation}
+
+and from this, we have
+
+\begin{prop}
+For each $m, n$, with $m < n$, $M \in \DMeff$,
+
+\begin{enumerate}
+\item the following is a distinguished triangle
+\begin{equation}
+\sgDM{n}M \to \sgDM{m}M \to \slDM{n}\sgDM{m}M \to \sgDM{n}M[1].
+\end{equation}
+
+\item $\sgDM{n}\sgDM{m} = \sgDM{m}\sgDM{n} = \sgDM{n}$, and 
+similarly $\slDM{m}\slDM{n} = \slDM{n}\slDM{m} = \slDM{m}$.
+
+\item $\sgDM{m}\slDM{n} = \slDM{n}\sgDM{m}$.
+
+\item $\sgDM{n}\slDM{m} = \slDM{m}\sgDM{n} = 0$.
+\end{enumerate}
+\end{prop}
 
