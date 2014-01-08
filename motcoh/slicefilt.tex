@@ -12,3 +12,23 @@ together with (co)reflection functors $\phi_i: \Cat{A} \to
 \phi_i\Cat{A}$ for each $i$ such that $\phi_i$ restricts to 
 identity on $\phi_i\Cat{A}$.
 \end{defn}
+
+We now introduce the slice filtration on $\DMeff$. The results here
+are based on the work of [HuKaSu]. Let us first fix a more 
+convenient set of notations. For each $M \in \DMeff$, set $M(n) = 
+l \tensorDM \Z(n)$, and $M_{-n} = \RHomDM(\Z(n), M)$. Since $M \mapsto
+M(n)$ is left adjoint to $M \mapsto M_{-n}$, we have a 
+distinguished triangle 
+\begin{equation}\label{slice_triangle_1}
+M_{-n}(n) \to M \to M' \to M_{-n}(n)[1],
+\end{equation}
+for each $n \geq 0$, and some $M'$. 
+
+\begin{prop}
+Fixing $n \geq 0$, the $M'$ in the distinguished triangle in
+(\ref{slice_triangle_1}) is defined up to unique isomorphism.
+
+In this case, associating $M$ with $M'$ is functorial.
+\end{prop}
+
+
