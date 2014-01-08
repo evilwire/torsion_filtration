@@ -5,8 +5,8 @@
 Let $\Cat{A}$ be a category. A \DEF{weak filtration} of $\Cat{A}$ 
 is a ($\Z$-indexed) sequence of subcategories
 \[
-\cdots \subseteq \phi_i\Cat{A} \subseteq \phi_{i - 1}\Cat{A} \subseteq \cdots 
-   \subseteq \Cat{A}
+\cdots \subseteq \phi_i\Cat{A} \subseteq \phi_{i - 1}\Cat{A} 
+   \subseteq \cdots \subseteq \Cat{A}
 \]
 together with (co)reflection functors $\phi_i: \Cat{A} \to 
 \phi_i\Cat{A}$ for each $i$ such that $\phi_i$ restricts to 
@@ -16,7 +16,7 @@ identity on $\phi_i\Cat{A}$.
 We now introduce the slice filtration on $\DMeff$. The results here
 are based on the work of [HuKaSu]. Let us first fix a more 
 convenient set of notations. For each $M \in \DMeff$, set $M(n) = 
-l \tensorDM \Z(n)$, and $M_{-n} = \RHomDM(\Z(n), M)$. Since $M \mapsto
+l \tDM \Z(n)$, and $M_{-n} = \rhomDMf(\Z(n), M)$. Since $M \mapsto
 M(n)$ is left adjoint to $M \mapsto M_{-n}$, we have a 
 distinguished triangle 
 \begin{equation}\label{slice_triangle_1}
@@ -35,7 +35,7 @@ We write $\slDM{n}$ for this functor, and $\sgDM{n}$ for the
 functor $M \mapsto M_{-n}(n)$.
 
 \begin{prop}
-For each $n \geq$, the functors $\slDM{n}$ and $\sgDM{n}$ are
+For each $n \geq 0$, the functors $\slDM{n}$ and $\sgDM{n}$ are
 both triangulated. That is, if
 \[
 M' \to M \to M'' \to M'[1]
@@ -49,3 +49,9 @@ and
 \slDM{n}M' \to \slDM{n}M \to \slDM{n}M'' \to \slDM{n}M'[1].
 \]
 \end{prop}
+
+Let $\sgDM{n}\DMeff$ be the full subcategory of objects of the 
+type $M(n)$ where $M \in \DMeff$, and let $\DMeff_{n}$ be the full 
+subcategory of $M \in \DMeff$ such that $M_{-n} = 0$.
+
+
