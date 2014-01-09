@@ -84,3 +84,26 @@ similarly $\slDM{m}\slDM{n} = \slDM{n}\slDM{m} = \slDM{m}$.
 \end{enumerate}
 \end{prop}
 
+\begin{definition}
+For $M \in \DMeff$, we say $\slDM{n}\sgDM{n - 1}M$ is the 
+\emph{$n$-th slice} of $M$, written as $\sDM{n}M$.
+\end{definition}
+
+\begin{prop}
+$\sDM{n}$ is a triangulated endofunctor for each $n$. That is,
+for any distinguished triangle
+\[
+M' \to M \to M'' \to M'[1]
+\]
+the following is also a triangle:
+\[
+\sDM{n}M' \to \sDM{n}M \to \sDM{n}M'' \to \sDM{n}M'[1]
+\]
+\end{prop}
+
+\begin{prop}\label{DMeff_slice_fund_invariant}
+For each $n$ and $M$, $\sDM{n}M = M'(n)[2n]$ for some $M' \in
+\DMeff$.
+\end{prop}
+
+
