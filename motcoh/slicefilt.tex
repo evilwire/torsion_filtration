@@ -1,6 +1,9 @@
 \newpage
 \section{Slice Filtration on $\DMeff$ and $\DM$}\label{sect_slice_filt_dm}
 
+In this section, we construct a categorical filtration on $\DMeff$ 
+and $\DM$.
+
 \begin{defn}\label{def_cat_filtration}
 Let $\Cat{A}$ be a category. A \DEF{weak filtration} of $\Cat{A}$ 
 is a ($\Z$-indexed) sequence of subcategories
@@ -84,35 +87,51 @@ similarly $\slDM{m}\slDM{n} = \slDM{n}\slDM{m} = \slDM{m}$.
 \end{enumerate}
 \end{prop}
 
-\begin{definition}
+\begin{defn}
 For $M \in \DMeff$, we say $\slDM{n}\sgDM{n - 1}M$ is the 
-\emph{$n$-th slice} of $M$, written as $\sDM{n}M$.
-\end{definition}
+\emph{$n$-th slice} of $M$, written as $\sliceDM{n}M$.
+\end{defn}
 
 \begin{prop}
-$\sDM{n}$ is a triangulated endofunctor for each $n$. That is,
+$\sliceDM{n}$ is a triangulated endofunctor for each $n$. That is,
 for any distinguished triangle
 \[
 M' \to M \to M'' \to M'[1]
 \]
 the following is also a triangle:
 \[
-\sDM{n}M' \to \sDM{n}M \to \sDM{n}M'' \to \sDM{n}M'[1]
+\sliceDM{n}M' \to \sliceDM{n}M \to \sliceDM{n}M'' \to \sliceDM{n}M'[1]
 \]
 \end{prop}
 
 \begin{prop}\label{DMeff_slice_fund_invariant}
-For each $n$ and $M$, $\sDM{n}M = M'(n)[2n]$ for some $M' \in
+For each $n$ and $M$, $\sliceDM{n}M = M'(n)[2n]$ for some $M' \in
 \DMeff$.
 \end{prop}
 
-\begin{definition}
+\begin{defn}
 We call $M'$ in Prop. \ref{DMeff_slice_fund_invariant} the 
 \emph{$n$-th fundamental invariant of $M$}, represented by
 $\fIDM{n}M$.
-\end{definition}
+\end{defn}
 
 We now relate the slice filtration to the category of birational
 motives.
 
+\begin{defn}
+A motive $M \in \DMeff$ is \emph{birational} if for any $X \in 
+\Sm$, and $U$ a dense open subscheme,
+\[
+\rhomDMf(\suslC{U}, M) = \rhomDMf(\suslC{X}, M)
+\]
+We write $\BiMot$ for the full subcategory of birational motives.
+\end{defn}
 
+\begin{prop}
+$M \in \BiMot$ if and only if $\rhomDMf(Z(1)[1], M) = 0$.
+\end{prop}
+
+\begin{prop}
+For each $M \in \DMeff$, $\fIDM{n}M \in \BiMot$ for every $n$.
+In particular, $\slDM{0}\DMeff = \BiMot$.
+\end{prop}
