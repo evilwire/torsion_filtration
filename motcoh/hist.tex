@@ -123,7 +123,7 @@ sections.
 
 % 1. define etale topology
 \begin{defn}\label{def_groth_top}
-Recall the \DEF{Grothendieck pretopology} of a category $\Cat{C}$ 
+Recall the \DEF{Grothendieck pre-topology} of a category $\Cat{C}$ 
 is a distinguished collection $\Cat{U}$ of \DEF{covering families} 
 indexed by the objects of $\Cat{C}$. Here, for each $X \in \Cat{C}$,
 a covering family of $X$ is a collection of sets of morphisms 
@@ -136,10 +136,10 @@ the covering families satisfy the following axioms:
 for every $\alpha$, and the collection $\{U_\alpha \times_X Y \to
 Y\}$ is a cover of $Y$.
 
-\item If $\{U_\alpha \to X\}$ is a cover of $X$ and suppose for
-each $\alpha$, $\{V_{\alpha\beta} \to U_\alpha\}$ is a cover of
-$U_\alpha$, then $\{V_\alpha\beta \to X\}$ obtained via composition
-is a cover of $X$.
+\item If $\{U_\alpha \to X\}$ is a cover of $X$ and for each 
+$\alpha$, $\{V_{\alpha\beta} \to U_\alpha\}$ is a cover of 
+$U_\alpha$, then $\{V_\alpha\beta \to X\}$ obtained via 
+composition is a cover of $X$.
 
 \item If $X' \to X$ is an isomorphism, then $\{X' \to X\}$ is a 
 cover of $X$.
@@ -156,29 +156,69 @@ subsets of $X$ satisfy the axioms of Def. \ref{def_groth_top} and
 define a Grothendieck topology on the category $\Cat{T}_X$.
 \end{rmk}
 
-
-There are two topologies on $\Sm$ that we consider: the \'etale 
-site and the Nisnevich site which we define below.
-
 \begin{defn}
-Recall that a 
+For let $S \defeq \{\phi_\alpha: U_\alpha \to X\}$ be a collection 
+of morphisms between schemes. We say that $S$ is \DEF{jointly 
+surjective} if $\bigcup_{\phi_\alpha \in S} \phi_\alpha(U_\alpha)
+= X$.
 \end{defn}
 
-Let $\EtSite$ denote the \'etale site of smooth schemes over 
-$k$.
+\begin{rmk}
+For each $X$, consider the collection $\Cat{U}_X$ of jointly 
+surjective sets of open immersions $\{U_\alpha \to X\}$. Then
+$\Cat{U}_X$ as $X$ ranges over all finite type $k$ schemes 
+form a Grothendieck pre-topology $\Cat{U}$ on the category 
+$\SchCat_k$ of finite type $k$ schemes called the \DEF{large 
+Zariski site on $k$-schemes.}
+\end{rmk}
 
-\begin{defn}\label{def_etale_sheaf}
-An \DEF{\'etale sheaf with transfers} $F$ is a $\PST$ that is also
-an \'etale sheaf. That is,
+We are interested in two other important Grothendieck 
+pre-topologies on $\Sm$. They are the \'etale site and the 
+Nisnevich site, which we define below.
+
+\begin{defn}
+Recall that $\phi: X \to Y$ is \DEF{\'etale} if $\phi$ is a flat
+and unramified. (See \cite{Milne} \S 3.)
+
+The \DEF{large \'etale site} on $\Sm$, is the Grothendieck 
+pre-topology given by jointly surjective \'etale morphisms 
+$\{U_\alpha \to X\}.$
+
+The \DEF{large Nisnevich site} on $\Sm$ is the Grothendieck 
+pre-topology such that every cover of $X$ is an \'etale cover 
+$\{U_\alpha \to X\}$ such that for every $x \in X$, there exists 
+some $\phi_\alpha: U_\alpha \to X$ and $y \in U_\alpha$ such that 
+$\phi_\alpha(y) = x$ and the induced map $k(x) \to k(y)$ is an 
+isomorphism.
+
+Let $\EtSite$ and $\NisSite$ denote respectively the \'etale 
+and Nisnevich site of smooth schemes over $k$.
+\end{defn}
+
+\begin{rmk}\label{rmk_comp_of_tops}
+Since open immersions are \'etale, a jointly surjective collection 
+of open immersions is both an \'etale cover and a Nisnevich cover. 
+In this sense, the Zariski topology is coarser than the Nisnevich 
+topology, which, in turn, is coarser than the \'etale topology
+on $\Sm$.
+\end{rmk}
+
+\begin{defn}\label{def_etale_sheaf}\label{def_nis_sheaf}
+An \DEF{\'etale sheaf with transfers} (resp. \DEF{Nisnevich sheaf 
+with transfers}) $F$ is a $\PST$ that is also
+an \'etale (resp. Nisnevich) sheaf. That is, $F$ satisfies the
+following coherence conditions:
 \begin{enumerate}
-\item for each Nisnevich cover $U \to X$, the following sequence 
-is exact:
+\item for each \'etale (resp. Nisnevich) cover $\{U_\alpha \to 
+X\}$, the following sequence is exact:
 \[
-0 \to F(X) \to F(U) \to F(U \times_X U)
+0 \to F(X) \to \prod_\alpha F(U_\alpha) \to \prod_{\alpha, \beta} 
+   F(U_\alpha \times_X U_\beta)
 \]
-where the map $F(U) \to F(U \times_X U)$ is given by $p_2^* - 
-p_1^*$ for $p_i$ the $i$-th projection map from $U \times_X U
-\to U$.
+where the map $\prod_\alpha F(U_\alpha) \to \prod_{\alpha, \beta} 
+F(U_\alpha \times_X U_\beta)$ is given by the first and second 
+projections from $U_\alpha \times_X U_\beta$ to $U_\alpha$ and
+$U_\beta$ respectively for each $\alpha, \beta$.
 
 \item for each $U, V$, $F(U \dU V) = F(U) \oplus F(V)$.
 \end{enumerate}
@@ -193,16 +233,43 @@ So is the category of Nisnevich sheaves with transfers.
 
 % 5. define Nisnevich topology
 
-\begin{defn}\label{def_nis_sheaf}
-A \DEF{Nisnevich sheaf} $F$ is a $\PST$ such that $F$ is also a
-sheaf on the Nisnevich topos (i.e. satisfying the conditions of
-Def. \ref{def_etale_sheaf}
-\end{defn}
-
 \begin{rmk}
-It is clear from the definition that a Nisnevich sheaf is also
-an \'etale sheaf.
+It is clear from the definition and Remark \ref{rmk_comp_of_tops}
+that an \'etale sheaf is also a Nisnevich sheaf.
 \end{rmk}
+
+Our focus will be on the Nisnevich sheaves with transfers, and 
+here are some prominent examples 
+
+\begin{ex}\label{ex_Z_O_Ostar}
+The constant sheaf $\Z$, the structure sheaf $\O$, and the sheaf
+of global units $\O^*$ satisfy the conditions given in 
+\end{ex}
+
+\begin{ex}
+A large class of Nisnevich sheaves with transfers are the 
+representable sheaves. For exach $X \in \Sm$, write $\Ztr(X)$
+for the sheaf which associates to each $U$ the abelian group
+$\Cor(U, X)$. To see that $\Ztr(X)$ is a Nisnevich sheaf, it
+suffices to show that it is an \'etale sheaf. In particular,
+for each $X \in \Sm$, $\Ztr(X)$ satisfies the coherence 
+conditions given in \ref{def_nis_sheaf}. The statement that
+$\Ztr(X)$ is an \'etale sheaf is proven in \cite{MVW}, Lemma 6.2.
+We give a short summary of the arguments for the convenience of
+the reader.
+
+Since $\Cor(U \dU V, X) = \Cor(U, X) \oplus \Cor(V, X)$, condition 
+(2) is satisfied. For (1), assume we have an \'etale cover given
+by a surjective \'etale map $\pi: U \to Y$. In particular $\pi$ is
+flat, and so is $U \times X \to Y \times X$. Injectivity of
+\[
+\Ztr(Y, X) \to \Ztr(U, X)
+\]
+follow from uniqueness of flat pullback of cycles. Without loss
+of generality, we may assume that $U$ and $Y$ are integral, and
+by passing to the generic fiber of $U$ and $Y$, we reduce
+that there exists a Zariski open $V$
+\end{ex}
 
 % define homotopy invariant sheaves with transfers
 \begin{defn}
