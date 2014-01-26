@@ -243,7 +243,7 @@ here are some prominent examples
 
 \begin{ex}\label{ex_Z_O_Ostar}
 The constant sheaf $\Z$, the structure sheaf $\O$, and the sheaf
-of global units $\O^*$ satisfy the conditions given in 
+of global units $\Ox$ satisfy the conditions given in 
 \end{ex}
 
 \begin{ex}
@@ -266,18 +266,48 @@ flat, and so is $U \times X \to Y \times X$. Injectivity of
 \Ztr(Y, X) \to \Ztr(U, X)
 \]
 follow from uniqueness of flat pullback of cycles. Without loss
-of generality, we may assume that $U$ and $Y$ are integral, and
-by passing to the generic fiber of $U$ and $Y$, we reduce
-that there exists a Zariski open $V$
+of generality, we may assume that $U$ and $Y$ are integral, with
+function fields $F$ and $L$ respectively. By faithfully flat 
+descent, we may reduce the argument to verifying exactness at
+the stalk of the generic point. This follows from the fact that
+\[
+\Cor(S, X) \to \Cor(T, X) \twoto \Cor(T \times_S T, X)
+\]
+is an equalizer sequence.
 \end{ex}
 
-% define homotopy invariant sheaves with transfers
 \begin{defn}
-A presheaf $F$ is \DEF{homotopy invariant} if the map $F(X) \to 
-F(X \times \A^1)$ induced by the projection $X \times \A^1 \to X$ 
-is an isomorphism.
+A presheaf $F$ is \DEF{homotopy invariant} if the map 
+\[
+F(X) \to F(X \times \A^1)
+\]
+induced by the projection $X \times \A^1 \to X$ is an isomorphism.
 
-We write $\HI_{\Nis}$ (or simply $\HI$) for the full subcategory of 
-homotopy invariant Nisnevich sheaves with transfers. It is clear
-that $\HI$ is a well-powered abelian subcategory.
+We write $\HI_{\Nis}$ (or simply $\HI$) for the full subcategory 
+of homotopy invariant Nisnevich sheaves with transfers.
 \end{defn}
+
+Of the three sheaves mentioned in Example \ref{ex_Z_O_Ostar}, $\Z$
+and $\Ox$ are homotopy invariant sheaves, and $\O$ is not.
+
+
+For the following section, the following will be an important 
+functor on the category of $\HI$.
+
+\begin{defn}
+Let $F \in \HI$. Let $\RHI{F}$ denote presheaf given by
+\[
+U \mapsto \cok\big( F(U \times \A^1) \to 
+   F(U \times (\A^1 - 0))\big).
+\]
+We write $\RHI[n + 1]{F}$ for $\RHI{(\RHI[n]{F})}$. We call 
+$\RHI{F}$ the contraction of $F$.
+\end{defn}
+
+\begin{prop}\label{prop_contract_is_exact}
+The association $F \mapsto \RHI{F}$ is an exact functor from
+the category of $\HI$ to $\HI$.
+\end{prop}
+\begin{proof}
+
+\end{proof}
