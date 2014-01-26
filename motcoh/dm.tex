@@ -1,2 +1,45 @@
 \newpage
-\section{Triangulated Category of Motives}\label{sect_dmeff_and_dm}
+\section{The Derived Category of Motives}\label{sect_dmeff_and_dm}
+
+
+\begin{defn}
+Let $F \in \HI$. Let $\RHI{F}$ denote presheaf given by
+\[
+U \mapsto \cok\big( F(U \times \A^1) \to 
+   F(U \times (\A^1 - 0))\big).
+\]
+We write $\RHI[(n + 1)]{F}$ for $\RHI{(\RHI[n]{F})}$. We call 
+$\RHI{F}$ the contraction of $F$.
+\end{defn}
+
+\begin{prop}\label{prop_contract_is_exact}
+The association $F \mapsto \RHI{F}$ is an exact functor from
+the category of $\HI$ to $\HI$. (see \cite{MVW} Lecture 23, and
+\cite{DegGenMot} Prop. 3.4.3)
+\end{prop}
+\begin{proof}
+The inclusion of $X \simeq X \times \{1\}$ into $X \times 
+(\A^1 - 0)$ induces a splitting
+\[
+F(X) \oplus \RHI{F}(X).
+\]
+It follows that $\RHI{F}$ is also homotopy invariant. Moreover,
+if $F$ is a sheaf, then so is $\RHI{F}$.
+
+Assume that we have an exact sequence of homotopy invariant 
+sheaves
+\[
+0 \to F' \to F \to F'' \to 0.
+\]
+Write $\tilde{F}$ for the sheaf given by $U \mapsto F(U \times 
+(\A^1 - 0))$.
+
+By the Snake Lemma, it suffices to prove that
+\[
+0 \to \tilde{F}' \to \tilde{F} \to \tilde{F}'' \to 0
+\]
+is exact. For exactness, it suffices to show that the above 
+sequence is exact at a Hensel local scheme $S$. That is, for
+Hensel local scheme $S$
+
+\end{proof}

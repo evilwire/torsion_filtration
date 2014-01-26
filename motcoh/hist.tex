@@ -228,11 +228,6 @@ since the category of sheaves of any locale is well-powered, the
 category of \'etale sheaves with transfers is also well-powered. 
 So is the category of Nisnevich sheaves with transfers.
 
-% 3. prove that Z_tr(X) is an etale sheaf with transfers
-% 4. define Z_tr of pairs
-
-% 5. define Nisnevich topology
-
 \begin{rmk}
 It is clear from the definition and Remark \ref{rmk_comp_of_tops}
 that an \'etale sheaf is also a Nisnevich sheaf.
@@ -243,7 +238,37 @@ here are some prominent examples
 
 \begin{ex}\label{ex_Z_O_Ostar}
 The constant sheaf $\Z$, the structure sheaf $\O$, and the sheaf
-of global units $\Ox$ satisfy the conditions given in 
+of global units $\Ox$ satisfy the conditions given in Def. 
+\ref{def_etale_sheaf}, and are both \'etale and Nisnevich sheaves.
+To see that $\Z, \O,$ and $\Ox$ are \'etale and Nisnevich sheaves
+with transfers, we must specify what the transfer structures are
+on each respective sheaf.
+
+For this purpose, it assume that $X, Y \in \Sm$ integral, and
+$W$ an elementary correspondence from $X$ to $Y$. Then, $W$ is
+given by an integral scheme finite over $X$, which we also 
+represent by $W$. Let $F$ and $L$ be the function fields of $X$ 
+and $W$ respectively. Then, $L$ is a dimensional $n$ $F$-vector 
+space, where $n$ is some positive integer. The induced map $\Z(X) 
+\to \Z(Y)$ is given by the composition
+\[
+\Z(Y) \to \Z(W) \stackrel{n}{\to} \Z(X).
+\]
+
+For the others, let $tr: L \to F$ and $N: L \to F$ denote the 
+trace and norm maps respectively. It is straightforward to see 
+that $tr$ and $N$ restricts to maps from $\O(W) \to \O(X)$. In
+the case of $N$, it is easy to see that $N(f^{-1}) = N(f)^{-1}$,
+and $N$ restricts to a map $\Ox(W) \to \Ox(X)$.
+
+Hence, the map $\O(Y) \to \O(X)$ is given by the composition
+\[
+\O(Y) \to \O(W) \stackrel{tr}{\to} \O(X),
+\]
+and, the map $\O^*(Y) \to \O^*(X)$ is given by
+\[
+\O^*(Y) \to \O^*(W) \stackrel{N}{\to} \O^*(X).
+\]
 \end{ex}
 
 \begin{ex}
@@ -276,38 +301,61 @@ the stalk of the generic point. This follows from the fact that
 is an equalizer sequence.
 \end{ex}
 
+We now introduce a class of sheaves that will be the focus of
+later sections.
+
 \begin{defn}
 A presheaf $F$ is \DEF{homotopy invariant} if the map 
 \[
 F(X) \to F(X \times \A^1)
 \]
 induced by the projection $X \times \A^1 \to X$ is an isomorphism.
+Similarly, we define homotopy invariant sheaves.
+\end{defn}
 
 We write $\HI_{\Nis}$ (or simply $\HI$) for the full subcategory 
-of homotopy invariant Nisnevich sheaves with transfers.
-\end{defn}
+of homotopy invariant Nisnevich sheaves with transfers. By
+\cite{Bo} Corollary 2.3.7, the category of $\HI$ is well-powered.
 
 Of the three sheaves mentioned in Example \ref{ex_Z_O_Ostar}, $\Z$
-and $\Ox$ are homotopy invariant sheaves, and $\O$ is not.
+and $\Ox$ are homotopy invariant sheaves, and $\O$ is not. In 
+general, we have the following result for identifying homotopy 
+invariance:
 
-
-For the following section, the following will be an important 
-functor on the category of $\HI$.
-
-\begin{defn}
-Let $F \in \HI$. Let $\RHI{F}$ denote presheaf given by
+\begin{lem}
+A sheaf $F$ is homotopic if and only if
 \[
-U \mapsto \cok\big( F(U \times \A^1) \to 
-   F(U \times (\A^1 - 0))\big).
+i_0^* = i_1^* : F(X \times \A^1) \to F(X)
 \]
-We write $\RHI[n + 1]{F}$ for $\RHI{(\RHI[n]{F})}$. We call 
-$\RHI{F}$ the contraction of $F$.
-\end{defn}
-
-\begin{prop}\label{prop_contract_is_exact}
-The association $F \mapsto \RHI{F}$ is an exact functor from
-the category of $\HI$ to $\HI$.
-\end{prop}
+for all $X$.
+\end{lem}
 \begin{proof}
-
+The projection $X \times \A^1$ always.
 \end{proof}
+
+We now give a way to construct a large class of homotopy invariant
+presheaves with transfers.
+
+\begin{constr}\label{constr_suslin_C}
+Let $F$ be a presheaf with transfers. Let $\Delta^n$ denote
+\[
+\Spec \basefield [x_0,\dots,x_n]/\big(\sum_{i} x_i - 1 \big).
+\]
+Notice that for each $i = 0,..., n$, there exists a map 
+$\partial_i : \Delta^n \to \Delta^{n + 1}$ induced by
+\[
+\basefield [x_0,\dots,x_{n + 1}]/\big(\sum_{i} x_i - 1 \big)
+\to \basefield [x_0,\dots,x_n]/\big(\sum_{i} x_i - 1 \big)
+\]
+given by $x_j \mapsto x_j (j \neq i)$ and $x_i \mapsto 0$. These
+are the algebraic analogue of face maps in simplicial theory.
+
+Write $\suslC[n](F)$ for the presheaf given by $U \mapsto
+F(U \times \Delta^n)$. Notice that $\suslC$ preserves transfers 
+and sheaf structure. Furthermore, by the above, for each $i = 0,
+\dots, n$, there exists a map of abelian groups
+\[
+\partial_n^* : \suslC[n + 1](F)(X) \to \suslC[n](F)(X)
+\]
+which is functorial in $X$. In particular,
+\end{constr}
