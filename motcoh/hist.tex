@@ -224,9 +224,10 @@ $U_\beta$ respectively for each $\alpha, \beta$.
 \end{enumerate}
 \end{defn}
 
-since the category of sheaves of any locale is well-powered, the 
-category of \'etale sheaves with transfers is also well-powered. 
-So is the category of Nisnevich sheaves with transfers.
+since the category of sheaves of any locale is well-powered
+(see \cite{Bo} Corollary 2.3.7), the category of \'etale sheaves 
+with transfers is also well-powered. So is the category of 
+Nisnevich sheaves with transfers.
 
 \begin{rmk}
 It is clear from the definition and Remark \ref{rmk_comp_of_tops}
@@ -301,8 +302,53 @@ the stalk of the generic point. This follows from the fact that
 is an equalizer sequence.
 \end{ex}
 
-We now introduce a class of sheaves that will be the focus of
-later sections.
+We state without proof the following results, taken from 
+\cite{MVW}, sections 6 and 13, about \'Etale and Nisnevich 
+sheaves. 
+
+\begin{prop}
+\begin{enumerate}
+% 6.12
+\item (See \cite{MVW}, Lemma 6.12) Let $p : U \to X$ be an \'etale 
+cover (resp. Nisnevich cover) of $X$. Then the following complex 
+is exact as a complex of \'etale sheaves (resp Nisnevich sheaves).
+\[
+\cdots \xrightarrow{p_{12} - p_{13} + p_{23}} \Ztr(U \times_X U)
+   \xrightarrow{p_1 - p_2} \Ztr(U) \xrightarrow{p} \Ztr(X) \to 0
+\]
+
+\item Let $F$ be a presheaf with transfers, and write $\Etale{F}$
+for the \'etale sheafification of $F$ (see \cite{Tamme} Theorem 
+3.1.1). Then $\Etale{F}$ emits a unique transfers structure. That 
+is, $\Etale{F}$ is an \'Etale sheaf with transfers.
+
+% 6.17, 6.18
+The inclusion $\ShEtCor \into \PST$ has a left adjoint $\etale$, 
+which is exact. 
+
+Likewise, for $F \in \PST$, write $\NisSh{F}$ for then Nisnevich
+sheafification of $F$. Then $\Nis{F}$ is a Nisnevich sheaf with
+transfers, and defines a left adjoint $\nis$ to the inclusion $\ShNisCor
+\into \PST$, which is also exact. 
+
+In particular, both $\ShEtCor$ and $\ShNisCor$ are abelian 
+subcategories of $\PST$.
+
+\item (See \cite{MVW}, Prop. 6.19) The both $\ShEtCor$ and $\ShNisCor$
+have enough injectives.
+% 6.19
+\end{enumerate}
+\end{prop}
+\begin{proof}
+For the statements about \'etale sheaves with transfers, see 
+\cite{MVW}, Lemma 6.12, Theorem 6.17 and Corollary 6.18, and 
+Prop. 6.19 respectively. The arguments in the proofs of the
+statements about \'etale sheaves can easily be extended to proofs
+for the Nisnevich sheaves.
+\end{proof}
+
+We now introduce the notion of homotopy invariant sheaves, which
+will play a central role in the following sections.
 
 \begin{defn}
 A presheaf $F$ is \DEF{homotopy invariant} if the map 
@@ -314,8 +360,8 @@ Similarly, we define homotopy invariant sheaves.
 \end{defn}
 
 We write $\HI_{\Nis}$ (or simply $\HI$) for the full subcategory 
-of homotopy invariant Nisnevich sheaves with transfers. By
-\cite{Bo} Corollary 2.3.7, the category of $\HI$ is well-powered.
+of homotopy invariant Nisnevich sheaves with transfers. Since 
+$\ShNisCor$ is well-powered, so is $\HI$.
 
 Of the three sheaves mentioned in Example \ref{ex_Z_O_Ostar}, $\Z$
 and $\Ox$ are homotopy invariant sheaves, and $\O$ is not. In 
@@ -447,8 +493,8 @@ uniquely determined by
 (v_{j - 1}, 1) & \textrm{otherwise}
 \end{cases}
 \]
-Define $h_i : \suslC[n] F(X \times \A^1) \to \suslC[n + 1] F(X)$ 
-to be the map induced by $id \times \theta_i : X \times 
+Define $h_n : \suslC[n] F(X \times \A^1) \to \suslC[n + 1] F(X)$ 
+to be the map induced by $id \times \theta_n : X \times 
 \Delta^{n + 1} \to X \times \Delta^n \times \A^1$. It is 
 straightforward to verify that $i_0^* = \partial_{n + 1}h_n$,
 $i_1^* = \partial_0 h_0$, and $s_n = \sum_i (-1)^i h_i$ is the 
@@ -598,5 +644,9 @@ define homotopy equivalences between $\suslC \Ztr(X)$ and $\suslC
 \Ztr(Y)$.
 \end{proof}
 
-We conclude this section with an important class of chain
-complexes.
+\begin{rmk}
+We note that all results of this section hold for $\PST(R)$, which
+are presheaves with transfers with values in $R$-modules, where $R$
+is some commutative unital ring. In particular, $\Rtr(X)$ are
+\'etale/Nisnevich sheaves for all $X \in \Sm$.
+\end{rmk}

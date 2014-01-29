@@ -1,6 +1,57 @@
 \newpage
 \section{The Derived Category of Motives}\label{sect_dmeff_and_dm}
 
+In this section, we define the derived category of motives $\DMeff$,
+and show that it is equipped with a closed monoidal structure that
+will be used to construct the slice filtration in Section 
+\ref{sect_slice_filt_dm}.
+
+To do this, we first define the bounded above derived category 
+$\DShCor$ of Nisnevich sheaves, and show that the derived 
+category is equipped with a tensor and internal hom functor. We 
+then show that $\DMeff$ can be identified as the full subcategory 
+of $\DShCor$ with homotopy invariant cohomology. The closed
+monoidal structure on $\DMeff$ is therefore obtained from the
+closed monoidal structure on $\DShCor$. For the remainder of the
+section, unless stated otherwise, all sheaves are Nisnevich 
+sheaves. We will simply write $\ShCor$ for the category of 
+Nisnevich sheaves with transfers.
+
+\begin{defn}\label{def_z_n}
+Let $\Ztr(\Gm)$ denote the cokernel of
+\[
+\Z = \Ztr(\Spec \basefield) \to \Ztr(\A^1 - 0)
+\]
+given by $\basefield [x, x^{-1}] \to \basefield$, given by
+$x \mapsto 1$. Since $\basefield \to \basefield[x, x^{-1}]$
+defines a splitting $\Ztr(\A^1 - 0) \simeq \Ztr(\Gm) \oplus \Z$.
+Therefore, $\Ztr(\Gm)$ is also a Nisnevich (and \'etale) sheaf 
+with transfers.
+
+More generally, let $\Ztr(\Gmn{n})$ denote cokernel of the map 
+\[
+\oplus_j \Ztr((\A^1 - 0)^{n - 1}) \xrightarrow{\;\;\sum \phi_j\;\;}
+\Ztr((\A^1 - 0)^n)
+\]
+where $\phi_j$ is induced by the map
+\[
+\basefield[x_1^{\pm},\dots,x_n^{\pm}] \to \basefield[x_1^{\pm},
+\dots, x_m^{\pm}]
+\]
+given by
+\[
+x_i \mapsto
+\begin{cases}
+x_i &\textrm{if } i < j \\
+1   &\textrm{if } i = j \\
+x_{i - 1} &\textrm{if } i > j.
+\end{cases}
+\]
+Finally, for $n \geq 0$, let $\Z(n)$ denote
+\end{defn}
+
+%%%%%
+%%%%%
 
 \begin{defn}
 Let $F \in \HI$. Let $\RHI{F}$ denote presheaf given by
@@ -17,6 +68,7 @@ The association $F \mapsto \RHI{F}$ is an exact functor from
 the category of $\HI$ to $\HI$. (see \cite{MVW} Lecture 23, and
 \cite{DegGenMot} Prop. 3.4.3)
 \end{prop}
+
 \begin{proof}
 The inclusion of $X \simeq X \times \{1\}$ into $X \times 
 (\A^1 - 0)$ induces a splitting
