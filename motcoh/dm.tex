@@ -14,8 +14,8 @@ of $\DShCor$ with homotopy invariant cohomology. The closed
 monoidal structure on $\DMeff$ is therefore obtained from the
 closed monoidal structure on $\DShCor$. For the remainder of the
 section, unless stated otherwise, all sheaves are Nisnevich 
-sheaves. We will simply write $\ShCor$ for the category of 
-Nisnevich sheaves with transfers.
+sheaves. We will drop the ``Nis'', and simply write $\ShCor$ for 
+the category of Nisnevich sheaves with transfers.
 
 \begin{defn}\label{def_z_n}
 Let $\Ztr(\Gm)$ denote the cokernel of
@@ -47,7 +47,14 @@ x_i &\textrm{if } i < j \\
 x_{i - 1} &\textrm{if } i > j.
 \end{cases}
 \]
-Finally, for $n \geq 0$, let $\Z(n)$ denote
+Finally, for $n \geq 0$, let $\Z(n)$ denote the complex $\suslC 
+\Ztr(\Gmn{n})[-n]$ indexed cohomologically. That is, 
+\[
+(\Z(n))^i = \begin{cases}
+\suslC[n - i]\Ztr(\Gmn{n}) & \textrm{for }i \leq n \\
+0 & \textrm{otherwise}
+\end{cases}
+\]
 \end{defn}
 
 %%%%%
