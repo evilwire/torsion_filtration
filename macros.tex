@@ -46,6 +46,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\tensor}{\otimes}
 
 % related to exposition
 \newcommand{\DEF}[1]{\emph{#1}}
@@ -73,6 +74,7 @@
 \newcommand{\im}{\mathrm{im}\;}
 \newcommand{\cok}{\mathrm{cok}\;}
 \renewcommand{\to}{\longrightarrow}
+\newcommand{\from}{\longleftarrow}
 \newcommand{\into}{\longhookrightarrow}
 \newcommand{\onto}{\longtwoheadrightarrow}
 \newcommand{\id}{\mathrm{id}}
@@ -92,12 +94,14 @@
 % categories, sets, class
 \newcommand{\Class}[1]{\mathscr{#1}}
 \newcommand{\Cat}[1]{\mathscr{#1}}
+\newcommand{\DCat}[1][D]{\mathbf{#1}}
 \newcommand{\Obj}[1]{\mathrm{Obj}(#1)}
 \renewcommand{\hom}{\mathrm{Hom}}
 \newcommand{\adj}{\dashv}
 
 % homological algebra
 \newcommand{\rhom}{\mathrm{RHom}}
+\newcommand{\Tot}{\mathrm{Tot}}
 
 % algebraic geometry
 \newcommand{\basefield}{k}
@@ -114,8 +118,13 @@
 \newcommand{\Spec}[1]{\mathrm{Spec}\, #1}
 \newcommand{\Etale}[1]{#1_{\mathrm{\acute{e}t}}}
 \newcommand{\etale}{a_{\mathrm{\acute{e}t}}}
+\newcommand{\ihom}{\sheaf{\hom}}
 
 % sheaves with transfers
+\newcommand{\tL}{\otimes^{\mathbb{L}}}
+\newcommand{\ttr}{\otimes^{\mathrm{tr}}}
+\newcommand{\ttrNis}{\ttr_{\mathrm{Nis}}}
+\newcommand{\tLNis}{\tL_{\mathrm{Nis}}}
 \newcommand{\Cor}{Cor}
 \newcommand{\ShCor}{ShCor}
 \newcommand{\ShEtCor}{Sh_{\mathrm{\acute{e}t}}Cor}

@@ -17,6 +17,217 @@ section, unless stated otherwise, all sheaves are Nisnevich
 sheaves. We will drop the ``Nis'', and simply write $\ShCor$ for 
 the category of Nisnevich sheaves with transfers.
 
+First consider the category $\PST$. By Yoneda, for $X \in \Sm$ and
+$F \in \PST$,
+\[
+\hom_{\PST}(\Ztr(X), F) = F(X).
+\]
+It follows that $\Ztr(X)$ is projective for every $X \in \Sm$.
+Since direct sums of projectives are projective, 
+$\oplus_i \Ztr(X_i)$ is also projective for any arbitrary 
+collection $\{Z_i\}$. Furthermore, for $F \in \PST$, there exists 
+a surjection
+\begin{equation}\label{eq_res_by_rep}
+\bigoplus_{X} \bigoplus_{0 \neq x \in F(X)} \Ztr(X) 
+   \stackrel{x}{\to} F.
+\end{equation}
+Hence, the category $\PST$ has enough projectives. Thus, we may 
+define the bounded above derived category $\DCat{D}^-\PST$ of the 
+abelian category $\PST$, and a closed monoidal structure on 
+$\DCat{D}^-\PST$. The existence of $\DCat{D}^-\PST$ follows from 
+\cite{WH} 10.4.8. The tensor structure is obtained from the 
+following construction. Define $\Ztr(X) \ttr \Ztr(Y) \defeq 
+\Ztr(X \times Y)$. Furthermore, for each $\phi: \Ztr(X) \to 
+\Ztr(Y)$, $\phi \in \hom_{\PST}(\Ztr(X), \Ztr(Y)) = \Cor(Y, X)$ 
+and is given by $W$. Define $\phi \tensor \Ztr(Z): \Ztr(X) \ttr 
+\Ztr(Z) \to \Ztr(Y) \ttr \Ztr(Z)$ to be $W \times Z$. It is clear 
+that we can extend $\ttr$ to arbitrary direct sums of 
+representable presheaves.
+
+For arbitrary $F, G \in \PST$, let $P^* \to F$ and $Q^* \to G$
+be a resolutions by direct sums of representable functors of $F$ 
+and $G$ respectively. We write $F \tL G$ for the total complex of 
+the double complex $P^* \ttr Q^*$. By \cite{WH} ---, any two 
+projective resolutions are chain homotopy equivalent. Therefore, 
+it is easy to see that up to chain homotopy equivalence, this is 
+independent of the choice of $P^*$ and $Q^*$.
+
+In particular, $H^0(F \tL G)$ is well-defined. Set the tensor and
+internal hom bifunctors on $\PST$ to be
+\[
+F \tensor G \defeq F \tL G.
+\]
+and let 
+\[
+\ihom(F, G): X \mapsto \hom_{\PST}(F \tensor \Ztr(X), G).
+\]
+The following shows that $\tensor$ and $\ihom$ define a closed
+monoidal structure on $\HI$:
+\begin{lem}
+For all $F \in \PST$, the functor $F \tL -$ if adjoint to 
+$\ihom(-, F).$
+\end{lem}
+\begin{proof}
+Fix $F, G,$ and $H \in \PST$, we show that
+\[
+\hom_{\PST}(G \tensor F, H) = \hom_{\PST}(G, \ihom(F, H))
+\]
+
+Since $\PST$ has enough projectives, it suffices to prove this 
+for $F, G$ representable. Assume $F = \Ztr(X), G = \Ztr(Y)$,
+then 
+\begin{align*}
+\hom_{\PST}(\Ztr(X), \ihom(\Ztr(Y), H)) &=
+\ihom(\Ztr(Y), H)(X) \\
+&= \hom_{\PST}(\Ztr(X) \tensor \Ztr(Y), H)
+\end{align*}
+where the first equality follows by Yoneda, and the second, by
+the definition of $\ihom(\Ztr(Y), H)$.
+\end{proof}
+
+We now extend $\tensor$ to $\DCat{D}^-\PST$. To do so, let $F^*$ 
+represent a bounded above complex of presheaves with transfers.
+By \cite[10.something]{WH}, $F^*$ is quasi-isomorphic to a 
+projective complex $P^*$. In fact, we may assume that $P^*$ is a 
+complex such that $P^i$ is a direct sum of representable 
+presheaves. We call $P^* \to F^*$ \DEF{a projective resolution (by
+representable presheaves)}.
+
+Define $F^* \tL G^*$ to be the total complex associated with
+$P^* \tensor Q^*$, where $P^*$ and $Q^*$ are projective 
+resolutions of $F^*$ and $G^*$ respectively. Once again, up to
+quasi-isomorphism, $F^* \tL G^*$ is defined independent of the 
+choice of projective resolutions, and is itself a bounded above 
+complex. 
+
+\begin{lem}[\cite{MVW} Lemma 8.7]
+Let $F^*$ and ${F'}^*,$ be two quasi-isomorphic bounded above 
+complexes in $\PST$. Then for any bounded above $G^*$ in $\PST$,
+$F^* \tL G^* \cong {F'}^* \tL G^*$.
+\end{lem}
+\begin{proof}
+This follows straightforwardly from the fact that any projective
+resolution of $F^*$ is a projective resolution of ${F'}^*$.
+\end{proof}
+
+In particular, $\tL$ is well-defined as a bi-functor on 
+$\DCat{D}^-\PST$.
+
+\begin{defn}
+Let $\DCat{D}$ be a triangulated category. We say that $\DCat{D}$ 
+is a \DEF{tensor triangulated category} if there exists a bifunctor
+$- \tensor -$, together with two natural isomorphisms 
+\[
+\begin{tikzcd}
+(M[1]) \tensor N \arrow{r}{l_{M, N}}&
+(M \tensor N)[1] &
+M \tensor (N[1]) \arrow{l}{r_{M, N}}
+\end{tikzcd}
+\]
+such that $(\DCat{D}, \tensor)$ satisfies the axioms of a 
+symmetric monoidal category, and the following two conditions
+hold
+\begin{enumerate}
+\item For any distinguished triangle $M' \to M \to M'' 
+\stackrel{\delta}{\to} M'[1]$, and any $N \in \DCat{D}$,
+the following triangles are distinguished
+\[
+\begin{tikzcd}
+M' \tensor N \arrow{r} &
+M \tensor N \arrow{r} &
+M'' \tensor N \arrow{r}{l(\delta \tensor D)}&
+(M' \tensor N)[1] \\
+N \tensor M' \arrow{r} &
+N \tensor M \arrow{r} &
+N \tensor M'' \arrow{r}{r(D \tensor \delta)}&
+(N \tensor M')[1]
+\end{tikzcd}
+\]
+
+\item For any $M, N \in \DCat{D}$, the following anti-commutes,
+i.e. $rl = -lr$:
+\[
+\begin{tikzcd}
+M[1] \tensor N[1] \arrow{rr}{r}\arrow{dd}{l} && 
+(M[1] \tensor N)[1] \arrow{dd}{l} \\
+& -1 \\
+(M \tensor D[1])[1] \arrow{rr}{r} &&
+(M \tensor D)[2].
+\end{tikzcd}
+\]
+\end{enumerate}
+
+We say that $(\DCat{D}, \tensor)$ is an \DEF{additive symmetric 
+monoidal category} if 
+\[
+(\bigoplus M_i) \tensor N = \bigoplus_i (M_i \tensor N)
+\]
+for all $N \in \DCat{D}$ and all family $\{M_i\}$ of
+objects of $\DCat{D}$ such that $\oplus_i M_i \in \DCat{D}$.
+\end{defn}
+
+\begin{lem}\label{lem_tensor_add_cat}
+Let $\Cat{A}$ be an additive category, equipped with a additive 
+symmetric monoidal structure. Then the homotopy category 
+$\DCat{K}^-(\Cat{A})$ of bounded above (co)chain complexes of
+is a tensor triangulated category.
+\end{lem}
+\begin{proof}
+\end{proof}
+
+Let $\Cor^{\oplus}$ denote the closure under arbitrary direct 
+sum of representable presheaves in $\PST$. This is an additive
+category equipped with an additive symmetric monoidal structure.
+By the previous lemma, we see that the homotopy category 
+$\DCat{K}(\Cor^{\oplus})$ is a tensor triangulated categegory.
+By similar arguments as in \cite[10.4.8]{WH}, $\DCat{D}^-\PST$
+is equivalent as a category to $\DCat{K}^-(\Cor^{\oplus})$.
+It follows that $\DCat{D}^-\PST$ is also a tensor triangulated 
+category.
+
+\begin{defn}\label{def_shcor_tensor}
+Let $F, G$ be Nisnevich sheaves with transfers. Define
+$F \ttrNis G$ to be the Nisnevich sheafification of the presheaf
+$F \ttr G$. That is,
+\[
+F \ttrNis G \defeq \nis(F \ttr G)
+\]
+where $\nis$ is the Nisnevich sheafification. We can extend 
+$\ttrNis$ to chain complexes of Nisnevich sheaves. Let $F^*$ and 
+$G^*$ be a chain complex of Nisnevich sheaves with transfers. 
+Define $F^* \tLNis G^*$ to be the Nisnevich sheafification of the 
+complex $F^* \tL G^*$:
+\[
+F^* \tLNis G^* \defeq \nis(F^* \tL G^*).
+\]
+This is well-defined up to quasi-isomorphism.
+\end{defn}
+
+\begin{rmk}
+Fix $F^*$ and $G^*$ sheaves with transfers, and let $P^*$ and 
+$Q^*$ be resolutions by representables of $F^*$ and $G^*$ 
+respectively. Since $\nis$ is exact, $\nis(F^* \tL G^*) = 
+\nis(\Tot(P^* \ttr Q^*)) = \Tot(P^* \ttrNis Q^*)$.
+\end{rmk}
+
+We claim that $(\DCat{D}^-\ShCor, \tLNis)$ is an additive 
+symmetric monoidal triangulated category. This is precisely the
+content of Theorem \ref{thm_dshcor_tensor}. We first consider the 
+following lemmas.
+
+\begin{lem}[\cite{MWV} Prop. 8A.7]
+Let $\DCat$ be a tensor triangulated category, and let $\Cat{W}$
+be a collection of maps in $\DCat$ that is closed under $-\tensor N$
+for every $N \in \DCat$ i.e. if $M \to M'$ is in $\Cat{W}$ then so is
+$M \tensor N \to M' \tensor N$. Then the localization 
+$\DCat[\Cat{W}^{-1}]$ is also a tensor triangulated category.
+\end{lem}
+
+
+
+\begin{thm}\label{thm_dshcor_tensor}
+\end{thm}
+
 \begin{defn}\label{def_z_n}
 Let $\Ztr(\Gm)$ denote the cokernel of
 \[
@@ -26,7 +237,7 @@ given by $\basefield [x, x^{-1}] \to \basefield$, given by
 $x \mapsto 1$. Since $\basefield \to \basefield[x, x^{-1}]$
 defines a splitting $\Ztr(\A^1 - 0) \simeq \Ztr(\Gm) \oplus \Z$.
 Therefore, $\Ztr(\Gm)$ is also a Nisnevich (and \'etale) sheaf 
-with transfers.
+with transfers. 
 
 More generally, let $\Ztr(\Gmn{n})$ denote cokernel of the map 
 \[
