@@ -32,9 +32,9 @@ a surjection
    \stackrel{x}{\to} F.
 \end{equation}
 Hence, the category $\PST$ has enough projectives. Thus, we may 
-define the bounded above derived category $\DCat{D}^-\PST$ of the 
+define the bounded above derived category $\DCat[D]^-\PST$ of the 
 abelian category $\PST$, and a closed monoidal structure on 
-$\DCat{D}^-\PST$. The existence of $\DCat{D}^-\PST$ follows from 
+$\DCat[D]^-\PST$. The existence of $\DCat[D]^-\PST$ follows from 
 \cite{WH} 10.4.8. The tensor structure is obtained from the 
 following construction. Define $\Ztr(X) \ttr \Ztr(Y) \defeq 
 \Ztr(X \times Y)$. Furthermore, for each $\phi: \Ztr(X) \to 
@@ -52,17 +52,17 @@ projective resolutions are chain homotopy equivalent. Therefore,
 it is easy to see that up to chain homotopy equivalence, this is 
 independent of the choice of $P^*$ and $Q^*$.
 
-In particular, $H^0(F \tL G)$ is well-defined. Set the tensor and
-internal hom bifunctors on $\PST$ to be
+In particular, $H^0(F \tL G)$ is well-defined. Define the tensor 
+operation on $\PST$ to be
 \[
-F \tensor G \defeq F \tL G.
+F \tensor G \defeq F \tL G,
 \]
-and let 
+and define internal hom by
 \[
 \ihom(F, G): X \mapsto \hom_{\PST}(F \tensor \Ztr(X), G).
 \]
 The following shows that $\tensor$ and $\ihom$ define a closed
-monoidal structure on $\HI$:
+monoidal structure on $\PST$:
 \begin{lem}
 For all $F \in \PST$, the functor $F \tL -$ if adjoint to 
 $\ihom(-, F).$
@@ -85,7 +85,7 @@ where the first equality follows by Yoneda, and the second, by
 the definition of $\ihom(\Ztr(Y), H)$.
 \end{proof}
 
-We now extend $\tensor$ to $\DCat{D}^-\PST$. To do so, let $F^*$ 
+We now extend $\tensor$ to $\DCat[D]^-\PST$. To do so, let $F^*$ 
 represent a bounded above complex of presheaves with transfers.
 By \cite[10.something]{WH}, $F^*$ is quasi-isomorphic to a 
 projective complex $P^*$. In fact, we may assume that $P^*$ is a 
@@ -111,10 +111,10 @@ resolution of $F^*$ is a projective resolution of ${F'}^*$.
 \end{proof}
 
 In particular, $\tL$ is well-defined as a bi-functor on 
-$\DCat{D}^-\PST$.
+$\DCat[D]^-\PST$.
 
 \begin{defn}
-Let $\DCat{D}$ be a triangulated category. We say that $\DCat{D}$ 
+Let $\DCat[D]$ be a triangulated category. We say that $\DCat[D]$ 
 is a \DEF{tensor triangulated category} if there exists a bifunctor
 $- \tensor -$, together with two natural isomorphisms 
 \[
@@ -124,12 +124,12 @@ $- \tensor -$, together with two natural isomorphisms
 M \tensor (N[1]) \arrow{l}{r_{M, N}}
 \end{tikzcd}
 \]
-such that $(\DCat{D}, \tensor)$ satisfies the axioms of a 
+such that $(\DCat[D], \tensor)$ satisfies the axioms of a 
 symmetric monoidal category, and the following two conditions
 hold
 \begin{enumerate}
 \item For any distinguished triangle $M' \to M \to M'' 
-\stackrel{\delta}{\to} M'[1]$, and any $N \in \DCat{D}$,
+\stackrel{\delta}{\to} M'[1]$, and any $N \in \DCat[D]$,
 the following triangles are distinguished
 \[
 \begin{tikzcd}
@@ -144,7 +144,7 @@ N \tensor M'' \arrow{r}{r(D \tensor \delta)}&
 \end{tikzcd}
 \]
 
-\item For any $M, N \in \DCat{D}$, the following anti-commutes,
+\item For any $M, N \in \DCat[D]$, the following anti-commutes,
 i.e. $rl = -lr$:
 \[
 \begin{tikzcd}
@@ -157,19 +157,19 @@ M[1] \tensor N[1] \arrow{rr}{r}\arrow{dd}{l} &&
 \]
 \end{enumerate}
 
-We say that $(\DCat{D}, \tensor)$ is an \DEF{additive symmetric 
+We say that $(\DCat, \tensor)$ is an \DEF{additive symmetric 
 monoidal category} if 
 \[
 (\bigoplus M_i) \tensor N = \bigoplus_i (M_i \tensor N)
 \]
-for all $N \in \DCat{D}$ and all family $\{M_i\}$ of
-objects of $\DCat{D}$ such that $\oplus_i M_i \in \DCat{D}$.
+for all $N \in \DCat[D]$ and all family $\{M_i\}$ of
+objects of $\DCat[D]$ such that $\oplus_i M_i \in \DCat{D}$.
 \end{defn}
 
 \begin{lem}\label{lem_tensor_add_cat}
 Let $\Cat{A}$ be an additive category, equipped with a additive 
 symmetric monoidal structure. Then the homotopy category 
-$\DCat{K}^-(\Cat{A})$ of bounded above (co)chain complexes of
+$\DCat[K]^-(\Cat{A})$ of bounded above (co)chain complexes of
 is a tensor triangulated category.
 \end{lem}
 \begin{proof}
@@ -179,10 +179,10 @@ Let $\Cor^{\oplus}$ denote the closure under arbitrary direct
 sum of representable presheaves in $\PST$. This is an additive
 category equipped with an additive symmetric monoidal structure.
 By the previous lemma, we see that the homotopy category 
-$\DCat{K}(\Cor^{\oplus})$ is a tensor triangulated categegory.
-By similar arguments as in \cite[10.4.8]{WH}, $\DCat{D}^-\PST$
-is equivalent as a category to $\DCat{K}^-(\Cor^{\oplus})$.
-It follows that $\DCat{D}^-\PST$ is also a tensor triangulated 
+$\DCat[K]^-(\Cor^{\oplus})$ is a tensor triangulated categegory.
+By similar arguments as in \cite[10.4.8]{WH}, $\DCat[D]^-\PST$
+is equivalent as a category to $\DCat[K]^-(\Cor^{\oplus})$.
+It follows that $\DCat[D]^-\PST$ is also a tensor triangulated 
 category.
 
 \begin{defn}\label{def_shcor_tensor}
@@ -210,23 +210,118 @@ respectively. Since $\nis$ is exact, $\nis(F^* \tL G^*) =
 \nis(\Tot(P^* \ttr Q^*)) = \Tot(P^* \ttrNis Q^*)$.
 \end{rmk}
 
-We claim that $(\DCat{D}^-\ShCor, \tLNis)$ is an additive 
+We claim that $(\DCat[D]^-\ShCor, \tLNis)$ is an additive 
 symmetric monoidal triangulated category. This is precisely the
-content of Theorem \ref{thm_dshcor_tensor}. We first consider the 
-following lemmas.
+content of Theorem \ref{thm_dshcor_tensor}. Its proof will
+depend on the following lemmas:
 
-\begin{lem}[\cite{MWV} Prop. 8A.7]
+\begin{lem}[\cite{MVW} Prop. 8A.7]\label{lem_loc_and_tensor}
 Let $\DCat$ be a tensor triangulated category, and let $\Cat{W}$
-be a collection of maps in $\DCat$ that is closed under $-\tensor N$
-for every $N \in \DCat$ i.e. if $M \to M'$ is in $\Cat{W}$ then so is
-$M \tensor N \to M' \tensor N$. Then the localization 
-$\DCat[\Cat{W}^{-1}]$ is also a tensor triangulated category.
+be a collection of maps in $\DCat$ that is closed under $-\tensor 
+N$ for every $N \in \DCat$ i.e. if $M \to M'$ is in $\Cat{W}$ then 
+so is $M \tensor N \to M' \tensor N$. Then the localization $\DCat 
+[\Cat{W}^{-1}]$ is also a tensor triangulated category.
 \end{lem}
 
-
+\begin{lem}[\cite{MVW} Prop. 8.16]
+Let $f: F^* \to {F'}^*$ be a morphism of bounded above complexes of
+presheaves with transfers. If $f$ induces a quasi-isomorphism
+from $\nis(F^*) \to \nis({F'}^*)$, then for any other complex $G^*$
+of sheaves with transfers,
+\[
+f \tLNis G^* : F^* \tLNis G^* \to {F'}^* \tLNis G^*
+\]
+is a quasi-isomorphism of complexes of Nisnevich sheaves.
+\end{lem}
 
 \begin{thm}\label{thm_dshcor_tensor}
+The category $(\DCat^-\ShCor, \tL)$ as presented above is an 
+symmetric tensor category.
 \end{thm}
+
+\begin{defn}
+Let $B^*$ be a bounded above complex of Nisnevich sheaves. Let $B^*
+\to I^*$ be a Cartan-Eilenburg resolution. Such a resolution 
+exists since the category of $\ShCor$ has enough injectives (see 
+\cite[Prop.  6.19]{MVW}). For $X \in \Sm$, define 
+$\sheaf{\rhom}(\Ztr(X), B)$ to be the complex of sheaves given by
+\[
+\sheaf{\rhom}(\Ztr(X), B)(U) = \rhom_{\DCat^-\ShCor}(\Ztr(X \times U),
+I^*)
+\]
+\end{defn}
+
+% make a remark about bounded cohomology dimension of the basefield
+% in the case we are working with \'etale cohomology.
+
+The following is a straightforward consequence of the definition:
+
+\begin{lem}
+For all $X \in \Sm$, and all $F^*, G^* \in \DCat^-\ShCor$, we have
+the following adjunction
+\[
+\hom_{\DCat^-\ShCor}(F^*\tLNis \Ztr(X), G^*) \cong
+\hom_{\DCat^-\ShCor}(F^*, \sheaf{\rhom}(\Ztr(X), G^*)).
+\]
+\end{lem}
+
+We now define $\DMeff$, the derived category of motives. To do so,
+we first need a notion of a thick subcategory.
+
+\begin{defn}
+A full additive subcategory $\Cat{W}$ of a derived category 
+$\DCat$ is \DEF{thick} if
+\begin{enumerate}
+\item if $A \to B \to C \to A[1]$ is a distinguished triangle, then
+any two of $A, B, C$ is in $\Cat{W}$, then so is the third.
+
+\item if $A$ and $B$ are objects in $\Cat{W}$, then $A \oplus B \in
+\Cat{W}$.
+\end{enumerate}
+\end{defn}
+
+If $\Cat{W}$ is a thick subcategory of a derived category $\DCat$,
+then we can define a quaotient triangulated category 
+$\DCat/\Cat{W}$. Let $\Cat{S}$ be the set of maps whose cone is in 
+$\Cat{W}$. Then $\Cat{S}$ is a saturated multiplicative system in 
+the sense that $\Cat{S}$ contains the identity, is closed under 
+composition, and if $fg \in \Cat{S}$, then $f$ and $g$ are both in 
+$\Cat{S}$. Define $\DCat/\Cat{W}$ to be the localization 
+$\DCat[D] [\Cat{S}^{-1}]$.
+
+Let $\Cat{W}_{\A}$ be the thick subcategory of $\DCat^-\ShCor$ 
+generated by the cones of $\Ztr(X \times \A^1) \to \Ztr(X)$ for 
+every $X \in \Sm$, closed under direct sums that exist in 
+$\DCat^-\ShCor$. Write $\Cat{S}_{\A}$ for the maps whose cone is
+in $\Cat{W}_{\A}$. We write $\DMeff$ for the localization
+$\DCat^-\ShCor[\Cat{S}_{\A}^{-1}]$.
+
+\begin{defn}
+Let $\Cat{S}_{\A}$ be the set of morphisms in $\DCat^-\ShCor$ 
+given as above. We say that a morphism $f$ in $\DCat^-\ShCor$ is
+\DEF{$\A^1$ weak equivalence} if $f \in \Cat{S}_{\A}$.
+\end{defn}
+
+\begin{lem}[\cite{MVW} Lemma 9.5]
+If $f : F^* \to {F'}^*$ is an $\A^1$-weak equivalence, then for
+every $G^*$, $f \tLNis G^* : F^* \tLNis G^* \to {F'}^* \tLNis 
+G^*$ is also an $\A^1$-weak equivalence.
+
+In particular, $\tLNis$ induces a tensor triangulated structure
+on $\DMeff$.
+\end{lem}
+
+We write $\tL$ for the tensor bifunctor on $\DMeff$.
+
+\begin{defn}[\cite{BBD}]
+Let $\DCat$ be a triangulated category. A \DEF{$t$-structure}
+on $\DCat$
+\end{defn}
+
+Write $\DCat_{\HI}^-\ShCor$ for the derived subcategory of 
+$\DCat^- \ShCor$ 
+Next, we show that $\DMeff$ can be identified
+
 
 \begin{defn}\label{def_z_n}
 Let $\Ztr(\Gm)$ denote the cokernel of
