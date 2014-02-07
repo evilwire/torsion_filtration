@@ -16,7 +16,7 @@ For the remainder, let $\Cat{A}$ be an abelian category. We have:
 
 \begin{defn}
 We say that a filtration $(\Cat{A}, \nu_*)$ is a \DEF{strong 
-filtration} if for each $A \in \Cat{A}$ and $n \in \Z$, $nu_n A$ is 
+filtration} if for each $A \in \Cat{A}$ and $n \in \Z$, $\nu_n A$ is 
 a subobject of $A$. Similarly a cofiltration $(\Cat{A}, \gamma_*)$ 
 is a \DEF{strong cofiltration} if $\gamma_n A$ is a quotient of 
 $A$ for each $n$.
@@ -69,9 +69,9 @@ $\DMeff$. Then we have $\sheaf{H}^0(F \tDM \Z(1)[1]) \simeq
 \LHI{F}$ and $\sheaf{H}^0\ihomDMf(\Z(1)[1], F) \simeq \RHI{F}$.
 \end{prop}
 \begin{proof}
-By Prop. \ref{prop_Z1_eq_Ox}, $\Z(1)[1] \simeq \Ox$ in $\DSh$
-and hence in $\DMeff$ as well. The isomorphisms now follow
-from the definitions of $\tHI$ and $\ihomHI$.
+Since $\Z(1)[1] \simeq \Ox$ in $\DMeff$ (see \ref{rmk_mot_coh})
+the isomorphisms now follow from the definitions of $\tHI$ and 
+$\ihomHI$.
 \end{proof}
 
 As constructed, the functor $F \mapsto \LHI{F}$ is left adjoint to 
@@ -84,10 +84,14 @@ isomorphism.
 \begin{proof}
 Given $F \in \HI$, consider $F$ as an object in $\DMeff$. By
 Cancellation Theorem (Thm. \ref{thm_dm_cancellation}), we have
-that $\ihomDMf(\Z(1)[1], F(1)[1]) \simeq \ihomDMf(\Z, F) 
-\simeq F$. Now apply $\sheaf{H}^0$ to this chain of isomorphisms,
-and note that $\sheaf{H}^0(F) = F$. The proposition follows from 
-Prop. \ref{prop_LRDM_eq_LRHI}.
+that 
+\[
+\ihomDMf(\Z(1)[1], F(1)[1]) \cong \ihomDMf(\Z, F) 
+\cong F. 
+\]
+Now apply $\sheaf{H}^0$ to this chain of isomorphisms, and note 
+that $\sheaf{H}^0(F) = F$. The proposition follows from Prop. 
+\ref{prop_LRDM_eq_LRHI}.
 \end{proof}
 
 Fix $n > 0$, and consider the counit map $\cuHI_F^n: 
@@ -282,9 +286,9 @@ It is clear from Prop. \ref{prop_LRDM_eq_LRHI} that the essential
 image of $\sgDM{n}\DMeff$ under $\sheaf{H}^0$ is $\sgHI{n}\HI$. 
 However, showing that the essential image $\slDM{n}\DMeff$ under 
 $\sheaf{H}^0$ is $\tlHI{n}\HI$ requires more proof. 
-First, observe that by Prop. \ref{prop_DM_slice_triangle} for 
-every $n > 0$ and every $F \in \HI$ (regarded as an object of 
-$\DMeff$), there exists a slice triangle:
+First, observe that for every $n > 0$ and every $F \in \HI$ 
+(regarded as an object of $\DMeff$), there exists a slice 
+triangle:
 \[
 \sliceTriangle{n}{F}
 \]

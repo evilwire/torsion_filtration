@@ -84,7 +84,8 @@ We say $f \in \DShCor$ is an \DEF{$\A^1$-weak equivalence} if $f
 
 We write $\DMeff$ for the localization 
 $\DShCor [\Cat{S}_{\A}^{-1}]$. The category that we have
-just defined is the derived category of motives.
+just defined is the derived category of motives, whose objects are
+called \DEF{motives}.
 \end{defn}
 
 While we have defined $\DMeff$ as a localization of 
@@ -98,12 +99,12 @@ isomorphisms. We write $\ALocal$ for the full subcategory of
 $\A^1$-local objects in $\DShCor$.
 \end{defn}
 
-The following give a good characterization of the category 
+The following gives a good characterization of the category 
 $\ALocal$.
 
 \begin{prop}[\cite{MVW} Prop. 14.8, Cor. 14.9]
 Fix $F^*$ in $\DShCor$. Then $F^* \in \ALocal$ if and only if
-$\nis(H^n F^*$ are homotopy invariant. In particular, we can
+$\nis(H^n F^*)$ are homotopy invariant. In particular, we can
 identify $\ALocal$ with the full subcategory of complexes in 
 $\DShCor$ with homotopy invariant cohomology presheaves, which we 
 represent by $\DCat^-_{\HI} \ShCor$.
@@ -167,13 +168,17 @@ category, with an quasi-inverse $\suslC$.
 
 \begin{proof}
 The fact that $\pi$ is an equivalence is established in
-\cite[Theorem 14.11]{MVW}. Furthermore, every $F^*$ in
-$\DMeff$ is isomorphic (in $\DMeff$) to $\suslC[] F^*$, which
-is in the essential image of $\pi$. For the second statement,
-it suffices at this point to show that $\suslC \pi$ is naturally
-isomorphic to the identity on $\ALocal$. This follows from the
-fact that if $F^*$ is $\A^1$-local, then $\suslC[] F^*$ is 
-isomorphic to $F^*$ (see \cite[Corollary 14.9]{MVW}).
+\cite[Theorem 14.11]{MVW}. Furthermore, given $M$ in
+$\DMeff$, then $M$ is represented by some bounded above complex 
+$F^*$. In turn, $F^*$ is isomorphic (in $\DMeff$) to $\suslC[] 
+F^*$, which is in the essential image of $\pi$, and define
+$\suslC M = \suslC[] F^*$. 
+
+For the second statement, it suffices at this point to show that 
+$\suslC \pi$ is naturally isomorphic to the identity on $\ALocal$. 
+This follows from the fact that if $F^*$ is $\A^1$-local, then 
+$\suslC[] F^*$ is isomorphic to $F^*$ (see \cite[Corollary 
+14.9]{MVW}).
 \end{proof}
 
 \begin{ex}\label{ex_geo_obj}
@@ -329,7 +334,7 @@ bounded above $G^*$ in $\PST$, $F^* \tL G^* \cong {F'}^* \tL G^*$.
 with a tensor triangulated structure, we make the following 
 observation.
 
-Let $\Cor^{\oplus}$ denote the closure under arbitrary direct 
+Let $\Cor^{\oplus}$ denote the closure under direct 
 sum of representable presheaves in $\PST$. This is an additive
 category equipped with an additive symmetric monoidal structure.
 By \cite[Prop. 8A.4]{MVW}, we see that the homotopy category 
@@ -446,7 +451,7 @@ hom structure on $\DMeff$ via the equivalence from $\ALocal$ to
 $\DMeff$.
 
 For the internal hom structure on $\ALocal$, notice that for all
-$X$ in $\Sm$, $\sheaf{\rhom}(\Ztr(X), F^*)$ is $\A^1$-local if 
+smooth schemes $X$, $\sheaf{\rhom}(\Ztr(X), F^*)$ is $\A^1$-local if 
 $F^*$ is (\cite[14.12]{MVW}). We now define $\ihomAL$. Fix $X$ in
 $\Sm$, and $F^*$ be a bounded above $\A^1$-local complex. Then, for
 any smooth scheme $U$,
@@ -465,11 +470,16 @@ restricted to $\ALocal$ in the second factor. Therefore, we have
 &\stackrel{(4)}{=} \hom_{\ALocal}(F^*, \ihomAL(\suslC \Ztr(X), G^*)),
 \end{align*}
 where $F^*$ and $G^*$ are bounded above $\A^1$-local complexes,
-and $X$ is an arbitrary smooth scheme. In the above, equality (1)
-follows from the definition of $\tAL$, equalities (2) and (4) 
+and $X$ is an arbitrary smooth scheme. In the above, the first 
+equality follows from the definition of $\tAL$, (2) and (4) 
 follow from the adjunction introduced above (see Prop.  
 \ref{prop_suslC_ALocal}), and (3) follows from the adjunction
 established in Lemma \ref{lem_ihom_tL_adjunction}. 
+
+Via the categorical equivalence between $\ALocal$ and $\DMeff$,
+there exists an internal hom functor on the geometric objects
+of $\DMeff$. We write $\tDM$ and $\ihomDMf$ for the tensor and
+(partial) internal hom operators respectively.
 
 \begin{rmk}\label{rmk_partial_ihom}
 Notice that $\sheaf{\rhom}$ and $\ihomAL$ do not define a closed
@@ -509,8 +519,10 @@ and defines a Nisnevich sheaf.
 
 In particular, for each nonnegative integer $n$, we can define 
 $\bigwedge_{i = 0}^n \Ztr(\A^1 - 0, 1)$, which we view as an 
-object of $\DMeff$. We denote this object by $\Z(n)$. It is easy
-to see that $\Z(n) \tDM \Z(m) \cong \Z(n + m)$.
+object of $\DMeff$. In fact, these are geometric motives, i.e.
+objects in the subcategory $\DMeffgm$. We denote this object by 
+$\Z(n)$. It is easy to see that $\Z(n) \tDM \Z(m) \cong 
+\Z(n + m)$. 
 
 \begin{rmk}
 The careful reader may notice that in \cite{MVW}, the motivic 
@@ -522,7 +534,7 @@ straightforward consequence of the fact that $F \to \suslC F$ is
 an $\A^1$-weak equivalence.
 \end{rmk}
 
-\begin{rmk}
+\begin{rmk}\label{rmk_mot_coh}
 Nisnevich motivic cohomology with integer coefficients is defined
 as
 \[
@@ -545,11 +557,21 @@ We conclude this section with an important result, taken from
 \cite[Corollary 4.10]{V02} which will become useful in the 
 remainder of the paper
 
-\begin{thm}[Cancellation]
-For any $F^*$ and $G^*$ in $\DMeff$,
+\begin{thm}[Cancellation]\label{thm_dm_cancellation}
+For any $M$ and $N$ in $\DMeff$,
 \[
-\homDMf(F^* \tDM \Z(1), G^* \tDM \Z(1)) \cong
-   \homDMf(F^*, G^*).
+\homDMf(M \tDM \Z(1), G^* \tDM \Z(1)) \cong
+   \homDMf(N, G^*).
 \]
 In other words, tensoring with $\Z(1)$ is fully and faithful.
 \end{thm}
+
+This statement can likewise be interpreted for the category 
+$\ALocal$: for $F^*$ and $G^*$ bounded above $\A^1$-local 
+complexes
+\[
+\hom_{\DShCor}(F^* \tLNis \suslC \Z(1), G^* \tLNis \suslC \Z(1))
+\cong \hom_{\DShCor}(F^*, G^*).
+\]
+This is the version of the statement that we will use in
+subsequent sections.

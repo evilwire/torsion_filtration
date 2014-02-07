@@ -1,8 +1,9 @@
 \newpage
 \section{Slice Filtration on $\DMeff$ and $\DM$}\label{sect_slice_filt_dm}
 
-In this section, we construct a categorical filtration on $\DMeff$ 
-and $\DM$.
+In this section, we construct a sequence of subcategories on 
+$\DMeff$ using the structure on $\DMeff$ defined in the previous
+section. To be more precise, consider the following definition.
 
 \begin{defn}\label{def_cat_filtration}
 Let $\Cat{A}$ be a category. A \DEF{weak filtration} of $\Cat{A}$ 
@@ -13,61 +14,146 @@ is a ($\Z$-indexed) sequence of subcategories
 \]
 together with (co)reflection functors $\phi_i: \Cat{A} \to 
 \phi_i\Cat{A}$ for each $i$ such that $\phi_i$ restricts to 
-identity on $\phi_i\Cat{A}$.
+the identity on $\phi_i\Cat{A}$.
 \end{defn}
 
-We now introduce the slice filtration on $\DMeff$. The results here
-are based on the work of [HuKaSu]. Let us first fix a more 
-convenient set of notations. For each $M \in \DMeff$, set $M(n) = 
-l \tDM \Z(n)$, and $M_{-n} = \rhomDMf(\Z(n), M)$. Since $M \mapsto
-M(n)$ is left adjoint to $M \mapsto M_{-n}$, we have a 
-distinguished triangle 
-\begin{equation}\label{slice_triangle_1}
-M_{-n}(n) \to M \to M' \to M_{-n}(n)[1],
+We show that there is a weak filtration on $\DMeff$, and extend 
+this filtration to a localization of $\DMeff$. The construction
+is based on the work of Voevodsky, Huber, and Kahn.
+
+Before we begin, notice that $\Z(1)$ is an object of $\DMeffgm$.
+Hence, $-\tDM \Z(1)$ and $\ihomDMf(\Z(1), -)$ are adjoint pairs
+(see 
+To simplify notations, for $M$ in $\DMeff$, we write $\tZ{M}$ 
+for $M \tDM \Z(1)$, and $\hZ{M}$ for the $\ihomDMf(\Z(1), M)$,
+and write $\tZ[n]{M}$ and $\hZ[n]{M}$ for the $n$-th iterations
+of applying $- \tDM \Z(1)$ and $\ihomDMf(\Z(1), -)$ respectively
+to $M$. 
+
+Since $\Z(n) \tDM \Z(1) = \Z(n + 1)$, it is easy to see that the 
+functor given $M \mapsto \tZ[n]{M}$ is equal to the functor $- 
+\tDM \Z(n)$. By adjunction, $M \mapsto \hZ[n]{M}$ is equal to 
+$\ihomDMf(\Z(n), -)$. We write $\LDMf{n}$ for the endofunctor $- 
+\tDM \Z(n)$, and $\RDMf{n}$ for $\ihomDMf(\Z(n), -)$, and set 
+$\LDMf{0}$ and $\RDMf{0}$ to be the identity functor. It is clear 
+from the above that for each nonnegative integer $n$, $(\LDMf{n}, 
+\RDMf{n})$ form a left-right adjoint pair.
+
+We now introduce the slice filtration on $\DMeff$. For each 
+$n \geq 0$, the counit $\LDMf{n}\RDMf{n} \to \id$ gives rise to a 
+distinguished triangles of the form
+\begin{equation}\label{eq_slice_triangle_1}
+\tZ[n]{\hZ[n]{M}} \to M \to M' \to \tZ[n]{\hZ[n]{M}}[1],
 \end{equation}
-for each $n \geq 0$, and some $M'$. 
+for some $M' \in \DMeff$.
 
-\begin{prop}
-Fixing $n \geq 0$, the $M'$ in the distinguished triangle in
-(\ref{slice_triangle_1}) is defined up to unique isomorphism.
-
-In this case, associating $M$ with $M'$ is functorial.
-\end{prop}
-
-We write $\slDM{n}$ for this functor, and $\sgDM{n}$ for the
-functor $M \mapsto M_{-n}(n)$.
-
-\begin{prop}
-For each $n \geq 0$, the functors $\slDM{n}$ and $\sgDM{n}$ are
-both triangulated. That is, if
+By the Five Lemma (see \cite[10.2.2]{WH}), the distinguished 
+triangle in \eqref{eq_slice_triangle_1} is defined up to unique 
+isomorphism. In fact, associating $M$ with $M'$ is a triangulated 
+functor. That is, if
 \[
 M' \to M \to M'' \to M'[1]
 \]
-is a distinguished triangle, so are
+is distinguished, then so are
 \[
 \sgDM{n}M' \to \sgDM{n}M \to \sgDM{n}M'' \to \sgDM{n}M'[1]
 \]
 and
 \[
-\slDM{n}M' \to \slDM{n}M \to \slDM{n}M'' \to \slDM{n}M'[1].
+\slDM{n}M' \to \slDM{n}M \to \slDM{n}M'' \to \slDM{n}M'[1]
 \]
-\end{prop}
+(see \cite[Corollary 1.4]{HuKa}).
 
-Let $\sgDM{n}\DMeff$ be the full subcategory of objects of the 
-type $M(n)$ where $M \in \DMeff$, and let $\DMeff_{n}$ be the full 
-subcategory of $M \in \DMeff$ such that $M_{-n} = 0$.
+Following loc. cit., we write $\slDM{n}$ for the functor $M 
+\mapsto M'$, and $\sgDM{n}$ for the functor $M \mapsto 
+\tZ[n]{\hZ[n]{M}}$. Furthermore, let $\sgDM{n}\DMeff$ be the full
+subcategory of objects of the form $\tZ[n]{M}$, and let 
+$\slDM{n} \DMeff$ be the full subcategory of $M \in \DMeff$ such 
+that $M_{-n} = 0$.
 
-Furthermore, we have two towers --- one ascending, one descending 
---- of subcategories:
+Since $\tZ[n + 1]{M} = \tZ[1]{\tZ[n]{M}}$, and if $\hZ[n]{M} = 0$
+then $\hZ[n + 1]{M} = 0$, we have two towers --- one descending, one 
+ascending --- of subcategories:
 \begin{equation}
-\DMeff \subset \sgDM{1}\DMeff \subset \sgDM{2}\DMeff \subset \cdots \\
+\DMeff \supset \sgDM{1}\DMeff \supset \sgDM{2}\DMeff \supset \cdots \\
 \end{equation}
 \vskip 5pt
 \begin{equation}
 0 \subset \slDM{1}\DMeff \subset \slDM{2}\DMeff \subset \cdots \subset
+\DMeff
 \end{equation}
 
-and from this, we have
+To show that these subcategories define a filtration and 
+cofiltration, we need to define reflection functors 
+$\sgDM{n}\DMeff \to \DMeff$ and $\DMeff \to \slDM{n}\DMeff$ for 
+each nonnegative integer $n$, such that their restriction to the 
+target categories are the identity. In fact, the reflection 
+functors are given by $\sgDM{n}$ and $\slDM{n}$ respectively (see 
+loc. cit. Prop. 1.1 and Corollary 1.4(ii)). All that remains is 
+to see that $\sgDM{n}$ restricted to $\sgDM{n}\DMeff$ (resp. 
+$\slDM{n}$ restricted to $\slDM{n}\DMeff$) are (naturally 
+isomorphic to) the identity.
+
+Since $\hZ[n]{M} = 0$ for $M$ in $\slDM{n}\DMeff$, $\sgDM{n} M = 
+0$. The fact that $\slDM{n} M \cong M$ follows immediately from 
+the slice triangle \eqref{eq_slice_triangle_1}. For $\sgDM{n}$, we 
+first prove the following:
+
+\begin{prop}
+For each $M$ in $\DMeff$ and each nonnegative integer $n$, 
+\[
+\hZ[n]{\tZ[n]{M}} \cong M.
+\]
+\end{prop}
+\begin{proof}
+By Theorem \ref{thm_ALocal_eq_DMeff}, it suffices to verify the
+statement for $\A^1$-local complexes. 
+
+Let $F^*$ be the bounded above $\A^1$-local complex corresponding 
+to $M$. Notice that by the Cancellation Theorem, reinterpreted for
+$\A^1$-local complexes,
+\[
+\sheaf{\rhom}(\suslC \Z(1), \suslC \Z(1) \tLNis F^*)(U) = 
+\rhom(\Ztr(U), F^*) = F^*(U)
+\]
+for all $U$ in $\Sm$. It follows that $\sheaf{\rhom}(\suslC\Z(1),
+\suslC\Z(1) \tLNis F^*) \to F^*$ is an isomorphism, and the
+proposition follows.
+\end{proof}
+
+To see that $\sgDM{n}$ restricts to the identity on $\sgDM{n} 
+\DMeff$, notice that for all $M$ in $\sgDM{n} \DMeff$, $M = 
+\tZ[n]{M'}$, and by the proposition above $\sgDM{n}M = 
+\tZ[n]{\hZ[n]{\tZ[n]{M'}}} \cong \tZ[n]{M'} = M.$
+
+We summarize the main results of the above discussion in the 
+following proposition.
+
+\begin{prop}\label{prop_slice_DMeff}
+Let $\sgDM{n} \DMeff$ and $\slDM{n} \DMeff$ be given as above.
+Then $\{\sgDM{n} \DMeff\}_{n \geq 0}$ and $\{\slDM{n} \DMeff\}_{n 
+\geq 0}$ form respectively a descending and ascending filtration
+$\DMeff$.
+
+In this case, we have triangulated reflection functors $\sgDM{n}: 
+\DMeff \to \sgDM{n}\DMeff$ given by $M \mapsto \tZ[n]{\hZ[n]{M}}$, 
+and $\slDM{n}: \DMeff \to \slDM{n}\DMeff$, which sends $M$ to $M'$
+in the slice triangle given in \eqref{eq_slice_triangle_1}.
+\end{prop}
+
+\begin{defn}
+We call the filtration defined by
+\[
+\DMeff \supset \sgDM{1}\DMeff \supset \sgDM{2}\DMeff \supset \cdots \\
+\]
+the \DEF{slice filtration} of $\DMeff$, and
+\[
+0 \subset \slDM{1}\DMeff \subset \slDM{2}\DMeff \subset \cdots \subset
+\]
+the \DEF{slice cofiltration} of $\DMeff$.
+\end{defn}
+
+For $M$ in $\sgDM{n} \DMeff$, consider the slice triangle
 
 \begin{prop}
 For each $m, n$, with $m < n$, $M \in \DMeff$,
