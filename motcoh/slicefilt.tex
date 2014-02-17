@@ -23,12 +23,11 @@ is based on the work of Voevodsky, Huber, and Kahn.
 
 Before we begin, notice that $\Z(1)$ is an object of $\DMeffgm$.
 Hence, $-\tDM \Z(1)$ and $\ihomDMf(\Z(1), -)$ are adjoint pairs
-(see 
-To simplify notations, for $M$ in $\DMeff$, we write $\tZ{M}$ 
-for $M \tDM \Z(1)$, and $\hZ{M}$ for the $\ihomDMf(\Z(1), M)$,
-and write $\tZ[n]{M}$ and $\hZ[n]{M}$ for the $n$-th iterations
-of applying $- \tDM \Z(1)$ and $\ihomDMf(\Z(1), -)$ respectively
-to $M$. 
+(see Prop. \ref{prop_DMgm_monoidal}). To simplify notations, for 
+$M$ in $\DMeff$, we write $\tZ{M}$ for $M \tDM \Z(1)$, and 
+$\hZ{M}$ for $\ihomDMf(\Z(1), M)$, and write $\tZ[n]{M}$ and 
+$\hZ[n]{M}$ for the $n$-th iterations of applying $- \tDM \Z(1)$ 
+and $\ihomDMf(\Z(1), -)$ respectively to $M$. 
 
 Since $\Z(n) \tDM \Z(1) = \Z(n + 1)$, it is easy to see that the 
 functor given $M \mapsto \tZ[n]{M}$ is equal to the functor $- 
@@ -45,7 +44,8 @@ distinguished triangles of the form
 \begin{equation}\label{eq_slice_triangle_1}
 \tZ[n]{\hZ[n]{M}} \to M \to M' \to \tZ[n]{\hZ[n]{M}}[1],
 \end{equation}
-for some $M' \in \DMeff$.
+for some $M' \in \DMeff$. We call such triangles \DEF{the slice
+triangle of $M$}.
 
 By the Five Lemma (see \cite[10.2.2]{WH}), the distinguished 
 triangle in \eqref{eq_slice_triangle_1} is defined up to unique 
@@ -71,8 +71,8 @@ subcategory of objects of the form $\tZ[n]{M}$, and let
 $\slDM{n} \DMeff$ be the full subcategory of $M \in \DMeff$ such 
 that $M_{-n} = 0$.
 
-Since $\tZ[n + 1]{M} = \tZ[1]{\tZ[n]{M}}$, and if $\hZ[n]{M} = 0$
-then $\hZ[n + 1]{M} = 0$, we have two towers --- one descending, one 
+Since $\tZ[n + 1]{M} = \tZ[n]{\tZ[1]{M}}$, and if $\hZ[n]{M} = 0$
+then $\hZ[(n + 1)]{M} = 0$, we have two towers --- one descending, one 
 ascending --- of subcategories:
 \begin{equation}
 \DMeff \supset \sgDM{1}\DMeff \supset \sgDM{2}\DMeff \supset \cdots \\
@@ -83,16 +83,15 @@ ascending --- of subcategories:
 \DMeff
 \end{equation}
 
-To show that these subcategories define a filtration and 
-cofiltration, we need to define reflection functors 
-$\sgDM{n}\DMeff \to \DMeff$ and $\DMeff \to \slDM{n}\DMeff$ for 
-each nonnegative integer $n$, such that their restriction to the 
-target categories are the identity. In fact, the reflection 
-functors are given by $\sgDM{n}$ and $\slDM{n}$ respectively (see 
-loc. cit. Prop. 1.1 and Corollary 1.4(ii)). All that remains is 
-to see that $\sgDM{n}$ restricted to $\sgDM{n}\DMeff$ (resp. 
-$\slDM{n}$ restricted to $\slDM{n}\DMeff$) are (naturally 
-isomorphic to) the identity.
+To show that these subcategories define two filtrations of 
+$\DMeff$, we need to define reflection functors $\sgDM{n}\DMeff 
+\to \DMeff$ and $\DMeff \to \slDM{n}\DMeff$ for each nonnegative 
+integer $n$, such that their restriction to the target categories 
+are the identity. In this case, the reflection functors are given 
+by $\sgDM{n}$ and $\slDM{n}$ respectively (see loc. cit. Prop. 1.1 
+and Corollary 1.4(ii)). All that remains is to see that $\sgDM{n}$ 
+restricted to $\sgDM{n}\DMeff$ (resp. $\slDM{n}$ restricted to 
+$\slDM{n}\DMeff$) are (naturally isomorphic to) the identity.
 
 Since $\hZ[n]{M} = 0$ for $M$ in $\slDM{n}\DMeff$, $\sgDM{n} M = 
 0$. The fact that $\slDM{n} M \cong M$ follows immediately from 
@@ -132,13 +131,19 @@ following proposition.
 \begin{prop}\label{prop_slice_DMeff}
 Let $\sgDM{n} \DMeff$ and $\slDM{n} \DMeff$ be given as above.
 Then $\{\sgDM{n} \DMeff\}_{n \geq 0}$ and $\{\slDM{n} \DMeff\}_{n 
-\geq 0}$ form respectively a descending and ascending filtration
-$\DMeff$.
+\geq 0}$ form respectively a descending and an ascending 
+filtrations of $\DMeff$.
 
-In this case, we have triangulated reflection functors $\sgDM{n}: 
-\DMeff \to \sgDM{n}\DMeff$ given by $M \mapsto \tZ[n]{\hZ[n]{M}}$, 
-and $\slDM{n}: \DMeff \to \slDM{n}\DMeff$, which sends $M$ to $M'$
-in the slice triangle given in \eqref{eq_slice_triangle_1}.
+In this case, we have triangulated reflection functors 
+\[
+\sgDM{n}: \DMeff \to \sgDM{n}\DMeff
+\] 
+defined by $M \mapsto \tZ[n]{\hZ[n]{M}}$, and 
+\[
+\slDM{n}: \DMeff \to \slDM{n}\DMeff,
+\]
+which sends $M$ to $M'$ in the slice triangle given in 
+\eqref{eq_slice_triangle_1}.
 \end{prop}
 
 \begin{defn}
@@ -153,71 +158,425 @@ the \DEF{slice filtration} of $\DMeff$, and
 the \DEF{slice cofiltration} of $\DMeff$.
 \end{defn}
 
-For $M$ in $\sgDM{n} \DMeff$, consider the slice triangle
+We now define the slice functors. Before we proceed, we have the
+following properties about the functors $\sgDM{n}$ and $\slDM{n}$.
 
-\begin{prop}
-For each $m, n$, with $m < n$, $M \in \DMeff$,
+\begin{prop}\label{prop_sDM_properties}
+For all nonnegative integers $m, n$, such that $m < n$, and
+for all $M$ in $\DMeff$,
 
 \begin{enumerate}
 \item the following is a distinguished triangle
 \begin{equation}
-\sgDM{n}M \to \sgDM{m}M \to \slDM{n}\sgDM{m}M \to \sgDM{n}M[1].
+\sgDM{n}\sgDM{m} M \to \sgDM{m}M \to \slDM{n}\sgDM{m}M \to 
+   \sgDM{n}\sgDM{m} M[1].
 \end{equation}
+The triangle is functorial in $M$.
 
-\item $\sgDM{n}\sgDM{m} = \sgDM{m}\sgDM{n} = \sgDM{n}$, and 
-similarly $\slDM{m}\slDM{n} = \slDM{n}\slDM{m} = \slDM{m}$.
+\item $\sgDM{n}\sgDM{m} = \sgDM{m}\sgDM{n} = \sgDM{n}$.
 
 \item $\sgDM{m}\slDM{n} = \slDM{n}\sgDM{m}$.
 
 \item $\sgDM{n}\slDM{m} = \slDM{m}\sgDM{n} = 0$.
+
+\item $\slDM{m}\slDM{n} = \slDM{n}\slDM{m} = \slDM{m}$.
+
+\item $\tZ[k]{(\sgDM{n}M)} = \sgDM{n + k}\tZ[k]{M}$ for all 
+positive integers $k$.
+
 \end{enumerate}
 \end{prop}
+\begin{proof}
+Let $M$ be an arbitrary object of $\DMeff$.
+
+\begin{enumerate}
+\item The existence of the triangle follows from setting $M = 
+\sgDM{n} M$ in the slice triangle in \eqref{eq_slice_triangle_1}. 
+Functoriality in $M$ is immediate.
+
+\item Since $\sgDM{n}M = \tZ[n]{\hZ[n]{M}}$, $\sgDM{m}\sgDM{n} = 
+\sgDM{n}\sgDM{m} = \sgDM{n}$ is immediate.
+
+\item Since $\sgDM{n}$ is a triangulated functor and by part (1),
+we have
+\[
+\begin{tikzcd}
+\sgDM{n} \sgDM{m} M \arrow{r} \arrow{d}{\cong} &
+\sgDM{m} M \arrow{r} \arrow[equals]{d} &
+\slDM{n} \sgDM{m} M \arrow{r}{+1} \arrow[dotted]{d} &
+\slDM{n} \sgDM{m} M[1] \arrow{d}{\cong}\\
+\sgDM{m} \sgDM{n} M \arrow{r} &
+\sgDM{m} M \arrow{r} &
+\sgDM{m} \slDM{n} M \arrow{r}{+1} &
+\sgDM{m} \sgDM{n} M[1].
+\end{tikzcd}
+\]
+It follows by the Five Lemma (\cite[10.2.2]{WH}) that 
+\[
+\sgDM{m}\slDM{n} M \simeq \slDM{n}\sgDM{m} M.
+\]
+Functoriality in $M$ of the rows implies that that this 
+isomorphism is natural in $M$. That is, $\sgDM{m} \slDM{n}$ is 
+naturally isomorphic to $\slDM{n} \sgDM{m}$.
+
+\item Since $\hZ[n]{(\slDM{m})} = 0$, it is clear that
+$\sgDM{n}\slDM{m} = 0$. On the other hand, by (2), $\sgDM{m}\sgDM{n}
+= \sgDM{n}$. From the slice triangle in part (1)
+\[
+\sgDM{m} \sgDM{n} \to \sgDM{n} \to \slDM{m} \sgDM{n} \to sgDM{m} 
+   \sgDM{n}[1]
+\]
+it follows that $\slDM{n} \sgDM{m} = 0$.
+
+\item Applying the slice triangle \eqref{eq_slice_triangle_1} to
+$\slDM{n} M$, we have
+\[
+\sgDM{m} \slDM{n} M \to \slDM{n} M \to \slDM{m} \slDM{n} M \to
+\sgDM{m} \slDM{n} M[1].
+\]
+Applying $\slDM{n}$ to the slice triangle of $M$ gives:
+\[
+\slDM{n} \sgDM{m} M \to \slDM{n} M \to \slDM{n} \slDM{m} M \to
+\slDM{n} \sgDM{m} M[1],
+\]
+whence, by (3) we have
+\[
+\begin{tikzcd}
+\sgDM{m} \slDM{n} M \arrow{r} \arrow{d}{\cong} &
+\slDM{n} M \arrow{r} \arrow[equals]{d} &
+\slDM{m} \slDM{n} M \arrow{r}{+1} \arrow[dotted]{d} &
+\sgDM{m} \slDM{n} M[1] \arrow{d}{\cong}\\
+\slDM{n} \sgDM{m} M \arrow{r} &
+\slDM{n} M \arrow{r} &
+\slDM{n} \slDM{m} M \arrow{r}{+1} &
+\slDM{n} \sgDM{m} M[1].
+\end{tikzcd}
+\]
+The fact that $\slDM{n} \slDM{m} M \cong \slDM{m} \slDM{n} M$
+follows from the Five Lemma. Naturality in $M$ now follows from
+naturality in (1 - 3).
+
+\item The case $k = 1$ is established in \cite[Cor. 1.4]{HuKa}.
+The general case follows by induction on $k$.
+
+\end{enumerate}
+\end{proof}
+
+Notice that, from the above, we have the following distinguished
+triangle
+\begin{equation}
+\sgDM{n} M \to \sgDM{n - 1} M \to \slDM{n} \sgDM{n - 1} M
+\to \sgDM{n} M[1].
+\end{equation}
 
 \begin{defn}
 For $M \in \DMeff$, we say $\slDM{n}\sgDM{n - 1}M$ is the 
-\emph{$n$-th slice} of $M$, written as $\sliceDM{n}M$.
+\emph{$n$-th slice} of $M$, written as $\sliceDM{n}M$. Since
+$\slDM{n}$ and $\sgDM{n}$ are triangulated functors, so is 
+$\sliceDM{n}$.
 \end{defn}
 
-\begin{prop}
-$\sliceDM{n}$ is a triangulated endofunctor for each $n$. That is,
-for any distinguished triangle
-\[
-M' \to M \to M'' \to M'[1]
-\]
-the following is also a triangle:
-\[
-\sliceDM{n}M' \to \sliceDM{n}M \to \sliceDM{n}M'' \to \sliceDM{n}M'[1]
-\]
-\end{prop}
+By Prop. \ref{prop_sDM_properties} (3), $\sliceDM{n} =
+\sgDM{n}\slDM{n - 1}$. In particular, the essential image of
+$\sliceDM{n}$ is in $\sgDM{n}\DMeff$. That is, for all $M$ in 
+$\DMeff$, $\slice{n}M = \tZ[n]{M'}$. In particular, the following
+holds:
 
-\begin{prop}\label{DMeff_slice_fund_invariant}
+\begin{prop}\label{prop_DMeff_slice_fund_invariant}
 For each $n$ and $M$, $\sliceDM{n}M = M'(n)[2n]$ for some $M' \in
 \DMeff$.
 \end{prop}
 
-\begin{defn}
-We call $M'$ in Prop. \ref{DMeff_slice_fund_invariant} the 
+\begin{defn}\label{def_fI_DMeff}
+We call $M'$ in Prop. \ref{prop_DMeff_slice_fund_invariant} the 
 \emph{$n$-th fundamental invariant of $M$}, represented by
 $\fIDM{n}M$.
 \end{defn}
 
-We now relate the slice filtration to the category of birational
-motives.
+\begin{ex}\label{ex_sfilt_MPn}
+It is clear that $\Z(n)$ is its own $n$-th slice. Furthermore,
+since $M(\P^n) = \oplus_{i = 0}^n \Z(n)[2n]$ (see 
+\cite[Corollary 15.5]{MVW}), it is easy to verify that 
+\[
+\slDM{k}M(\P^n) = \begin{cases}
+M(\P^k) & \textrm{if }k \leq n \\
+M(\P^n) & \textrm{otherwise}
+\end{cases}
+\]
+and 
+\[
+\sgDM{k}M(\P^k) = \begin{cases}
+\tZ[k]{M(\P^{n - k})} & \textrm{if }k \leq n\\
+0 & \textrm{otherwise}.
+\end{cases}
+\]
+Therefore, $\sliceDM{k} M(\P^n) = \Z(k)[2k]$ and thus the 
+fundamental invariant of $M(\P^n)$ is $\fIDM{k}M(\P^n) = \Z$.
+\end{ex}
 
 \begin{defn}
-A motive $M \in \DMeff$ is \emph{birational} if for any $X \in 
-\Sm$, and $U$ a dense open subscheme,
+Let $\DM$ be the category obtained from $\DMeff$ by inverting
+the operation $M \mapsto \tZ{M}$. That is, the objects of $\DM$
+are a pair $(M, n)$, where $M$ is an object of $\DMeff$, and $n$
+is any integer, such that $(\tZ{M}, n) \cong (M, n + 1)$; the set 
+of morphism between $(M, n)$ and $(M', n')$ is 
 \[
-\rhomDMf(\suslC{U}, M) = \rhomDMf(\suslC{X}, M)
+\varprojlim_{k} \homDMf(\tZ[k + n]{M}, \tZ[k + n']{M'}).
 \]
-We write $\BiMot$ for the full subcategory of birational motives.
+as $k$ ranges over all values for which $k + n$ and $k + n'$ are
+positive. We write $\homDM((M, n), (M',n'))$ for the hom set of 
+$(M, n)$ and $(M', n')$. 
 \end{defn}
 
-\begin{prop}
-$M \in \BiMot$ if and only if $\rhomDMf(Z(1)[1], M) = 0$.
+\begin{rmk}
+By induction, we have that $(M, n) \cong (M \tDM \Z(n), 0)$, for 
+any positive integer $n$ and all $M$ in $\DMeff$. In particular,
+$(M, n) \cong (M', n')$ for $n \geq n'$, then $M \simeq 
+\tZ[n - n']M'$.
+\end{rmk}
+
+\begin{rmk}\label{rmk_homs_in_DM}
+By the Cancellation Theorem, 
+\[
+\homDMf(M, M') = \homDMf(\tZ[n]{M}, \tZ[n]{M'})
+\]
+for all positive integers. Therefore, the projective limit in the 
+definition of $\homDM$ is a finite limit. That is, it suffices to 
+take $k > |n| + |n'|$, say.
+
+Furthermore, the localization functor $\DMeff \to \DM$, given by
+sending $M$ in $\DMeff$ to $(M, 0)$ is fully faithful. Therefore, we 
+can identify $\DMeff$ as the full subcategory of $\DM$.
+
+Finally, let $R$ denote the association given by $(M, n) \mapsto
+(M, n - 1)$. It is clear that $R$ is functorial. Now, for $\phi: 
+M \to M'$ in $\DMeff$, $\phi$ induces a map $\phi_*: (M, 0)
+\to (M', 0)$. Then $R^n\phi_* : (M, n) \to (M', n)$ is identified 
+with $\phi$ in $\homDM((M, n), (M', n)) = \homDMf(M, M')$.
+\end{rmk}
+
+We now describe the slice filtration and cofiltration structure on 
+$\DM$. We assume each subcategory in the slice filtration to be 
+full, and we describe only the objects in these subcategories. 
+First, if $k \geq 0$, let the objects of $\sgDM{k} \DM$ be those 
+$(M, 0)$ for which $M \in \sgDM{k} \DMeff$. For $k < 0$, let the 
+objects of $\sgDM{k} \DM$ consist of objects $(M, n)$ for which 
+$n \geq k$. It is clear that we have a tower of subcategories
+
+\begin{equation}\label{eq_DM_slice_filt}
+\DM \supset \cdots \sgDM{-1}\DM \supset \sgDM{0}\DM = \DMeff 
+   \supset \sgDM{1}\DM \supset \cdots.
+\end{equation}
+
+To show that this tower of subcategories constitutes a filtration
+of $\DM$, we construct an extension of the functors $\sgDM{k}$.
+Define, by convention, $\sgDM{n} M = M$ for all nonpositive 
+integer $n$, and all $M \in \DMeff$. Then, define
+\[
+\sgDM{k}(M, n) \defeq (\sgDM{k - n}M, n).
+\]
+This definition is independent of the choice of $n$. Indeed, if
+$(M, n) = (M', n')$ for some integer $n'$ less than $n$, say, then
+$\tZ[n - n']{M} = M'$, and $\sgDM{k - n'}M' = \sgDM{k - n}M$ by
+(6) of Prop. \ref{prop_sDM_properties}. Hence, $(\sgDM{k - n'}M', 
+n') \cong (\sgDM{k - n}M, n)$.
+
+We show that $\sgDM{k}$ is a triangulated functor which satisfy 
+the condition of a filtration. We verify this claim in the 
+Prop. \ref{prop_sDM_reflection}. We first prove the following
+lemma:
+
+\begin{lem}\label{lem_triangle_in_DM}
+If $(M_1, n_1) \to (M_2, n_2) \to (M_3, n_3) \to (M_1, n_1)[1]$
+is a distinguished triangle in $\DM$ such that $n_1 = n_2 = n$, 
+then there exists some $M_4$ such that $(M_4, n) = (M_3, n_3)$.
+\end{lem}
+\begin{proof}
+Let $\phi$ denote the map from $(M_1, n)$ to $(M_2, n)$. Then
+$\phi$ is identified with some map $\phi': M_1 \to M_2$ in 
+$\DMeff$. Let
+\[
+M_1 \to M_2 \to M \to M_1[1]
+\]
+be its corresponding triangle. Then, we have
+\[
+\begin{tikzcd}
+(M_1, n) \arrow{r}{\phi} \arrow[equals]{d} &
+(M_2, n) \arrow{r} \arrow[equals]{d} &
+(M_3, n_3) \arrow{r} \arrow[dotted]{d} &
+(M_1, n)[1] \arrow[equals]{d}\\
+(M_1, n) \arrow{r}{\phi} &
+(M_2, n) \arrow{r} &
+(M, n) \arrow{r} &
+(M_1, n)[+1].
+\end{tikzcd}
+\]
+The claim now follows form the Five Lemma.
+\end{proof}
+
+\begin{prop}\label{prop_sDM_reflection}
+Let $k$ be an arbitrary integer.
+
+\begin{enumerate}
+\item the association $(M, n) \mapsto \sgDM{n} (M, n)$ is 
+a triangulated functor.
+
+\item $\sgDM{k}$ is a right adjoint to the inclusion of 
+$\sgDM{k}\DM$ into $\DM$.
+
+\item the restriction of $\sgDM{k}$ to $\sgDM{k} \DM$ is the 
+identity.
+\end{enumerate}
 \end{prop}
+\begin{proof}
+We restrict our attention to the full subcategory $\DM$ of objects 
+$(M, n)$ for which $k > n$, (since otherwise, $\sgDM{k}$ acts as 
+the identity, which is clearly satisfies the properties above).
+
+In this case, (1 - 3) follows straightforwardly from the fact that
+$\sgDM{k - n}$ satisfies (1 - 3) for $\DMeff$ (see the discussion
+preceding Prop. \ref{prop_slice_DMeff}).
+\end{proof}
+
+Next, we define $\slDM{k} \DM$ to be the full subcategory of 
+object $(M, n)$ in $\DM$ for which $\sgDM{k}(M, n) = 0$. It is
+clear that we have the following tower of subcategories:
+\begin{equation}\label{eq_DM_slice_cofilt}
+\cdots \subset \slDM{0}\DM \subset \slDM{1}\DM \subset \slDM{2}\DM 
+   \subset \cdots \subset \DM.
+\end{equation}
+As expected, the tower also defines a filtration of $\DM$, and
+we define the reflection functors $\slDM{k} : \DM \to \slDM{k} \DM$.
+Notice that for $(M, n) \in \DM$, we have the following
+\begin{equation}\label{eq_DM_slice_triangle}
+\sgDM{k} (M, n) \to (M, n) \to (M', n') \to \sgDM{k} (M, n)[1].
+\end{equation}
+
+Before we proceed, we define an extension of the endofunctor 
+$\slDM{k}$ of $\DMeff$ to nonpositive integers $k$ as we did for 
+$\sgDM{k}$. Set $\slDM{k} M = 0$ for $k \leq 0$.
+
+\begin{lem}
+For each integer $k$, the object $(M', n')$ in 
+\eqref{eq_DM_slice_triangle} is defined up to unique isomorphism. 
+In particular, $M' = \slDM{k - n} M$.
+\end{lem}
+\begin{proof}
+By definition, $\sgDM{k}(M, n) = (\sgDM{k - n}M, n)$. It follows 
+from Lemma \ref{lem_triangle_in_DM} that we may assume $n' = n$. 
+The Lemma now follows from the uniqueness of $M'$.
+\end{proof}
+
+Let $\slDM{k}$ denote the association $(M, n) \mapsto (M', n') =
+(\slDM{k - n}M, n)$. The following is a straightforward consequence
+of the properties of the $\sgDM{k}$ of $\DMeff$:
 
 \begin{prop}
-For each $M \in \DMeff$, $\fIDM{n}M \in \BiMot$ for every $n$.
-In particular, $\slDM{0}\DMeff = \BiMot$.
+For each integer $k$,
+\begin{enumerate}
+\item $\slDM{k}$ is a triangulated functor
+
+\item $\slDM{k}$ defines a left adjoint to the inclusion of $\slDM{k}\DM$
+into $\DM$.
+
+\item the restriction of $\slDM{k}$ to $\slDM{k}\DM$ is the identity.
+\end{enumerate}
 \end{prop}
+
+It follows that the towers of subcategories given in 
+\eqref{eq_DM_slice_filt} and \eqref{eq_DM_slice_cofilt} 
+respectively define a descending and an ascending filtrations on 
+$\DM$.
+
+We can also extend the definition of the fundamental invariants
+$\fIDM{n}$ to negative integers $n$. Notice that for each $(M, n)$
+in $\DM$, and each integer $k$, we have the slice triangle:
+\[
+\sgDM{k + 1}(M, n) \to \sgDM{k}(M, n) \to \slDM{k + 1}\sgDM{k}(M, n)
+\to \sgDM{k + 1}(M, n)[1].
+\]
+
+\begin{defn}
+We define $\slDM{k + 1}\sgDM{k}(M, n)$ be the the \DEF{$k$-th 
+slice} of the slice filtration on $\DM$. Since both $\slDM{k + 1}$ 
+and $\sgDM{k}$ are triangulated functors, so is $\slDM{k + 1}
+\sgDM{k}$. We write $\sliceDM{k}$ for this functor. 
+
+By similar arguments as in Prop. 
+\ref{prop_DMeff_slice_fund_invariant}, we have that 
+$\sliceDM{k}(M, n) = (M'[2k], k)$ for some $M' \in \DMeff$. We 
+define the \DEF{$k$-th fundamental invariant} of $(M, n)$ to be
+\[
+\fIDM{k}(M, n) \defeq M'.
+\]
+\end{defn}
+
+We conclude this section by discussing the relationship between the
+tensor structure on $\DMeff$ and $\DM$ and their respective slice 
+filtrations. First, we introduce a tensor product on $\DM$ as an 
+extension of the one on $\DMeff$, which we represent by $\tDM$ as
+well.
+
+For $(M, n), (M'. n')$ in $\DM$, define 
+\[
+(M, n) \tDM (M', n') = (M \tDM M', n + n'). 
+\]
+Since $\tDM$ is additive and symmetric, so is its extension to 
+$\DM$. In fact, $(\DM, \tDM)$ is an additive symmetric monoidal 
+triangulated category.
+
+For $\DMeff$, we have the following graded tensor structure:
+
+\begin{prop}[\cite{HuKa} Corollary 1.6]\label{prop_tDM_sfilt_DMeff}
+For nonnegative integers $n, n'$, there exists a unique natural
+transformation $\sgDM{n} \tDM \sgDM{n'} \to \sgDM{n + n'}(- 
+\tDM -)$ compatible with the tensor structure on $\DMeff$. That 
+is, we have the following commutative square for each $M$ and
+$M'$ in $\DMeff$:
+\[
+\begin{tikzcd}
+\sgDM{n}(M) \tDM \sgDM{n'}(M') \arrow{r} \arrow{d} &
+\sgDM{n + n'}(M \tDM M') \arrow{d} \\
+M \tDM M' \arrow[equals]{r} &
+M \tDM M'.
+\end{tikzcd}
+\]
+
+Furthermore, $\sgDM{n} \tDM \sgDM{n'} = \sgDM{n + n'}$. 
+\end{prop}
+
+We can extend this result to $\DM$. The following is a
+straightforward consequence of the preceding proposition.
+
+\begin{cor}\label{cor_tDM_sfilt_DM}
+For all integers $n, n'$, there exists a unique natural 
+transformation of bifunctors on $\sgDM{n} \tDM \sgDM{n'} \to 
+\sgDM{n + n'}$ compatible with the tensor structure of $\DM$.
+\end{cor}
+
+A corollary of the proposition above applies to the tensor
+structure on the slices (and similarly, on the fundamental 
+invariants) of the slice filtration.
+
+\begin{cor}
+For all integers nonnegative $n, n'$, there exists unique
+natural transformations of bifunctors $\sliceDM{n} \tDM 
+\sliceDM{n'} \to \sliceDM{n + n'}$ and $\fIDM{n} \tDM
+\fIDM{n'} \to \fIDM{n + n'}$ compatible with the tensor structure
+on $\DMeff$.
+
+The natural transformations can be extended to natural 
+transformations on the slice structure on $\DM$: we have natural 
+transformations $\sliceDM{n} \tDM \sliceDM{n'} \to 
+\sliceDM{n + n'}$ and $\fIDM{n} \tDM \fIDM{n'} \to \fIDM{n + n'}$
+compatible with the tensor structure on $\DM$.
+\end{cor}
+
+\begin{rmk}
+Notice that the fundamental invariants $\fIDM{k}$ of the slice 
+filtration on $\DM$ always takes value in $\DMeff$. More 
+specifically, the fundamental invariant always takes value in the 
+full subcategory of birational motives defined in \cite{KaSu}. 
+This is established for the fundamental invariants for $\DMeff$ 
+in \cite[Section 2]{HuKa}, and can be extended directly to $\DM$.
+\end{rmk}

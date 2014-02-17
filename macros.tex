@@ -7,7 +7,7 @@
 % Cycle Modules - C, C', D
 % Sheaves - F, G
 % Chain complexes: F^*, G^*
-% Functors: 
+% Functors: greek letters
 % Maps between sheaves: f, g
 % Counit, unit: \epsilon, \eta
 % Natural transformations: later lower case greek letters
@@ -47,6 +47,7 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\tensor}{\otimes}
+\renewcommand{\P}{\mathbb{P}}
 
 % related to exposition
 \newcommand{\DEF}[1]{\emph{#1}}
@@ -92,6 +93,7 @@
    \noindent #1\;}
 
 % categories, sets, class
+\newcommand{\Ab}{\mathbf{Ab}}
 \newcommand{\Class}[1]{\mathscr{#1}}
 \newcommand{\Cat}[1]{\mathscr{#1}}
 \newcommand{\DCat}[1][D]{\mathbf{#1}}
@@ -102,6 +104,9 @@
 % homological algebra
 \newcommand{\rhom}{\mathrm{RHom}}
 \newcommand{\Tot}{\mathrm{Tot}}
+\newcommand{\gltrunc}[1]{\tau_{\leq #1}}
+\newcommand{\ggtrunc}[1]{\tau_{\geq #1}}
+\newcommand{\HH}{\mathbf{H}}
 
 % algebraic geometry
 \newcommand{\basefield}{k}
@@ -152,6 +157,7 @@
 \newcommand{\LHI}[2][1]{#2(#1)}
 \newcommand{\RHI}[2][1]{#2_{-#1}}
 \newcommand{\tHI}{\,\otimes^H}
+\newcommand{\hS}[1]{h_{#1}}
 \newcommand{\homHI}{\hom_{\HI}}
 \newcommand{\ihomHI}{\sheaf{\hom}_{\HI}}
 \newcommand{\cuHI}{\epsilon}
@@ -168,6 +174,7 @@
 \newcommand{\DMeffgm}{\DMeff_{gm}}
 \newcommand{\tDM}{\otimes^L}
 \newcommand{\homDMf}{\hom_{\DMeff}}
+\newcommand{\homDM}{\hom_{\DM}}
 \newcommand{\ihomDM}{\sheaf{\rhom}_{\DM}}
 \newcommand{\ihomDMf}{\sheaf{\rhom}_{\DMeff}}
 \newcommand{\rhomDM}{\rhom_{\DM}}

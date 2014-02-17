@@ -1,48 +1,158 @@
 \newpage
 \section{Filtration on $\HI$}\label{sect_filtration_hi}
 
-Recall that a weak filtration of a category $\Cat{A}$ is a tower 
-of subcategories
+The purpose of this section is to construct a filtration on the 
+category $\HI$. The key ingredient in this construction is a 
+the tensor monoidal structure on $\HI$, together with a partial
+internal hom induced by the tensor and partial internal hom
+operators on $\DMeff$. 
+
+For the rest of the thesis, to simplify the definition and the 
+proofs in the remainder, we invoke Theorem 
+\ref{thm_ALocal_eq_DMeff} and identify the category $\DMeff$ with 
+the full triangulated subcategory $\ALocal$ of $\A^1$-local 
+complexes from \ref{def_ALocal}. We identify objects $M$ in 
+$\DMeff$ with some bounded above complex $F^*$ of Nisnevich 
+sheaves with transfers such that $H^nF^*$ is a homotopy invariant 
+presheaf with transfers for every $n$. In particular, regarding
+a sheaf with transfers as a chain complex concentrated in degree 
+0, we consider $\HI$ as an additive subcategory of $\DMeff$.
+
+Recall the following notions from \cite[1.3]{BBD}:
+
+\begin{defn}\label{def_t_struct}
+A \DEF{$t$-category} is a triangulated category $\DCat$ together
+with a pair of full subcategories $(\DCat^{\geq 0}, 
+\DCat^{\leq 0})$ which satisfies the following:
+\begin{enumerate}
+\item For all $X$ in $\DCat^{\geq 0}$, and $Y$ in $\DCat^{\geq 1}$, 
+$\hom_{\DCat}(X, Y) = 0$.
+
+\item $\DCat^{\leq 0} \subset \DCat^{\leq 1}$ and
+$\DCat^{\geq 1} \subset \DCat^{\geq 0}$
+
+\item For all $X$ in $\DCat$, there exists a distinguished 
+triangle
 \[
-\cdots \subseteq \phi_n\Cat{A} \subseteq \phi_{n - 1}\Cat{A} 
-   \subseteq \cdots \subseteq \Cat{A}
+A \to X \to B \to A[1]
 \]
-together with reflection functors $\phi_n : \Cat{A} \to \phi_n\Cat{A}_n$
-(cf. \ref{def_cat_filtration}.) If we have a suitable notion of
-subobjects in $\Cat{A}$, e.g. if $\Cat{A}$ is abelian, we can 
-define a stronger notion (as the name suggests).
+such that $A \in \DCat^{\leq 0}$ and $B \in \DCat^{\geq 1}$.
+\end{enumerate}
+\noindent Here we write $\DCat^{\geq n}$ and $\DCat^{\leq n}$ for 
+$\DCat^{\geq 0}[n]$ and $\DCat^{\leq 0}[n]$ respectively. We call
+the pair $(\DCat^{\geq 0}, \DCat^{\leq 0})$ a \DEF{$t$-structure} 
+on $\DCat$.
 
-For the remainder, let $\Cat{A}$ be an abelian category. We have:
-
-\begin{defn}
-We say that a filtration $(\Cat{A}, \nu_*)$ is a \DEF{strong 
-filtration} if for each $A \in \Cat{A}$ and $n \in \Z$, $\nu_n A$ is 
-a subobject of $A$. Similarly a cofiltration $(\Cat{A}, \gamma_*)$ 
-is a \DEF{strong cofiltration} if $\gamma_n A$ is a quotient of 
-$A$ for each $n$.
+The \DEF{heart} of a $t$-category is the full subcategory
+$\Cat{C} \defeq \DCat^{\geq 0} \cap \DCat^{\leq 0}$.
 \end{defn}
 
-The purpose of this section and the next is to construct a 
-strong filtration on the category $\CycMod$. To do this, we first
-construct a weak filtration structure on $\HI$ using a pair
-of adjoint functors obtained from the closed symmetric monoidal 
-structure of $\HI$. We adopt the same convention as in Sections
-\ref{sect_heart_struct} and \ref{sect_slice_filt_dm}: we identify 
-$\DMeff$ with the full subcategory of $\DSh$ with homotopy 
-invariant cohomologies, and identify $\HI$ with the heart of 
-$\DMeff$ under the $t$-structure induced by that of $\DSh$. Once
-again, let $\sheaf{H}^0$ denote the reflection functor $\DMeff
-\to \HI$.
-
-Recall that the sheaf $\Ox$ of units given by 
+If $\DCat$ is a $t$-category, then the inclusion of $\DCat^{\leq 
+n}$ into $\DCat$ admits a right adjoint $\gltrunc{n}: \DCat \to 
+\DCat^{\leq n}$, and the inclusion of $\DCat^{\geq n}$ admits left 
+adjoint $\ggtrunc{n}: \DCat \to \DCat^{\geq n}$. Furthermore, for 
+all $X$ in $\DCat$, there exists a unique map $d$ in 
+$\hom_{\DCat}(\ggtrunc{1}X, \gltrunc{0}X[1])$ such that
 \[
-\Ox(X) = \{\textrm{invertible elements of }\O(X)\}
+\gltrunc{0} X \to X \to \ggtrunc{1} X \stackrel{d}{\to} \gltrunc{0}X[1]
 \]
-is a homotopy invariant sheaf with transfers. For $F \in \HI$, 
-let
+is distinguished (\cite[1.3.3]{BBD}). It is easy to see that for
+integers $m$ and $n$ such that $m < n$, $\gltrunc{m} \gltrunc{n} =
+\gltrunc{n}\gltrunc{m} = \gltrunc{m}$, and $\ggtrunc{m} 
+\ggtrunc{n} = \ggtrunc{n} \ggtrunc{m} = \ggtrunc{n}$. Furthermore, 
+$\gltrunc{m} \ggtrunc{n} = \ggtrunc{n} \gltrunc{m} = 0$, and
+$\gltrunc{n} \ggtrunc{m} = \ggtrunc{m} \gltrunc{n}$ 
+(\cite[1.3.5]{BBD}). 
+
+\begin{thm}[\cite{BBD} Thm. 1.3.6]\label{thm_heart_is_abel_cat}
+Let $\DCat$ be a $t$-category, equipped with a $t$-structure 
+$(\DCat^{\geq 0}, \DCat^{\leq 0})$. Then the heart $\Cat{C}$ is an 
+admissible abelian category. Moreover, the composition 
+$\gltrunc{0} \ggtrunc{0}$ defines a cohomological functor 
+$\HH^n : \DCat \to \Cat{C}$.
+\end{thm}
+
+\begin{ex}\label{ex_DA_t_struct}
+Let $\Cat{A}$ be an abelian category, and $\DCat[\Cat{A}]$ be its
+derived category. There is a natural $t$-structure on 
+$\DCat[\Cat{A}]$. The pair $(\DCat[\Cat{A}]^{\geq 0}, 
+\DCat[\Cat{A}]^{\leq 0})$ are a pair of full subcategories whose
+objects are those with trivial cohomology in the negative and 
+positive degrees respectively. In this case, the reflection 
+functors $\ggtrunc{n}$ and $\gltrunc{n}$ are given by the good
+truncations. 
+
+The heart of this $t$-structure is precisely $\Cat{A}$, regarded
+as a complex concentrated in degree $0$.
+\end{ex}
+
+\begin{ex}
+If $\DCat'$ is a full subcategory of a $t$-category $\DCat$, then
+$\DCat'$ is also a $t$-category with the $t$-structure given by
+$({\DCat'}^{\geq 0}, {\DCat'}^{\leq 0})$, where ${\DCat'}^{\geq 0} 
+\defeq \DCat^{\geq} \cap \DCat$ and ${\DCat'}^{\leq 0} \defeq 
+\DCat^{\leq} \cap \DCat'$. 
+\end{ex}
+
+\begin{defn}
+Let $\phi: \DCat_1 \to \DCat_2$ be a triangulated functor between
+$t$-categories. We say that $\phi$ is \DEF{right $t$-exact} if 
+$\phi(\DCat_1^{\leq 0}) \subseteq \DCat_2^{\leq 0}$ and $\phi$ is 
+\DEF{left $t$-exact} if $\phi(\DCat_1^{\geq 0}) \subseteq 
+\DCat_2^{\geq 0}$. We say that $\phi$ is \DEF{$t$-exact} 
+if it is both right and left $t$-exact.
+\end{defn}
+
+If in addition $\DCat$ is equipped with an additive symmetric 
+monoidal structure, then so does its heart $\Cat{C}$. This 
+structure is defined as follows. Suppose $- \tensor -$ is the 
+tensor operator on $\DCat$. For $C, C'$ in $\Cat{C}$, we define 
+$C \tensor^{\Cat{C}} C'$ by $\HH^0(C \tensor^{\Cat{C}} C')$. It is 
+easy to see that $(\Cat{C}, \tensor^{\Cat{C}}$ satisfies all the 
+axioms of a symmetric monoidal category. 
+
+In addition, if $\DCat$ has a partial internal hom, in the sense
+that there exists an a bifunctor $\ihom$ defined in the first 
+factor for a subcollection $\DCat'$ of objects in $\DCat$ such
+that
+\[
+\hom_{\DCat}(X \tensor Z, Y) \simeq 
+   \hom_{\DCat}(X, \ihom(Z, Y))
+\]
+for all $Y \in \DCat'$, then the same is true for the heart 
+$\Cat{C}$ of $\DCat$. Here, we define the internal hom by
+\[
+\ihom_{\Cat{C}}(C, C') \defeq \HH^0(\ihom(C, C')).
+\]
+It is easy to see that $\ihom_{\Cat{C}}$ defines a partial inverse
+for all $C'$ in $\Cat{C}$ and $C$ in the essential image of 
+$\DCat'$ under $\HH^0$.
+
+Applying the above discussion to the category $\DMeff$, we see 
+that there exists a $t$-structure on $\DMeff$, with the abelian 
+category $\HI$ as its heart. We write $\gltrunc{0}$, $\ggtrunc{0}$
+and $\HH^0$ for the reflection functors from $\DMeff$ to the 
+respective subcategories. Moreover, the triangulated monoidal 
+structure on $\DMeff$ induces a symmetric monoidal structure on 
+$\HI$, which we write as $\tHI$. This structure is uniquely 
+characterized by
+\[
+\hS{X} \tHI \hS{Y} = \hS{X \times Y}
+\]
+where $h{X} = \HH^0(M(X))$ for $X$ in $\Sm$ (see 
+\cite{DegModHom}).
+
+Moreover, there is a partial internal hom, defined by
+\[
+\ihomHI(F, G) = \HH^0(\ihomDMf(F, G))
+\]
+for all $G$ in $\HI$, and all $F$ in $\HH^0\DMeffgm$. In 
+particular, since $\Ox = \HH^0(\Z(1))$, the internal hom on $\HI$ 
+defines an endofunctor given by $\ihom(\Ox, -)$. To emphasize the
+relationship with its counterpart in $\DMeff$, let
 \[
 \LHI{F} \defeq F \tHI \Ox \hspace{10pt} \textrm{and}\hspace{10pt} 
-   \RHI{F} \defeq \ihomHI(\Ox, F).  
+   \RHI{F} \defeq \ihomHI(\Ox, F).
 \]
 We write $\LHI[n]{F}$ for $\LHI{(\LHI[n - 1]{F})}$ and 
 $\RHI[n]{F}$ for $\RHI{(\RHI[n + 1]{F})}$.
@@ -55,26 +165,20 @@ the contraction of $F$, which is the sheaf that sends $X \in
 \cok( F(X \times \A^1) \to F(X \times (\A^1 - 0))).
 \]
 In fact, there is no ambiguity here, since the contraction of
-$F$ is isomorphic to $\ihomHI(\Ox, F)$ by Prop. 
-\ref{prop_contraction}.
+$F$ is isomorphic to $\ihomHI(\Ox, F)$ (see \cite[]{DegModHom}).
 \end{rmk}
 
-The following proposition highlights the connection between the
-pair of adjoint functors in the construction of the slice 
-filtration on $\DMeff$ (cf.  Section \ref{sect_slice_filt_dm}).
+An important property about the functor $\RHI{?}$ is the following
 
-\begin{prop}\label{prop_LRDM_eq_LRHI}
-Fix any $F \in \HI$, which we also consider as an object of 
-$\DMeff$. Then we have $\sheaf{H}^0(F \tDM \Z(1)[1]) \simeq 
-\LHI{F}$ and $\sheaf{H}^0\ihomDMf(\Z(1)[1], F) \simeq \RHI{F}$.
+\begin{prop}[\cite{DegGenMot} or \cite{MVW}]
+\label{prop_contract_is_exact}
+The functor $F \mapsto \RHI{F}$ is exact.
 \end{prop}
-\begin{proof}
-Since $\Z(1)[1] \simeq \Ox$ in $\DMeff$ (see \ref{rmk_mot_coh})
-the isomorphisms now follow from the definitions of $\tHI$ and 
-$\ihomHI$.
-\end{proof}
 
-As constructed, the functor $F \mapsto \LHI{F}$ is left adjoint to 
+We now define the weak filtration on $\HI$. Since $\Z(1)[1] \cong 
+\O^*$ in $\DMeff$, for any $F$ in $\HI$, $\HH^0(F \tDM \Z(1)[1]) = 
+\LHI{F}$ and $\HH^0\ihomDMf(\Z(1)[1], F) = \RHI{F}$. Furthermore, 
+as constructed, the functor $F \mapsto \LHI{F}$ is left adjoint to 
 $F \mapsto \RHI{F}$. In this case,
 
 \begin{prop}\label{prop_unit_iso}
@@ -89,12 +193,11 @@ that
 \ihomDMf(\Z(1)[1], F(1)[1]) \cong \ihomDMf(\Z, F) 
 \cong F. 
 \]
-Now apply $\sheaf{H}^0$ to this chain of isomorphisms, and note 
-that $\sheaf{H}^0(F) = F$. The proposition follows from Prop. 
-\ref{prop_LRDM_eq_LRHI}.
+Now apply $\HH^0$ to this chain of isomorphisms, and note 
+that $\HH^0(F) = F$. The proposition now follows.
 \end{proof}
 
-Fix $n > 0$, and consider the counit map $\cuHI_F^n: 
+For all positive integer $n$, consider the counit map $\cuHI_F^n: 
 \LHI[n]{\RHI[n]{F}} \to F$, and write $\tlHI{n}(F)$ for the 
 cokernel of $\cuHI_F$. First, we make the following observation:
 
@@ -282,42 +385,43 @@ is associated with the (weak) filtration $(\DMeff, \sgDM{*})$ and
 the (weak) cofiltration $(\DMeff, \slDM{*})$ (see Sect. 
 \ref{sect_slice_filt_dm}).
 
-It is clear from Prop. \ref{prop_LRDM_eq_LRHI} that the essential 
-image of $\sgDM{n}\DMeff$ under $\sheaf{H}^0$ is $\sgHI{n}\HI$. 
-However, showing that the essential image $\slDM{n}\DMeff$ under 
-$\sheaf{H}^0$ is $\tlHI{n}\HI$ requires more proof. 
+By the definition of $\sgDM{n}$ and $\sgHI{n}$, it is clear that 
+the essential image of $\sgDM{n}\DMeff$ under $\HH^0$ is 
+$\sgHI{n}\HI$. However, showing that the essential image 
+$\slDM{n}\DMeff$ under $\HH^0$ is $\tlHI{n}\HI$ requires more 
+proof. 
+
 First, observe that for every $n > 0$ and every $F \in \HI$ 
 (regarded as an object of $\DMeff$), there exists a slice 
 triangle:
 \[
 \sliceTriangle{n}{F}
 \]
-Applying the cohomologicaly functor $\sheaf{H}^0$, we obtain the
+Applying the cohomologicaly functor $\HH^0$, we obtain the
 following long exact sequence
 \[
-\cdots \stackrel{\delta_{-1}}{\to} \sheaf{H}^0 \sgDM{n}(F) \to 
-   \sheaf{H}^0 F \to \sheaf{H}^0 \slDM{n}(F)
-   \stackrel{\delta_0}{\to} \sheaf{H}^1 \sgDM{n}(F) \to \cdots
+\cdots \stackrel{\delta_{-1}}{\to} \HH^0 \sgDM{n}(F) \to 
+   \HH^0 F \to \HH^0 \slDM{n}(F)
+   \stackrel{\delta_0}{\to} \HH^1 \sgDM{n}(F) \to \cdots
 \]
-where $\sheaf{H}^i F \defeq \sheaf{H}^0F[i]$. In particular, we
+where $\HH^i F \defeq \HH^0F[i]$. In particular, we
 have the following exact sequence
 \begin{equation}\label{eq_slice_DM_exact_seq}
-\sheaf{H}^0 \slDM{n}(F) \to \sheaf{H}^0 F \to \sheaf{H}^0 
-\sgDM{n}(F) \stackrel{\delta_0}{\to} \sheaf{H}^1 \sgDM{n}(F).
+\HH^0 \slDM{n}(F) \to \HH^0 F \to \HH^0 
+\sgDM{n}(F) \stackrel{\delta_0}{\to} \HH^1 \sgDM{n}(F).
 \end{equation}
-Notice that $\sheaf{H}^0F = F$ and $\sgDM{n}(F) = 
-\ihomDMf(\Z(1)[1], F)(1)[1]$. So by Prop. \ref{prop_LRDM_eq_LRHI}, 
-$\sheaf{H}^0 \sgDM{n}(F) = \LHI[n]{(\RHI[n]{F})}$. Therefore, the 
-exact sequence in Eq. \ref{eq_slice_DM_exact_seq} reduces to the 
-following:
+Notice that $\HH^0F = F$ and $\sgDM{n}(F) = 
+\ihomDMf(\Z(1)[1], F)(1)[1]$. So by definition, $\HH^0 \sgDM{n}(F) 
+= \LHI[n]{(\RHI[n]{F})}$. Therefore, the exact sequence in Eq. 
+\ref{eq_slice_DM_exact_seq} reduces to the following:
 \[
-\LHI[n]{(\RHI[n]{F})} \to F \to \sheaf{H}^0{\slDM{n}(F)} 
-   \stackrel{\delta_0}{\to} \sheaf{H}^1 \sgDM{n}(F).
+\LHI[n]{(\RHI[n]{F})} \to F \to \HH^0{\slDM{n}(F)} 
+   \stackrel{\delta_0}{\to} \HH^1 \sgDM{n}(F).
 \]
 where the map $\LHI[n]{(\RHI[n]{F}} \to F$ is the counit. If we 
-show that $\sheaf{H}^1 \sgDM{n}(F) = 0$, then it is clear that
-$\sheaf{H}^0 \slDM{n}(F) \simeq \tlHI{n}(F)$. The claim that 
-$\sheaf{H}^1 \sgDM{n}(F) = 0$ is precisely the content of Lemma 
+show that $\HH^1 \sgDM{n}(F) = 0$, then it is clear that
+$\HH^0 \slDM{n}(F) \simeq \tlHI{n}(F)$. The claim that 
+$\HH^1 \sgDM{n}(F) = 0$ is precisely the content of Lemma 
 \ref{lem_H1_sgDM_vanishes}, which we prove shortly. First, we have
 the following.
 
@@ -329,19 +433,18 @@ For $F \in \HI$,
 as objects in $\DMeff$.
 \end{lem}
 \begin{proof}
-Since $\sheaf{H}^0 \ihomDMf(\Z(1)[1], F) \simeq \RHI{F}$ by 
-\ref{prop_LRDM_eq_LRHI}, it suffices to show that 
-$\ihomDMf(\Z(1)[1], F)$, now regarded as a chain complex of
-sheafs with transfers, is quasi-isomorphic to a chain complex 
-concentrated in degree 0, the Nisnevich sheaf
+Since $\HH^0 \ihomDMf(\Z(1)[1], F) \simeq \RHI{F}$ by definition, 
+it suffices to show that $\ihomDMf(\Z(1)[1], F)$, now regarded as 
+a chain complex of sheafs with transfers, is quasi-isomorphic to a 
+chain complex concentrated in degree 0, the Nisnevich sheaf
 \[
-\sheaf{H}^i\ihomDMf(\Z(1)[1], F)
+\HH^i\ihomDMf(\Z(1)[1], F)
 \]
 vanishes for all Hensel local schemes.
 
 Fix $S$ a Hensel local scheme. Note that, since $F$ is $\A^1$-local,
 \begin{align*}
-\sheaf{H}^i\ihomDMf(\Z(1)[1], F)(S) &= H^i\rhomDMf(\CZtr(S) 
+\HH^i\ihomDMf(\Z(1)[1], F)(S) &= H^i\rhomDMf(\CZtr(S) 
    \tDM \Z(1)[1], F) \\
    &\simeq H^i\homDSh(\Ztr(S \times 
    \Gm), F).
@@ -380,8 +483,8 @@ Thus, we are reduced to showing that $H^{-1}\homDSh(\Ztr(S \times
 \begin{lem}[D\'eglise]\label{lem_H_com_ihom_DM}
 For $M \in \DMeff$, 
 \[
-\sheaf{H}^i\ihomDMf(\Z(1)[1], M) = \ihomDMf(\Z(1)[1], \sheaf{H}^i(M)) = 
-   \RHI{\sheaf{H}^i(M)}
+\HH^i\ihomDMf(\Z(1)[1], M) = \ihomDMf(\Z(1)[1], \HH^i(M)) = 
+   \RHI{\HH^i(M)}
 \]
 \end{lem}
 \begin{proof}
@@ -391,12 +494,12 @@ preceding lemma and Prop \ref{prop_contract_is_exact},
 $\ihomDMf(\Z(1)[1], -)$ is also exact on the heart of $\DMeff$,
 whence it is $t$-exact.
 
-That is, $\ihomDMf(\Z(1)[1], -)$ commutes with $\sheaf{H}^0$,
+That is, $\ihomDMf(\Z(1)[1], -)$ commutes with $\HH^0$,
 and the lemma is established.
 \end{proof}
 
 \begin{lem}\label{lem_H1_sgDM_vanishes}
-For $F \in \HI$, $\sheaf{H}^1 \sgDM{n}(F) = 0$.
+For $F \in \HI$, $\HH^1 \sgDM{n}(F) = 0$.
 \end{lem}
 \begin{proof}
 Applying Lemma \ref{lem_rhomDM_and_contract}, we see that the
@@ -404,14 +507,14 @@ complex
 \[
 \ihomDMf(\Z(n)[n], F) \tDM \Z(n)[n] \simeq \RHI{F} \tDM \Z(n)[n]
 \] 
-is concentrated entirely in negative degrees (see Def. \ref{def_z_n}).
-It follows that $\sheaf{H}^i$ vanishes for $i > 0$, and in particular,
-for $i = 1$.
+is concentrated entirely in negative degrees. It follows that 
+$\HH^i$ vanishes for $i > 0$, and in particular, for $i = 
+1$.
 \end{proof}
 
 This shows that $\tlHI{n}\HI$ is contained in the essential image 
-of $\sgDM{n}\DMeff$ under $\sheaf{H}^0$. To show the converse, we 
-establish that $\RHI[n]{(\sheaf{H}^0 M)} = 0$ for $M \in 
+of $\sgDM{n}\DMeff$ under $\HH^0$. To show the converse, we 
+establish that $\RHI[n]{(\HH^0 M)} = 0$ for $M \in 
 \slDM{n}\DMeff$. This follows from Prop. 
 \ref{prop_lower_slice_char}. Indeed, if $M \in \slDM{n}\DMeff$, 
 then 
@@ -420,9 +523,9 @@ then
 \] 
 Applying Lemma \ref{lem_H_com_ihom_DM}, it follows that
 \[
-0 = \sheaf{H}^0\ihomDMf(\Z(n)[n], M) = \RHI[n]{(\sheaf{H}^0(M))}
+0 = \HH^0\ihomDMf(\Z(n)[n], M) = \RHI[n]{(\HH^0(M))}
 \]
-and thus $\sheaf{H}^0 M \in \tlHI{n}\HI$ by definition. We
+and thus $\HH^0 M \in \tlHI{n}\HI$ by definition. We
 have just proved:
 
 \begin{prop}\label{prop_H_commute_with_filt}
@@ -433,9 +536,9 @@ cofiltration defined in Sect. \ref{sect_slice_filt_dm}. Then
 for each $n > 0$, the following diagram of functors commute:
 \[
 \begin{tikzcd}
-\sgDM{n}\DMeff \arrow{d}{\sheaf{H}^0} &
-\DMeff \arrow{l}{\sgDM{n}} \arrow{r}{\slDM{n}} \arrow{d}{\sheaf{H}^0} &
-\slDM{n}\DMeff \arrow{d}{\sheaf{H}^0} \\
+\sgDM{n}\DMeff \arrow{d}{\HH^0} &
+\DMeff \arrow{l}{\sgDM{n}} \arrow{r}{\slDM{n}} \arrow{d}{\HH^0} &
+\slDM{n}\DMeff \arrow{d}{\HH^0} \\
 \sgHI{n}\HI &
 \HI \arrow{l}{\sgHI{n}} \arrow{r}{\tlHI{n}} &
 \tlHI{n}\HI 
@@ -470,7 +573,7 @@ structure constants of $(\DMeff, \sgDM{*})$:
 Let the structure constants $\slice{*}$ for $(\HI, \sgHI{*})$ be 
 defined as above. Then
 \[
-\sheaf{H}^0 \sliceDM{n} = \slice{n}.
+\HH^0 \sliceDM{n} = \slice{n}.
 \]
 \end{cor}
 
@@ -931,3 +1034,13 @@ naturally isomorphic to $\tlHI{m} \sgHI{n}$ (Prop
 
 The second claim follows from setting $n = m - 1$.
 \end{proof}
+
+%%%%
+
+\begin{defn}
+Let $\Cat{A}$ be an abelian category. We say that a filtration 
+$(\Cat{A}, \nu_*)$ is a \DEF{strong filtration} if for each $A 
+\in \Cat{A}$ and $n \in \Z$, $\nu_n A$ is a subobject of $A$. 
+Similarly a filtration $(\Cat{A}, \gamma_*)$ is a \DEF{strong 
+cofiltration} if $\gamma_n A$ is a quotient of $A$ for each $n$.
+\end{defn}

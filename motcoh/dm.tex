@@ -92,7 +92,7 @@ While we have defined $\DMeff$ as a localization of
 $\DCat^-$ by the $\A^1$-weak equivalences, we can identify
 $\DMeff$ with a subcategory of $\DShCor$.
 
-\begin{defn}
+\begin{defn}\label{def_ALocal}
 Let $F^* \in \DShCor$. We say that $F^*$ is \DEF{$\A^1$-local} if
 $\hom_{\DShCor}(-, F^*)$ sends $\A^1$-weak equivalences to 
 isomorphisms. We write $\ALocal$ for the full subcategory of 
@@ -479,7 +479,16 @@ established in Lemma \ref{lem_ihom_tL_adjunction}.
 Via the categorical equivalence between $\ALocal$ and $\DMeff$,
 there exists an internal hom functor on the geometric objects
 of $\DMeff$. We write $\tDM$ and $\ihomDMf$ for the tensor and
-(partial) internal hom operators respectively.
+(partial) internal hom operators respectively. We have just
+established the following:
+
+\begin{prop}\label{prop_DMgm_monoidal}
+Let $\tDM$ and $\ihomDMf$ be given as above. Then for all
+$M \in \DMeffgm$, $- \tDM M$ is left adjoint to $\ihomDMf(M, -)$.
+In particular, $\DMeffgm$ is an additive symmetric closed monoidal 
+category.
+\end{prop}
+
 
 \begin{rmk}\label{rmk_partial_ihom}
 Notice that $\sheaf{\rhom}$ and $\ihomAL$ do not define a closed
@@ -520,7 +529,7 @@ and defines a Nisnevich sheaf.
 In particular, for each nonnegative integer $n$, we can define 
 $\bigwedge_{i = 0}^n \Ztr(\A^1 - 0, 1)$, which we view as an 
 object of $\DMeff$. In fact, these are geometric motives, i.e.
-objects in the subcategory $\DMeffgm$. We denote this object by 
+objects in the subcategory $\DMeffgm$. We write this object by 
 $\Z(n)$. It is easy to see that $\Z(n) \tDM \Z(m) \cong 
 \Z(n + m)$. 
 
