@@ -494,8 +494,8 @@ a one-to-one correspondence between idempotent pre-coradicals and
 torsion theories on $\Cat{A}$ whose full subcategories are defined 
 by
 \begin{align*}
-\Cat{T} &= \{ T \in \Cat{A} : \phi(T) = 0 \} \\
-\Cat{F} &= \{ F \in \Cat{A} : \phi(F) = F \}.
+\Cat{T} &= \{ T : \phi(T) = 0 \} \\
+\Cat{F} &= \{ F : \phi(F) = F \}.
 \end{align*}
 \end{thm}
 \begin{proof}
@@ -521,8 +521,8 @@ a result corresponding to Theorem \ref{thm_precorad_eq_tt} for
 radicals: every idempotent pre-radical $\kappa$ is in one-to-one 
 correspondence with torsion theories on $\Cat{A}$ defined by
 \begin{align*}
-\Cat{T} &= \{ T \in \Cat{A} : \kappa(T) = T \} \\
-\Cat{F} &= \{ F \in \Cat{A} : \kappa(F) = 0 \}.
+\Cat{T} &= \{ T : \kappa(T) = T \} \\
+\Cat{F} &= \{ F : \kappa(F) = 0 \}.
 \end{align*}
 In fact, we have the following.
 
@@ -563,7 +563,7 @@ and $\phi(A) \in \Cat{F}$, $\hom_{\Cat{A}}(\kappa(A), F) = 0$, and
 as desired.
 \end{proof}
 
-It should be evident from Theorem \cite{thm_precorad_eq_tt} that 
+It should be evident from Theorem \ref{thm_precorad_eq_tt} that 
 coradicals are not in one-to-one correspondence with torsion 
 theories, although they do give rise to unique torsion theories 
 (see Theorem \ref{thm_corad_equiv_htt}). We now characterize the 
@@ -589,12 +589,12 @@ and cohereditary torsion theories on $\Cat{A}$.
 
 \pfitem{From coradicals to cohereditary torsion theories} : Let 
 $\phi$ be a coradical, and $(\Cat{T}, \Cat{F})$ the associated
-torsion theory, given by Theorem \cite{thm_precorad_eq_tt}.
+torsion theory, given by Theorem \ref{thm_precorad_eq_tt}.
 
 We need only to show that $\Cat{F}$ defined by $\{A : \phi(A) = 
 A\}$ is closed under quotients.
 
-Let $f: F \to A$ be a surjection with $F \in \Cat{F}$,
+Let $f: F \to A$ be a surjection and $F$ is in $\Cat{F}$,
 and write $K$ for the kernel of $f$. It follows from Prop. 
 \ref{prop_tt_properties} that $\Cat{F}$ is closed under 
 subobjects. Hence, $K \in \Cat{F}$. Furthermore, by the right 
@@ -635,9 +635,9 @@ Since $\phi$ is left adjoint to inclusion, we have that
 \hom_{\Cat{A}}(\phi(B), F) = \hom_{\Cat{F}}(\phi(B), F) = 
    \hom_{\Cat{A}}(B, F)
 \]
-for all $F$ in $\Cat{F}$. In particular, for all $F \in
-\Cat{F}$, and surjections $B \onto F$, there exists a unique
-map $\phi(B) \to F$ making the following diagram commutative
+for all $F$ in $\Cat{F}$. In particular, for all $F$ in $\Cat{F}$, 
+and surjections $B \onto F$, there exists a unique map $\phi(B) 
+\to F$ making the following diagram commutative
 \[
 \begin{tikzcd}
 B \arrow[twoheadrightarrow]{rd}{\eta_B} \arrow{rr} & & F \\

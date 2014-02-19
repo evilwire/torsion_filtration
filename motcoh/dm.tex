@@ -21,15 +21,15 @@ stated otherwise, all sheaves are Nisnevich sheaves. We will drop
 the ``Nis'', and simply write $\ShCor$ for the category of 
 Nisnevich sheaves with transfers.
 
-First consider the category $\PST$. By Yoneda, for $X \in \Sm$ and
-$F \in \PST$,
+First consider the category $\PST$. By Yoneda, for $X$ in $\Sm$ and
+$F$ in $\PST$,
 \[
 \hom_{\PST}(\Ztr(X), F) = F(X).
 \]
-It follows that $\Ztr(X)$ is projective for every $X \in \Sm$.
+It follows that $\Ztr(X)$ is projective for every $X$ in $\Sm$.
 Since direct sums of projectives are projective, 
 $\oplus_i \Ztr(X_i)$ is also projective for any arbitrary 
-collection $\{Z_i\}$. Furthermore, for $F \in \PST$, there exists 
+collection $\{Z_i\}$. Furthermore, for $F$ in $\PST$, there exists 
 a surjection
 \begin{equation}\label{eq_res_by_rep}
 \bigoplus_{X} \bigoplus_{0 \neq x \in F(X)} \Ztr(X) 
@@ -76,11 +76,11 @@ $\DCat[D] [\Cat{S}^{-1}]$.
 
 \begin{defn}\label{def_DMeff}
 Let $\Cat{W}_{\A}$ be the thick subcategory of $\DCat^-$ generated 
-by the cones of $\Ztr(X \times \A^1) \to \Ztr(X)$ for every $X \in 
-\Sm$, closed under direct sums that exist in $\DCat^-\ShCor$. 
+by the cones of $\Ztr(X \times \A^1) \to \Ztr(X)$ for every $X$ in 
+$\Sm$, and closed under direct sums that exist in $\DCat^-\ShCor$. 
 Write $\Cat{S}_{\A}$ for the maps whose cone is in $\Cat{W}_{\A}$. 
-We say $f \in \DShCor$ is an \DEF{$\A^1$-weak equivalence} if $f 
-\in \Cat{S}_{\A}$.
+We say that a map $f$ in $\DShCor$ is an \DEF{$\A^1$-weak 
+equivalence} if $f \in \Cat{S}_{\A}$.
 
 We write $\DMeff$ for the localization 
 $\DShCor [\Cat{S}_{\A}^{-1}]$. The category that we have
@@ -93,17 +93,17 @@ $\DCat^-$ by the $\A^1$-weak equivalences, we can identify
 $\DMeff$ with a subcategory of $\DShCor$.
 
 \begin{defn}\label{def_ALocal}
-Let $F^* \in \DShCor$. We say that $F^*$ is \DEF{$\A^1$-local} if
-$\hom_{\DShCor}(-, F^*)$ sends $\A^1$-weak equivalences to 
-isomorphisms. We write $\ALocal$ for the full subcategory of 
-$\A^1$-local objects in $\DShCor$.
+Let $F^*$ be an object of $\DShCor$. We say that $F^*$ is 
+\DEF{$\A^1$-local} if $\hom_{\DShCor}(-, F^*)$ sends $\A^1$-weak 
+equivalences to isomorphisms. We write $\ALocal$ for the full 
+subcategory of $\A^1$-local objects in $\DShCor$.
 \end{defn}
 
 The following gives a good characterization of the category 
 $\ALocal$.
 
 \begin{prop}[\cite{MVW} Prop. 14.8, Cor. 14.9]
-Fix $F^*$ in $\DShCor$. Then $F^* \in \ALocal$ if and only if
+For $F^*$ in $\DShCor$, $F^* \in \ALocal$ if and only if
 $\nis(H^n F^*)$ are homotopy invariant. In particular, we can
 identify $\ALocal$ with the full subcategory of complexes in 
 $\DShCor$ with homotopy invariant cohomology presheaves, which we 
@@ -141,8 +141,8 @@ the inclusion of $\ALocal \into \DShCor$.
 There is a canonical map from $F^* \to \suslC[] F^*$,
 given by the inclusion of $F_i = \suslC[0] F_i \into \oplus_{p + 
 q = i} \suslC[-p] F^q$. This map is a $\A^1$-weak equivalence
-(see \cite[Lemma 14.4]{MVW}). Therefore, for any $L^* \in \ALocal$
-and $F^* \in \DShCor$,
+(see \cite[Lemma 14.4]{MVW}). Therefore, for any $L^*$ in $\ALocal$
+and $F^*$ in $\DShCor$,
 \[
 \hom_{\DShCor}(F^*, L^*) \cong \hom_{\DShCor}(\suslC[] F^*, L^*)
    = \hom_{\ALocal}(\suslC[] F^*, L^*).
@@ -220,7 +220,7 @@ symmetric monoidal category, and the following two conditions
 hold
 \begin{enumerate}
 \item For any distinguished triangle $M' \to M \to M'' 
-\stackrel{\delta}{\to} M'[1]$, and any $N \in \DCat[D]$,
+\stackrel{\delta}{\to} M'[1]$, and any $N$ in $\DCat[D]$,
 the following triangles are distinguished
 \[
 \begin{tikzcd}
@@ -235,8 +235,8 @@ N \tensor M'' \arrow{r}{r(D \tensor \delta)}&
 \end{tikzcd}
 \]
 
-\item For any $M, N \in \DCat[D]$, the following anti-commutes,
-i.e. $rl = -lr$:
+\item For any $M$ and $N$ in $\DCat[D]$, the following 
+anti-commutes, i.e. $rl = -lr$:
 \[
 \begin{tikzcd}
 M[1] \tensor N[1] \arrow{rr}{r}\arrow{dd}{l} && 
@@ -253,7 +253,7 @@ monoidal category} if
 \[
 \left(\bigoplus M_i\right) \tensor N = \bigoplus_i (M_i \tensor N)
 \]
-for all $N \in \DCat$ and all family $\{M_i\}$ of objects of 
+for all $N$ in $\DCat$ and all family $\{M_i\}$ of objects of 
 $\DCat$ such that $\oplus_i M_i \in \DCat$. Finally, we say that
 $\DCat$ is \DEF{closed monoidal} if there exists an internal hom
 bifunctor $\ihom(-,-)$ such that $F \tensor -$ is left adjoint to
@@ -272,23 +272,23 @@ determined by the following requirements:
 \begin{enumerate}
 \item $\Ztr(X) \ttr \Ztr(Y) \defeq \Ztr(X \times Y)$, 
 
-\item for each map $\phi \in \hom_{\PST}(\Ztr(X), \Ztr(Y)) = 
-\Cor(Y, X)$ identified with the correspondence $W$, $\phi \tensor 
-\Ztr(Z): \Ztr(X) \ttr \Ztr(Z) \to \Ztr(Y) \ttr \Ztr(Z)$ is the
-correspondence $W \times Z$. 
+\item for each map $\phi$ in $\hom_{\PST}(\Ztr(X), \Ztr(Y))$ which
+equals $\Cor(Y, X)$ identified with the correspondence $W$, $\phi 
+\tensor \Ztr(Z): \Ztr(X) \ttr \Ztr(Z) \to \Ztr(Y) \ttr \Ztr(Z)$ is 
+the correspondence $W \times Z$. 
 \end{enumerate}
 
 First, it is clear that we can extend $\ttr$ to arbitrary 
 direct sums of representable presheaves.  
 
-Next, for arbitrary $F, G \in \PST$, let $P^* \to F$ and $Q^* \to G$
-be a resolutions by direct sums of representable functors of $F$ 
-and $G$ respectively. We write $F \tL G$ for the total complex of 
-the double complex $P^* \ttr Q^*$. By the Comparison Theorem 
-\cite[Theorem 2.26]{WH}, any two projective resolutions are chain 
-homotopy equivalent. Therefore, it is easy to see that up to chain 
-homotopy equivalence, this is independent of the choice of $P^*$ 
-and $Q^*$.
+Next, for arbitrary presheaves with transfers $F, G$, let $P^* \to 
+F$ and $Q^* \to G$ be a resolutions by direct sums of 
+representable functors of $F$ and $G$ respectively. We write $F 
+\tL G$ for the total complex of the double complex $P^* \ttr Q^*$. 
+By the Comparison Theorem \cite[Theorem 2.26]{WH}, any two 
+projective resolutions are chain homotopy equivalent. Therefore, 
+it is easy to see that up to chain homotopy equivalence, this is 
+independent of the choice of $P^*$ and $Q^*$.
 
 In particular, $H^0(F \tL G)$ is well-defined. Define the tensor 
 operation on $\PST$ to be
@@ -300,7 +300,7 @@ and define internal hom by
 \ihom(F, G): X \mapsto \hom_{\PST}(F \tensor \Ztr(X), G).
 \]
 These operations define a closed monoidal structure on $\PST$.
-That is, for all $F \in \PST$, the functor $F \tL -$ is adjoint to 
+That is, for all $F$ in $\PST$, the functor $F \tL -$ is adjoint to 
 $\ihom(-, F)$ (see \cite[Lemma 8.3]{MVW}).
 
 \begin{rmk}
@@ -379,7 +379,7 @@ lemma.
 \begin{lem}[\cite{MVW} Prop. 8A.7]\label{lem_loc_and_tensor}
 Let $\DCat$ be a tensor triangulated category, and let $\Cat{W}$
 be a collection of maps in $\DCat$ that is closed under $-\tensor 
-N$ for every $N \in \DCat$ i.e. if $M \to M'$ is in $\Cat{W}$ then 
+N$ for every $N$ in $\DCat$ i.e. if $M \to M'$ is in $\Cat{W}$ then 
 so is $M \tensor N \to M' \tensor N$. Then the localization $\DCat 
 [\Cat{W}^{-1}]$ is also a tensor triangulated category.
 \end{lem}
@@ -399,7 +399,7 @@ tensor triangulated structure. Recall that $\DMeff$ is obtained
 from $\DShCor$ by formally inverting the $\A^1$-weak equivalences.
 To show that $\tLNis$ induces a tensor structure on $\DMeff$, it
 suffices to observe that if $\phi : F^* \to {F'}^*$ is an $\A^1$-weak 
-equivalence, then for all $G^* \in \DShCor$, $\phi \tLNis G^* : 
+equivalence, then for all $G^*$ in $\DShCor$, $\phi \tLNis G^* : 
 F^* \tLNis G^* \to {F'}^* \tLNis G^*$ is an $\A^1$-weak 
 equivalence, which is proven in \cite[Lemma 9.5]{MVW}.
 
@@ -423,7 +423,7 @@ triangulated categories (see \cite[Theorem 14.11]{MVW}).
 Let $B^*$ be a bounded above complex of Nisnevich sheaves. Let $B^*
 \to I^*$ be a Cartan-Eilenburg resolution. Such a resolution 
 exists since the category of $\ShCor$ has enough injectives (see 
-\cite[Prop.  6.19]{MVW}). For $X \in \Sm$, define 
+\cite[Prop.  6.19]{MVW}). For $X$ in $\Sm$, define 
 $\sheaf{\rhom}(\Ztr(X), B)$ to be the complex of sheaves given by
 \[
 \sheaf{\rhom}(\Ztr(X), B)(U) = \rhom_{\DCat^-\ShCor}(\Ztr(X \times U),
@@ -437,8 +437,8 @@ The following is a straightforward consequence of the above
 definition.
 
 \begin{lem}\label{lem_ihom_tL_adjunction}
-For all $X \in \Sm$, and all $F^*, G^* \in \DCat^-\ShCor$, we have
-the following adjunction
+For all $X$ in $\Sm$, and all $F^*, G^*$ in $\DCat^-\ShCor$, we 
+have the following adjunction
 \[
 \hom_{\DShCor}(F^*\tLNis \Ztr(X), G^*) \cong
 \hom_{\DShCor}(F^*, \sheaf{\rhom}(\Ztr(X), G^*)).
@@ -484,7 +484,7 @@ established the following:
 
 \begin{prop}\label{prop_DMgm_monoidal}
 Let $\tDM$ and $\ihomDMf$ be given as above. Then for all
-$M \in \DMeffgm$, $- \tDM M$ is left adjoint to $\ihomDMf(M, -)$.
+$M$ in $\DMeffgm$, $- \tDM M$ is left adjoint to $\ihomDMf(M, -)$.
 In particular, $\DMeffgm$ is an additive symmetric closed monoidal 
 category.
 \end{prop}

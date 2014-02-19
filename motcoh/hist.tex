@@ -2,13 +2,16 @@
 \section{Homotopy Invariant Sheaves with Transfers}\label{sect_hist}
 
 Let $\basefield$ be a perfect field, and let $\Sm$ denote the 
-category of smooth separated finite type $\basefield$-schemes.
+category of smooth separated finite type $\basefield$-schemes. The 
+material in this sections is taken from Lecture 2 and 6 of 
+\cite{MVW}.
 
 \begin{defn}\label{def_cor}
-Let $X, Y \in \Sm$. An \DEF{elementary correspondence from $X$ to 
-$Y$} is an irreducible closed subset $W$ of $X \times Y$ such that 
-the projection to $X$ from the associated integral subscheme 
-$\Sch{W}$ is finite and surjective.
+Let $X, Y$ be smooth separated finite type $\basefield$-schemes. 
+An \DEF{elementary correspondence from $X$ to $Y$} is an 
+irreducible closed subset $W$ of $X \times Y$ such that the 
+projection to $X$ from the associated integral subscheme $\Sch{W}$ 
+is finite and surjective onto a component of $X$.
 
 Let \DEF{$\Cor_{\basefield}(X, Y)$} (or simply $\Cor(X, Y)$ in the 
 case when the base field $k$ is understood) denote the free 
@@ -28,7 +31,7 @@ graphs of the automorphisms in the Galois group $G \defeq \Gal(L,
 \basefield)$. In this case, $\Cor_{\basefield}(X, Y) = \Z[G]$.
 \end{ex}
 
-Let $\Cor_{\basefield}$ be a collection of objects and morphisms 
+Let $\Cor_{\basefield}$ be the collection of objects and morphisms 
 where 
 \[
 \Obj{Cor_k} = \Obj{\Sm}
@@ -38,13 +41,14 @@ and
 \hom_{\Cor_k}(X, Y) = \Cor(X, Y).
 \]
 We claim that $\Cor_{\basefield}$ forms a category. The main 
-missing piece here is to the composition of morphisms. This is 
-achieved by pulling back correspondences as given by the following 
-lemma:
+missing piece here is a description of the composition of 
+morphisms. This is achieved by pulling back correspondences as 
+given by the following result from \cite[1.7]{MVW}.
 
 \begin{lem}\label{lem_cor_composition}
-Let $V \in \Cor(X, Y)$ and $W \in \Cor(Y, Z)$ be elementary 
-correspondences. Writing
+Let $V$ be elementary correspodences in $\Cor(X, Y)$
+and and $W$ be an elementary correspondence in $\Cor(Y, Z)$. 
+Writing
 \[
 V = \sum_i n_i V_i, \;\;\textrm{and}\;\; W = \sum_j m_i W_i
 \]
@@ -55,90 +59,46 @@ the pushforward of
 \]
 in $X \times Z$ defines a finite correspondence from $X$ to $Z$.
 \end{lem}
-\begin{proof}(See \cite{MVW} Lemma 1.7.)
-% reduce to elementary correspondences,
-Notice that $\Cor(X, Y) = \sum_i \Cor(X, Y_i)$ where $Y_i$ are the 
-connected components of $Y$, and similarly for $X$. Therefore, 
-without loss of generality, we may assume that $V$ and $W$ are 
-elementary correspondences, and such that $X$ and $Y$ are 
-connected.
-
-Form the pullback $\Sch{V} \times_Y \Sch{W}$ of $\Sch{V}$ and
-$\Sch{W}$ in the following:
-\[
-\begin{tikzcd}
-\Sch{V} \times_Y \Sch{W} \arrow{r} \arrow{d}
-&\Sch{W} \arrow{d} \\
-\Sch{V} \arrow{r}& Y.
-\end{tikzcd}
-\]
-Let $i: \Sch{V} \times_Y \Sch{W} \to X \times Y \times Z$ be the
-evident map, and consider its image $T$ in $X \times Y \times Z$. 
-We claim that each irreducible component $T_i$ of $T$ is finite 
-and surjective over $X$. 
-
-Indeed, since $T$ is the scheme theoretic intersection 
-of $\Sch{V} \times Z$ and $X \times \Sch{W}$, $T_i$ is the image 
-of an irreducible component of $\Sch{V} \times_Y \Sch{W}$. 
-However, each irreducible component of $\Sch{V} \times_Y \Sch{W}$ 
-maps finitely and surjectively to $\Sch{V}$. Since composition of
-finite surjections is a finite surjection, it follows that each
-such component maps finitely surjectively to $X$. Furthermore, 
-since the image under of an irreducible subscheme finite over $X$ is 
-also finite over $X$ (\cite{Hart} Ex. II.4.4 and \cite{EGA3} 
-4.4.2), it follows that $T_i$ is finite and surjective over $X$.
-
-To finish, consider the projection of $X \times Y \times Z \to 
-X \times Z$ of $X$ schemes. The image of each $T_i$ is again finite
-and surjective over $X$. It follows that the image of $T$ in $X 
-\times Z$ which is given precisely by the integral scheme associated 
-to
-\[
-\sum_{i, j} (V \times Z) \cap (X \times W)
-\]
-defines an elementary correspondence from $X$ to $Z$.
-\end{proof}
 
 \begin{defn}\label{def_pst}
 A \DEF{presheaf with transfers} is a contravariant functor from 
-$\Cor_k$ to the abelian groups (or $R$-modules for some 
-commutative ring $R$). A map between presheaves $F$ and $G$ is a 
-natural transformation from $F$ to $G$. Let $\PST_{\basefield}$ (or
-simply $\PST$ in the case when there is no ambiguity about the 
-basefield $\basefield$) denote the category of presheaves with 
-transfers. Notice that $\PST$ has a natural structure of an abelian
-category.
+$\Cor_k$ to abelian groups (or $R$-modules for some commutative 
+ring $R$). A map between presheaves $F$ and $G$ is a natural 
+transformation from $F$ to $G$. Let $\PST_{\basefield}$ (or simply 
+$\PST$ in the case when there is no ambiguity about the basefield 
+$\basefield$) denote the category of presheaves with transfers. 
+Notice that $\PST$ has a natural structure of an abelian category.
 \end{defn}
 
 \begin{rmk}
 The term ``with transfers'' comes from the existence of 
-\DEF{transfer maps}. For $F \in \PST$, and a finite surjective
+\DEF{transfer maps}. For $F$ in $\PST$, and a finite surjective
 morphism $\phi : W \to X$ of smooth schemes, there exists a
 map $\phi_*: F(W) \to F(X)$ induced by the graph of $\phi$,
 regarded as an elementary correspondence from $W$ to $X$.
-We call $\phi^*$ the \DEF{transfers map}. Notice that $\phi^*$
+We call $\phi^*$ the \DEF{transfer map}. Notice that $\phi^*$
 is in the ``opposite direction'' as the induced maps between
 sections.
 \end{rmk}
 
 % 1. define etale topology
-\begin{defn}\label{def_groth_top}
-Recall the \DEF{Grothendieck pre-topology} of a category $\Cat{C}$ 
+\begin{defn}\label{def_groth_top} (\cite[II.1.3]{SGA4})
+The \DEF{Grothendieck pre-topology} of a category $\Cat{C}$ 
 is a distinguished collection $\Cat{U}$ of \DEF{covering families} 
-indexed by the objects of $\Cat{C}$. Here, for each $X \in \Cat{C}$,
+indexed by the objects of $\Cat{C}$. Here, for each $X$ in $\Cat{C}$,
 a covering family of $X$ is a collection of sets of morphisms 
 $\{U_\alpha \to X\}_\alpha$ called \DEF{covers of $X$}. Together, 
 the covering families satisfy the following axioms:
 
 \begin{enumerate}
-\item for every map $Y \to X$ in $\Cat{C}$ and every cover $\{U 
-\to X\}$ of $X$, the pullback $Y \times U_\alpha \to Y$ exists 
-for every $\alpha$, and the collection $\{U_\alpha \times_X Y \to
-Y\}$ is a cover of $Y$.
+\item for every map $Y \to X$ in $\Cat{C}$ and every cover 
+$\{U_\alpha \to X\}$ of $X$, the pullback $Y \times U_\alpha \to 
+Y$ exists for every $\alpha$, and $\{U_\alpha \times_X Y \to Y\}$ 
+is a cover of $Y$.
 
 \item If $\{U_\alpha \to X\}$ is a cover of $X$ and for each 
 $\alpha$, $\{V_{\alpha\beta} \to U_\alpha\}$ is a cover of 
-$U_\alpha$, then $\{V_\alpha\beta \to X\}$ obtained via 
+$U_\alpha$, then $\{V_{\alpha\beta} \to X\}$ obtained via 
 composition is a cover of $X$.
 
 \item If $X' \to X$ is an isomorphism, then $\{X' \to X\}$ is a 
@@ -153,7 +113,7 @@ category $\Cat{T}_X$ where the objects are open subsets of $X$ and
 the morphisms are inclusion maps, then the collections $\{V_i 
 \subset V\}$ of all covers of $V$, as $V$ ranges over all open 
 subsets of $X$ satisfy the axioms of Def. \ref{def_groth_top} and 
-define a Grothendieck topology on the category $\Cat{T}_X$.
+define a Grothendieck pre-topology on $\Cat{T}_X$.
 \end{rmk}
 
 \begin{defn}
@@ -177,8 +137,8 @@ pre-topologies on $\Sm$. They are the \'etale site and the
 Nisnevich site, which we define below.
 
 \begin{defn}
-Recall that $\phi: X \to Y$ is \DEF{\'etale} if $\phi$ is a flat
-and unramified. (See \cite{Milne} \S 3.)
+A morphism $\phi: X \to Y$ is \DEF{\'etale} if $\phi$ is a flat
+and unramified. (See \cite{Milne} \S 1.3.)
 
 The \DEF{large \'etale site} on $\Sm$, is the Grothendieck 
 pre-topology given by jointly surjective \'etale morphisms 
@@ -186,8 +146,8 @@ $\{U_\alpha \to X\}.$
 
 The \DEF{large Nisnevich site} on $\Sm$ is the Grothendieck 
 pre-topology such that every cover of $X$ is an \'etale cover 
-$\{U_\alpha \to X\}$ such that for every $x \in X$, there exists 
-some $\phi_\alpha: U_\alpha \to X$ and $y \in U_\alpha$ such that 
+$\{U_\alpha \to X\}$ such that for every $x$ in $X$, there exists 
+some $\phi_\alpha: U_\alpha \to X$ and $y$ in $U_\alpha$ such that 
 $\phi_\alpha(y) = x$ and the induced map $k(x) \to k(y)$ is an 
 isomorphism.
 
@@ -222,16 +182,20 @@ $U_\beta$ respectively for each $\alpha, \beta$.
 
 \item for each $U, V$, $F(U \dU V) = F(U) \oplus F(V)$.
 \end{enumerate}
+
+\noindent We write $\ShEtCor$ (resp. $\ShNisCor$) for the 
+subcategory of \'Etale (resp. Nisnevich) sheaves with transfers.
 \end{defn}
 
-since the category of sheaves of any locale is well-powered
+Since the category of sheaves of any locale is well-powered
 (see \cite{Bo} Corollary 2.3.7), the category of \'etale sheaves 
 with transfers is also well-powered. So is the category of 
 Nisnevich sheaves with transfers.
 
 \begin{rmk}
 It is clear from the definition and Remark \ref{rmk_comp_of_tops}
-that an \'etale sheaf is also a Nisnevich sheaf.
+that an \'etale sheaf is also a Nisnevich sheaf, and an Nisnevich
+sheaf is a Zariski sheaf.
 \end{rmk}
 
 Our focus will be on the Nisnevich sheaves with transfers, and 
@@ -245,13 +209,13 @@ To see that $\Z, \O,$ and $\Ox$ are \'etale and Nisnevich sheaves
 with transfers, we must specify what the transfer structures are
 on each respective sheaf.
 
-For this purpose, it assume that $X, Y \in \Sm$ integral, and
-$W$ an elementary correspondence from $X$ to $Y$. Then, $W$ is
-given by an integral scheme finite over $X$, which we also 
-represent by $W$. Let $F$ and $L$ be the function fields of $X$ 
-and $W$ respectively. Then, $L$ is a dimensional $n$ $F$-vector 
-space, where $n$ is some positive integer. The induced map $\Z(X) 
-\to \Z(Y)$ is given by the composition
+For this purpose, assume that $X$ and $Y$ are integral schemes
+in $\Sm$, and $W$ an elementary correspondence from $X$ to $Y$. 
+Then, $W$ is given by an integral scheme finite over $X$, which we 
+also represent by $W$. Let $F$ and $L$ be the function fields of 
+$X$ and $W$ respectively. Then, $L$ is a dimensional $n$ 
+$F$-vector space, where $n$ is some positive integer. The induced 
+map $\Z(X) \to \Z(Y)$ is given by the composition
 \[
 \Z(Y) \to \Z(W) \stackrel{n}{\to} \Z(X).
 \]
@@ -274,32 +238,13 @@ and, the map $\O^*(Y) \to \O^*(X)$ is given by
 
 \begin{ex}\label{ex_ZtrX}
 A large class of Nisnevich sheaves with transfers are the 
-representable sheaves. For exach $X \in \Sm$, write $\Ztr(X)$
+representable sheaves. For each $X$ in $\Sm$, write $\Ztr(X)$
 for the sheaf which associates to each $U$ the abelian group
 $\Cor(U, X)$. To see that $\Ztr(X)$ is a Nisnevich sheaf, it
 suffices to show that it is an \'etale sheaf. In particular,
-for each $X \in \Sm$, $\Ztr(X)$ satisfies the coherence 
+for each $X$ in $\Sm$, $\Ztr(X)$ satisfies the coherence 
 conditions given in \ref{def_nis_sheaf}. The statement that
-$\Ztr(X)$ is an \'etale sheaf is proven in \cite{MVW}, Lemma 6.2.
-We give a short summary of the arguments for the convenience of
-the reader.
-
-Since $\Cor(U \dU V, X) = \Cor(U, X) \oplus \Cor(V, X)$, condition 
-(2) is satisfied. For (1), assume we have an \'etale cover given
-by a surjective \'etale map $\pi: U \to Y$. In particular $\pi$ is
-flat, and so is $U \times X \to Y \times X$. Injectivity of
-\[
-\Ztr(Y, X) \to \Ztr(U, X)
-\]
-follow from uniqueness of flat pullback of cycles. Without loss
-of generality, we may assume that $U$ and $Y$ are integral, with
-function fields $F$ and $L$ respectively. By faithfully flat 
-descent, we may reduce the argument to verifying exactness at
-the stalk of the generic point. This follows from the fact that
-\[
-\Cor(S, X) \to \Cor(T, X) \twoto \Cor(T \times_S T, X)
-\]
-is an equalizer sequence.
+$\Ztr(X)$ is an \'etale sheaf is proven in \cite[6.2]{MVW}.
 \end{ex}
 
 We state without proof the following results, taken from 
@@ -326,16 +271,15 @@ is, $\Etale{F}$ is an \'Etale sheaf with transfers.
 The inclusion $\ShEtCor \into \PST$ has a left adjoint $\etale$, 
 which is exact. 
 
-Likewise, for $F \in \PST$, write $\NisSh{F}$ for then Nisnevich
-sheafification of $F$. Then $\Nis{F}$ is a Nisnevich sheaf with
-transfers, and defines a left adjoint $\nis$ to the inclusion $\ShNisCor
-\into \PST$, which is also exact. 
+Likewise, for $F$ in $\PST$, write $\NisSh{F}$ for then Nisnevich
+sheafification of $F$. Then $\NisSh{F}$ is a Nisnevich sheaf with
+transfers, and defines a left adjoint $\nis$ to the inclusion 
+of $\ShNisCor$ into $\PST$. The functor $\nis$ is also exact. 
 
 In particular, both $\ShEtCor$ and $\ShNisCor$ are abelian 
 subcategories of $\PST$.
 
-\item (See \cite{MVW}, Prop. 6.19) The both $\ShEtCor$ and $\ShNisCor$
-have enough injectives.
+\item The both $\ShEtCor$ and $\ShNisCor$ have enough injectives.
 % 6.19
 \end{enumerate}
 \end{prop}
@@ -474,7 +418,8 @@ Let $F$ be a presheaf. The the maps $i_0^*, i_1^* :
 \suslC F(X \times \A^1) \to \suslC F(X)$ are chain homotopic.
 \end{lem}
 \begin{proof}
-Fix $F \in \PST$. We construct a homotopy contraction from
+Fix a presheaf with transfers $F$. We construct a homotopy 
+contraction from
 \[
 s_n : \suslC[n + 1] F(X) \to \suslC[n] F(X \times \A^1).
 \]
@@ -503,7 +448,7 @@ desired homotopy contraction.
 
 \begin{defn}
 Two morphisms $f, g: X \to Y$ in $\Cor$ are \DEF{$\A^1$-homotopic} 
-if there exists some $h \in \Cor(X \times \A^1, Y)$ such that 
+if there exists some $h$ in $\Cor(X \times \A^1, Y)$ such that 
 $h|_{X \times 0} = f$ and $h|_{X \times 1} = g$. We say that $f: X 
 \to Y$ is an \DEF{$\A^1$-homotopy equivalence} if there exists a 
 $g: Y \to X$ so that $fg$ is homotopic to the identity on $Y$, and
@@ -524,7 +469,7 @@ chain homotopy equivalence with chain homotopy inverse $g_*$.
 We begin with the following Lemma.
 
 \begin{lem}
-For any $X \in \Sm$, the canonical projection
+For any $X$ in $\Sm$, the canonical projection
 \[
 \pi: X \times \A^1 \to X
 \]
@@ -597,12 +542,12 @@ composition $X \times \A^1 \stackrel{\pi}{\to} X
 \stackrel{i_0}{\to} X \times \A^1$, whose image in $F(X \times 
 \A^1)$ is 0. That is, $F(i_0)h_{X \times \A^1}(id) = 0.$ 
 Similarly, $F(i_1)h_{X \times \A^1}(id) = \overline{id}$, where
-$\overline{id}$ is the image of $id \in \Cor(X \times \A^1, X 
+$\overline{id}$ is the image of $id$ in $\Cor(X \times \A^1, X 
 \times \A^1)$. 
 
-In general, every element $\overline{f} \in F(U)$ is the image
-of $id \in \Cor(X \times \A^1, X \times \A^1)$ via some 
-correspondence $f \in \Cor(U, X \times \A^1)$. Applying this
+In general, every element $\overline{f}$ in $F(U)$ is the image
+of $id$ in $\Cor(X \times \A^1, X \times \A^1)$ via some 
+correspondence $f$ in $\Cor(U, X \times \A^1)$. Applying this
 to the above, we have $F(i_0)h_U(\overline{f}) = 0$ and $F(i_1)
 h_U(\overline{f}) = \overline{f}$. It follows that $F$ satisfies
 the condition given in Display \ref{eq_contr_cond}, and the lemma
@@ -648,5 +593,5 @@ define homotopy equivalences between $\suslC \Ztr(X)$ and $\suslC
 We note that all results of this section hold for $\PST(R)$, which
 are presheaves with transfers with values in $R$-modules, where $R$
 is some commutative unital ring. In particular, $\Rtr(X)$ are
-\'etale/Nisnevich sheaves for all $X \in \Sm$.
+\'etale/Nisnevich sheaves for all $X$ in $\Sm$.
 \end{rmk}
