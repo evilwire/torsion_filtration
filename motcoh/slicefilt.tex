@@ -44,7 +44,7 @@ distinguished triangles of the form
 \begin{equation}\label{eq_slice_triangle_1}
 \tZ[n]{\hZ[n]{M}} \to M \to M' \to \tZ[n]{\hZ[n]{M}}[1],
 \end{equation}
-for some $M' \in \DMeff$. We call such triangles \DEF{the slice
+for some $M'$ in $\DMeff$. We call such triangles \DEF{the slice
 triangle of $M$}.
 
 By the Five Lemma (see \cite[10.2.2]{WH}), the distinguished 
@@ -68,7 +68,7 @@ Following loc. cit., we write $\slDM{n}$ for the functor $M
 \mapsto M'$, and $\sgDM{n}$ for the functor $M \mapsto 
 \tZ[n]{\hZ[n]{M}}$. Furthermore, let $\sgDM{n}\DMeff$ be the full
 subcategory of objects of the form $\tZ[n]{M}$, and let 
-$\slDM{n} \DMeff$ be the full subcategory of $M \in \DMeff$ such 
+$\slDM{n} \DMeff$ be the full subcategory of objects $M$ such 
 that $M_{-n} = 0$.
 
 Since $\tZ[n + 1]{M} = \tZ[n]{\tZ[1]{M}}$, and if $\hZ[n]{M} = 0$
@@ -270,7 +270,7 @@ triangle
 \end{equation}
 
 \begin{defn}
-For $M \in \DMeff$, we say $\slDM{n}\sgDM{n - 1}M$ is the 
+For $M$ in $\DMeff$, we say $\slDM{n}\sgDM{n - 1}M$ is the 
 \emph{$n$-th slice} of $M$, written as $\sliceDM{n}M$. Since
 $\slDM{n}$ and $\sgDM{n}$ are triangulated functors, so is 
 $\sliceDM{n}$.
@@ -283,8 +283,8 @@ $\DMeff$, $\slice{n}M = \tZ[n]{M'}$. In particular, the following
 holds:
 
 \begin{prop}\label{prop_DMeff_slice_fund_invariant}
-For each $n$ and $M$, $\sliceDM{n}M = M'(n)[2n]$ for some $M' \in
-\DMeff$.
+For each $n$ and $M$, $\sliceDM{n}M = M'(n)[2n]$ for some $M'$ in
+$\DMeff$.
 \end{prop}
 
 \begin{defn}\label{def_fI_DMeff}
@@ -371,7 +371,7 @@ $n \geq k$. It is clear that we have a tower of subcategories
 To show that this tower of subcategories constitutes a filtration
 of $\DM$, we construct an extension of the functors $\sgDM{k}$.
 Define, by convention, $\sgDM{n} M = M$ for all nonpositive 
-integer $n$, and all $M \in \DMeff$. Then, define
+integer $n$, and all $M$ in $\DMeff$. Then, define
 \[
 \sgDM{k}(M, n) \defeq (\sgDM{k - n}M, n).
 \]
@@ -447,7 +447,7 @@ clear that we have the following tower of subcategories:
 \end{equation}
 As expected, the tower also defines a filtration of $\DM$, and
 we define the reflection functors $\slDM{k} : \DM \to \slDM{k} \DM$.
-Notice that for $(M, n) \in \DM$, we have the following
+Notice that for $(M, n)$ in $\DM$, we have the following
 \begin{equation}\label{eq_DM_slice_triangle}
 \sgDM{k} (M, n) \to (M, n) \to (M', n') \to \sgDM{k} (M, n)[1].
 \end{equation}
@@ -504,7 +504,7 @@ and $\sgDM{k}$ are triangulated functors, so is $\slDM{k + 1}
 
 By similar arguments as in Prop. 
 \ref{prop_DMeff_slice_fund_invariant}, we have that 
-$\sliceDM{k}(M, n) = (M'[2k], k)$ for some $M' \in \DMeff$. We 
+$\sliceDM{k}(M, n) = (M'[2k], k)$ for some $M'$ in $\DMeff$. We 
 define the \DEF{$k$-th fundamental invariant} of $(M, n)$ to be
 \[
 \fIDM{k}(M, n) \defeq M'.

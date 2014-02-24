@@ -119,7 +119,7 @@ that
 \hom_{\DCat}(X \tensor Z, Y) \simeq 
    \hom_{\DCat}(X, \ihom(Z, Y))
 \]
-for all $Y \in \DCat'$, then the same is true for the heart 
+for all $Y$ in $\DCat'$, then the same is true for the heart 
 $\Cat{C}$ of $\DCat$. Here, we define the internal hom by
 \[
 \ihom_{\Cat{C}}(C, C') \defeq \HH^0(\ihom(C, C')).
@@ -159,8 +159,8 @@ $\RHI[n]{F}$ for $\RHI{(\RHI[n + 1]{F})}$.
 
 \begin{rmk}\label{rmk_contract_rhi_eq}
 In literature, the notation $\RHI{F}$ is often used to represent
-the contraction of $F$, which is the sheaf that sends $X \in 
-\Cor$ to 
+the contraction of $F$, which is the sheaf that sends $X$ in 
+$\Cor$ to 
 \[
 \cok( F(X \times \A^1) \to F(X \times (\A^1 - 0))).
 \]
@@ -182,11 +182,11 @@ as constructed, the functor $F \mapsto \LHI{F}$ is left adjoint to
 $F \mapsto \RHI{F}$. In this case,
 
 \begin{prop}\label{prop_unit_iso}
-Let $F \in \HI$. The unit map $F \to \RHI{(\LHI{F})}$ is an
-isomorphism.
+Let $F$ be a homotopy invariant sheaf with transfers. The unit map 
+$F \to \RHI{(\LHI{F})}$ is an isomorphism.
 \end{prop}
 \begin{proof}
-Given $F \in \HI$, consider $F$ as an object in $\DMeff$. By
+Given $F$ in $\HI$, consider $F$ as an object in $\DMeff$. By
 Cancellation Theorem (Thm. \ref{thm_dm_cancellation}), we have
 that 
 \[
@@ -202,14 +202,14 @@ For all positive integer $n$, consider the counit map $\cuHI_F^n:
 cokernel of $\cuHI_F$. First, we make the following observation:
 
 \begin{prop}\label{prop_counit_iso_for_HIn}
-Let $\cuHI^n$ denote the counit, described above. If $F \in 
-\LHI[n]{\HI}$, then $\cuHI^n : \LHI[n]{\RHI[n]{F}} \to F$ is
-an isomorphism.
+Let $\cuHI^n$ denote the counit that is described above. If $F$ is
+an object of $\LHI[n]{\HI}$, then $\cuHI^n : \LHI[n]{\RHI[n]{F}} 
+\to F$ is an isomorphism.
 \end{prop}
 \begin{proof}
-Suppose $F \in \LHI[n]{\HI}$. That is, $F = LHI[n]{F'}$ for some 
-$F' \in \HI$. Writing $L$ for the functor $F \mapsto \LHI[n]F$, 
-by counit-unit adjunction, the composition
+Suppose $F$ is in $\LHI[n]{\HI}$. Then, by definition, $F = 
+LHI[n]{F'}$ for some $F'$ in $\HI$. Writing $L$ for the functor 
+$F \mapsto \LHI[n]F$, by counit-unit adjunction, the composition
 \[
 \LHI[n]{F'} \xrightarrow{L\eta} \LHI[n]{(\RHI[n]{(\LHI[n]{F'})})}
    \xrightarrow{\cuHI L} \LHI[n]{F'}
@@ -222,8 +222,8 @@ map for $LF' = \LHI[n]{F'} = F$, and the proposition follows.
 \end{proof}
 
 To see this, let $\LHI[0]{\HI} = \HI$ and let $\LHI[n]{\HI}$ 
-denote the full subcategory of $F \in \HI$ where $F = \LHI[n]{F'}$ 
-for some $F' \in \HI$. It is clear that if $m \geq n$, then 
+denote the full subcategory of objects $F$ where $F = \LHI[n]{F'}$ 
+for some $F'$ in $\HI$. It is clear that if $m \geq n$, then 
 $\LHI[m]{\HI} \subseteq \LHI[n]{\HI}$. In particular, we have a 
 tower of subcategories
 \[
@@ -233,10 +233,11 @@ tower of subcategories
 % = \HI 
 \]
 For the constant sheaf $\Z$, it is clear that $\RHI{\Z} = 0$. 
-Then $\Z \in \HI$ but not in $\LHI{\HI}$. Indeed, if $\Z \in 
-\LHI{\HI}$ then $\Z = \LHI{F'}$, but then $\RHI{\Z} = F'$ by Prop. 
-\ref{prop_unit_iso}, forcing $\Z = 0$. Inductively, we see 
-that $\LHI[n]{\HI} \neq \LHI[n + 1]{\HI}$ for all $n \in \N$.
+Then $\Z$ is an object in $\HI$ but not in $\LHI{\HI}$. Indeed, if 
+$\Z \in \LHI{\HI}$ then $\Z = \LHI{F'}$, but then $\RHI{\Z} = F'$ 
+by Prop. \ref{prop_unit_iso}, forcing $\Z = 0$. Inductively, we see 
+that $\LHI[n]{\HI} \neq \LHI[n + 1]{\HI}$ for all natural numbers 
+$n$.
 
 \begin{prop}
 Let $\sgHI{n}$ denote the functor $F \mapsto 
@@ -245,9 +246,9 @@ inclusion of $\LHI[n]{\HI}$. In particular, $(\HI, \sgHI{*})$
 defines a (nontrivial) weak filtration of $\HI$.
 \end{prop}
 \begin{proof}
-Fix $F \in \LHI[n]{HI}$ and $G \in \HI$, and fix a map $f : 
-F \to G$. By naturality of $\cuHI$, we have the following 
-commutative diagram:
+Let $f: F \to G$ be a map in $\HI$ such that $F \in \LHI[n]{\HI}$.
+By naturality of $\cuHI$, we have the following commutative 
+diagram:
 \[
 \begin{tikzcd}
 \LHI[n]{\RHI[n]{F}} \arrow{r}{\cuHI^n f}\arrow{d}{\cuHI^n_F} 
@@ -268,7 +269,7 @@ isomorphism as desired.
 \end{proof}
 
 For $n > 0$, let $\tlHI{n}\HI$ be the full subcategories of 
-objects $F \in \HI$ such that $\RHI[n]{F} = 0$ (and for $n = 0$, 
+objects $F$ in $\HI$ such that $\RHI[n]{F} = 0$ (and for $n = 0$, 
 we define $\RHI[0]{F} \defeq F$). It is clear that we also have 
 the following ascending tower of subcategories
 \[
@@ -276,8 +277,8 @@ the following ascending tower of subcategories
    \cdots \subset \HI
 \]
 It is also clear that $\tlHI{n}\HI \neq \tlHI{n + 1}\HI$ since 
-$\RHI{\Ox} = \Z$ and by Prop. \ref{prop_unit_iso} $\LHI[n]{\Ox} 
-\in \tlHI{n + 1}\HI$ but not in $\tlHI{n}\HI$.
+$\RHI{\Ox} = \Z$ and by Prop. \ref{prop_unit_iso}, $\LHI[n]{\Ox} 
+\in \tlHI{n + 1}\HI$ but $\LHI[n]{\Ox} \notin \tlHI{n}\HI$.
 
 In fact, we have the following result:
 
@@ -313,8 +314,8 @@ with the dotted arrow $g$ given by the universal property of
 cokernels. Set $\tlHI{n}(f) = g$. It is clear from definition that
 $\tlHI{n}$ is a functor.
 
-\pfitem{Essential image is $\tlHI{n}\HI$} : Fix $F \in \HI$. To
-show that $\tlHI{n}(F) \in \tlHI{n}\HI$, we verify that 
+\pfitem{Essential image is $\tlHI{n}\HI$} : Let $F$ be an object 
+of $\HI$. To show that $\tlHI{n}(F) \in \tlHI{n}\HI$, we verify that 
 $\RHI[n]{(\tlHI{n}(F))}$ is 0.
 
 By definition, we have
@@ -342,7 +343,7 @@ That is, $(\tlHI{n})^2 = \tlHI{n}$ (see Def.
 \ref{def_coradical}(2)).
 \end{lem}
 \begin{proof}[Proof of Lemma]
-For $F \in \tlHI{n}\HI$, we have
+For $F$ in $\tlHI{n}\HI$, we have
 \[
 \LHI[n]{\RHI[n]{F}} \to F \to \tlHI{n}(F) \to 0
 \]
@@ -355,8 +356,9 @@ The second statement follows from the fact that $\tlHI{n}(F) \in
 \end{proof}
 
 Continuing with the proof of Prop. \ref{prop_HI_lower_slice}, let
-$F \in \HI$ and $G \in \tlHI{n}\HI$. For all $f: F \to G$ we have 
-the following commutative diagram:
+$F$ be homotopy invariant sheaf with transfers, and let $G$ be an 
+object in $\tlHI{n}\HI$. For all $f: F \to G$ we have the 
+following commutative diagram:
 \[
 \begin{tikzcd}
 F \arrow{r}{\pi} \arrow{d}{f}
@@ -364,7 +366,7 @@ F \arrow{r}{\pi} \arrow{d}{f}
 & 0 \\
 G \arrow{r}{\pi'}
 & \tlHI{n}(G) \arrow{r}
-& 0
+& 0.
 \end{tikzcd}
 \]
 By Lemma \ref{lem_tlHI_id}, since $G \in \tlHI{n}\HI$, the map
@@ -391,13 +393,13 @@ $\sgHI{n}\HI$. However, showing that the essential image
 $\slDM{n}\DMeff$ under $\HH^0$ is $\tlHI{n}\HI$ requires more 
 proof. 
 
-First, observe that for every $n > 0$ and every $F \in \HI$ 
-(regarded as an object of $\DMeff$), there exists a slice 
+First, observe that for every positive integer $n$ and every $F$ 
+in $\HI$ (regarded as an object of $\DMeff$), there exists a slice 
 triangle:
 \[
 \sliceTriangle{n}{F}
 \]
-Applying the cohomologicaly functor $\HH^0$, we obtain the
+Applying the cohomological functor $\HH^0$, we obtain the
 following long exact sequence
 \[
 \cdots \stackrel{\delta_{-1}}{\to} \HH^0 \sgDM{n}(F) \to 
@@ -426,7 +428,7 @@ $\HH^1 \sgDM{n}(F) = 0$ is precisely the content of Lemma
 the following.
 
 \begin{lem}[D\'eglise]\label{lem_rhomDM_and_contract}
-For $F \in \HI$,
+For $F$ in $\HI$,
 \[
 \ihomDMf(\Z(1)[1], F) \simeq \RHI{F}
 \]
@@ -481,7 +483,7 @@ Thus, we are reduced to showing that $H^{-1}\homDSh(\Ztr(S \times
 \end{proof}
 
 \begin{lem}[D\'eglise]\label{lem_H_com_ihom_DM}
-For $M \in \DMeff$, 
+For $M$ in $\DMeff$, 
 \[
 \HH^i\ihomDMf(\Z(1)[1], M) = \ihomDMf(\Z(1)[1], \HH^i(M)) = 
    \RHI{\HH^i(M)}
@@ -499,7 +501,7 @@ and the lemma is established.
 \end{proof}
 
 \begin{lem}\label{lem_H1_sgDM_vanishes}
-For $F \in \HI$, $\HH^1 \sgDM{n}(F) = 0$.
+For each $F$ in $\HI$, $\HH^1 \sgDM{n}(F) = 0$.
 \end{lem}
 \begin{proof}
 Applying Lemma \ref{lem_rhomDM_and_contract}, we see that the
@@ -514,8 +516,8 @@ $\HH^i$ vanishes for $i > 0$, and in particular, for $i =
 
 This shows that $\tlHI{n}\HI$ is contained in the essential image 
 of $\sgDM{n}\DMeff$ under $\HH^0$. To show the converse, we 
-establish that $\RHI[n]{(\HH^0 M)} = 0$ for $M \in 
-\slDM{n}\DMeff$. This follows from Prop. 
+establish that $\RHI[n]{(\HH^0 M)} = 0$ for $M$ in 
+$\slDM{n}\DMeff$. This follows from Prop. 
 \ref{prop_lower_slice_char}. Indeed, if $M \in \slDM{n}\DMeff$, 
 then 
 \[
@@ -585,9 +587,9 @@ For each $m, n \geq 0$, $\sgHI{n} \tlHI{m}$ is naturally
 isomorphic to $\tlHI{m} \sgHI{n}$, and are both 0 if $m \leq n$.
 \end{prop}
 \begin{proof}
-For $F \in \HI$, notice that by Prop. \ref{prop_unit_iso}, 
-$\LHI[n]{\RHI[n]{(\LHI[m]{\RHI[m]{F}})}} \simeq
-\LHI[m]{\RHI[m]{(\LHI[n]{\RHI[n]{F}})}}$. Furthermore, the 
+Let $F$ be an object in $\HI$. Notice that by Prop. 
+\ref{prop_unit_iso}, $\LHI[n]{\RHI[n]{(\LHI[m]{\RHI[m]{F}})}} 
+\simeq \LHI[m]{\RHI[m]{(\LHI[n]{\RHI[n]{F}})}}$. Furthermore, the 
 isomorphism fits into a commutative square
 \begin{equation}\label{eq_prop_sg_tl_com_sq}
 \begin{tikzcd}
@@ -632,10 +634,10 @@ the following example:
 
 \begin{ex}\label{ex_Oxn}
 Let $(\Ox)^n$ be the sheaf of $n$-th power of global units 
-associated to the presheaf where sections of $X \in \Cor$ is the 
-abelian subgroup of $\Ox$ given by 
+associated to the presheaf where sections of a smooth finite type 
+$k$-scheme $X$ is the abelian subgroup of $\Ox$ given by 
 \[
-\{x \in \Ox(X) : x=y^n\textrm{ for some }y \in \Ox(X)\}.
+\{x : x=y^n\textrm{ for some }y \textrm{ in } \Ox(X)\}.
 \]
 It is clear that $(\Ox)^n \in \HI$. Furthermore, there exists the 
 following exact sequence 
@@ -691,13 +693,13 @@ The functors $\tlHI{n}$ are coradicals for each $n > 0$.
 By Lemma \ref{lem_tlHI_id}, $\tlHI{n}$ is idempotent. By Prop. 
 \ref{prop_HI_lower_slice}, $\tlHI{n}$ is a left adjoint, and
 is therefore right exact. All that remains to show is that for
-each $F \in \HI$,
+each $F$ in $\HI$,
 \[
 \tlHI{n}(\ker (F \to \tlHI{n}(F))) = 0.
 \]
-Fix an $F \in \HI$ and $n > 0$, and let $K$ denote the kernel of 
-the surjection $F \to \tlHI{n}(F) \to 0$. We have the following
-short exact sequence 
+Fix a positive integer $n$, and let $K$ denote the kernel of the 
+surjection $F \to \tlHI{n}(F) \to 0$. We have the following short 
+exact sequence 
 \[
 0 \to K \to F \to \tlHI{n}(F) \to 0
 \]
@@ -718,7 +720,7 @@ commutative diagram
 \end{tikzcd}
 \]
 By the Snake Lemma, and using the fact that $\cok \cuHI_F = 
-\tlHI{n}(F)$ for $F \in \HI$, we have the exact sequence
+\tlHI{n}(F)$, we have the exact sequence
 \[
 0 \to \tlHI{n}(K) \to \tlHI{n}(F) \to \tlHI{n}(F) \to 0.
 \]
@@ -737,11 +739,11 @@ For each $n \geq 0$, there exists a torsion pair
 \[
 (\tgHI{n}\HI, \tlHI{n}\HI)
 \]
-where $\tgHI{n}\HI$ is the full subcategory of objects $F \in \HI$
-for which $\tlHI{n}(F) = 0$, and $\tlHI{n}\HI$ is the full 
-subcategory of $F \in \HI$ such that $\tlHI{n}(F) = F$. Furthermore, 
-$\tlHI{n} : \HI \to \tlHI{n}\HI$ is a reflection functor for the
-inclusion of $\tlHI{n} \HI$ into $\HI$.
+where $\tgHI{n}\HI$ is the full subcategory of objects $F$ in 
+$\HI$ for which $\tlHI{n}(F) = 0$, and $\tlHI{n}\HI$ is the full 
+subcategory of $F$ in $\HI$ such that $\tlHI{n}(F) = F$. 
+Furthermore, $\tlHI{n} : \HI \to \tlHI{n}\HI$ is a reflection 
+functor for the inclusion of $\tlHI{n} \HI$ into $\HI$.
 \end{cor}
 
 \begin{rmk}
@@ -774,26 +776,28 @@ $F \in \TFHI{n}$.
 \end{enumerate}
 \end{prop}
 \begin{proof}
-\pfitem{(1)} : Since $\RHI[n]{(\tlHI{n}(F))} = 0$ for all $F \in 
-\HI$ (see Prop. \ref{prop_HI_lower_slice}), then for all $F \in 
-\TFHI{n}$, $\RHI[n]{F} = \RHI[n]{(\tlHI{n}(F))} = 0$.
+\pfitem{(1)} : Since $\RHI[n]{(\tlHI{n}(F))} = 0$ for all $F$ in 
+$\HI$ (see Prop. \ref{prop_HI_lower_slice}), for all $F$ in
+$\TFHI{n}$, $\RHI[n]{F} = \RHI[n]{(\tlHI{n}(F))} = 0$.
 
 Conversely, if $\RHI[n]{F} = 0$, then $\tlHI{n}(F) = F$ by Lemma
 \ref{lem_tlHI_id}. That is, $F \in \TFHI{n}$. In particular, the
 torsion-free subcategory $\TFHI{n}$ is precisely the full 
-subcategory of $F \in \HI$ for which $\RHI[n]{F} = 0$.
+subcategory of $F$ in $\HI$ for which $\RHI[n]{F} = 0$.
 
-\pfitem{(2)} : Suppose $m > n > 0$, and $F \in \TFHI{n}$, then
-$\RHI[m]{F} = 0$. By part (1), $F \in \TFHI{m}$.
+\pfitem{(2)} : Suppose we have positive integers $m$ and $n$ such
+that $m > n$, and $F$ in $\TFHI{n}$, then $\RHI[m]{F} = 0$. By 
+part (1), $F \in \TFHI{m}$.
 
-\pfitem{(3)} : Suppose, as in (2), that $m > n > 0$.
+\pfitem{(3)} : Suppose, as in (2), that $m, n$ are two positive
+integers such that $m > n$, and $F$ is in $\HI$.
 
 By part (2) and the fact that $\tlHI{m}$ is the identity on 
 $\TFHI{m}$ (Lemma \ref{lem_tlHI_id}), it is clear that 
 $\tlHI{m}\tlHI{n} = \tlHI{n}$. It remains to show that 
 $\tlHI{n}\tlHI{m} = \tlHI{n}$.
 
-Fix $F \in \HI$. We have the following commutative diagram:
+We have the following commutative diagram:
 \[
 \begin{tikzcd}
 \sgHI{n}\sgHI{m}(F) \arrow{r}\arrow{d}{\cuHI_{\sgHI{m}(F)}} &
@@ -850,9 +854,9 @@ restriction to which $\tgHI{n}$ is the identity.
 Statement (1) follows from Prop. \ref{prop_rad_eq_corad} and
 the fact that $\tlHI{n}$ is a coradical (and thus an idempotent 
 pre-coradical). To see that $\tgHI{n}$ acts as the identity on 
-$\THI{n}$, note that for any $F \in \THI{n}$ $\tlHI{n}(F) = 0$. 
+$\THI{n}$, note that for any $F$ in $\THI{n}$, $\tlHI{n}(F) = 0$. 
 
-Finally, for $F \in \HI$, we have the short exact sequence
+Finally, for $F$ in $\HI$, we have the short exact sequence
 \[
 0 \to (\tgHI{n})^2(F) \to \tgHI{n}(F) \to \tlHI{n} \tgHI{n}(F) 
 \to 0.
@@ -868,7 +872,7 @@ Let $\THI{n}$, $n = 0, 1,\dots$ be defined as above. Furthermore,
 
 \begin{enumerate}
 \item for all $n \geq 0$, $\THI{n}$ is the full subcategory of
-objects $F \in \HI$ such that $\sgHI{n}(F) \to F$ is surjective.
+objects $F$ such that $\sgHI{n}(F) \to F$ is surjective.
 \tinyskip
 
 \item for $m > n > 0$, $\THI{m} \subset \THI{n}$.
@@ -890,7 +894,7 @@ to $\tgHI{m}\tlHI{n}$, and is the (constant) $0$ functor if $m > n$.
 \end{prop}
 
 \begin{proof}
-\pfitem{(1)} : For all $F \in \HI$ and $n \geq 0$, we have the 
+\pfitem{(1)} : For all $F$ in $\HI$ and $n \geq 0$, we have the 
 following exact sequence
 \[
 \sgHI{n}(F) \to F \to \tlHI{n}(F) \to 0.
@@ -898,28 +902,30 @@ following exact sequence
 It is clear that $\tlHI{n}(F) = 0$ if and only if $\sgHI{n}(F) 
 \to F$ is a surjection.
 
-\pfitem{(2)} : Let $m > n > 0$, and fix $F \in \THI{m}$. Then 
-$\tlHI{m}(F) = 0$, and by Prop. \ref{prop_TFHI_properties} (3)
+\pfitem{(2)} : Let $m$ and $n$ be positive integers such that
+$m > n$, and fix $F$ in $\THI{m}$. Then $\tlHI{m}(F) = 0$, and by 
+Prop. \ref{prop_TFHI_properties} (3)
 \[
 0 = \tlHI{n}\tlHI{m}(F) = \tlHI{n}(F).
 \]
-Thus $F \in \THI{m}$.
+Thus, $F \in \THI{m}$.
 
-\pfitem{(3)} : Let $F \in \sgHI{n} \HI$, then $F = \LHI[n]{F'}$ 
-for some $F' \in \HI$. By Prop. \ref{prop_counit_iso_for_HIn},
-the counit map is an isomorphism. By part (1), $F \in \THI{n}$.
+\pfitem{(3)} : Let $F$ be an object in $\sgHI{n} \HI$, then $F = 
+\LHI[n]{F'}$ for some $F'$ in $\HI$. By Prop. 
+\ref{prop_counit_iso_for_HIn}, the counit map is an isomorphism. 
+By part (1), $F \in \THI{n}$.
 
 \pfitem{(4)} : By part (2) of the preceding proposition and (2), 
 it is clear that $\tgHI{n} \tgHI{m} = \tgHI{m}$. For the other
 part, it is precisely the dual of the argument in Prop. 
 \ref{prop_TFHI_properties} part (3).
 
-\pfitem{(5)} : Let $F \in \HI$. In the case where $m \geq n$,
-the claim follows since $\tgHI{m}(F) \in \THI{n}$, and by 
-definition $\tlHI{n} \tgHI{m}(F) = 0$ for all $n \leq m$. 
-Furthermore, $\tgHI{m}(F) = 0$ since it is the kernel of the 
-$\tlHI{m} \tlHI{n}(F) \to \tlHI{n}(F)$ which is the identity map
-by part (3) of the preceding proposition.
+\pfitem{(5)} : Let $F$ be a homotopy invariant sheaf with 
+transfers. In the case where $m \geq n$, the claim follows since 
+$\tgHI{m}(F) \in \THI{n}$, and by definition $\tlHI{n} \tgHI{m}(F) 
+= 0$ for all $n \leq m$. Furthermore, $\tgHI{m}(F) = 0$ since it 
+is the kernel of the $\tlHI{m} \tlHI{n}(F) \to \tlHI{n}(F)$ which 
+is the identity map by part (3) of the preceding proposition.
 
 Now, consider the case $n > m$. We have the following 
 commutative diagram:
@@ -964,7 +970,7 @@ Naturality follows from the construction of the isomorphism.
 In case the indexing becomes difficult to keep track, one might
 wish to consider a ``bread'' analogy. Imagine that a half-infinite 
 loaf of bread is laid out on a line marked from 0 to $\infty$ 
-(representing an $F \in \HI$), and one is allowed to take cuts at 
+(representing an $F$ in $\HI$), and one is allowed to take cuts at 
 the marked points, and subsequently pick up all the bread lying 
 greater than $n$ or less than $n$. The former action describes the 
 functors $\tgHI{n}$ and $\sgHI{n}$, and therefore, the higher the 
@@ -980,7 +986,7 @@ and (5) with this culinary picture in mind.
 As we did for the filtration $(\HI, \sgHI{*})$, we can define the 
 structure invariants for $(\HI, \tgHI{*})$. 
 \begin{defn}
-For each $F \in \HI$ and $n \geq 0$, write $\tconst{n}$ for the functor 
+For each $F$ in $\HI$ and $n \geq 0$, write $\tconst{n}$ for the functor 
 $\tgHI{n + 1} \tgHI{n}$, which we hereafter refer to as the 
 \DEF{$n$-th structure invariant of $F$ associated to $\tgHI{*}$}. 
 \end{defn}
@@ -991,11 +997,11 @@ invariants of $\sgHI{*}$, though they are related in the following:
 \begin{prop}\label{prop_struct_consts}
 Let $m > n > 0$. Then there exists a natural surjection from 
 $\tlHI{m} \sgHI{n}$ to $\tlHI{m} \tgHI{n}$. In particular, for 
-each $F \in \HI$, there exists a surjection $\pi_m: \slice{m} F \to 
+each $F$ in $\HI$, there exists a surjection $\pi_m: \slice{m} F \to 
 \tconst{m} F$.
 \end{prop}
 \begin{proof}
-Let $F \in \HI$, and notice that
+Let $F$ be a homotopy invariant sheaf with transfers, and notice that
 \[
 0 \to \tgHI{n} \tlHI{m}(F) \to \tlHI{m}(F) \to 
   \tlHI{n} \tlHI{m}(F) \to 0.
@@ -1039,8 +1045,8 @@ The second claim follows from setting $n = m - 1$.
 
 \begin{defn}
 Let $\Cat{A}$ be an abelian category. We say that a filtration 
-$(\Cat{A}, \nu_*)$ is a \DEF{strong filtration} if for each $A 
-\in \Cat{A}$ and $n \in \Z$, $\nu_n A$ is a subobject of $A$. 
+$(\Cat{A}, \nu_*)$ is a \DEF{strong filtration} if for each $A$
+in $\Cat{A}$ and $n$ in $\Z$, $\nu_n A$ is a subobject of $A$. 
 Similarly a filtration $(\Cat{A}, \gamma_*)$ is a \DEF{strong 
 cofiltration} if $\gamma_n A$ is a quotient of $A$ for each $n$.
 \end{defn}

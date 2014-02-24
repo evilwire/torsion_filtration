@@ -134,12 +134,11 @@ Zariski site on $k$-schemes.}
 
 We are interested in two other important Grothendieck 
 pre-topologies on $\Sm$. They are the \'etale site and the 
-Nisnevich site, which we define below.
+Nisnevich site, which we define below. Recall that a morphism 
+$phi: X \to Y$ is \DEF{\'etale} if $\phi$ is a flat and 
+unramified. (See \cite[\S 1.3]{Milne}.)
 
 \begin{defn}
-A morphism $\phi: X \to Y$ is \DEF{\'etale} if $\phi$ is a flat
-and unramified. (See \cite{Milne} \S 1.3.)
-
 The \DEF{large \'etale site} on $\Sm$, is the Grothendieck 
 pre-topology given by jointly surjective \'etale morphisms 
 $\{U_\alpha \to X\}.$
@@ -188,7 +187,7 @@ subcategory of \'Etale (resp. Nisnevich) sheaves with transfers.
 \end{defn}
 
 Since the category of sheaves of any locale is well-powered
-(see \cite{Bo} Corollary 2.3.7), the category of \'etale sheaves 
+(see \cite[2.3.7]{Bo}), the category of \'etale sheaves 
 with transfers is also well-powered. So is the category of 
 Nisnevich sheaves with transfers.
 
@@ -198,8 +197,8 @@ that an \'etale sheaf is also a Nisnevich sheaf, and an Nisnevich
 sheaf is a Zariski sheaf.
 \end{rmk}
 
-Our focus will be on the Nisnevich sheaves with transfers, and 
-here are some prominent examples 
+Our focus will be on Nisnevich sheaves with transfers, and here 
+are some prominent examples.
 
 \begin{ex}\label{ex_Z_O_Ostar}
 The constant sheaf $\Z$, the structure sheaf $\O$, and the sheaf
@@ -210,11 +209,11 @@ with transfers, we must specify what the transfer structures are
 on each respective sheaf.
 
 For this purpose, assume that $X$ and $Y$ are integral schemes
-in $\Sm$, and $W$ an elementary correspondence from $X$ to $Y$. 
+in $\Sm$, and $W$ is an elementary correspondence from $X$ to $Y$. 
 Then, $W$ is given by an integral scheme finite over $X$, which we 
 also represent by $W$. Let $F$ and $L$ be the function fields of 
-$X$ and $W$ respectively. Then, $L$ is a dimensional $n$ 
-$F$-vector space, where $n$ is some positive integer. The induced 
+$X$ and $W$ respectively. Then, $L$ is an $n$-dimensional
+$F$-vector space, for some positive integer $n$. The induced 
 map $\Z(X) \to \Z(Y)$ is given by the composition
 \[
 \Z(Y) \to \Z(W) \stackrel{n}{\to} \Z(X).
@@ -223,8 +222,8 @@ map $\Z(X) \to \Z(Y)$ is given by the composition
 For the others, let $tr: L \to F$ and $N: L \to F$ denote the 
 trace and norm maps respectively. It is straightforward to see 
 that $tr$ and $N$ restricts to maps from $\O(W) \to \O(X)$. In
-the case of $N$, it is easy to see that $N(f^{-1}) = N(f)^{-1}$,
-and $N$ restricts to a map $\Ox(W) \to \Ox(X)$.
+the case of $N$, it is easy to see that $N(f^{-1}) = N(f)^{-1}$.
+Therefore, $N$ restricts to a map $\Ox(W) \to \Ox(X)$.
 
 Hence, the map $\O(Y) \to \O(X)$ is given by the composition
 \[
@@ -247,52 +246,41 @@ conditions given in \ref{def_nis_sheaf}. The statement that
 $\Ztr(X)$ is an \'etale sheaf is proven in \cite[6.2]{MVW}.
 \end{ex}
 
-We state without proof the following results, taken from 
-\cite{MVW}, sections 6 and 13, about \'Etale and Nisnevich 
-sheaves. 
+We state the following results without proof, taken from 
+\cite{MVW}. Let $\etale$ (resp $\nis$) denote the \'etale
+(resp. Nisnevich) sheafification of a (general) presheaf
+on $\Sm$. (See \cite[3.1.1]{Tamme}.) Furthermore, for a presheaf 
+with transfers $F$, let $\Etale{F}$ (resp. $\NisSh{F}$) denote the 
+\'etale (resp.  Nisnevich) sheafification of $F$. 
 
-\begin{prop}
+\begin{prop}\label{prop_et_and_nis_sheafification}
 \begin{enumerate}
-% 6.12
-\item (See \cite{MVW}, Lemma 6.12) Let $p : U \to X$ be an \'etale 
-cover (resp. Nisnevich cover) of $X$. Then the following complex 
-is exact as a complex of \'etale sheaves (resp Nisnevich sheaves).
-\[
-\cdots \xrightarrow{p_{12} - p_{13} + p_{23}} \Ztr(U \times_X U)
-   \xrightarrow{p_1 - p_2} \Ztr(U) \xrightarrow{p} \Ztr(X) \to 0
-\]
-
-\item Let $F$ be a presheaf with transfers, and write $\Etale{F}$
-for the \'etale sheafification of $F$ (see \cite{Tamme} Theorem 
-3.1.1). Then $\Etale{F}$ emits a unique transfers structure. That 
-is, $\Etale{F}$ is an \'Etale sheaf with transfers.
+\item For $F$ a presheaf with transfers, $\Etale{F}$ emits a 
+unique transfers structure. That is, $\Etale{F}$ is an \'Etale 
+sheaf with transfers.
 
 % 6.17, 6.18
-The inclusion $\ShEtCor \into \PST$ has a left adjoint $\etale$, 
-which is exact. 
+The functor $\etale$ restricts to $\PST$ defines a left adjoint
+to the inclusion of $\ShEtCor$ into $\PST$. 
 
-Likewise, for $F$ in $\PST$, write $\NisSh{F}$ for then Nisnevich
-sheafification of $F$. Then $\NisSh{F}$ is a Nisnevich sheaf with
-transfers, and defines a left adjoint $\nis$ to the inclusion 
-of $\ShNisCor$ into $\PST$. The functor $\nis$ is also exact. 
+Likewise, for $F$ in $\PST$, $\NisSh{F}$ is a Nisnevich sheaf with
+transfers, and $\nis$ restricted to $\PST$ defines a left adjoint 
+to the inclusion of $\ShNisCor$ into $\PST$. 
 
-In particular, both $\ShEtCor$ and $\ShNisCor$ are abelian 
-subcategories of $\PST$.
-
-\item The both $\ShEtCor$ and $\ShNisCor$ have enough injectives.
+\item Both $\ShEtCor$ and $\ShNisCor$ are abelian 
+subcategories of $\PST$ with enough injectives.
 % 6.19
 \end{enumerate}
 \end{prop}
 \begin{proof}
 For the statements about \'etale sheaves with transfers, see 
-\cite{MVW}, Lemma 6.12, Theorem 6.17 and Corollary 6.18, and 
-Prop. 6.19 respectively. The arguments in the proofs of the
+\cite[6.17, 6.18 and 6.19]{MVW}. The arguments in the proofs of the
 statements about \'etale sheaves can easily be extended to proofs
 for the Nisnevich sheaves.
 \end{proof}
 
-We now introduce the notion of homotopy invariant sheaves, which
-will play a central role in the following sections.
+The notion of homotopy invariant sheaves (defined below) will play 
+a central role in the following sections.
 
 \begin{defn}
 A presheaf $F$ is \DEF{homotopy invariant} if the map 
@@ -300,70 +288,51 @@ A presheaf $F$ is \DEF{homotopy invariant} if the map
 F(X) \to F(X \times \A^1)
 \]
 induced by the projection $X \times \A^1 \to X$ is an isomorphism.
-Similarly, we define homotopy invariant sheaves.
+We write $\HIPST$ for the category of homotopy invariant 
+presheaves with transfers.
+
+Similarly, we define homotopy invariant sheaves, and write $\HIEt$ 
+(resp. $\HINis$) for the full subcategory of homotopy invariant 
+\'etale sheaves (resp. Nisnevich sheaves) with transfers. We will 
+simply write $\HI$ when the underlying pre-topology is understood.
+
+Since $\ShEtCor$ and $\ShNisCor$ are both well-powered, so are 
+$\HIEt$ and $\HINis$.
 \end{defn}
 
-We write $\HI_{\Nis}$ (or simply $\HI$) for the full subcategory 
-of homotopy invariant Nisnevich sheaves with transfers. Since 
-$\ShNisCor$ is well-powered, so is $\HI$.
+\begin{rmk}
+If $F$ is a homotopy invariant presheaf with transfers, then
+$\Etale{F}$ and $\NisSh{F}$ are homotopy invariant sheaves under
+the \'etale and Nisnevich topologies respectively. Together with
+Prop. \ref{prop_et_and_nis_sheafification}, we have the following
+commutative diagram detailing the subcategories of presheaves on
+$\Sm$ and their reflection functors:
+\[
+\begin{tikzcd}[column sep=large, row sep=large]
+\HIEt \arrow[hookrightarrow]{r} \arrow[hookrightarrow]{d} &
+\ShEtCor \arrow[hookrightarrow]{r} \arrow[hookrightarrow]{d} &
+\ShEt \arrow[hookrightarrow]{d} \\
+\HINis \arrow[hookrightarrow]{r} \arrow[hookrightarrow]{d} 
+\arrow[bend left]{u}{\etale}&
+\ShNisCor \arrow[hookrightarrow]{r} \arrow[hookrightarrow]{d} 
+\arrow[bend left]{u}{\etale}&
+\ShNis \arrow[hookrightarrow]{d} 
+\arrow[bend left]{u}{\etale}\\
+\HIPST \arrow[hookrightarrow]{r} \arrow[bend left]{u}{\nis} &
+\PST \arrow[hookrightarrow]{r} \arrow[bend left]{u}{\nis}&
+\PSh \arrow[bend left]{u}{\nis}
+\end{tikzcd}
+\]
+where $\PSh$ denotes the presheaves on $\Sm$. In the diagram
+above, the reflection functors in the first two columns
+are the restriction of the reflection functor in the right-most
+column.
+\end{rmk}
 
 Of the three sheaves mentioned in Example \ref{ex_Z_O_Ostar}, $\Z$
-and $\Ox$ are homotopy invariant sheaves, and $\O$ is not. In 
-general, we have the following result for identifying homotopy 
-invariance:
-
-\begin{lem}
-A sheaf $F$ is homotopic if and only if
-\[
-i_0^* = i_1^* : F(X \times \A^1) \to F(X)
-\]
-for all $X$, where $i_0^*$ and $i_1^*$ are induced by the 
-inclusion of $X$ into $X \times \A^1$ as $X \times 0$ and $X 
-\times 1$ respectively.
-\end{lem}
-\begin{proof}
-If $F$ is homotopy invariant, then it is clear that $i_0^* = 
-i_1^*$.
-
-As projection $\pi: X \times \A^1 \to X$ emits a section (via $i_0$, 
-say), the induced map $\pi^*: F(X) \to F(X \times \A^1)$ emits a
-splitting. Therefore, to show that $\pi^*$ is an isomorphism, it
-suffices to show that $\pi^*$ is a surjection.
-
-Consider the following commutative diagram
-\[
-\begin{tikzcd}[row sep=huge, column sep=huge]
-{}&
-X \times \A^1&
-X \arrow{l}{i_0}\\
-X \times \A^1 \arrow[equals]{ru} \arrow{r}{i_1 \times id}&
-X \times \A^1 \times \A^1 \arrow{u}{id \times m} &
-X \times \A^1 \arrow{l}{i_0 \times id} \arrow{u}{\pi},
-\end{tikzcd}
-\]
-where $m: \A^1 \times \A^1 \to \A^1$ is the multiplication map
-given by $\basefield [t] \to \basefield [x] \otimes \basefield 
-[y]$, $t \mapsto x \otimes 1 + 1 \otimes y$. Applying $F$, we
-have
-\[
-\begin{tikzcd}[row sep=huge, column sep=huge]
-{}&
-F(X \times \A^1) \arrow{r}{i_0^*}\arrow[equals]{ld}
-   \arrow{d}{(id \times m)^*}&
-F(X) \arrow{d}{\pi^*} \\
-F(X \times \A^1)&
-F(X \times \A^1 \times \A^1) \arrow{l}{(i_1 \times id)^*} 
-   \arrow{r}{(i_0 \times id)^*}&
-X \times \A^1,
-\end{tikzcd}
-\]
-But $\pi^*i_0^* = (i_0 \times id)^*(id \times m)^* =
-(i_1 \times id)^*(id \times m)^* = id$. Thus $\pi^*$ is a 
-surjection, and $F$ is homotopy invariant as desired.
-\end{proof}
-
-We now give a way to construct a large class of homotopy invariant
-presheaves with transfers.
+and $\Ox$ are homotopy invariant sheaves, and $\O$ is not. In fact,
+we can define a large class of homotopy invariant presheaves with
+transfers with the following construction:
 
 \begin{constr}\label{constr_suslin_C}
 Let $F$ be a presheaf with transfers. Let $\Delta^n$ denote
@@ -376,218 +345,60 @@ $\partial_{n, i} : \Delta^{n - 1} \to \Delta^{n}$ induced by
 \basefield [x_0,\dots,x_n]/\big(\sum_{i} x_i - 1 \big)
 \to \basefield [x_0,\dots,x_{n - 1}]/\big(\sum_{i} x_i - 1 \big)
 \]
-given by $x_j \mapsto x_j (j \neq i)$ and $x_i \mapsto 0$. These
-are the algebraic analogue of face maps in simplicial theory.
-
-Write $\suslC[n] F$ for the presheaf given by $U \mapsto
-F(U \times \Delta^n)$. Notice that $\suslC$ preserves transfers 
-and sheaf structure. Furthermore, by the above, for each $i = 0,
+given by $x_j \mapsto x_j (j \neq i)$ and $x_i \mapsto 0$. In
+particular, $\Delta^{\bullet}$ is a cosimplicial scheme, and 
+$F( - \times \Delta^\bullet)$ is a simplicial presheaf with
+transfers. Let $\suslC F$ be the associated chain complex. That
+is $\suslC[n] F(X) = F(X \times \Delta^n)$, and for each $i = 0,
 \dots, n$, there exists a map of abelian groups
 \[
 \partial_{n,i}^*(X) : \suslC[n] F(X) \to \suslC[n - 1] F(X)
 \]
-induced by $\partial_i$ and is functorial in $X$. In particular, 
+induced by $\partial_i$. This map is functorial in $X$. Thus,
 for each $i$, there exists a map of presheaves $\partial^*_n : 
 \suslC[n + 1] F \to \suslC[n] F$, and set 
 \[
 \partial_{n}^* \defeq \sum_{i = 0}^{n} (-1)^i \partial_{n,i}^*.
 \]
-It is easy to see that $\partial_n^* \comp \partial_{n - 1}^* = 0$ 
-and we have a chain complex $\suslC F$ of presheaves with 
-transfers:
-\[
-\cdots \stackrel{\partial_n^*}{\to} \suslC[n - 1] F 
-\stackrel{\partial_{n - 1}^*}{\to} \cdots \suslC[1] F \to
-\suslC[0] F \to 0.
-\]
 \end{constr}
 
-For the remainder of the section, we prove a number of important
-results regarding $\suslC F$. We begin with
+Clearly, if $F$ is a homotopy invariant presheaf, then the complex 
+$\suslC F$ is exact except at degree $0$. In particular, the
+inclusion of $F$ as a chain complex concentrated in degree $0$ into
+$\suslC F$ is a quasi-isomorphism of chain complexes of presheaves.
+In general, for $F$ in $\PST$, write $H^n \suslC F$ for the 
+contravariant functor $U \mapsto H^n \suslC F(U)$. Then $H^n \suslC F$
+is homotopy invariant for all $n$ (\cite[2.19]{MVW}).
 
-\begin{prop}\label{prop_susl_hom_is_hi}
-$H_*\suslC F : U \mapsto H_*\suslC F(U)$ are homotopy invariant.
-\end{prop}
+If $F$ is a sheaf with transfers, then $\suslC[n] F$ is also a sheaf
+with transfers for all positive $n$. Therefore, $\suslC F$ is a
+chain complex of sheaves with transfers. In particular, for all
+$X$ in $\Sm$, $\suslC \Ztr(X)$ is a chain complex of sheaves.
 
-\begin{proof}
-This follows straightforwardly from the following lemma.
-\end{proof}
-
-\begin{lem}\label{lem_hi_implies_i0_i1_homotopic}
-Let $F$ be a presheaf. The the maps $i_0^*, i_1^* : 
-\suslC F(X \times \A^1) \to \suslC F(X)$ are chain homotopic.
-\end{lem}
-\begin{proof}
-Fix a presheaf with transfers $F$. We construct a homotopy 
-contraction from
-\[
-s_n : \suslC[n + 1] F(X) \to \suslC[n] F(X \times \A^1).
-\]
-To do this, let $v_j$ denote the $j$-th vertex of $\Delta^n$. That
-is, the closed point associated to the maximal ideal of
-\[
-\basefield [x_0,\cdots,x_{n}]/\left(1 - \sum_{i} x_i \right)
-\]
-generated by $x_i$ for $i \neq j$, and $x - j$.
-
-Let $\theta_i: \Delta^{n + 1} \to \Delta^n \times \A^1$ be the map
-uniquely determined by
-\[
-\theta_i(v_j) = \begin{cases}
-(v_j, 0) & \textrm{if }j \leq i \\
-(v_{j - 1}, 1) & \textrm{otherwise}
-\end{cases}
-\]
-Define $h_n : \suslC[n] F(X \times \A^1) \to \suslC[n + 1] F(X)$ 
-to be the map induced by $id \times \theta_n : X \times 
-\Delta^{n + 1} \to X \times \Delta^n \times \A^1$. It is 
-straightforward to verify that $i_0^* = \partial_{n + 1}h_n$,
-$i_1^* = \partial_0 h_0$, and $s_n = \sum_i (-1)^i h_i$ is the 
-desired homotopy contraction.
-\end{proof}
-
-\begin{defn}
-Two morphisms $f, g: X \to Y$ in $\Cor$ are \DEF{$\A^1$-homotopic} 
-if there exists some $h$ in $\Cor(X \times \A^1, Y)$ such that 
-$h|_{X \times 0} = f$ and $h|_{X \times 1} = g$. We say that $f: X 
-\to Y$ is an \DEF{$\A^1$-homotopy equivalence} if there exists a 
-$g: Y \to X$ so that $fg$ is homotopic to the identity on $Y$, and
-$gf$ is homotopic to the identity on $X$.
+\begin{defn}\label{def_hSX}
+We write $\hS{X}^{\mathrm{\acute{e}t}}$ (resp. $\hS{X}^{\Nis}$) 
+for the etale (resp. Nisnevich) sheaf associated to $H^0 \suslC 
+\Ztr(X)$. In the case where the pre-topology is understood, we will
+omit the superscript, and simply write $\hS{X}$ for the associated
+sheaf.
 \end{defn}
 
-Notice that although $X$ is homotopy equivalent to $X \times \A^1$,
-$\Ztr(X)$ is not isomorphic to $\Ztr(X \times \A^1)$. For example,
-the sections of these sheaves are not the same for $S = \Spec 
-\basefield$. However, we have the following
+\begin{rmk}
+Recall that two morphisms $f, g: X \to Y$ in $\Cor$ are 
+\DEF{$\A^1$-homotopic} if there exists some $h$ in $\Cor(X \times 
+\A^1, Y)$ such that $h|_{X \times 0} = f$ and $h|_{X \times 1} = 
+g$. We say that $f: X \to Y$ is an \DEF{$\A^1$-homotopy 
+equivalence} if there exists a $g: Y \to X$ so that $fg$ is 
+homotopic to the identity on $Y$, and $gf$ is homotopic to the 
+identity on $X$.
 
-\begin{prop}[\cite{MVW} Lemma 2.26]\label{prop_a1_hom_implies_hom}
-If $f: X \to Y$ is an $\A^1$-homotopy equivalence with homotopy
-inverse $g$, then $f_*: \suslC \Ztr(X) \to \suslC \Ztr(Y)$ is a 
-chain homotopy equivalence with chain homotopy inverse $g_*$.
-\end{prop}
-
-We begin with the following Lemma.
-
-\begin{lem}
-For any $X$ in $\Sm$, the canonical projection
-\[
-\pi: X \times \A^1 \to X
-\]
-induces a chain homotopy equivalence
-\[
-\pi_*: \suslC \Ztr(X \times \A^1) \to \suslC \Ztr(X).
-\]
-\end{lem}
-
-\begin{proof}
-Notice first that if $F$ is a presheaf of abelian groups and for
-every smooth scheme $U$, there is a homomorphism of sheaves $h:
-F \to F(- \times \A^1)$ such that
-\begin{equation}\label{eq_contr_cond}
-\begin{tikzcd}[row sep=huge, column sep=huge]
-{}&
-F(U) \arrow{ld}{0} \arrow{d}{h(U)} \arrow{rd}{id} \\
-F(U) &
-F(U \times \A^1) \arrow{l}{F(i_0)} \arrow{r}{F(i_1)} &
-F(U),
-\end{tikzcd}
-\end{equation}
-then $C_*F$ is chain contractible. (See \cite{MVW}, Lemma 2.22.) 
-For this, notice that $h$ induces morphism of chain complex 
-$\suslC h : \suslC F(U) \to \suslC F(U \times \A^1)$ that is 
-natural in $U$. To show that $\suslC F$ is contractible, we show 
-that $\suslC F(U)$ is chain contractible for every $U$. However, 
-by Lemma \ref{lem_hi_implies_i0_i1_homotopic}, $i_1^* \suslC h$ 
-is chain homotopic to $0 = i_0^* \suslC h$.
-
-Next, let $F$ be the cokernel of $\Ztr(i_0): \Ztr(X) \to \Ztr(X 
-\times \A^1)$. Since $\suslC \Ztr(X \times \A^1) \cong \suslC
-\Ztr(X) \oplus \suslC F$, it suffices to show that $\suslC F$
-is chain contractible. We do this by showing that there exists
-$h: F \to F(- \times \A^1)$ satisfying the commutativity condition 
-at the start of this proof.
-
-To proceed, for each $U$, consider the map $H_U: \Cor(U, X \times 
-\A^1) \to \Cor(U \times \A^1, X \times \A^1)$, given by the 
-composition
-\[
-\Cor(U, X \times \A^1) \to
-\Cor(U \times \A^1, X \times \A^1 \times \A^1) \to
-\Cor(U \times \A^1, X \times \A^1).
-\]
-It is clear that $H_U$ restricted to a map $\Cor(U, X \times 0)
-\to \Cor(U \times \A^1, X \times 0)$. Identifying $X \times 0$
-with $X$, we have the following diagram
-\[
-\begin{tikzcd}[row sep=huge]
-\Cor(U, X) \arrow{r}{\Ztr(i_0)} \arrow{d}{H_U} &
-\Cor(U, X \times \A^1) \arrow{r} \arrow{d}{H_U} &
-F(U) \arrow{r} \arrow[dotted]{d}{h_U}&
-0 \\
-\Cor(U \times \A^1, X \times \A^1) \arrow{r}{\Ztr(i_0)} &
-\Cor(U \times \A^1, X \times \A^1) \arrow{r} &
-F(U \times \A^1) \arrow{r} &
-0.
-\end{tikzcd}
-\]
-In particular, we have an induced map $h_U: F(U) \to F(U \times 
-\A^1)$. It is easy to see that this is natural in $U$, and defines 
-a map $h : F \to F( - \times \A^1)$. We show that $h$ has the
-desired properties.
-
-First, let $U = X \times \A^1$. In this case, it is easy to see
-that $i_0^* H_{X \times \A^1} : \Cor(X \times \A^1, X \times \A^1) 
-\to \Cor( X \times \A^1, X \times \A^1)$ sends $id$ to the 
-composition $X \times \A^1 \stackrel{\pi}{\to} X 
-\stackrel{i_0}{\to} X \times \A^1$, whose image in $F(X \times 
-\A^1)$ is 0. That is, $F(i_0)h_{X \times \A^1}(id) = 0.$ 
-Similarly, $F(i_1)h_{X \times \A^1}(id) = \overline{id}$, where
-$\overline{id}$ is the image of $id$ in $\Cor(X \times \A^1, X 
-\times \A^1)$. 
-
-In general, every element $\overline{f}$ in $F(U)$ is the image
-of $id$ in $\Cor(X \times \A^1, X \times \A^1)$ via some 
-correspondence $f$ in $\Cor(U, X \times \A^1)$. Applying this
-to the above, we have $F(i_0)h_U(\overline{f}) = 0$ and $F(i_1)
-h_U(\overline{f}) = \overline{f}$. It follows that $F$ satisfies
-the condition given in Display \ref{eq_contr_cond}, and the lemma
-follows.
-\end{proof}
-
-We now resume the proof of the proposition.
-
-\begin{proof}[Proof of Prop. \ref{prop_a1_hom_implies_hom}]
-The condition that $X$ and $Y$ are homotopy equivalent implies
-that there exists some $h$ for which the following diagram is
-commutative:
-\[
-\begin{tikzcd}[column sep=huge, row sep=huge]
-{}& X \\
-X \arrow{ru}{gf} \arrow{r}{i_0} &
-X \times \A^1 \arrow{u}{h} &
-X \arrow{l}{i_1} \arrow{lu}{id}
-\end{tikzcd}
-\]
-Applying $\suslC \Ztr$, we have
-\[
-\begin{tikzcd}[column sep=huge, row sep=huge]
-{}& X \\
-X \arrow{ru}{g_*f_*} \arrow{r}{(i_0)_*} &
-X \times \A^1 \arrow{u}{h_*} &
-X \arrow{l}{(i_1)_*} \arrow{lu}{id}
-\end{tikzcd}
-\]
-By Lemma \ref{lem_hi_implies_i0_i1_homotopic}, $(i_0)_*$ and 
-$(i_1)_*$ are homotopy equivalences, and are homotopy inverses to 
-$p_* : \suslC \Ztr(X \times \A^1) \to \suslC \Ztr(X)$. But 
-$h_* (i_1)_* = id$ (triangle on the right), and it follows that 
-$h_*$ is homotopy equivalent to $p^*$, whence $g_*f_* \cong id$.
-
-Applying the above arguments for $Y$, we see that $f_*g_* = id$.
-It follows that $f_*$ and $g_*$ are mutual homotopy inverses, and
-define homotopy equivalences between $\suslC \Ztr(X)$ and $\suslC
-\Ztr(Y)$.
-\end{proof}
+If $X$ and $Y$ are homotopy equivalent, it is not true in general 
+that $\Ztr(X)$ is isomorphic to $\Ztr(Y)$. For example, $\Z$ is
+obvious not isomorphic to $\Ztr(\A^1)$. However, $\suslC \Ztr(X)$
+is quasi-isomorphic to $\suslC \Ztr(Y)$ (see \cite[2.26]{MVW}).
+Therefore, $\hS{X}$ and $\hS{Y}$ are isomorphic sheaves with 
+transfers.
+\end{rmk}
 
 \begin{rmk}
 We note that all results of this section hold for $\PST(R)$, which
@@ -595,3 +406,24 @@ are presheaves with transfers with values in $R$-modules, where $R$
 is some commutative unital ring. In particular, $\Rtr(X)$ are
 \'etale/Nisnevich sheaves for all $X$ in $\Sm$.
 \end{rmk}
+
+To conclude this section, we introduce an crucial endofunctor on 
+the category $\HI$ which we will use extensively in the following 
+sections.
+
+\begin{defn}
+Let $F$ be a homotopy invariant presheaf with transfers. Write
+$\RHI{F}(X)$ for the cokernel of $F(X \times \A^1) \to F(X \times 
+(\A^1 - 0))$. It is easy to see that $\RHI{F}$ is a presheaf, 
+which we call \DEF{the contraction of $F$}.
+\end{defn}
+
+It is easy to see that if $F$ is homotopy invariant, then $\RHI{F}$ 
+is also a homotopy invariant. Furthermore, $F(X \times (\A^1 - 0))$
+splits into $F(X) \oplus \RHI{F}(X)$. Thus, if $F$ is a sheaf, then
+$\RHI{F}$ is also a sheaf. Thus, $F \mapsto \RHI{F}$ defines an
+endofunctor on the category of homotopy invariant sheaves with 
+transfers.
+
+\begin{prop}
+\end{prop}
