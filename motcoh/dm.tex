@@ -563,8 +563,7 @@ where $\CH^i(X, k)$ denote the $k$-th higher Chow group of $X$
 \end{rmk}
 
 We conclude this section with an important result, taken from
-\cite[Corollary 4.10]{V02} which will become useful in the 
-remainder of the thesis.
+\cite[Corollary 4.10]{V02}.
 
 \begin{thm}[Cancellation]\label{thm_dm_cancellation}
 For any $M$ and $N$ in $\DMeff$,
@@ -584,3 +583,44 @@ complexes
 \]
 This is the version of the statement that we will use in
 subsequent sections.
+
+Since $\Z(1)$ is an object of $\DMeffgm$, $-\tDM \Z(1)$ and 
+$\ihomDMf(\Z(1), -)$ are adjoint pairs by Prop. 
+\ref{prop_DMgm_monoidal}. To simplify notations, for $M$ in 
+$\DMeff$, we write $\tZ{M}$ for $M \tDM \Z(1)$, and $\hZ{M}$ for 
+$\ihomDMf(\Z(1), M)$, and write $\tZ[n]{M}$ and 
+$\hZ[n]{M}$ for the $n$-th iterations of applying $- \tDM \Z(1)$ 
+and $\ihomDMf(\Z(1), -)$ respectively to $M$. 
+
+Since $\Z(n) \tDM \Z(1) = \Z(n + 1)$, it is easy to see that the 
+functor given $M \mapsto \tZ[n]{M}$ is equal to the functor $- 
+\tDM \Z(n)$. By adjunction, $M \mapsto \hZ[n]{M}$ is equal to 
+$\ihomDMf(\Z(n), -)$. We write $\LDMf{n}$ for the endofunctor $- 
+\tDM \Z(n)$, and $\RDMf{n}$ for $\ihomDMf(\Z(n), -)$, and set 
+$\LDMf{0}$ and $\RDMf{0}$ to be the identity functor. It is clear 
+from the above that for each nonnegative integer $n$, $(\LDMf{n}, 
+\RDMf{n})$ form a left-right adjoint pair.
+
+Applying Cancellation Theorem, we have the following:
+
+\begin{prop}\label{prop_tZ_hZ_eq_id}
+For each $M$ in $\DMeff$ and each nonnegative integer $n$, 
+\[
+\hZ[n]{\tZ[n]{M}} \cong M.
+\]
+\end{prop}
+\begin{proof}
+By Theorem \ref{thm_ALocal_eq_DMeff}, it suffices to verify the
+statement for $\A^1$-local complexes. 
+
+Let $F^*$ be the bounded above $\A^1$-local complex corresponding 
+to $M$. Notice that by the Cancellation Theorem, reinterpreted for
+$\A^1$-local complexes,
+\[
+\sheaf{\rhom}(\suslC \Z(1), \suslC \Z(1) \tLNis F^*)(U) = 
+\rhom(\Ztr(U), F^*) = F^*(U)
+\]
+for all $U$ in $\Sm$. It follows that $\sheaf{\rhom}(\suslC\Z(1),
+\suslC\Z(1) \tLNis F^*) \to F^*$ is an isomorphism, and the
+proposition follows.
+\end{proof}

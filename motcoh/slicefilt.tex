@@ -21,23 +21,6 @@ We show that there is a weak filtration on $\DMeff$, and extend
 this filtration to a localization of $\DMeff$. The construction
 is based on the work of Voevodsky, Huber, and Kahn.
 
-Before we begin, notice that $\Z(1)$ is an object of $\DMeffgm$.
-Hence, $-\tDM \Z(1)$ and $\ihomDMf(\Z(1), -)$ are adjoint pairs
-(see Prop. \ref{prop_DMgm_monoidal}). To simplify notations, for 
-$M$ in $\DMeff$, we write $\tZ{M}$ for $M \tDM \Z(1)$, and 
-$\hZ{M}$ for $\ihomDMf(\Z(1), M)$, and write $\tZ[n]{M}$ and 
-$\hZ[n]{M}$ for the $n$-th iterations of applying $- \tDM \Z(1)$ 
-and $\ihomDMf(\Z(1), -)$ respectively to $M$. 
-
-Since $\Z(n) \tDM \Z(1) = \Z(n + 1)$, it is easy to see that the 
-functor given $M \mapsto \tZ[n]{M}$ is equal to the functor $- 
-\tDM \Z(n)$. By adjunction, $M \mapsto \hZ[n]{M}$ is equal to 
-$\ihomDMf(\Z(n), -)$. We write $\LDMf{n}$ for the endofunctor $- 
-\tDM \Z(n)$, and $\RDMf{n}$ for $\ihomDMf(\Z(n), -)$, and set 
-$\LDMf{0}$ and $\RDMf{0}$ to be the identity functor. It is clear 
-from the above that for each nonnegative integer $n$, $(\LDMf{n}, 
-\RDMf{n})$ form a left-right adjoint pair.
-
 We now introduce the slice filtration on $\DMeff$. For each 
 $n \geq 0$, the counit $\LDMf{n}\RDMf{n} \to \id$ gives rise to a 
 distinguished triangles of the form
@@ -47,9 +30,8 @@ distinguished triangles of the form
 for some $M'$ in $\DMeff$. We call such triangles \DEF{the slice
 triangle of $M$}.
 
-By the Five Lemma (see \cite[10.2.2]{WH}), the distinguished 
-triangle in \eqref{eq_slice_triangle_1} is defined up to unique 
-isomorphism. In fact, associating $M$ with $M'$ is a triangulated 
+The distinguished triangle in \eqref{eq_slice_triangle_1} is 
+defined up to unique isomorphism. In fact, associating $M$ with $M'$ is a triangulated 
 functor. That is, if
 \[
 M' \to M \to M'' \to M'[1]
@@ -62,7 +44,7 @@ and
 \[
 \slDM{n}M' \to \slDM{n}M \to \slDM{n}M'' \to \slDM{n}M'[1]
 \]
-(see \cite[Corollary 1.4]{HuKa}).
+(see \cite[1.4]{HuKa}).
 
 Following loc. cit., we write $\slDM{n}$ for the functor $M 
 \mapsto M'$, and $\sgDM{n}$ for the functor $M \mapsto 
@@ -95,34 +77,10 @@ $\slDM{n}\DMeff$) are (naturally isomorphic to) the identity.
 
 Since $\hZ[n]{M} = 0$ for $M$ in $\slDM{n}\DMeff$, $\sgDM{n} M = 
 0$. The fact that $\slDM{n} M \cong M$ follows immediately from 
-the slice triangle \eqref{eq_slice_triangle_1}. For $\sgDM{n}$, we 
-first prove the following:
-
-\begin{prop}
-For each $M$ in $\DMeff$ and each nonnegative integer $n$, 
-\[
-\hZ[n]{\tZ[n]{M}} \cong M.
-\]
-\end{prop}
-\begin{proof}
-By Theorem \ref{thm_ALocal_eq_DMeff}, it suffices to verify the
-statement for $\A^1$-local complexes. 
-
-Let $F^*$ be the bounded above $\A^1$-local complex corresponding 
-to $M$. Notice that by the Cancellation Theorem, reinterpreted for
-$\A^1$-local complexes,
-\[
-\sheaf{\rhom}(\suslC \Z(1), \suslC \Z(1) \tLNis F^*)(U) = 
-\rhom(\Ztr(U), F^*) = F^*(U)
-\]
-for all $U$ in $\Sm$. It follows that $\sheaf{\rhom}(\suslC\Z(1),
-\suslC\Z(1) \tLNis F^*) \to F^*$ is an isomorphism, and the
-proposition follows.
-\end{proof}
-
-To see that $\sgDM{n}$ restricts to the identity on $\sgDM{n} 
-\DMeff$, notice that for all $M$ in $\sgDM{n} \DMeff$, $M = 
-\tZ[n]{M'}$, and by the proposition above $\sgDM{n}M = 
+the slice triangle \eqref{eq_slice_triangle_1}. To see that 
+$\sgDM{n}$ restricts to the identity on $\sgDM{n} \DMeff$, notice 
+that for all $M$ in $\sgDM{n} \DMeff$, $M = \tZ[n]{M'}$, and by 
+Prop. \ref{prop_tZ_hZ_eq_id} $\sgDM{n}M = 
 \tZ[n]{\hZ[n]{\tZ[n]{M'}}} \cong \tZ[n]{M'} = M.$
 
 We summarize the main results of the above discussion in the 
@@ -323,9 +281,9 @@ of morphism between $(M, n)$ and $(M', n')$ is
 \[
 \varprojlim_{k} \homDMf(\tZ[k + n]{M}, \tZ[k + n']{M'}).
 \]
-as $k$ ranges over all values for which $k + n$ and $k + n'$ are
-positive. We write $\homDM((M, n), (M',n'))$ for the hom set of 
-$(M, n)$ and $(M', n')$. 
+as $k$ ranges over all integer values for which $k + n$ and 
+$k + n'$ are positive. We write $\homDM((M, n), (M',n'))$ for the 
+hom set of $(M, n)$ and $(M', n')$. 
 \end{defn}
 
 \begin{rmk}

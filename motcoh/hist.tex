@@ -339,7 +339,7 @@ Let $F$ be a presheaf with transfers. Let $\Delta^n$ denote
 \[
 \Spec \basefield [x_0,\dots,x_n]/\big(1 - \sum_{i} x_i \big).
 \]
-Notice that for each $i = 0,..., n$, there exists a map 
+Notice that for each $i$ in $\{0,...,n\}$, there exists a map 
 $\partial_{n, i} : \Delta^{n - 1} \to \Delta^{n}$ induced by
 \[
 \basefield [x_0,\dots,x_n]/\big(\sum_{i} x_i - 1 \big)
@@ -349,14 +349,8 @@ given by $x_j \mapsto x_j (j \neq i)$ and $x_i \mapsto 0$. In
 particular, $\Delta^{\bullet}$ is a cosimplicial scheme, and 
 $F( - \times \Delta^\bullet)$ is a simplicial presheaf with
 transfers. Let $\suslC F$ be the associated chain complex. That
-is $\suslC[n] F(X) = F(X \times \Delta^n)$, and for each $i = 0,
-\dots, n$, there exists a map of abelian groups
-\[
-\partial_{n,i}^*(X) : \suslC[n] F(X) \to \suslC[n - 1] F(X)
-\]
-induced by $\partial_i$. This map is functorial in $X$. Thus,
-for each $i$, there exists a map of presheaves $\partial^*_n : 
-\suslC[n + 1] F \to \suslC[n] F$, and set 
+is $\suslC[n] F(X) = F(X \times \Delta^n)$, and the chain map
+is given by
 \[
 \partial_{n}^* \defeq \sum_{i = 0}^{n} (-1)^i \partial_{n,i}^*.
 \]
@@ -407,15 +401,15 @@ is some commutative unital ring. In particular, $\Rtr(X)$ are
 \'etale/Nisnevich sheaves for all $X$ in $\Sm$.
 \end{rmk}
 
-To conclude this section, we introduce an crucial endofunctor on 
-the category $\HI$ which we will use extensively in the following 
-sections.
+We conclude this section with an endofunctor on the category $\HI$
+that will play an important role in the construction of a 
+filtrations on $\HI$.
 
-\begin{defn}
+\begin{defn}\label{def_contract}
 Let $F$ be a homotopy invariant presheaf with transfers. Write
 $\RHI{F}(X)$ for the cokernel of $F(X \times \A^1) \to F(X \times 
-(\A^1 - 0))$. It is easy to see that $\RHI{F}$ is a presheaf, 
-which we call \DEF{the contraction of $F$}.
+(\A^1 - 0))$. It is easy to see that $\RHI{F}$ is again a presheaf
+with transfers which we call \DEF{the contraction of $F$}.
 \end{defn}
 
 It is easy to see that if $F$ is homotopy invariant, then $\RHI{F}$ 
@@ -425,5 +419,7 @@ $\RHI{F}$ is also a sheaf. Thus, $F \mapsto \RHI{F}$ defines an
 endofunctor on the category of homotopy invariant sheaves with 
 transfers.
 
-\begin{prop}
+\begin{prop}[\cite{DegGenMot} or \cite{MVW}]
+\label{prop_contract_is_exact}
+The functor $F \mapsto \RHI{F}$ is exact.
 \end{prop}
