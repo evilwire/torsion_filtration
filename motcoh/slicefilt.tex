@@ -17,6 +17,13 @@ together with (co)reflection functors $\phi_i: \Cat{A} \to
 the identity on $\phi_i\Cat{A}$.
 \end{defn}
 
+\begin{rmk}
+The defintion we provided was for an $\N$-indexed filtration.
+We can similarly define a $\Z$-index filtration in the obvious way.
+An $\N$-indexed filtration is a $\Z$-index filtration for which
+$\phi_i \Cat{C} = \phi_0 \Cat{C}$ for all negative values of $i$.
+\end{rmk}
+
 We show that there is a weak filtration on $\DMeff$, and extend 
 this filtration to a localization of $\DMeff$. The construction
 is based on the work of Voevodsky, Huber, and Kahn.
@@ -171,7 +178,7 @@ we have
 \]
 It follows by the Five Lemma (\cite[10.2.2]{WH}) that 
 \[
-\sgDM{m}\slDM{n} M \simeq \slDM{n}\sgDM{m} M.
+\sgDM{m}\slDM{n} M \cong \slDM{n}\sgDM{m} M.
 \]
 Functoriality in $M$ of the rows implies that that this 
 isomorphism is natural in $M$. That is, $\sgDM{m} \slDM{n}$ is 
@@ -254,7 +261,7 @@ $\fIDM{n}M$.
 \begin{ex}\label{ex_sfilt_MPn}
 It is clear that $\Z(n)$ is its own $n$-th slice. Furthermore,
 since $M(\P^n) = \oplus_{i = 0}^n \Z(n)[2n]$ (see 
-\cite[Corollary 15.5]{MVW}), it is easy to verify that 
+\cite[15.5]{MVW}), it is easy to verify that 
 \[
 \slDM{k}M(\P^n) = \begin{cases}
 M(\P^k) & \textrm{if }k \leq n \\
@@ -289,7 +296,7 @@ hom set of $(M, n)$ and $(M', n')$.
 \begin{rmk}
 By induction, we have that $(M, n) \cong (M \tDM \Z(n), 0)$, for 
 any positive integer $n$ and all $M$ in $\DMeff$. In particular,
-$(M, n) \cong (M', n')$ for $n \geq n'$, then $M \simeq 
+$(M, n) \cong (M', n')$ for $n \geq n'$, then $M \cong 
 \tZ[n - n']M'$.
 \end{rmk}
 
@@ -302,15 +309,23 @@ for all positive integers. Therefore, the projective limit in the
 definition of $\homDM$ is a finite limit. That is, it suffices to 
 take $k > |n| + |n'|$, say.
 
-Furthermore, the localization functor $\DMeff \to \DM$, given by
-sending $M$ in $\DMeff$ to $(M, 0)$ is fully faithful. Therefore, we 
-can identify $\DMeff$ as the full subcategory of $\DM$.
+Furthermore, the localization functor $\spectDM: \DMeff \to \DM$, 
+given by sending $M$ in $\DMeff$ to $(M, 0)$ is fully faithful. 
+Therefore, we can identify $\DMeff$ as the full subcategory of 
+$\DM$. The functor $\spectDM$ admits a right adjoint, which we 
+represent by $\loopDM$. This functor is defined by 
+\[
+\loopDM(M, n) = \begin{cases}
+\LHI[n]{M} &\textrm{for }n \geq 0 \\
+0 &\textrm{for }n < 0.
+\end{cases}
+\]
 
 Finally, let $R$ denote the association given by $(M, n) \mapsto
 (M, n - 1)$. It is clear that $R$ is functorial. Now, for $\phi: 
 M \to M'$ in $\DMeff$, $\phi$ induces a map $\phi_*: (M, 0)
 \to (M', 0)$. Then $R^n\phi_* : (M, n) \to (M', n)$ is identified 
-with $\phi$ in $\homDM((M, n), (M', n)) = \homDMf(M, M')$.
+with $\phi$ in $\homDM((M, -n), (M', -n)) = \homDMf(M, M')$.
 \end{rmk}
 
 We now describe the slice filtration and cofiltration structure on 
@@ -328,8 +343,9 @@ $n \geq k$. It is clear that we have a tower of subcategories
 
 To show that this tower of subcategories constitutes a filtration
 of $\DM$, we construct an extension of the functors $\sgDM{k}$.
-Define, by convention, $\sgDM{n} M = M$ for all nonpositive 
-integer $n$, and all $M$ in $\DMeff$. Then, define
+By convention, for all $M$ in $\DMeff$, define $\sgDM{n} M$ to be 
+$M$ for all nonpositive integer $n$. Then, we extend the 
+definition of $\sgDM{n}$ for nonpositive $n$ to $\DM$ by letting
 \[
 \sgDM{k}(M, n) \defeq (\sgDM{k - n}M, n).
 \]
@@ -347,7 +363,7 @@ lemma:
 \begin{lem}\label{lem_triangle_in_DM}
 If $(M_1, n_1) \to (M_2, n_2) \to (M_3, n_3) \to (M_1, n_1)[1]$
 is a distinguished triangle in $\DM$ such that $n_1 = n_2 = n$, 
-then there exists some $M_4$ such that $(M_4, n) = (M_3, n_3)$.
+then there exists some $M$ such that $(M, n) = (M_3, n_3)$.
 \end{lem}
 \begin{proof}
 Let $\phi$ denote the map from $(M_1, n)$ to $(M_2, n)$. Then
@@ -429,7 +445,7 @@ Let $\slDM{k}$ denote the association $(M, n) \mapsto (M', n') =
 (\slDM{k - n}M, n)$. The following is a straightforward consequence
 of the properties of the $\sgDM{k}$ of $\DMeff$:
 
-\begin{prop}
+\begin{prop}\label{prop_slDM_functor}
 For each integer $k$,
 \begin{enumerate}
 \item $\slDM{k}$ is a triangulated functor

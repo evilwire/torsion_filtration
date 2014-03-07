@@ -47,7 +47,9 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\tensor}{\otimes}
+\newcommand{\compact}{\mathrm{cpt}}
 \renewcommand{\P}{\mathbb{P}}
+\newcommand{\Unit}{\mathbbm{1}}
 
 % related to exposition
 \newcommand{\DEF}[1]{\emph{#1}}
@@ -96,7 +98,9 @@
 \newcommand{\Ab}{\mathbf{Ab}}
 \newcommand{\Class}[1]{\mathscr{#1}}
 \newcommand{\Cat}[1]{\mathscr{#1}}
+\newcommand{\CatLoc}[2]{\Cat{#1}[{#2}^{-1}]}
 \newcommand{\DCat}[1][D]{\mathbf{#1}}
+\newcommand{\DCatLoc}[2][D]{\DCat[#1][#2^{-1}]}
 \newcommand{\Obj}[1]{\mathrm{Obj}(#1)}
 \renewcommand{\hom}{\mathrm{Hom}}
 \newcommand{\adj}{\dashv}
@@ -190,6 +194,8 @@
 \newcommand{\hZ}[2][1]{{#2}_{-#1}}
 \newcommand{\LDMf}[1]{L^{#1}}
 \newcommand{\RDMf}[1]{R^{#1}}
+\newcommand{\spectDM}{\Sigma^\infty}
+\newcommand{\loopDM}{\Omega^\infty}
 
 % homotopy modules
 \newcommand{\HM}{\HI_*}
@@ -233,3 +239,9 @@
 \newcommand{\sliceTriangle}[2]{
    \sgDM{#1}#2 \to #2 \to \slDM{#1}#2 \to \sgDM{#1}#2[1]
 }
+
+% general filtration macros
+\newcommand{\corad}[1]{\phi^{\leq #1}}
+\newcommand{\coradD}[1]{\nu^{\leq #1}}
+\newcommand{\prerad}[1]{\phi^{\geq #1}}
+\newcommand{\preradD}[1]{\nu^{\geq #1}}

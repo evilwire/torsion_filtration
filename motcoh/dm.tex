@@ -3,9 +3,10 @@
 
 In this section, we define the derived category of motives $\DMeff$,
 and show that it is equipped with an additive symmetric monoidal 
-structure with a ``partial'' internal hom that will be used to 
-construct the slice filtration in Section 
-\ref{sect_slice_filt_dm}. (See Remark \ref{rmk_partial_ihom})
+structure with a partial internal hom (defined in 
+\ref{def_tensor_triang_cat}) that will be used to construct the 
+slice filtration in Section \ref{sect_slice_filt_dm}. (See Remark 
+\ref{rmk_partial_ihom})
 
 To do this, we first define the bounded above derived category 
 $\DCat^-\ShCor$ of Nisnevich sheaves, and define $\DMeff$ to be
@@ -39,12 +40,12 @@ Hence, the category $\PST$ has enough projectives. Thus, we may
 define the bounded above derived category $\DCat[D]^-\PST$ of the 
 abelian category $\PST$ as the homotopy category of chain 
 complexes of projective object in $\PST$ (see 
-\cite[Thm. 10.4.8]{WH}).
+\cite[10.4.8]{WH}).
 
 Similarly, we define the bounded derived category $\DCat^- \ShCor$
 of Nisnevich sheaves with transfers. In particular, since $\ShCor$
-has enough injectives (\cite[Thm. 13.1]{MVW}), again by 
-\cite[Thm. 10.4.8]{WH}, we can define $\DCat^-\ShCor$ as the homotopy
+has enough injectives (\cite[13.1]{MVW}), again by 
+\cite[10.4.8]{WH}, we can define $\DCat^-\ShCor$ as the homotopy
 category $\DCat[K]^-$ of bounded above complex of injective objects
 in $\ShCor$. 
 
@@ -141,7 +142,7 @@ the inclusion of $\ALocal \into \DShCor$.
 There is a canonical map from $F^* \to \suslC[] F^*$,
 given by the inclusion of $F_i = \suslC[0] F_i \into \oplus_{p + 
 q = i} \suslC[-p] F^q$. This map is a $\A^1$-weak equivalence
-(see \cite[Lemma 14.4]{MVW}). Therefore, for any $L^*$ in $\ALocal$
+(see \cite[14.4]{MVW}). Therefore, for any $L^*$ in $\ALocal$
 and $F^*$ in $\DShCor$,
 \[
 \hom_{\DShCor}(F^*, L^*) \cong \hom_{\DShCor}(\suslC[] F^*, L^*)
@@ -168,7 +169,7 @@ category, with an quasi-inverse $\suslC$.
 
 \begin{proof}
 The fact that $\pi$ is an equivalence is established in
-\cite[Theorem 14.11]{MVW}. Furthermore, given $M$ in
+\cite[14.11]{MVW}. Furthermore, given $M$ in
 $\DMeff$, then $M$ is represented by some bounded above complex 
 $F^*$. In turn, $F^*$ is isomorphic (in $\DMeff$) to $\suslC[] 
 F^*$, which is in the essential image of $\pi$, and define
@@ -177,8 +178,7 @@ $\suslC M = \suslC[] F^*$.
 For the second statement, it suffices at this point to show that 
 $\suslC \pi$ is naturally isomorphic to the identity on $\ALocal$. 
 This follows from the fact that if $F^*$ is $\A^1$-local, then 
-$\suslC[] F^*$ is isomorphic to $F^*$ (see \cite[Corollary 
-14.9]{MVW}).
+$\suslC[] F^*$ is isomorphic to $F^*$ (see \cite[14.9]{MVW}).
 \end{proof}
 
 \begin{ex}\label{ex_geo_obj}
@@ -204,7 +204,7 @@ Recall from \cite[1.13]{MK} and \cite[8A.1]{MVW} the notion of a
 symmetric closed monoidal structure generalized to the setting of 
 a triangulated category:
 
-\begin{defn}
+\begin{defn}\label{def_tensor_triang_cat}
 Let $\DCat[D]$ be a triangulated category. We say that $\DCat[D]$ 
 is a \DEF{tensor triangulated category} if there exists a bifunctor
 $- \tensor -$, together with two natural isomorphisms 
@@ -255,19 +255,22 @@ monoidal category} if
 \]
 for all $N$ in $\DCat$ and all family $\{M_i\}$ of objects of 
 $\DCat$ such that $\oplus_i M_i \in \DCat$. Finally, we say that
-$\DCat$ is \DEF{closed monoidal} if there exists an internal hom
-bifunctor $\ihom(-,-)$ such that $F \tensor -$ is left adjoint to
-$\ihom(-, F)$.
+$\DCat$ \DEF{has a partial internal hom} if there exists a 
+subcategory $\DCat^{\compact}$ of $\DCat$, containing $\Unit$ and 
+a bifunctor $\ihom(-,-)$ where the first factor is defined only 
+for objects in $\DCat^{\compact}$ such that $F \tensor -$ is left 
+adjoint to $\ihom(F, -)$ for all $F$ in $\DCat^{\compact}$.
+
+In this case, we call $\DCat^{\compact}$ the \DEF{compact objects} 
+of $\DCat$, and $\ihom$ the partial internal hom (bi)functor on
+$\DCat$.
 \end{defn}
 
-For the remainder of this section, we show that $\DMeff$ is 
-equipped with an additive symmetric monoidal structure with a
-partially defined internal hom operation.
-
-We show that $\DMeff$ is equipped with an additive closed 
-symmetric monoidal structure. To do so, we first define the tensor 
-and internal hom operators on $\PST$. The tensor structure will be 
-determined by the following requirements: 
+We will now show that $\DMeff$ is equipped with an additive 
+symmetric monoidal structure with a partial internal hom. To do 
+so, we first define the tensor and internal hom operators on 
+$\PST$. The tensor structure will be determined by the following 
+requirements: 
 
 \begin{enumerate}
 \item $\Ztr(X) \ttr \Ztr(Y) \defeq \Ztr(X \times Y)$, 
@@ -285,10 +288,10 @@ Next, for arbitrary presheaves with transfers $F, G$, let $P^* \to
 F$ and $Q^* \to G$ be a resolutions by direct sums of 
 representable functors of $F$ and $G$ respectively. We write $F 
 \tL G$ for the total complex of the double complex $P^* \ttr Q^*$. 
-By the Comparison Theorem \cite[Theorem 2.26]{WH}, any two 
-projective resolutions are chain homotopy equivalent. Therefore, 
-it is easy to see that up to chain homotopy equivalence, this is 
-independent of the choice of $P^*$ and $Q^*$.
+By the Comparison Theorem \cite[2.26]{WH}, any two projective 
+resolutions are chain homotopy equivalent. Therefore, it is easy 
+to see that up to chain homotopy equivalence, this is independent 
+of the choice of $P^*$ and $Q^*$.
 
 In particular, $H^0(F \tL G)$ is well-defined. Define the tensor 
 operation on $\PST$ to be
@@ -301,7 +304,7 @@ and define internal hom by
 \]
 These operations define a closed monoidal structure on $\PST$.
 That is, for all $F$ in $\PST$, the functor $F \tL -$ is adjoint to 
-$\ihom(-, F)$ (see \cite[Lemma 8.3]{MVW}).
+$\ihom(-, F)$ (see \cite[8.3]{MVW}).
 
 \begin{rmk}
 Take note that the $\tensor$ structure defined is \emph{not} the
@@ -330,14 +333,14 @@ In particular, $\tL$ is well-defined as a bi-functor on
 $\DCat[D]^-\PST$. Indeed, let $F^*$ and ${F'}^*,$ be two 
 quasi-isomorphic bounded above complexes in $\PST$. Then for any 
 bounded above $G^*$ in $\PST$, $F^* \tL G^* \cong {F'}^* \tL G^*$. 
-(see \cite[Lemma 8.7]{MVW}) To show that $\DCat^-\PST$ is equipped
+(see \cite[8.7]{MVW}) To show that $\DCat^-\PST$ is equipped
 with a tensor triangulated structure, we make the following 
 observation.
 
 Let $\Cor^{\oplus}$ denote the closure under direct 
 sum of representable presheaves in $\PST$. This is an additive
 category equipped with an additive symmetric monoidal structure.
-By \cite[Prop. 8A.4]{MVW}, we see that the homotopy category 
+By \cite[8A.4]{MVW}, we see that the homotopy category 
 $\DCat[K]^-(\Cor^{\oplus})$ is a tensor triangulated categegory.
 By similar arguments as in \cite[10.4.8]{WH}, $\DCat[D]^-\PST$
 is equivalent as a category to $\DCat[K]^-(\Cor^{\oplus})$.
@@ -387,7 +390,7 @@ so is $M \tensor N \to M' \tensor N$. Then the localization $\DCat
 To proceed, we note that if $F^*$ is quasi-isomorphic to ${F'}^*$,
 then for all bounded above complex $G^*$ of sheaves with transfers, 
 $F^* \tLNis G^*$ is quasi-isomorphic to ${F'}^* \tLNis G^*$ (see
-\cite[Prop. 8.16]{MVW}). Therefore, $\tLNis$ is a well-defined 
+\cite[8.16]{MVW}). Therefore, $\tLNis$ is a well-defined 
 bifunctor on $\DShCor$. Finally, observe that $\DShCor$ is 
 obtained from $\DCat^-\PST$ by formally inverting morhisms of the 
 form $F^* \to {F'}^*$ such that $\nis(F^*) \to \nis({F'}^*)$ is an 
@@ -401,7 +404,7 @@ To show that $\tLNis$ induces a tensor structure on $\DMeff$, it
 suffices to observe that if $\phi : F^* \to {F'}^*$ is an $\A^1$-weak 
 equivalence, then for all $G^*$ in $\DShCor$, $\phi \tLNis G^* : 
 F^* \tLNis G^* \to {F'}^* \tLNis G^*$ is an $\A^1$-weak 
-equivalence, which is proven in \cite[Lemma 9.5]{MVW}.
+equivalence, which is proven in \cite[9.5]{MVW}.
 
 It is straightforward to verify that the tensor operation, which
 we represent by $\tDM$ is symmetric monoidal. We now define the 
@@ -417,13 +420,13 @@ It is straightforward to verify that $(\ALocal, \tAL)$ satisfy
 the conditions for a tensor triangulated category. In fact, the
 categorical equivalence $\pi : \ALocal \to \DMeff$ established
 in Thm. \ref{thm_ALocal_eq_DMeff} is an equivalence of tensor
-triangulated categories (see \cite[Theorem 14.11]{MVW}).
+triangulated categories (see \cite[14.11]{MVW}).
 
 \begin{defn}
 Let $B^*$ be a bounded above complex of Nisnevich sheaves. Let $B^*
 \to I^*$ be a Cartan-Eilenburg resolution. Such a resolution 
 exists since the category of $\ShCor$ has enough injectives (see 
-\cite[Prop.  6.19]{MVW}). For $X$ in $\Sm$, define 
+\cite[6.19]{MVW}). For $X$ in $\Sm$, define 
 $\sheaf{\rhom}(\Ztr(X), B)$ to be the complex of sheaves given by
 \[
 \sheaf{\rhom}(\Ztr(X), B)(U) = \rhom_{\DCat^-\ShCor}(\Ztr(X \times U),
@@ -479,7 +482,7 @@ established in Lemma \ref{lem_ihom_tL_adjunction}.
 Via the categorical equivalence between $\ALocal$ and $\DMeff$,
 there exists an internal hom functor on the geometric objects
 of $\DMeff$. We write $\tDM$ and $\ihomDMf$ for the tensor and
-(partial) internal hom operators respectively. We have just
+partial internal hom operators respectively. We have just
 established the following:
 
 \begin{prop}\label{prop_DMgm_monoidal}
@@ -523,7 +526,7 @@ pointed schemes, we define their \DEF{wedge sum} $\bigwedge_i^n
          X_n)\right).
 \]
 By induction, $\bigwedge_i \Ztr(X_i, x_i)$ is a direct summand of
-$\Ztr(X_1 \times \cdots \times X_n)$ (see \cite[Lemma 2.13]{MVW}),
+$\Ztr(X_1 \times \cdots \times X_n)$ (see \cite[2.13]{MVW}),
 and defines a Nisnevich sheaf.
 
 In particular, for each nonnegative integer $n$, we can define 
@@ -537,7 +540,7 @@ $\Z(n)$. It is easy to see that $\Z(n) \tDM \Z(m) \cong
 The careful reader may notice that in \cite{MVW}, the motivic 
 complex $\Z(n)$ is defined to be $\suslC \bigwedge_i^n \Ztr(\A^1 
 - 0, 1)$, and not $\bigwedge_i^n \Ztr(\A^1 - 0, 1)$ (see 
-\cite[Def. 3.1]{MVW}). However, notice that in $\DMeff$, the
+\cite[3.1]{MVW}). However, notice that in $\DMeff$, the
 two definitions of $\Z(n)$ are identified. This is a 
 straightforward consequence of the fact that $F \to \suslC F$ is
 an $\A^1$-weak equivalence.
@@ -549,10 +552,10 @@ as
 \[
 \MH^{p, q}(X) = \homDMf(\Ztr(X), \Z(q)[p]).
 \]
-Notice that $\Z(1) \simeq \O^*[-1]$ (\cite[Theorem 4.1]{MVW}).
+Notice that $\Z(1) \cong \O^*[-1]$ (\cite[4.1]{MVW}).
 Therefore $\MH^{1,1}(X) = \O^*(X)$, and $\MH^{2,1} = \Pic(X)$.
 Furthermore, $\MH^{n,n}(\Spec F) = \milK_n(F)$ 
-(\cite[Theorem 5.1]{MVW}).
+(\cite[5.1]{MVW}).
 
 More generally, we have
 \[
@@ -563,7 +566,7 @@ where $\CH^i(X, k)$ denote the $k$-th higher Chow group of $X$
 \end{rmk}
 
 We conclude this section with an important result, taken from
-\cite[Corollary 4.10]{V02}.
+\cite[4.10]{V02}.
 
 \begin{thm}[Cancellation]\label{thm_dm_cancellation}
 For any $M$ and $N$ in $\DMeff$,

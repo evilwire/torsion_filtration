@@ -1,18 +1,9 @@
 \newpage
 \section{Filtration on $\CycMod$}\label{sect_filtration_cycmod}
 
-In this section, we extend the filtration structure defined on 
-$\HI$ to the category of homotopy modules $\HM$. Via the 
-categorical equivalence between $\CycMod$ and $\HM$ (Thm. 
-\ref{thm_cycmod_eq_hm}), we obtain a filtration on the abelian 
-category $\CycMod$.
-
-Throughout the section, we adopt the same notation convention as 
-in Section \ref{sect_cycmod_and_hm} and write $(F_*, \deloop_*)$ 
-for a homotopy module where the $\deloop_n: F_{n} \to 
-R(F_{n + 1})$ denotes the $n$-th delooping map (see Def. 
-\ref{def_hm}). 
-
+In this section, just as we have extend the slice filtration from
+$\DMeff$ to $\DM$, we will extend the three filtrations on
+$\HI$ to the category of homotopy modules $\HM$ (defined below).
 To further simplify notation, let $L: \HI \to \HI$ denote the 
 functor $F \mapsto \LHI{F}$, and let $R: \HI \to \HI$ denote the 
 functor given by $F \mapsto \RHI{F}$. We write $\epsilon^n : \id 
@@ -20,17 +11,110 @@ functor given by $F \mapsto \RHI{F}$. We write $\epsilon^n : \id
 maps; we abbreviate $\eta^1$ as $\eta$, and $\epsilon^1$ as 
 $\epsilon$.
 
-The following lemma will be key to extending the functors 
-$\tlHI{n}$, $\tgHI{n}$ and $\sgHI{n}$ on $\HM$:
+Recall from \cite[1.17]{DegModHom} the following definition:
+
+\begin{defn}\label{def_hm}
+A \DEF{homotopy module} is a $\Z$-graded homotopy 
+invariant sheaf with transfers $F_*$ such that for every $n$, 
+there exists a map $\susp_n: \LHI{F_n} \to F_{n+1}$ such that the 
+corresponding adjunction map $\deloop_n: F_n \to \RHI{(F_{n+1})}$
+is an isomorphism.
+
+We call the morphisms $\susp_n$ and $\deloop_n$ the \DEF{$n$-th 
+suspensions} and the \DEF{$n$-th delooping} respectively.
+\end{defn}
+
+The relationship between $\HM$ and $\HI$ is analogous to the 
+relationship between $\DM$ and $\DMeff$. For example, it is easy 
+to see that every object in $\HM$ can be represented by $(F, n)$, 
+where $F$ is an object of $\HI$ and $n$ is an integer. 
+Furthermore, there exists isomorphisms between $(F, n + 1)$ and
+$(\LHI{F}, n)$. 
+
+There a fully faithful functor $\spectHI : \HI \to \HM$, given by 
+$F \mapsto (F, 0)$, which realizes $\HI$ as a full subcategory of 
+objects in $\HM$ of the form $(F, n)$ where $n \geq 0$. Just as in
+the case for $\DM$ and $\DMeff$, $\spectHI$ admits a right adjoint
+$\loopHM : \HM \to \HI$ given by 
+\[
+\loopHM(F, n) = \begin{cases}
+\LHI[n]F &\textrm{for }n \geq 0\\
+0 &\textrm{otherwise}.
+\end{cases}
+\]
+
+The relationships between $\HM$ and the categories $\HI$, $\DMeff$ 
+and $\DM$ can be best summarized by the following results taken
+from \cite{DegModHom}.
+
+\begin{prop}
+The category $\DM$ is equipped with a $t$-structure, where the 
+heart is categorical equivalent to $\HM$. In particular, $\HM$ is 
+an abelian category equipped a symmetric monoidal structure and a 
+partial internal hom. Furthermore, $\HM$ fits into the following 
+commutative diagram of symmetric monoidal categories:
+\begin{equation}\label{eq_hm_hi_com_diag}
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\DMeff \arrow[hookrightarrow, bend right]{r}{\spectDM} \arrow{d}{\HH^0} &
+\DM \arrow{d}{\HH^0} \arrow[bend right]{l}{\loopDM}\\
+\HI \arrow[hookrightarrow, bend right]{r}{\spectHI} &
+\HM \arrow[bend right]{l}{\loopHM}
+\end{tikzcd}
+\end{equation}
+where $\spectDM$ and $\loopDM$ are the inclusion of $\DMeff$ into
+$\DM$ and its right adjoint, and $\spectHI$ and $\loopHM$ are the 
+functors defined above.
+\end{prop}
+\begin{proof}
+Let $\DM^{\geq 0}$ (resp. $\DM^{\leq 0}$) to be full 
+subcategory of $\DM$ where the objects are of the form $(M, n)$
+such that $M \in {\DMeff}^{\geq 0}$ (resp ${\DMeff}^{\leq 0}$).
+Then $(\DM^{\geq 0}, \DM^{\leq 0})$ define a $t$-structure on
+$\DM$. The heart of this $t$-structure is $\HM$. Therefore $\HM$
+is an abelian category by Thm. \ref{thm_heart_is_abel_cat}.
+
+Since the tensor product on $\DM$ is right $t$-exact 
+(\cite[5.8]{DegModHom}), $\HM$ is endowed with an additive 
+symmetric monoidal structure. Similarly, $\HM$ inherits the
+partial internal hom structure from $\DM$.
+
+The commutativity of \eqref{eq_hm_hi_com_diag} follows easily
+from the discussion above. (See \cite[5.7]{DegModHom}.)
+\end{proof}
+
+By abuse of notation, let $\tHI$ denote the additive tensor 
+product on $\HM$ as well. We will discuss the relationship between
+the tensor monoidal structure on $\HM$ and the filtrations that 
+we are about to introduce.
+
+For the remainder of this section, we will \emph{not} represent 
+objects of $\HM$ as a pair $(F, n)$ where $F$ is in $\HI$ and $n$ 
+is an integer. Instead, objects in $\HM$ are represented by $(F_*, 
+\deloop_*)$ where $F_*$ is the $\Z$-graded homotopy invariant 
+sheaf with transfers, and $\deloop_*$ is the sequence of 
+deloopings.
+
+Since $\HI$ can be recognized as a subcategory of $\HM$, the
+three filtrations defined in the previous sections also define
+a $\N$-indexed filtration of $\HM$. The goal is to extend these
+filtrations to $\Z$-filtrations of $\HM$. In particular, we show
+that there is a $\Z$-indexed sequence of coradicals $\tlHM{n}$
+such that for nonnegative $n$, the restriction of $\tlHM{n}$ to
+$\HI$ is $\tlHI{n}$. If this is possible, then the associated
+torsion theories will define the extension of the torsion 
+filtrations on $\HI$.
+
+The following proposition will be crucial to extending the 
+functors $\tlHI{n}$:
 
 \begin{prop}\label{prop_tl_L_R}
 For $F$ in $\HI$, 
 \[
-L \tlHI{n}(F) \simeq \tlHI{n + 1} L(F)
+L \tlHI{n}(F) \cong \tlHI{n + 1} L(F)
 \]
 and
 \[
-R\tlHI{n}(F) \simeq \tlHI{n - 1}R(F).
+R\tlHI{n}(F) \cong \tlHI{n - 1}R(F).
 \] 
 Both isomorphisms are natural in $F$.
 \end{prop}
@@ -38,16 +122,16 @@ Both isomorphisms are natural in $F$.
 The key is to prove that the diagram
 \begin{equation}\label{eq_Ltl_com_diag}
 \begin{tikzcd}
-L^{n + 1}R^{n + 1}L(F) \arrow{r}{\eta^{n + 1}_{L(F)}} \arrow{d} &
+L^{n + 1}R^{n + 1}L(F) \arrow{r}{\eta^{n + 1}} \arrow{d} &
 L(F) \arrow[equals]{d} \\
-L(L^{n}R^n(F)) \arrow{r}{L\eta^{n}_(F)} &
+L(L^{n}R^n(F)) \arrow{r}{L\eta^{n}} &
 L(F).
 \end{tikzcd}
 \end{equation}
 is commutative. Here, $\eta^n$ denotes the counit $L^nR^n \to \id$,
 and the vertical map $L^{n + 1}R^{n + 1}L(F) \to L(L^nR^n (F))$ is 
 given by the map $L^{n + 1}R^n \epsilon^{-1}$, where $\epsilon$ is
-the unit $\id \to RL$ and an isomorphism.
+the unit $\id \to RL$, which is an isomorphism.
 
 To establish that the above diagram is commutative, we proceed by 
 induction on $n$. The case $n = 0$ follows by the counit-unit 
@@ -69,9 +153,9 @@ L(F) \arrow[equals]{r} & L(F).
 Now, suppose we have
 \begin{equation}\label{eq_induct_hyp_tl_diag}
 \begin{tikzcd}
-L^{n}R^{n}L(F) \arrow{r}{\eta^{n}_{L(F)}} \arrow{d} &
+L^{n}R^{n}L(F) \arrow{r}{\eta^{n}} \arrow{d} &
 L(F) \arrow[equals]{d} \\
-L(L^{n - 1}R^{n - 1}(F)) \arrow{r}{L\eta^{n - 1}_F} &
+L(L^{n - 1}R^{n - 1}(F)) \arrow{r}{L\eta^{n - 1}} &
 L(F).
 \end{tikzcd}
 \end{equation}
@@ -80,65 +164,64 @@ L^{n - 1} R^{n - 1}$. Applying this to $\epsilon^{-1}: RL(F) \to
 F$, we have the following commutative diagram
 \[
 \begin{tikzcd}
-L^n R^n RL(F) \arrow{r}{\eta'_{RL(F)}} 
+L^n R^n RL(F) \arrow{r}{\eta'} 
    \arrow{d}{L^nR^n \epsilon^{-1}} &
 L^{n - 1}R^{n - 1} RL(F) 
    \arrow{d}{L^{n - 1}R^{n - 1}\epsilon^{-1}} \\
-L^nR^n(F) \arrow{r}{\eta'_F} &
+L^nR^n(F) \arrow{r}{\eta'} &
 L^{n - 1}R^{n - 1} (F),
 \end{tikzcd}
 \]
 and applying $L$, we have
 \[
 \begin{tikzcd}
-L^{n + 1} R^{n + 1} L(F) \arrow{r}{L\eta'_{RL(F)}} 
+L^{n + 1} R^{n + 1} L(F) \arrow{r}{L\eta'} 
    \arrow{d}{L^{n + 1}R^n \epsilon^{-1}} &
 L^{n}R^n L(F) \arrow{d}{L^nR^{n - 1}\epsilon^{-1}} \\
-L^{n + 1}R^n(F) \arrow{r}{L\eta'_F} &
+L^{n + 1}R^n(F) \arrow{r}{L\eta'} &
 L^{n}R^{n - 1}(F),
 \end{tikzcd}
 \]
-which fits together with Diagram \ref{eq_induct_hyp_tl_diag} to 
-give the following commutative diagram:
+which fits together with \eqref{eq_induct_hyp_tl_diag} to give the 
+following commutative diagram:
 \[
 \begin{tikzcd}
-L^{n + 1} R^{n + 1} L(F) \arrow{r}{L\eta'_{RL(F)}} 
+L^{n + 1} R^{n + 1} L(F) \arrow{r}{L\eta'} 
    \arrow{d}{L^{n + 1}R^n(\epsilon^{-1})}
-   \arrow[bend left]{rr}{\eta^{n + 1}_{L(F)}} &
+   \arrow[bend left]{rr}{\eta^{n + 1}} &
 L^{n}R^n L(F) \arrow{d}{L^nR^{n - 1}(\epsilon^{-1})}
-   \arrow{r}{\eta^{n}_{L(F)}} &
+   \arrow{r}{\eta^{n}} &
 L(F) \arrow[equals]{d} \\
-L^{n + 1}R^n(F) \arrow{r}{L\eta'_F} 
-   \arrow[bend right]{rr}{L\eta^n_F} &
-L^{n}R^{n - 1}(F) \arrow{r}{L\eta^{n - 1}_F} &
+L^{n + 1}R^n(F) \arrow{r}{L\eta'} 
+   \arrow[bend right]{rr}{L\eta^n} &
+L^{n}R^{n - 1}(F) \arrow{r}{L\eta^{n - 1}} &
 L(F).
 \end{tikzcd}
 \]
-Notice that the composition of the top and bottom horizontal 
-arrows (indicated by the bent arrows) in the diagram above are 
-precisely $\eta^{n + 1}_K(F)$ and $L \eta^n_F$ respectively, and
-the claim is proved.
+Notice that $\eta^n L\eta' = \eta^{n + 1}L$ (the composition of
+the top horizontal arrows is precisely the top bent arrow), and
+$L\eta^{n - 1}L\eta' = L\eta^n$ (the composition of the bottom
+horizontal arrows is precisely the bottom bent arrow). The claim
+follows.
 
-Returning to Diagram \ref{eq_Ltl_com_diag}, which we now know to 
+Returning to \eqref{eq_Ltl_com_diag}, which is now shown to 
 be commutative, notice that the cokernel of the top row is 
-$\tlHI{n + 1}L(F)$, and since $L$ is right exact, the cokernel of 
+$\tlHI{n + 1}L(F)$. Since $L$ is right exact, the cokernel of 
 the bottom row is $L\tlHI{n}(F)$. By the Five Lemma, it is clear 
-that $\tlHI{n + 1}L(F) \simeq L\tlHI{n}(F)$.
+that $\tlHI{n + 1}L(F) \cong L\tlHI{n}(F)$.
 
 For the other isomorphism, apply similar arguments to the
 diagram
 \[
 \begin{tikzcd}
-L^{n - 1}R^{n - 1}R(F) \arrow{r}{\eta^n_{R(F)}} 
-   \arrow{d}{\eta_{L^{n - 1}R^{n - 1}(F)}} &
+L^{n - 1}R^{n - 1}R(F) \arrow{r}{\eta^n} 
+   \arrow{d}{\eta} &
 R(F) \arrow[equals]{d} \\
 R (L^n R^n(F)) \arrow{r}{R \eta^n} &
 R(F),
 \end{tikzcd}
 \]
-using the fact that the functor $R$ is exact. The diagram itself
-can be shown to be commutative by using similar arguments as in
-the case for Diagram \ref{eq_Ltl_com_diag}.
+using the fact that the functor $R$ is exact.
 \end{proof}
 
 We can now define the cofiltration endofunctor on $\HM$. Let
@@ -157,31 +240,31 @@ redundancy) and we write $\tlHM[k]{n}(F)$ for the $k$-th graded
 component of $\tlHM{n}(F)$.
 
 By the previous proposition, there are two maps that we can
-define between the graded pieces of $\tlHM{n}(F)$. Let
+define between the graded pieces of $\tlHM{n}(F)$. Recognizing
+$L\tlHM[k]{n}(F) \defeq L \tlHI{n + k}(F_k)$ and 
+$\tlHM[k + 1]{n}(F) \defeq \tlHI{n + k + 1}(F_{k + 1})$, let
 \[
-\suspTL[k]{n} : L\tlHM[k]{n}(F) \defeq 
-   L \tlHI{n + k}(F_k) \to \tlHM[k + 1]{n}(F) \defeq 
-   \tlHI{n + k + 1}(F_{k + 1})
+\suspTL[k]{n} : L\tlHM[k]{n}(F) \to \tlHM[k + 1]{n}(F) 
 \]
 denote the composition
 \begin{equation}\label{eq_susp_def}
-L \tlHI{n + k}(F_k) \stackrel{\simeq}{\to} 
+L \tlHI{n + k}(F_k) \stackrel{\cong}{\to} 
    \tlHI{n + k + 1}L(F_k) 
    \xrightarrow{\;\tlHI{n + k + 1}(\susp_k)\;} 
    \tlHI{n + k + 1}(F_{k + 1})
 \end{equation}
 where $\susp_k: L(F_k) \to F_{k + 1}$ is the $k$-th suspension 
-map of $(F_*, \deloop_*)$. Let
+map of $(F_*, \deloop_*)$. Similarly, since we have that
+$\tlHM[k - 1]{n}(F) \defeq \tlHI{n + k - 1}(F_{k - 1})$ and
+$R \tlHM[k]{n}(F) \defeq R \tlHI{n + k}(F_{k})$, let
 \[
-\deloopTL[k]{n} : \tlHM[k - 1]{n}(F) \defeq 
-   \tlHI{n + k - 1}(F_{k - 1}) \to R \tlHM[k]{n}(F) \defeq 
-   R \tlHI{n + k}(F_{k}) 
+\deloopTL[k]{n} : \tlHM[k - 1]{n}(F) \to R \tlHM[k]{n}(F) 
 \]
-be given by
+be a map defined by
 \begin{equation}\label{eq_deloop_def}
 \tlHI{n + k - 1}(F_{k - 1})
    \xrightarrow{\;\tlHI{n + k - 1}(\deloop_k)\;} 
-   \tlHI{n + k - 1} R(F_k) \stackrel{\simeq}{\to} 
+   \tlHI{n + k - 1} R(F_k) \stackrel{\cong}{\to} 
    R \tlHI{n + k}(F_k),
 \end{equation}
 where $\deloop_k: F_{k - 1} \to R(F_k)$ is the $k$-th delooping
@@ -215,11 +298,10 @@ mapped to $\deloopTL{n}$ via the adjunction
 \]
 given that $\susp_{k + 1}$ is adjoint to $\deloop_k$.
 
-Recall that $\shift[k]{F_*}$ denotes a shift in grading as given by 
-$\shift[k]{F_*}_n = F_{n + k}$. (See Sect. \ref{sect_cycmod_and_hm} 
-for definition of $\shift[k]{F_*}$.) Noting that 
-$\tlHM{n}(\shift[k]{F}) = \shift[k]{\tlHM{n - k}(F)}$, we may 
-assume without loss of generality that $k = 0$. 
+Let $\shift[k]{F_*}$ denote a shift in grading as given 
+by $\shift[k]{F_*}_n = F_{n + k}$. Notice that 
+$\tlHM{n}(\shift[k]{F}) = \shift[k]{\tlHM{n - k}(F)}$. Therefore, 
+we may assume without loss of generality that $k = 0$. 
 
 To simplify notations, let
 \[
@@ -298,7 +380,7 @@ F_0 \arrow{rr} & & RL(F_0) \arrow[crossing over, leftarrow]{uu}
 \end{tikzcd}
 \]
 where the faces parallel to the page are precisely (from front to
-rear) Diagrams \ref{eq_LR_front_face} and \ref{eq_LR_rear_face}
+rear) \eqref{eq_LR_front_face} and \ref{eq_LR_rear_face}
 respectively. Since unit maps are an isomorphisms, if we let the 
 dotted arrow be given by the composition
 \[
@@ -319,11 +401,10 @@ L^nR^n(F_0) \arrow[crossing over]{rr}\arrow{dd}{\eta} & &
    \arrow[equals]{dl} \\
 F_0 \arrow{rr} \arrow{dd} & & 
    RL(F_0) \arrow[crossing over, leftarrow]{uu} \\
-& \tlHI{n}(F_0) \arrow[equals]{dl}\arrow{rr} \arrow{dd} & & 
-   \tlHI{n} RL(F_0) \arrow[leftarrow]{dl} \arrow{dd}\\
-\tlHI(F_0) \arrow{rr} \arrow{dd} & & 
-   RL\tlHI{n}(F_0) \arrow[crossing over, leftarrow]{uu} \\
-& 0 & & 0 \\ 0 & & 0. \arrow[crossing over, leftarrow]{uu} \\
+& \tlHI{n}(F_0) \arrow[equals]{dl}\arrow{rr} & & 
+   \tlHI{n} RL(F_0) \arrow[leftarrow]{dl}\\
+\tlHI{n}(F_0) \arrow{rr} & & 
+   RL\tlHI{n}(F_0) \arrow[crossing over, leftarrow]{uu} 
 \end{tikzcd}
 \]
 Here, each of the vertical faces of the bottom cube is commutative.
@@ -444,7 +525,7 @@ Theorem \ref{thm_corad_equiv_htt} and Theorem
 \begin{cor}
 There exists a strong filtration of $\HM$
 \[
-\cdots \subseteq \tgHM{i}\HM \subseteq \tgHM{i - 1} \subseteq 
+\cdots \subseteq \tgHM{i}\HM \subseteq \tgHM{i - 1}\HM \subseteq 
    \cdots \subseteq \HM
 \]
 and a strong cofiltration of $\HM$
@@ -453,67 +534,264 @@ and a strong cofiltration of $\HM$
    \cdots \subseteq \HM
 \]
 where $(F_*, \deloop_*)$ in $\tgHM{i}\HM$ is characterized by
-$\tgHM{i}(F) = 0$, and $(F_*, \deloop_*)$ in $\tlHM{i}\HM$ is
+$\tlHM{i}(F) = 0$, and $(F_*, \deloop_*)$ in $\tlHM{i}\HM$ is
 characterized by $\tlHM{i}(F) = F_*$.
 \end{cor}
 \noproof
 
-In what sense is $\tlHM{*}$ an extension of $\tlHI{*}$? Notice that
-$\HI$ embeds into $\HM$ as a subabelian category in the following 
-sense. There exists the following commutative diagram of categories:
+By \ref{cor_tt_ref_and_coref}, the reflection functors 
+$\tgHM{n} : \HM \to \tgHM{n}\HM$ are defined by sending $(F_*, 
+\deloop_*)$ in $\HM$ to the kernel of the unit map 
+$(F_*, \deloop_*) \to \tlHM{n}(F)$. Write $\tgHM{n}(F)$ for this 
+kernel. From this discussion, we have another characterization of 
+the objects in $\tgHM{n}\HM$, which follows easily from 
+\ref{thm_precorad_eq_tt}:
+
+\begin{cor}\label{cor_tgHM_prop}
+The objects in $\tgHM{n}\HM$ are those $(F_*, \deloop_*)$ for
+which $\tgHM{n}(F) = (F_*, \deloop_*)$.
+\end{cor}
+\noproof
+
+We conclude this section by two immediate applications of the
+results above. The first is to show that there is a torsion 
+filtration structure on the category of cycle modules (defined 
+below) and the second is to describe the behavior of the torsion
+filtration with respect to the tensor structure on both $\HI$
+and $\HM$.
+
+Recall from \cite{Rost96} the definition of a cycle module:
+
+\begin{defn}\label{def_pre_cycmod}
+Let $X$ be an arbitrary finite-type $k$-scheme, and let 
+$\fields(X)$ be the class of all fields $F$ such that there
+exists a map $\Spec F \to X$, and that $F$ is finitely generated
+over $k$.
+
+A \emph{cycle premodule} on $\fields(X)$ is an object function
+that associated to each $F$ in $\fields(B)$ a $\Z$-graded abelian
+group $M(F) = \prod_i M_i(K)$ with the following data:
+
+\begin{enumerate}
+\item[\textbf{D1.}] For each $\phi: F \to E$, there is a degree 0
+map $\phi_*: M(F) \to M(E)$ called the \emph{restriction map 
+associated to $\phi$}
+
+\item[\textbf{D2.}] For each finite $\phi: F \to E$, there is a 
+degree 0 map $\phi^*: M(E) \to M(F)$ called the \emph{corestriction
+map associated to $\phi$}
+
+\item[\textbf{D3.}] For each $F$, the group $M(F)$ is equipped
+with a left $\milK_*(F)$-module, where $\milK_*(F)$ is the Milnor
+$K$-ring of $F$.
+
+\item[\textbf{D4.}] For any valuation $v$ of $F$, there exists 
+maps $\res{v}: M(F) \to M(\resf(v))$ and $\Special{v}{\ideal{p}}$
+called the \emph{residue} and \emph{specialization} respectively, 
+where $\resf(v)$ is the residue field of $v$ and $\ideal{p}$ is 
+a prime of $v$,
+\end{enumerate}
+
+which is subject to the following conditions:
+
+\begin{enumerate}
+\item[\textbf{R1a.}] For each $\phi: F \to E$ and $\psi: E \to L$,
+$(\psi \comp \phi)_* = \psi_* \comp \phi_*$
+
+\item[\textbf{R1b.}] For each finite $\phi: F \to E$ and $\psi: E
+\to L$, $(\psi \comp \phi)^* = \phi^* \comp \psi^*$
+
+\item[\textbf{R1c.}] For $\phi: F \to E$ and $\psi: E \to L$ with
+$\phi$ finite, define $R = E \otimes_F L$, and let $\ideal{p}$
+be any prime ideal of $R$. (As $R$ is Artin, let $l_p$ be the 
+length of the localized ring $R_{(\ideal{p})}$), and 
+$\phi_{\ideal{p}}: L \to R/{\ideal{p}}$ and 
+$\psi_{\ideal{p}}: E \to R/{\ideal{p}}$ be natural maps.
 \[
-\begin{tikzcd}
-\DMeff \arrow[hookrightarrow]{r} \arrow{d}{\sheaf{H}^0} &
-\DM \arrow{d}{\sheaf{H}^0} \\
-\HI \arrow[hookrightarrow]{r}{\spectHI} &
-\HM
-\end{tikzcd}
+\psi_*\comp \phi^* = \sum_{\ideal{p}} l_p \cdot 
+(\phi_{\ideal{p}})^* \comp (\psi_{\ideal{p}})_*.
 \]
-where $\spectHI(F)$ is the graded sheaf whose $k$-th associated
-graded is given by
+
+\item[\textbf{R2.}] For $\phi: F \to E$, $x \in \milK_*F$, $y \in
+\milK_*E$, $\rho \in M(F)$, and $\mu \in M(E)$, then:
+
+\item[\textbf{R2a.}] $\phi_*(x \cdot \rho) = \phi_*(x) \cdot 
+\phi_*(\rho)$.
+
+\item[\textbf{R2b.}] if $\phi$ is finite, $\phi^*(\phi_*(x) \cdot 
+\mu) = x \cdot \phi^*(\mu)$.
+
+\item[\textbf{R2c.}] if $\phi$ is finite, $\phi^*(y \cdot 
+\phi_*(\rho)) = \phi^*(y) \cdot \rho$.
+
+\item[\textbf{R3.}] For $\phi: F \to E$, $v$ a valuation on $E$
+and $w$ and a valuation on $F$:
+
+\item[\textbf{R3a.}] Suppose $w$ is a nontrivial restriction of 
+$v$ with ramification index $e$. Let $\phib: \resf{w} \to 
+\resf{v}$ be the induced map. Then:
 \[
-\spectHI(F)_k = \begin{cases}
-L^k(F)   & \textrm{for }k > 0 \\
-F            & k = 0 \\
-R^{|k|}(F) & k < 0,
+\res{v} \comp \phi_* = e \phib_* \comp \res{w}.
+\]
+
+\item[\textbf{R3b.}] Let $\phi$ be finite. For each valuation $v$ 
+an extension of $w$ to $E$, let $\phi_v: \resf{w} \to \resf{v}$
+be the induced map. Then
+\[
+\res{v} \comp \phi^* \sum_{v} \comp \res{v}.
+\]
+
+\item[\textbf{R3c.}] Suppose $v$ restricts to a trivial valuation
+$w$ on $F$. Then
+\[
+\res{v} \comp \phi_* = 0
+\]
+
+\item[\textbf{R3d.}] Suppose $v$ again restricts to a trivial 
+valuation, and let $\phib: F \to \resf{v}$ be the induced map, and
+$\ideal{p}$ a prime of $v$. Then
+\[
+\Special{v}{\ideal{p}} \comp \phi_* = \phib_*
+\]
+
+\item[\textbf{R3e.}] Let $u$ be a $v$-unit, and $\rho \in M(F)$,
+one has
+\[
+\res{v}(\{u\} \cdot \rho) = -\{\overline{u}\} \cdot \res{v}(\rho).
+\]
+\end{enumerate}
+\end{defn}
+
+For $X$ a $k$-scheme, let $\subsch{1}{X}$ denote the collection of 
+codimension 1 subscheme. Write $\xi_X$ be the generic point of an
+irreducible $X$ with $K_X = \O_X,\xi_X$. If $X$ is normal, then 
+for $x \in \codim{1}{X}$, the local ring $\O_X,x$ is a valuation 
+ring of $K_X$ with residue field $\resf{x}$. Write $M(x)$ for 
+$M(\resf{x})$, and $\res{x}: M(\xi_X) \to M(x)$ for the 
+restriction map.
+
+Furthermore, for $x, y \in X$, let $Z$ be the closed subscheme 
+determined by $x$, and $\overline{Z}$ be the normalization $Z$.
+Define
+\[
+\ptres{x}{y}: M(x) \to M(y)
+\]
+by
+\[
+\ptres{x}{y} = 
+\begin{cases}
+0 & y \notin \subsch{1}{Z} \\
+\sum_{z|y} \phi_{\resf{z},\resf{x}}^* \comp \res{z} & \textrm{otherwise}
 \end{cases}
 \]
-which is compatible with the inclusion of $\DMeff$ into $\DM$,
-and realizes $\HI$ as a subcategory of $\HM$. The functor 
-$\spectHI$ also admits a adjoint $\loopHM : \HM \to HI$ given by 
-$(F_*, \susp_*) \mapsto F_0$ (see Sect. \ref{sect_cycmod_and_hm}), 
-such that $\loopHM \spectHI = \id$.
+In case $\ptres{x}{y}$ is nonzero, the sum is taken over all $z$
+lying over $y \in \subsch{1}{Z}$, and
+$\phi_{\resf{z},\resf{y}}^*$ is the corestriction map associated to 
+the finite field extension $\resf{y} \to \resf{z}$.
 
-The following is clear from the definitions.
+\begin{defn}
+A cycle module $M$ on $\fields(B)$ is a cycle premodule which
+satisfies the following conditions:
 
-\begin{prop}
-For each $n > 0$, $\loopHM \tlHM{n} = \tlHI{n}$, and $\spectHI 
-\tlHI{n} = \tlHM{n} \spectHI$.
-\end{prop}
+\begin{enumerate}
+\item[\textbf{(FD)}] \itemhead{Finite support of divisors.} 
+$X$ be a normal scheme and $\rho \in M(\xi_X)$. Then $\res{x}: 
+M(\xi_X) \to M(X)$ is 0 for all but finitely many $x \in 
+\subsch{1}{X}$.
 
-We conclude this section by describing the behavior of the 
-filtration with respect to the monoidal structure. We begin
-with the following result:
+\item[\textbf{(C)}] \itemhead{Closedness.} If $X$ is an integral
+local local of dimension 2 with closed point $x_0$, then the map 
+from $M(\xi_X)$ to $M(x_0)$ given by
+\[
+\sum_{x \in \subsch{1}{X}} \ptres{x_0}{x} \comp \ptres{x}{\xi}
+\]
+is 0.
+\end{enumerate}
+\end{defn}
 
-\begin{prop}\label{prop_tensor_and_tfilt}
-Let $(\HI, \tgHI{*})$ and $(\HI, \tlHI{*})$ be the strong 
-filtration and cofiltration on $\HI$, then $\tgHI{n}\HI \tHI 
-\tgHI{m}\HI \subseteq \tgHI{n + m}\HI$.
+D\'eglise showed in \cite{DegModHom} that a homotopy module $(F_*, 
+\deloop_*)$ gives rise to a unique cycle module $\assocCM{F_*}$,
+and that this association defines an equivalence between the 
+category of homotopy modules and cycle modules. (See 
+\cite[3.7]{DegModHom}.)
+
+Via this categorical equivalence, we have the following:
+\begin{thm}
+There exists a torsion filtration of $\CycMod$. In particular,
+there exist a $\Z$-indexed descending strong filtration:
+\[
+\cdots \subseteq \tgHM{i}\CycMod \subseteq \tgHM{i - 1}\CycMod \subseteq 
+   \cdots \subseteq \CycMod
+\]
+and a $\Z$-indexed increasing strong cofiltration 
+\[
+\cdots \subseteq \tlHM{i}\CycMod \subseteq \tlHM{i + 1} \subseteq 
+   \cdots \subseteq \CycMod
+\]
+on $\CycMod$, such that for all integers $n$, the pair of full 
+subcategories 
+\[
+(\tlHM{n}\CycMod, \tgHM{n}\CycMod)
+\]
+form a torsion theory on $\CycMod$.
+\end{thm}
+
+\begin{ex}\label{ex_milK}
+A well-known example of a cycle module is Milnor $K$-theory,
+$\milK_*$. Recall from \cite{MilK} that for a field $F$, the
+Milnor $K$-theory of $F$ is the graded commutative ring given by
+\[
+\milK_*(F) \defeq T^*(F^*)/I
+\]
+where $T^*(F^*)$ denotes the tensor algebra of the multiplicative 
+group $F^*$, and $I$ denotes the ideal generated by $a \tensor 
+(1 - a)$ for all $a$ in $F^*$. The $n$-th Milnor $K$-theory of $F$ 
+is the $n$-th graded piece of $\milK_*(F)$.
+
+Via \cite[3.7]{DegModHom}, the homotopy module corresponding to 
+$\milK_*$ is $(\Ox)^{\tensor n}$. Therefore, $\milK_n \in
+\tlHM{n}\CycMod \cap \tgHM{n}\CycMod$.
+\end{ex}
+
+We now discuss the tensorial properties of the filtration. Let us
+first consider the following notion:
+
+\begin{defn}\label{def_graded_tensor}
+Let $(\Cat{C}, \tensor, \Unit)$ be a monoidal category.
+We say that $\Cat{C}$ is a \DEF{graded monoidal category (by
+$(\phi_*\Cat{C}, \phi_*)$)} if $(\phi_*\Cat{C}, \phi_*)$ is a 
+(weak) filtration of $\Cat{C}$ such that for all integers $n$
+and $m$, $\phi_n\Cat{C} \tensor \phi_m\Cat{C} \subseteq
+\phi_{n + m}\Cat{C}$.
+\end{defn}
+
+\begin{ex}
+By construction, it is clear that $(\sgHI{*}\HI, \sgHI{*})$ 
+defines a graded symmetric monoidal category on $\HI$ under
+$\tHI$.
+\end{ex}
+
+We first show that $(\tgHI{*}\HI, \tgHI{*})$ define a graded
+monoidal category on $\HI$. 
+
+\begin{prop}\label{prop_tensor_and_tfilt_HI}
+For $F$ in $\tgHI{n}\HI$ and $G$ in $\tgHI{m}\HI$, $F \tHI G$
+is an object of $\tgHI{n + m}\HI$.
 \end{prop}
 \begin{proof}
-Let $F$ be an object in $\tgHI{n}\HI$, and $G$ be an object in 
-$\tgHI{m}\HI$. Then the counit $\epsilon: L^nR^n(F) \to F$ is 
-surjective (Prop.  \ref{prop_THI_properties} (1)), and since the 
-functor $- \tHI G$ is right exact, the map
+Since $F \in \tgHI{n}\HI$, the counit $\epsilon: L^nR^n(F) \to F$ 
+is surjective (Prop.  \ref{prop_THI_properties} (1)), and since 
+the functor $- \tHI G$ is right exact, the map
 \[
-L^nR^n(F) \tHI G \xrightarrow{\epsilon_F \tHI G}{\to} F \tHI G.
+L^nR^n(F) \tHI G \xrightarrow{\epsilon_F \tHI G} F \tHI G.
 \]
-Similarly,
+is also surjective. Similarly,
 \[
 L^nR^n(F) \tHI L^mR^m(G) \xrightarrow{L^nR^n(F) \tHI \epsilon_G}
-L^nR^n(F) \tHI G.
+L^nR^n(F) \tHI G
 \]
-Composing these two surjection, we have a surjection
+is also surjective. Composing these two surjection, we have a 
+surjection
 \[
 L^nR^n(F) \tHI L^mR^m(G) \to F \tHI G.
 \]
@@ -531,3 +809,41 @@ the functor $\tlHI{n + m}$ is right exact; in particular,
 is a surjection. It follows that $\tlHI{n + m}(F \tHI G) = 0$ and
 $F \tHI G \in \tgHI{n + m}\HI$ as desired.
 \end{proof}
+
+\begin{cor}\label{cor_graded_tensor_HI}
+There exists a graded symmetric monoidal structure on $\HI$ by
+$(\tgHI{*}\HI, \tgHI{*})$.
+\end{cor}
+
+We now show that the graded symmetric monoidal structure on $\HI$
+can be extended to a graded symmetric monoidal structure on $\HM$.
+
+\begin{prop}\label{prop_graded_mon_struct_HM}
+Let $n$ and $m$ be arbitrary integers. For $F_* \defeq (F_*, 
+\deloop_*)$ and $G_* \defeq (G_*,\deloop_*)$ in $\tgHM{n}\HM$ and 
+$\tgHM{m}\HM$ respectively, $F_* \tHI G_*$ is an object of 
+$\tgHM{n + m}$.
+\end{prop}
+\begin{proof}
+By \ref{cor_tgHM_prop}, it suffices to show that $\tgHM{n + m}(F_*
+\tHI G_*) = F_* \tHI G_*$.
+
+Regard the objects of $\HM$ as pairs $(F, k)$, where $F \in \HI$
+and $k$ is an arbitrary integer. It is straightforward to 
+verify from the definition of $\tgHM{*}$ and \ref{prop_tl_L_R} 
+that
+\[
+\tgHM{n}((F, k)) = \begin{cases}
+(\tgHI{n - k}F, k) &\textrm{if }n > k\\
+(F, k)             &\textrm{otherwise}.
+\end{cases}
+\]
+Therefore, we are reduced to showing that for $F$ and $G$ in
+$\tgHI{n}\HI$ and $\tgHI{m}\HI$, $\tgHI{n + m}(F \tHI G) =
+F \tHI G$. This follows directly from \ref{cor_graded_tensor_HI}.
+\end{proof}
+
+\begin{cor}\label{cor_graded_mon_struct_HM}
+There exists a graded symmetric monoidal structure on $\HM$ by
+$(\tgHI{*}\HM, \tgHM{*})$.
+\end{cor}
