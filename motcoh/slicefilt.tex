@@ -6,27 +6,37 @@ $\DMeff$ using the structure on $\DMeff$ defined in the previous
 section. To be more precise, consider the following definition.
 
 \begin{defn}\label{def_cat_filtration}
-Let $\Cat{A}$ be a category. A \DEF{weak filtration} of $\Cat{A}$ 
-is a ($\Z$-indexed) sequence of subcategories
+Let $\Cat{A}$ be a category. A descending \DEF{weak filtration} of 
+$\Cat{A}$ is a ($\Z$-indexed) sequence of subcategories
 \[
 \cdots \subseteq \phi_i\Cat{A} \subseteq \phi_{i - 1}\Cat{A} 
    \subseteq \cdots \subseteq \Cat{A}
 \]
 together with (co)reflection functors $\phi_i: \Cat{A} \to 
 \phi_i\Cat{A}$ for each $i$ such that $\phi_i$ restricts to 
-the identity on $\phi_i\Cat{A}$.
+the identity on $\phi_i\Cat{A}$. One can similarly define
+ascending weak filtrations.
 \end{defn}
 
 \begin{rmk}
-The defintion we provided was for an $\N$-indexed filtration.
-We can similarly define a $\Z$-index filtration in the obvious way.
-An $\N$-indexed filtration is a $\Z$-index filtration for which
-$\phi_i \Cat{C} = \phi_0 \Cat{C}$ for all negative values of $i$.
+An $\N$-indexed descending weak filtration is just a $\Z$-indexed 
+descending weak filtration such that $\phi_{j}\Cat{A} = \Cat{A}$
+for all negative integers $j$. Likewise, an $\N$-indexed ascending 
+weak filtration is an ascending weak filtration for which
+$\phi_{j}\Cat{A} = \phi_{0}\Cat{A}$ for all negative $j$.
 \end{rmk}
+
+We show that there are two ($\N$-indexed) weak filtrations --- 
+one ascending, one descending --- on $\DMeff$. The construction 
+is based on the work of Voevodsky, Huber, and Kahn \cite{HuKa}. 
+We then extend the weak filtration on $\DMeff$ to a $\Z$-indexed
+weak filtration on $\DM$. Proposition \ref{prop_sDM_properties}
+and the constructions of the filtrations on $\DM$ are new.
 
 We show that there is a weak filtration on $\DMeff$, and extend 
 this filtration to a localization of $\DMeff$. The construction
-is based on the work of Voevodsky, Huber, and Kahn.
+is based on the work of Voevodsky, Huber and Kahn. The first half
+of the section is based on Section 1 of \cite{HuKa}
 
 We now introduce the slice filtration on $\DMeff$. For each 
 $n \geq 0$, the counit $\LDMf{n}\RDMf{n} \to \id$ gives rise to a 
@@ -87,7 +97,7 @@ Since $\hZ[n]{M} = 0$ for $M$ in $\slDM{n}\DMeff$, $\sgDM{n} M =
 the slice triangle \eqref{eq_slice_triangle_1}. To see that 
 $\sgDM{n}$ restricts to the identity on $\sgDM{n} \DMeff$, notice 
 that for all $M$ in $\sgDM{n} \DMeff$, $M = \tZ[n]{M'}$, and by 
-Prop. \ref{prop_tZ_hZ_eq_id} $\sgDM{n}M = 
+Prop. \ref{cor_tZ_hZ_eq_id} $\sgDM{n}M = 
 \tZ[n]{\hZ[n]{\tZ[n]{M'}}} \cong \tZ[n]{M'} = M.$
 
 We summarize the main results of the above discussion in the 

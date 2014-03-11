@@ -8,18 +8,18 @@ torsion filtrations on $t$-categories $\DCat$ with a symmetric
 monoidal structure. Let us begin by defining the following notion:
 
 \begin{defn}\label{def_torsion_monoidal_category}
-Let $\DCat$ be a $t$-category with a symmetric monoidal structure,
-where $(\DCat^{\geq 0}, \DCat^{\leq 0})$ is its $t$-structure,
-and $(\tensor, \Unit)$ represent its symmetric monoidal structure.
-We say that $\DCat$ is a \DEF{torsion monoidal category} if $\DCat$
+Let $\DCat$ be a tensor monoidal category with a $t$-structure 
+given by $(\DCat^{\geq 0}, \DCat^{\leq 0})$. Let 
+$(\tensor, \Unit)$ represent its symmetric monoidal structure. We 
+say that $\DCat$ is a \DEF{torsion monoidal category} if $\DCat$ 
 is equipped with 
 \begin{enumerate}
 \item (\itemhead{Partial Internal Hom}) a partial internal hom
-structure $(\ihom, \DCat^{\compact})$
+structure $(\ihom, \DCat^{\compact})$ (see 
+\ref{def_tensor_triang_cat}).
 
-\item (\itemhead{Tate Object}) an object $S$, called the 
-   \DEF{Tate object}, in $\DCat^{\compact} \cap \Cat{C}$, where 
-   $\Cat{C}$ is the heart of $\DCat$
+\item (\itemhead{Tate Object}) an compact object $S$ in the hear
+   of $\DCat$ called the \DEF{Tate object}
 \end{enumerate}
 
 \noindent subject to the following conditions:
@@ -31,7 +31,7 @@ structure $(\ihom, \DCat^{\compact})$
 
 \item (\itemhead{Cancellation}) $\ihom(S, S \tensor X) = X$,
 
-\item $\ihom(S, -)$ is an exact $t$-structure.
+\item $\ihom(S, -)$ is $t$-exact.
 \end{enumerate}
 \end{defn}
 
@@ -52,9 +52,9 @@ $\Cat{C}$ given by $F \mapsto F \tensor S$ and $F \mapsto
 
 In all settings, $L^n$ and $R^n$ denote the $n$-th iterations
 of $L$ and $R$ respectively. Notice that the Cancellation 
-property of torsion monoidal categories gives that $R^nL^n$
+property (\ref{def_torsion_monoidal_category}(2)) gives that $R^nL^n$
 is naturally isomorphic to the identity. We now introduce the 
-following theorems that generalizes and summarizes the theory we 
+following theorems that generalize and summarize the theory we 
 have developed in this thesis. We begin with the weak filtration
 on $\DCat$:
 
@@ -153,7 +153,7 @@ arguments for \ref{prop_HI_upper_slice}, \ref{thm_main_result} and
 \ref{cor_tlHI_prop} go through to show:
 
 \begin{thm}\label{thm_sum_heart}
-There exists a descending weak filtraion $(\sgHI{*}\Cat{C}, 
+There exists a descending weak filtration $(\sgHI{*}\Cat{C}, 
 \sgHI{*})$ where the objects of the full subcategories 
 $\sgHI{n}\Cat{C}$ are those $F$ in $\Cat{C}$ for which $F = L^nF'$ 
 for some $F'$ in $\Cat{C}$. In this case, the reflection functor 
