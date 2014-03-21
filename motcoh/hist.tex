@@ -1,10 +1,17 @@
 \newpage
 \chapter{Homotopy Invariant Sheaves with Transfers}\label{sect_hist}
 
-Let $\basefield$ be a perfect field, and let $\Sm$ denote the 
-category of smooth separated finite type $\basefield$-schemes. The 
-material in this sections is taken from Lecture 2 and 6 of 
-\cite{MVW}.
+In this chapter, we define the notion of homotopy invariant
+Nisnevich sheaves with transfers. In order to do so, we need to
+introduce the category of correspondences and presheaves with 
+transfers. 
+
+For the remainder of the thesis, let $\basefield$ be a perfect 
+field, and let $\Sm$ denote the category of smooth separated 
+finite type $\basefield$-schemes. The material in this chapter is 
+taken from Lecture 2 and 6 of \cite{MVW}.
+
+\section{Sheaves with Transfers}
 
 \begin{defn}\label{def_cor}
 Let $X, Y$ be smooth separated finite type $\basefield$-schemes. 
@@ -112,7 +119,7 @@ a space $X$. Specifically, regarding a topology of $X$ as a
 category $\Cat{T}_X$ where the objects are open subsets of $X$ and 
 the morphisms are inclusion maps, then the collections $\{V_i 
 \subset V\}$ of all covers of $V$, as $V$ ranges over all open 
-subsets of $X$ satisfy the axioms of Def. \ref{def_groth_top} and 
+subsets of $X$ satisfy the axioms of Definition \ref{def_groth_top} and 
 define a Grothendieck pre-topology on $\Cat{T}_X$.
 \end{rmk}
 
@@ -202,7 +209,7 @@ are some prominent examples.
 
 \begin{ex}\label{ex_Z_O_Ostar}
 The constant sheaf $\Z$, the structure sheaf $\O$, and the sheaf
-of global units $\Ox$ satisfy the conditions given in Def. 
+of global units $\Ox$ satisfy the conditions given in Definition
 \ref{def_etale_sheaf}, and are both \'etale and Nisnevich sheaves.
 To see that $\Z, \O,$ and $\Ox$ are \'etale and Nisnevich sheaves
 with transfers, we must specify what the transfer structures are
@@ -242,7 +249,7 @@ for the sheaf which associates to each $U$ the abelian group
 $\Cor(U, X)$. To see that $\Ztr(X)$ is a Nisnevich sheaf, it
 suffices to show that it is an \'etale sheaf. In particular,
 for each $X$ in $\Sm$, $\Ztr(X)$ satisfies the coherence 
-conditions given in \ref{def_nis_sheaf}. The statement that
+conditions given in Definition \ref{def_nis_sheaf}. The statement that
 $\Ztr(X)$ is an \'etale sheaf is proven in \cite[6.2]{MVW}.
 \end{ex}
 
@@ -279,8 +286,10 @@ statements about \'etale sheaves can easily be extended to proofs
 for the Nisnevich sheaves.
 \end{proof}
 
-The notion of homotopy invariant sheaves (defined below) will play 
-a central role in the following sections.
+\section{Homotopy invariant sheaves with transfers}
+
+We now introduce the notion of homotopy invariant sheaves (defined
+below), which will play a central role in the subsequent chapters.
 
 \begin{defn}
 A presheaf $F$ is \DEF{homotopy invariant} if the map 
@@ -304,7 +313,7 @@ $\HIEt$ and $\HINis$.
 If $F$ is a homotopy invariant presheaf with transfers, then
 $\Etale{F}$ and $\NisSh{F}$ are homotopy invariant sheaves under
 the \'etale and Nisnevich topologies respectively. Together with
-Prop. \ref{prop_et_and_nis_sheafification}, we have the following
+Proposition \ref{prop_et_and_nis_sheafification}, we have the following
 commutative diagram detailing the subcategories of presheaves on
 $\Sm$ and their reflection functors:
 \[
@@ -395,13 +404,13 @@ transfers.
 \end{rmk}
 
 \begin{rmk}
-We note that all results of this section hold for $\PST(R)$, which
+We note that all results of this chapter hold for $\PST(R)$, which
 are presheaves with transfers with values in $R$-modules, where $R$
 is some commutative unital ring. In particular, $\Rtr(X)$ are
 \'etale/Nisnevich sheaves for all $X$ in $\Sm$.
 \end{rmk}
 
-We conclude this section with an endofunctor on the category $\HI$
+We conclude this chapter with an endofunctor on the category $\HI$
 that will play an important role in the construction of a 
 filtrations on $\HI$.
 

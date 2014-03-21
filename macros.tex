@@ -116,6 +116,7 @@
 \newcommand{\basefield}{k}
 \renewcommand{\O}{\mathcal{O}}
 \newcommand{\Ox}{\O^*}
+\newcommand{\Oxn}[1][n]{\O^{* #1}}
 \newcommand{\sheaf}[1]{\underline{#1}}
 \newcommand{\A}{\mathbb{A}}
 \newcommand{\Gm}{\mathbb{G}_m}
@@ -133,6 +134,7 @@
 \newcommand{\PSh}{PSh}
 \newcommand{\ShEt}{Sh_{\mathrm{\acute{e}t}}}
 \newcommand{\ShNis}{Sh_{\mathrm{Nis}}}
+\newcommand{\QCoh}{\mathbf{QC}}
 
 % sheaves with transfers
 \newcommand{\tL}{\otimes^{\mathbb{L}}}
@@ -165,7 +167,9 @@
 \newcommand{\HIEt}{\HI_{\mathrm{\acute{e}t}}}
 \newcommand{\HINis}{\HI_{\mathrm{Nis}}}
 \newcommand{\LHI}[2][1]{#2(#1)}
+\newcommand{\LHIs}[2][1]{#2(#1)^{\mathrm{HI}}}
 \newcommand{\RHI}[2][1]{#2_{-#1}}
+\newcommand{\RHIs}[2][1]{#2_{-#1}^{\mathrm{HI}}}
 \newcommand{\tHI}{\,\otimes^H}
 \newcommand{\hS}[1]{h_{#1}}
 \newcommand{\homHI}{\hom_{\HI}}
@@ -225,23 +229,34 @@
 % slice filtration, torsion filtration
 \newcommand{\slice}[1]{s_#1}
 \newcommand{\sgHI}[1]{\sigma^{#1}}
-\newcommand{\tlHI}[1]{\phi^{\leq #1}}
+\newcommand{\tlHI}[1]{\phi^{< #1}}
 \newcommand{\tgHI}[1]{\phi^{\geq #1}}
+\newcommand{\TLHI}[2]{{#2}^{< #1}}
+\newcommand{\TGHI}[2]{{#2}^{\geq #1}}
 \newcommand{\tconst}[1]{\phi_{#1}}
-\newcommand{\THI}[1]{\tgHI{#1}\HI}
-\newcommand{\TFHI}[1]{\tlHI{#1}\HI}
+\newcommand{\THI}[1]{\HI^{\geq #1}}
+\newcommand{\TFHI}[1]{\HI^{< #1}}
+\newcommand{\THM}[1]{\HM^{\geq #1}}
+\newcommand{\TFHM}[1]{\HM^{< #1}}
+\newcommand{\TFCycMod}[1]{\CycMod^{< #1}}
+\newcommand{\TCycMod}[1]{\CycMod^{\geq #1}}
 \newcommand{\TCat}[1]{\mathbf{T}_{#1}}
 \newcommand{\TFCat}[1]{\mathbf{F}_{#1}}
-\newcommand{\slDM}[1]{\nu^{\leq #1}}
+\newcommand{\slDM}[1]{\nu^{< #1}}
 \newcommand{\sgDM}[1]{\nu^{\geq #1}}
 \newcommand{\sliceDM}[1]{\nu_{#1}}
 \newcommand{\fIDM}[1]{c_{#1}}
 \newcommand{\sliceTriangle}[2]{
    \sgDM{#1}#2 \to #2 \to \slDM{#1}#2 \to \sgDM{#1}#2[1]
 }
+\newcommand{\GFiltDM}[2][*]{#2_{\geq #1}}
+\newcommand{\LFiltDM}[2][*]{#2_{< #1}}
 
 % general filtration macros
 \newcommand{\corad}[1]{\phi^{\leq #1}}
+\newcommand{\Corad}[2]{#2^{< #1}}
 \newcommand{\coradD}[1]{\nu^{\leq #1}}
 \newcommand{\prerad}[1]{\phi^{\geq #1}}
+\newcommand{\Prerad}[2]{#2^{\geq #1}}
 \newcommand{\preradD}[1]{\nu^{\geq #1}}
+\newcommand{\SGFilt}[2]{#2(#1)}

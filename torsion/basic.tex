@@ -7,6 +7,9 @@ from the dual perspective of coradicals. The ideas are not new;
 neither is the methodology. We have included the proof for 
 convenience of the reader.
 
+\section{Coradicals}
+\label{sect_coradicals}
+
 For the following, let $\Cat{A}$ be a well-powered abelian category.
 That is, for every object $A$ in $\Cat{A}$, the collection of 
 subobjects of $A$ forms a set. The assumption that $\Cat{A}$ is
@@ -317,6 +320,9 @@ It follows that $h$ must be an isomorphism as well, and the
 proposition is established.
 \end{proof}
 
+\section{Torsion theories and coradicals}
+\label{sect_tt_and_corads}
+
 \begin{defn}
 Let $\Cat{A}$ be an abelian category. A \emph{torsion theory} for
 $\Cat{A}$ is a pair $(\Cat{T}, \Cat{F})$ of full subcategories 
@@ -388,7 +394,7 @@ such that $\hom_{\Cat{A}}(T', F) = 0$ for all $F$ in $\Cat{F}$. We
 proceed by showing that $\Cat{T'} = \Cat{T}.$
 
 Clearly, $\Cat{T}$ is a full subcategory of $\Cat{T'}$. Let $T$ be
-an object of $\Cat{T'}$. By Prop. \ref{prop_max_subobj}, there 
+an object of $\Cat{T'}$. By Proposition \ref{prop_max_subobj}, there 
 exists a maximal $\Cat{T}$-subobject of $T$, which we represent by
 $T_{\Cat{T}}$. We show that $T/T_{\Cat{T}}$ is an object of 
 $\Cat{F}'$, and therefore it must be 0.
@@ -484,7 +490,7 @@ largest suboboject of $\kappa(A)$ is itself: hence $\phi^2(A)) =
 \kappa(A/\kappa(A)) = 0.
 \]
 
-The dual statement follows from Prop. \ref{prop_rad_eq_corad}.
+The dual statement follows from Proposition \ref{prop_rad_eq_corad}.
 \end{proof}
 
 \begin{thm}\label{thm_precorad_eq_tt}
@@ -499,12 +505,12 @@ by
 \end{thm}
 \begin{proof}
 Obtaining an idempotent pre-coradical from a torsion theory is
-established by Prop. \ref{prop_tt_to_corad}. Therefore, it suffices
+established by Proposition \ref{prop_tt_to_corad}. Therefore, it suffices
 to show that $(\Cat{T}, \Cat{F})$ as given in the statement of the
 theorem defines a torsion theory on $\Cat{A}$, and the associations
 define quasi-inverses of one another.
 
-To do this, we appeal to Prop. \ref{prop_tt_suff_cond}. It is 
+To do this, we appeal to Proposition \ref{prop_tt_suff_cond}. It is 
 clear that the only object common to both $\Cat{T}$
 and $\Cat{F}$ is $0$. So we need only to show that for every $A$ 
 in $\Cat{A}$, there exists $T$ in $\Cat{T}$ such that $A/T \in 
@@ -527,7 +533,7 @@ In fact, we have the following.
 
 \begin{cor}\label{cor_tt_ref_and_coref}
 Let $\phi$ be an idempotent pre-coradical, and let $\kappa$ be the 
-idempotent pre-radical associated to $\phi$ (see Prop. 
+idempotent pre-radical associated to $\phi$ (see Proposition
 \ref{prop_rad_eq_corad}). Then the torsion theory defined by $\phi$
 in Theorem \ref{thm_precorad_eq_tt} is the same as the one for
 $\kappa$ as defined above.
@@ -594,7 +600,7 @@ We need only to show that $\Cat{F}$ defined by $\{A : \phi(A) =
 A\}$ is closed under quotients.
 
 Let $f: F \to A$ be a surjection and $F$ is in $\Cat{F}$,
-and write $K$ for the kernel of $f$. It follows from Prop. 
+and write $K$ for the kernel of $f$. It follows from Proposition
 \ref{prop_tt_properties} that $\Cat{F}$ is closed under 
 subobjects. Hence, $K \in \Cat{F}$. Furthermore, by the right 
 exactness of $\phi$, we have
@@ -616,7 +622,7 @@ whence $A = \phi(A)$ as desired. It follows that $A \in \Cat{F}$.
 \pfitem{From cohereditary torsion theory to coradicals} : Let
 $(\Cat{T}, \Cat{F})$ be a cohereditary torsion theory on $\Cat{A}$,
 and let $\phi$ be its associated idempotent pre-coradical given by 
-Thm \ref{thm_precorad_eq_tt}. We need to show that $\phi$ is right 
+Theorem \ref{thm_precorad_eq_tt}. We need to show that $\phi$ is right 
 exact.
 
 We begin by demonstrating that, for a surjection $f: A \to B$ in 
