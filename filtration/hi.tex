@@ -173,7 +173,8 @@ $\DCat$, we have that
 \end{align*}
 for all $C_1, C_2, C_3$ in $\Cat{C}$ and $C_2$ in $\HH^0(\DCat)$,
 the bifunctor $\ihom_{\Cat{C}}$ defines a partial internal hom 
-with \SemiInvertible objects $\Cat{C} \cap \DCat^{\compact}$.
+with \SemiInvertible objects $\Cat{C} \cap \DCat^{\compact}$ (see
+Definition \ref{def_tensor_triang_cat}).
 
 Applying the above discussion to the category $\DMeff$, we see 
 that there exists a $t$-structure on $\DMeff$, with the abelian 
@@ -415,15 +416,16 @@ introduce the following more stringent criteria on weak
 filtrations.
 
 \begin{defn}\label{def_strong_filtration}
-Let $\Cat{A}$ be an abelian category. We say that an $\Z$-indexed 
-descending weak filtration $(\Cat{A}_*, \phi_*)$ is a \DEF{strong 
-filtration} if for each $A$ in $\Cat{A}$ and $n$ in $\Z$, 
-$\phi_n A$ is a subobject of $A$. An ascending weak filtration 
-$(\Cat{A}_*, \phi_*)$ is a \DEF{strong cofiltration} if $\phi_n A$ 
-is a quotient of $A$ for each $n$ and each $A$ in $\Cat{A}$.
+  Let $\Cat{A}$ be an abelian category. We say that an $\Z$-indexed
+  descending weak filtration $(\Cat{A}_*, \phi_*)$ is a \DEF{strong
+    filtration} if for each $A$ in $\Cat{A}$ and $n$ in $\Z$, $\phi_n
+  A \to A$ is a monomorphism of $A$. An ascending weak filtration
+  $(\Cat{A}_*, \phi_*)$ is a \DEF{strong cofiltration} if $A \to
+  \phi_n A$ is a quotient of $A$ for each $n$ and each $A$ in
+  $\Cat{A}$.
 
-Similarly, we can define ascending strong filtration and descending
-strong cofiltration on $\Cat{A}$.
+  Similarly, we can define ascending strong filtration and descending
+  strong cofiltration on $\Cat{A}$.
 \end{defn}
 
 \begin{ex}
@@ -594,9 +596,8 @@ However, since $F \in \TFHI{n}$, $\RHI[n]{\LHI{n}(F)} = 0$,
 and therefore the counit map is $0$. It follows that $\tlHI{n}(F) = F$ 
 as desired.
 
-The first statement follows from the fact that $\tlHI{n}(F) \in 
-\TLHI{n}{\HI}$, which is established in Lemma 
-\ref{lem_tlHI_in_TLHI}.
+The first statement follows from the fact that $\tlHI{n}(F)$ is in
+$\TLHI{n}{\HI}$, which is established in Lemma \ref{lem_tlHI_in_TLHI}.
 \end{proof}
 
 \begin{prop}\label{prop_HI_lower_slice}
@@ -855,10 +856,10 @@ following exact sequence
 Therefore, $\tlHI{n}(F) = 0$ if and only if $\sgHI{n}(F) 
 \to F$ is a surjection.
 
-\pfitem{(2)} : Let $F$ be an object in $\HI(n)$. Then $F = 
-\LHI[n]{F'}$ for some $F'$ in $\HI$. By Proposition 
-\ref{prop_counit_iso_for_HIn}, the counit map is an isomorphism. 
-By part (1), $F \in \THI{n}$.
+\pfitem{(2)} : Let $F$ be an object in $\HI(n)$. Then $F =
+\LHI[n]{F'}$ for some $F'$ in $\HI$. By Proposition
+\ref{prop_counit_iso_for_HIn}, the counit map $\sgHI{n}(F) \to F$ is
+an isomorphism.  By part (1), $F \in \THI{n}$.
 
 \pfitem{(3)} : Let $F$ be a homotopy invariant sheaf with 
 transfers. Since $\tgHI{m}(F) \in \THI{n}$, $\tlHI{n} \tgHI{m}(F) 
