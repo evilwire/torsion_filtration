@@ -99,16 +99,16 @@ positive degrees respectively. In this case, the functors
 $\ggtrunc{n}$ and $\gltrunc{n}$ are given by good truncations. 
 
 The heart of this $t$-structure is precisely $\Cat{A}$, regarded
-as a complex concentrated in degree $0$. (See 1.3.2 and the remark
+as a complex concentrated in degree $0$. (See the example 
 following the statement of 1.3.6 in \cite{BBD}.)
 \end{ex}
 
-\begin{ex}
-If $\DCat'$ is a full subcategory of a $t$-category $\DCat$, then
-$\DCat'$ is also a $t$-category with the $t$-structure given by
-$({\DCat'}^{\geq 0}, {\DCat'}^{\leq 0})$, where ${\DCat'}^{\geq 0} 
-\defeq \DCat^{\geq 0} \cap \DCat$ and ${\DCat'}^{\leq 0} \defeq 
-\DCat^{\leq 0} \cap \DCat'$. 
+\begin{ex}[\cite{BBD} 1.3.16]
+If $\DCat'$ is a full triangulated subcategory of a $t$-category 
+$\DCat$, then $\DCat'$ is also a $t$-category with the 
+$t$-structure given by $({\DCat'}^{\geq 0}, {\DCat'}^{\leq 0})$, 
+where ${\DCat'}^{\geq 0} \defeq \DCat^{\geq 0} \cap \DCat$ and 
+${\DCat'}^{\leq 0} \defeq \DCat^{\leq 0} \cap \DCat'$. 
 \end{ex}
 
 \begin{defn}
@@ -126,16 +126,16 @@ regarding $t$-exact functors and the induced functor on the
 hearts.
 
 \begin{prop}[\cite{BBD} 1.3.17]\label{prop_t_exact_implies_exact}
-Let $\DCat$ and $\DCat'$ be two $t$-categories with hearts 
+Let $\DCat$ and $\DCat'$ be $t$-categories with hearts 
 $\Cat{A}$ and $\Cat{A}'$ respectively. Furthermore, let $F: 
 \DCat \to \DCat'$ be a left (resp., right) $t$-exact triangulated 
-functor. Then $F$ induces a left (resp., right) exact 
+functor. Then $\HH^0 F$ is a left (resp., right) exact 
 functor from $\Cat{A}$ to $\Cat{A}'$.
 \end{prop}
 
 If a $t$-category $\DCat$ is equipped with an additive symmetric 
 monoidal structure that is right $t$-exact in both factors, then 
-so does its heart $\Cat{C}$. The symmetric monoidal structure on
+so is its heart $\Cat{C}$. The symmetric monoidal structure on
 the heart is defined as follows. Suppose $- \tensor -$ is the 
 tensor operator on $\DCat$. For $C, C'$ in $\Cat{C}$, we define $C 
 \tensor^{\Cat{C}} C'$ by $\HH^0(C \tensor C')$. 

@@ -4,8 +4,8 @@ In this chapter, we develop the basics of torsion theory in a
 categorical setting. The concepts and results here closely follow
 those of \cite{BJV} and \cite{DTor}, except we develop the theory
 from the dual perspective of coradicals. The ideas are not new;
-neither is the methodology. We have included proofs for 
-convenience of the reader.
+neither is the methodology. We have included proofs of all results 
+in this chapter for the convenience of the reader.
 
 \section{Coradicals}
 \label{sect_coradicals}
@@ -13,7 +13,7 @@ convenience of the reader.
 For the following, let $\Cat{A}$ be a well-powered abelian category.
 That is, for every object $A$ in $\Cat{A}$, the collection of 
 subobjects of $A$ forms a set. The assumption that $\Cat{A}$ is
-well-powered will be crucial for the following:
+well-powered will be crucial for the following definition. 
 
 \begin{defn}
 Let $\Cat{C}$ be a subcategory of an abelian category $\Cat{A}$, 
@@ -30,10 +30,17 @@ A_{\Cat{C}} \arrow[hook]{r}{j} & A
 \end{tikzcd}
 \]
 where $B$ is in $\Cat{C}$, there exists a map $B \stackrel{f}{\to} 
-A_{\Cat{C}}$ such that $jf = i$. A choice of $A_{\Cat{C}}$ for 
-each $A$ determines a right adjoint to the inclusion of $\Cat{C}$ 
-in $\Cat{A}$, making $\Cat{C}$ a coreflective subcategory of 
-$\Cat{A}$. 
+A_{\Cat{C}}$ such that $jf = i$.
+
+We say a subcategory $\Cat{C}$ of $\Cat{A}$ is \DEF{reflective}
+(resp., \DEF{coreflective}) if the inclusion of $\Cat{C}$ into
+$\Cat{A}$ admits a left (resp., right) adjoint $\phi$, which we
+call the \DEF{reflection} (resp., \DEF{coreflection}).
+
+If every $A$ in $\Cat{A}$ has a largest $\Cat{C}$ subobject, the 
+choice of $A_{\Cat{C}}$ for each $A$ determines a right adjoint to 
+the inclusion of $\Cat{C}$ in $\Cat{A}$, making $\Cat{C}$ a 
+coreflective subcategory of $\Cat{A}$. 
 \end{defn}
 
 \begin{prop}\label{prop_max_subobj}
@@ -53,8 +60,10 @@ We now define some key notions in torsion theory.
 
 \begin{defn}\label{def_coradical}
 \begin{enumerate}
-\item A \DEF{quotient functor} is an endofunctor $\phi : \Cat{A} \to \Cat{A}$
-together with a natural surjection $\eta: \id \to \phi$. 
+\item A \DEF{quotient functor} is an endofunctor $\phi : \Cat{A} 
+\to \Cat{A}$ together with a natural surjection $\eta: \id \to 
+\phi$. We will drop the reference to $\eta$ and simply represent
+a quotient functor by $\phi$.
 
 That is, for every $f: A \to B$, the following diagram commutes.
 \[
@@ -277,7 +286,7 @@ that we have the following commutative diagram:
 \begin{tikzcd}
 0 \arrow{r} &
 L' \arrow{r}{i'} \arrow[dotted]{d}{j} &
-K \arrow{r}{\eta_K} \arrow[equals]{d}{g} &
+K \arrow{r}{\eta_K} \arrow{d}{g} &
 \phi(K) \arrow{r}\arrow{d}{\phi(g)} &
 0 \\
 0 \arrow{r} &
@@ -316,12 +325,12 @@ It follows that $L \cong L'$. Applying the Snake Lemma to
 
 \begin{defn}
 Let $\Cat{A}$ be an abelian category. A \emph{torsion theory} for
-$\Cat{A}$ is a pair $(\Cat{T}, \Cat{F})$ of full subcategories 
+$\Cat{A}$ is a pair $(\Cat{T}, \Cat{F})$ of full subcategories,
 called the \emph{torsion subcategory} and \emph{torsion-free 
 subcategory} respectively, where the objects of $\Cat{T}$ are
 the objects $T$ such that $\hom_{\Cat{A}}(T, F) = 0$ for every $F$
-in $\Cat{F}$ and objects of $\Cat{F}$ are objects $F$ such that
-$\hom_{\Cat{A}}(T, F) = 0$ for every object $T$ in $\Cat{T}$.
+in $\Cat{F}$ and the objects of $\Cat{F}$ are the objects $F$ such 
+that $\hom_{\Cat{A}}(T, F) = 0$ for every object $T$ in $\Cat{T}$.
 \end{defn}
 
 Certainly $0 \in \Cat{T} \cap \Cat{F}$. Therefore, neither 
