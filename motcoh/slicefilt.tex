@@ -86,7 +86,7 @@ $\GFiltDM[n]{\DMeff}$.
 
 \begin{defn}
 Following \cite{HuKa}, let $\sgDM{n}$ denote the triangulated functor
-$L^nR^n$. Thus $\sgDM{n}M=M_n(n)$.
+$L^nR^n$. Thus $\sgDM{n}M=\LHI[n]{\RHI[n]{M}}$.
 \end{defn}
 
 Furthermore, for each $M$ in $\DMeff$, we have a distinguished 
@@ -785,10 +785,7 @@ in $\DM$, and each integer $k$, we have the slice triangle:
 \]
 
 \begin{defn}
-  We define $\slDM{k + 1}\sgDM{k}(M, n)$ to be the \DEF{$k$-th
-    slice} of the slice filtration on $\DM$. Since both $\slDM{k + 1}$
-  and $\sgDM{k}$ are triangulated functors, so is $\slDM{k + 1}
-  \sgDM{k}$. We write $\sliceDM{k}$ for this functor.
+Set $\sliceDM{k}(M, n) \defeq \slDM{k + 1}\sgDM{k}(M, n)$, which
 
 By similar arguments as in Proposition 
 \ref{prop_DMeff_slice_fund_invariant}, we have that 

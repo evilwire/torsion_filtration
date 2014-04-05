@@ -2,10 +2,10 @@
 \chapter{Filtration on $\CycMod$}\label{sect_filtration_cycmod}
 
 In this chapter, we will extend the three filtrations on
-$\HI$ to the category of homotopy modules $\HM$ (see Definition
-\ref{def_hm} below). To further simplify notation, for the
-remainder of the chapter, let $L: \HI \to \HI$ denote the functor 
-$F \mapsto \LHI{F}$, and let $R: \HI \to \HI$ denote the functor 
+$\HI$ to the Rost-D\'eglise category of homotopy modules $\HM$ 
+(see Definition \ref{def_hm} below). To further simplify notation, 
+in this chapter, let $L: \HI \to \HI$ denote the functor $F 
+\mapsto \LHI{F}$, and let $R: \HI \to \HI$ denote the functor 
 given by $F \mapsto \RHI{F}$. We write $\epsilon^n : \id \to 
 R^nL^n$ and $\eta^n: L^nR^n \to \id$ for the unit and counit maps; 
 we abbreviate $\eta^1$ as $\eta$, and $\epsilon^1$ as $\epsilon$.
@@ -27,14 +27,22 @@ We call the morphisms $\susp_n$ and $\deloop_n$ the \DEF{$n$-th
 suspensions} and the \DEF{$n$-th delooping} respectively.
 
 Let $\HM$ denote the category of $\DEF{homotopy modules}$.
+Ojects in $\HM$ will be represented by $(F_*, \deloop_*)$ where 
+$F_*$ is the $\Z$-graded homotopy invariant sheaf with transfers, 
+and $\deloop_*$ is the sequence of deloopings.
 \end{defn}
 
-The relationship between $\HM$ and $\HI$ is analogous to the 
-relationship between $\DM$ and $\DMeff$. For example, it is easy 
-to see that every object in $\HM$ can be represented by $(F, n)$, 
-where $F$ is an object of $\HI$ and $n$ is an integer. 
-Furthermore, there exists isomorphisms between $(F, n + 1)$ and
-$(\LHI{F}, n)$. 
+There is a fully faithful functor $\spectHI: \HI \to \HM$ given
+by $F \mapsto (F_*, \deloop_*)$ where
+\[
+F_n = \begin{cases}
+F(n) &\textrm{if }n > 0 \\
+F    &n = 0 \\
+\RHI[|n|]F &\textrm{otherwise}
+\end{cases}
+\]
+and the $n$-th delooping $F_n \to \RHI{(F_{n + 1})}$ is the unit
+map for $n \geq 0$ and the identity for $n < 0$.
 
 There a fully faithful functor $\spectHI : \HI \to \HM$, given by 
 $F \mapsto (F, 0)$, which realizes $\HI$ as a full subcategory of 
@@ -47,46 +55,18 @@ $\loopHM : \HM \to \HI$ given by
 0 &\textrm{otherwise}.
 \end{cases}
 \]
+Furthermore, $\spectHI$ has a right adjoint $\loopHM: \HM \to
+\HI$ given by $(F_*, \deloop_*) \mapsto F_0$ 
+(see \cite[1.18]{DegModHom}). 
 
-The relationships between $\HM$ and the categories $\HI$, $\DMeff$ 
-and $\DM$ can be best summarized by the following results taken
-from \cite{DegModHom}.
-
-\begin{prop}[\cite{DegModHom}, 5.7, 5.8]
-The category $\DM$ is equipped with a $t$-structure, where the 
-heart is categorical equivalent to $\HM$. In particular, $\HM$ is 
-an abelian category equipped a symmetric monoidal structure and a 
-partial internal hom. Furthermore, $\HM$ fits into the following 
-commutative diagram of symmetric monoidal categories:
-\begin{equation}\label{eq_hm_hi_com_diag}
-\begin{tikzcd}[column sep=huge, row sep=huge]
-\DMeff \arrow[hookrightarrow, bend right]{r}{\spectDM} \arrow{d}{\HH^0} &
-\DM \arrow{d}{\HH^0} \arrow[bend right]{l}{\loopDM}\\
-\HI \arrow[hookrightarrow, bend right]{r}{\spectHI} &
-\HM \arrow[bend right]{l}{\loopHM}
-\end{tikzcd}
-\end{equation}
-where $\spectDM$ is the inclusion of $\DMeff$ into $\DM$ and 
-$\loopDM$ is its right adjoint, and $\spectHI$ and $\loopHM$ are 
-the functors defined above.
-\end{prop}
-
-By abuse of notation, let $\tHI$ denote the additive tensor 
-product on $\HM$. Furthermore, for the remainder of this section, 
-we will \emph{not} represent objects of $\HM$ as pairs $(F, n)$ 
-where $F$ is in $\HI$ and $n$ is an integer. Instead, to be more
-consistent with Definition \ref{def_hm}, objects in $\HM$ are 
-represented by $(F_*, \deloop_*)$ where $F_*$ is the $\Z$-graded 
-homotopy invariant sheaf with transfers, and $\deloop_*$ is the 
-sequence of deloopings.
-
-Since $\HI$ can be recognized as a subcategory of $\HM$, the
-three filtrations defined in the previous sections also define
-a $\N$-indexed filtration of $\HM$. The goal is to extend these
+Since $\spectHI$ is fully faithful and admits a right adjoint, 
+we can regard $\HI$ a full coreflective subcategory of $\HM$. The
+three filtrations defined in the previous sections also define a 
+$\N$-indexed filtration of $\HM$. The goal is to extend these 
 filtrations to $\Z$-filtrations of $\HM$. In particular, we show
 that there is a $\Z$-indexed sequence of coradicals $\tlHM{n}$
-such that for nonnegative $n$, the restriction of $\tlHM{n}$ to
-$\HI$ is $\tlHI{n}$. In this case, the associated
+on $\HM$ such that for nonnegative $n$, the restriction of 
+$\tlHM{n}$ to $\HI$ is $\tlHI{n}$. In this case, the associated
 torsion theories will define the extension of the torsion 
 filtrations on $\HI$.
 
@@ -94,7 +74,7 @@ The following proposition will be crucial to extending the
 functors $\tlHI{n}$:
 
 \begin{prop}\label{prop_tl_L_R}
-For $F$ in $\HI$, 
+For $F$ in $\HI$, there are natural isomorphisms:
 \[
 L \tlHI{n}(F) \cong \tlHI{n + 1} L(F)
 \]
@@ -102,7 +82,6 @@ and
 \[
 R\tlHI{n}(F) \cong \tlHI{n - 1}R(F).
 \] 
-Both isomorphisms are natural in $F$.
 \end{prop}
 \begin{proof}
 By Lemma \ref{lem_LRcommute}, the following diagram, natural in $F$, 
