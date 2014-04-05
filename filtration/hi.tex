@@ -2,7 +2,7 @@
 \chapter{Filtrations on $\HI$}\label{sect_filtration_hi}
 
 The purpose of this chapter is to construct three filtrations of 
-$\HI$. The main result of this chapter is that , which states that 
+$\HI$. The main result of this chapter is that
 there is a sequence of coradicals (see Definition 
 \ref{def_coradical}) on the category $\HI$ which induces a 
 descending strong filtration and an ascending cofiltration (see 
@@ -34,7 +34,7 @@ A \DEF{$t$-category} is a triangulated category $\DCat$ together
 with a pair of full subcategories $(\DCat^{\geq 0}, 
 \DCat^{\leq 0})$ which satisfies the following:
 \begin{enumerate}
-\item For all $X$ in $\DCat^{\geq 0}$, and $Y$ in $\DCat^{\geq 1}$, 
+\item For all $X$ in $\DCat^{\leq 0}$, and $Y$ in $\DCat^{\geq 1}$, 
 $\hom_{\DCat}(X, Y) = 0$.
 
 \item $\DCat^{\leq 0} \subset \DCat^{\leq 1}$ and
@@ -45,7 +45,8 @@ triangle
 \[
 A \to X \to B \to A[1]
 \]
-such that $A \in \DCat^{\leq 0}$ and $B \in \DCat^{\geq 1}$.
+such that $A$ is in $\DCat^{\leq 0}$ and $B$ is in 
+$\DCat^{\geq 1}$.
 \end{enumerate}
 \noindent Here we write $\DCat^{\geq n}$ and $\DCat^{\leq n}$ for 
 $\DCat^{\geq 0}[n]$ and $\DCat^{\leq 0}[n]$ respectively. We call
@@ -75,13 +76,17 @@ $\gltrunc{n} \ggtrunc{m} = \ggtrunc{m} \gltrunc{n}$
 $\gltrunc{0} \ggtrunc{0}$ defines an additive functor 
 $\HH^0 : \DCat \to \Cat{C}$.
 
-Here is an important characterization of the heart
-$\Cat{C}$ of the $t$-category $\DCat$.
+Recall from \cite[1.2.5]{BBD} that an abelian subcategory 
+$\Cat{C}$ of $\DCat$ is \DEF{admissible} if for all $C$ and $D$ in 
+$\Cat{C}$ and $i < 0$, $\hom_{\DCat}(C, D[i]) = 0$, and all exact
+sequences in $\Cat{C}$ come from distinguished triangles in 
+$\DCat$.
 
 \begin{thm}[\cite{BBD} 1.3.6]\label{thm_heart_is_abel_cat}
 Let $\DCat$ be a $t$-category, and let $(\DCat^{\geq 0}, 
 \DCat^{\leq 0})$ be its associated $t$ structure. Then the heart 
-$\Cat{C}$ is an admissible abelian category. 
+$\Cat{C}$ is an admissible abelian category, stable under
+taking extensions. 
 \end{thm}
 
 \begin{ex}\label{ex_DA_t_struct}
@@ -90,9 +95,8 @@ derived category. There is a natural $t$-structure on
 $\DCat[D]\Cat{A}$. The pair $(\DCat[D]\Cat{A}^{\geq 0}, 
 \DCat[D]\Cat{A}^{\leq 0})$ are a pair of full subcategories whose
 objects are those with trivial cohomology in the negative and 
-positive degrees respectively. In this case, the reflection 
-functors $\ggtrunc{n}$ and $\gltrunc{n}$ are given by the good
-truncations. 
+positive degrees respectively. In this case, the functors 
+$\ggtrunc{n}$ and $\gltrunc{n}$ are given by good truncations. 
 
 The heart of this $t$-structure is precisely $\Cat{A}$, regarded
 as a complex concentrated in degree $0$. (See 1.3.2 and the remark
@@ -124,8 +128,8 @@ hearts.
 \begin{prop}[\cite{BBD} 1.3.17]\label{prop_t_exact_implies_exact}
 Let $\DCat$ and $\DCat'$ be two $t$-categories with hearts 
 $\Cat{A}$ and $\Cat{A}'$ respectively. Furthermore, let $F: 
-\DCat \to \DCat'$ be a left (resp. right) $t$-exact triangulated 
-functor. Then $F$ induces a left (resp. right) exact 
+\DCat \to \DCat'$ be a left (resp., right) $t$-exact triangulated 
+functor. Then $F$ induces a left (resp., right) exact 
 functor from $\Cat{A}$ to $\Cat{A}'$.
 \end{prop}
 
@@ -136,7 +140,7 @@ the heart is defined as follows. Suppose $- \tensor -$ is the
 tensor operator on $\DCat$. For $C, C'$ in $\Cat{C}$, we define $C 
 \tensor^{\Cat{C}} C'$ by $\HH^0(C \tensor C')$. 
 Since $\tensor$ is right $t$-exact in both factors, for all $M$ 
-and $N$ in $\DCat$,
+and $N$ in $\DCat^{\leq 0}$,
 \[
 \HH^0(M \tensor N) = \HH^0(\HH^0(M) \tensor \HH^0(N))
 \]
@@ -147,37 +151,38 @@ monoidal category.
 
 In addition, if $\DCat$ has a partial internal hom in the sense
 that there exists an a bifunctor $\ihom$ defined in the first 
-factor for a subcollection $\DCat^{\compact}$ of compact objects 
-in $\DCat$ such that
+factor for the subcollection $\DCat^{\compact}$ of \SemiInvertible
+objects in $\DCat$ such that
 \[
 \hom_{\DCat}(X \tensor Y, Z) \cong 
    \hom_{\DCat}(X, \ihom(Y, Z))
 \]
-for all $Y$ in $\DCat^{\compact}$, then the same is true for the 
-heart $\Cat{C}$ of $\DCat$. Here, we define the internal hom by
+for all $Y$ in $\DCat^{\compact}$, then $\Cat{C}$ is also equipped
+with a partial internal hom. Here, the internal hom bifunctor is given 
+by
 \[
 \ihom_{\Cat{C}}(C, C') \defeq \HH^0(\ihom(C, C')).
 \]
 Since $\HH^0$ is adjoint to the inclusion of $\Cat{C}$ into
 $\DCat$, we have that
 \begin{align*}
-\hom_{\Cat{C}}(C_1 \tensor^C C_2, C_3) &\cong
-\hom_{\DCat}(C_1, \ihom(C_2, C_3) \\
+\hom_{\Cat{C}}(C_1 \tensor^{\Cat{C}} C_2, C_3) &\cong
+\hom_{\DCat}(C_1, \ihom(C_2, C_3)) \\
 &\cong \hom_{\DCat}(C_1, \HH^0(\ihom(C_2, C_3))) \\
 &\cong \hom_{\Cat{C}}(C_1, \ihom_{\Cat{C}}(C_2, C_3))
 \end{align*}
 for all $C_1, C_2, C_3$ in $\Cat{C}$ and $C_2$ in $\HH^0(\DCat)$,
 the bifunctor $\ihom_{\Cat{C}}$ defines a partial internal hom 
-with compact objects given by $\HH^0 \DCat^{\compact}$.
+with \SemiInvertible objects $\Cat{C} \cap \DCat^{\compact}$.
 
 Applying the above discussion to the category $\DMeff$, we see 
 that there exists a $t$-structure on $\DMeff$, with the abelian 
 category $\HI$ as its heart. We write $\gltrunc{0}$, $\ggtrunc{0}$
-and $\HH^0$ for the reflection functors from $\DMeff$ to the 
-respective subcategories. Moreover, the triangulated monoidal 
-structure on $\DMeff$ induces a symmetric monoidal bifunctor on 
-$\HI$, which we write as $\tHI$. This bifunctor is uniquely 
-characterized by
+and $\HH^0$ for the corresponding functors from $\DMeff$ to the 
+respective subcategories defined by its $t$-structure. Moreover, 
+the triangulated monoidal structure on $\DMeff$ induces a 
+symmetric monoidal bifunctor on $\HI$, which we write as $\tHI$. 
+This bifunctor is uniquely characterized by
 \[
 \hS{X} \tHI \hS{Y} = \hS{X \times Y},
 \]
@@ -188,8 +193,8 @@ Moreover, there is a partial internal hom, defined by
 \[
 \ihomHI(F, G) = \HH^0(\ihomDMf(F, G))
 \]
-for all $G$ in $\HI$, and all $F$ in $\HH^0\DMeffgm$. In 
-particular, since $\Ox = \Z(1)[1]$, the internal hom on $\HI$ 
+for all $G$ in $\HI$, and all $F$ in $\HI \cap \DMeffgm$. In 
+particular, since $\Ox \cong \Z(1)[1]$, the internal hom on $\HI$ 
 defines an endofunctor given by $\ihom(\Ox, -)$. To emphasize the
 relationship with corresponding operations in $\DMeff$, let us set
 \[
@@ -214,10 +219,10 @@ $\LHI[n]{F}$ will denote $\LHIs[n]{F} \defeq F \tHI
 (\Ox)^{\tensor n}$. All mentions of $\Z(n)$ will refer to the 
 motivic complex in $\DMeff$.
 
-The second source ambiguity comes from the fact that $\RHI{F}$ is 
-already used to represent the contraction of the sheaf $F$ in $\HI$. 
-Recall from Definition \ref{def_contract} that $\RHI{F}$ is the 
-sheaf sends $X$ in $\Sm$ to $\cok p^*$, where
+The second source of potential ambiguity comes from the fact that 
+$\RHI{F}$ is already used to represent the contraction of the 
+sheaf $F$ in $\HI$. Recall from Definition \ref{def_contract} that 
+$\RHI{F}$ is the sheaf sends $X$ in $\Sm$ to $\cok p^*$, where 
 \[
 p^* : F(X) \to F(X \times (\A^1 - 0))
 \]
@@ -255,9 +260,8 @@ Now apply $\HH^0$ to this chain of isomorphisms, and note
 that $\HH^0(F) = F$. The proposition now follows.
 \end{proof}
 
-For all positive integer $n$, consider the counit map $\cuHI_F^n: 
-\LHI[n]{\RHI[n]{F}} \to F$, and write $\tlHI{n}(F)$ for the 
-cokernel of $\cuHI_F^n$. First, we make the following observation:
+Finally, we make the following observation that will be useful
+in subsequent sections.
 
 \begin{prop}\label{prop_counit_iso_for_HIn}
 If $F = \LHI[n]{G}$ for some $G$ in $\HI$, then $\cuHI^n_F : 
@@ -310,17 +314,22 @@ n: \Ox \to \Ox
 \]
 given by sending $u \in \Ox(X)$ to $u^n$ for each $X$ in $\Sm$.
 The kernel of this map is sheaf of $n$-th roots of unity $\mu_n$.
-But $\RHI{(\mu_n)} = 0$. It follows that $\LHI{\HI}$ is not closed
-under kernels. Similar arguments show that $\LHI[n]{\HI}$ is
-not closed under kernel for any positive integer $n$.
+But $\RHI{(\mu_n)} = 0$. If $\mu_n$ is in $\LHI[n]{\HI}$, then
+by Proposition \ref{prop_counit_iso_for_HIn}, $\mu_n \cong
+\LHI[1]{\RHI[1]{(\mu_n)}} = 0$, which is a contradiction. It 
+follows that $\LHI{\HI}$ is not closed under kernels. Similar 
+arguments show that $\LHI[n]{\HI}$ is not closed under kernel for 
+any positive integer $n$.
 \end{rmk}
 
+Recall from Definition \ref{def_cat_filtration} that a
+weak filtration $(\Cat{A}_*, \phi_*)$ is a tower of 
+subcategories $\Cat{A}_i$ together with reflection or coreflection
+functors $\phi_i: \Cat{A} \to \Cat{A}_i$ such that $\phi_i$ 
+restricted to $\Cat{A}_i$ is naturally isomorphic to the identity.
 To show that the full subcategories $\LHI[n]{\HI}$ define a weak
-filtration in the sense of Definition \ref{def_cat_filtration}, we 
-need to show that there are reflection functors $\sgHI{n}: \HI 
-\to \LHI[n]{\HI}.$ In fact, these functors are given by $F \mapsto 
-\LHI[n]{(\RHI[n]{F})}$. This is precisely the statement of the 
-following proposition.
+filtration, we need to show that there exist coreflection functors 
+$\sgHI{n}: \HI \to \LHI[n]{\HI}.$ 
 
 \begin{prop}\label{prop_HI_upper_slice}
 Let $\sgHI{n}$ denote the functor $F \mapsto 
@@ -329,8 +338,9 @@ inclusion of $\LHI[n]{\HI}$. In particular, $(\LHI[*]{\HI},
 \sgHI{*})$ defines a (nontrivial) weak filtration of $\HI$.
 \end{prop}
 \begin{proof}
-Let $f: F \to G$ be a map in $\HI$ such that $F \in \LHI[n]{\HI}$.
-By naturality of $\cuHI$, we have the following commutative 
+Let $f: F \to G$ be a map in $\HI$, with $F$ in $\LHI[n]{\HI}$,
+and let $\cuHI^n$ denote the counit $\sgHI{n} \to \id$.
+By naturality of $\cuHI^n$, we have the following commutative 
 diagram:
 \[
 \begin{tikzcd}
@@ -340,41 +350,85 @@ F \arrow{r}{f}
 & G.
 \end{tikzcd}
 \]
-Since $F \in \LHI[n]{\HI}$, by Proposition \ref{prop_counit_iso_for_HIn} 
-the counit map $\cuHI_F$ is an isomorphism.
+Since $F \in \LHI[n]{\HI}$, by Proposition 
+\ref{prop_counit_iso_for_HIn} the counit map $\cuHI^n_F$ is an 
+isomorphism.
 
-Define the map $\chi$ from $\homHI(F, G)$ to 
-$\hom_{\LHI[n]{\HI}}(F, \LHI[n]{\RHI[n]{G}})$ by $f \mapsto 
-\cuHI^n f \comp (\cuHI^n_F)^{-1}$. Since $\cuHI_F^n$ is an 
-isomorphism, $\chi$ is injective.  Moreover, given a map $g: F 
+Define the map $\chi: \homHI(F, G) \to \hom_{\LHI[n]{\HI}}(F, 
+\LHI[n]{\RHI[n]{G}})$ by $f \mapsto 
+\cuHI^n f \comp (\cuHI^n_F)^{-1}$. Since $\cuHI^n_G \comp \chi(f) 
+= f$, $\chi$ is injective.  Moreover, given a map $g: F 
 \to \LHI[n]{\RHI[n]{G}}$, set $f' = \cuHI_G^n \comp g$. Then 
 $\chi(f') = g$. Hence $\chi$ is an isomorphism as desired.
+From the way $\chi$ is defined, it is clear that $\chi$ is 
+functorial in both $F$ and $G$, and therefore $\sgHI{n}$ is
+right adjoint to the inclusion of $\LHI[n]{\HI}$ into $\HI$.
+
+To show that $(\LHI[*]{\HI}, \sgHI{*})$ define a weak descending
+filtration, the only criterion left to check is that $\sgHI{n}$
+restricted to $\LHI[n]{\HI}$ is naturally isomorphic to the
+identity. By Proposition \ref{prop_counit_iso_for_HIn}, the
+counit map $\cuHI^n: \sgHI{n} F \to F$ is an isomorphism for
+all $F$ in $\LHI[n]{\HI}$, and the proposition follows.
 \end{proof}
 
-We have come to the main result of this section. In order to 
-formulate the statement, we need to define the following notion
+\begin{rmk}\label{rmk_sgHI_is_not_strong_filt}
+While $(\HI(*), \sgHI{*})$ form a weak filtration of $\HI$, for
+a given sheaf $F$ in $\HI$, the objects $\sgHI{n} F$ are not 
+in general subobjects of $F$. Here is an example.
+
+Let $\Oxn$ be the sheaf of $n$-th power of global units 
+associated to the presheaf where sections of a smooth finite type 
+$k$-scheme $X$ is the abelian subgroup of $\Ox$ given by 
+\[
+\Oxn(X) = \{x : x=y^n\textrm{ for some }y \textrm{ in } \Ox(X)\}.
+\]
+It is clear that $\Oxn \in \HI$. Furthermore, there exists the 
+following exact sequence 
+\[
+0 \to \mu_n \to \Ox \to \Oxn \to 0
+\]
+where $\mu_n$ is the constant sheaf of $n$-th roots of unity.
+In particular, $\RHI{(\mu_n)} = 0$. By Proposition 
+\ref{prop_contract_is_exact}, the functor $F \mapsto \RHI{F}$ is
+exact. Therefore, the map $\RHI{\Ox} \to \RHI{(\Oxn)}$ is an
+isomorphism, and
+\[
+\LHI{\RHI{(\Oxn)}} \cong \LHI{\RHI{\Ox}} = \Ox,
+\]
+and the counit $\LHI{\RHI{(\Oxn)}} \to \Oxn$ is given precisely by
+$x \mapsto x^n$, which has a nontrivial kernel.
+
+We can understand the problem in another way, which is that the 
+categories $\HI(*)$ are too small and do not include all
+the kernels of counits $\LHI[n]{(\RHI[n]{F})} \to F$. This can be 
+fixed by enlarging the filtration at each level, and to do so, we 
+turn to torsion theory.
+\end{rmk}
+
+Motivated by Remark \ref{rmk_sgHI_is_not_strong_filt}, we 
+introduce the following more stringent criteria on weak
+filtrations.
 
 \begin{defn}\label{def_strong_filtration}
 Let $\Cat{A}$ be an abelian category. We say that an $\Z$-indexed 
-descending filtration $(\Cat{A}_*, \nu_*)$ is a \DEF{strong 
-filtration} if for each $A$ in $\Cat{A}$ and $n$ in $\Z$, $\nu_n 
-A$ is a subobject of $A$, and $\nu_n$ is the reflection functor
-from $\Cat{A}$ to $\Cat{A}_n$. An ascending filtration $(\Cat{A}_*, 
-\nu_*)$ is a \DEF{strong cofiltration} if $\nu_n A$ is a quotient 
-of $A$ for each $n$ and each $A$ in $\Cat{A}$.
+descending weak filtration $(\Cat{A}_*, \phi_*)$ is a \DEF{strong 
+filtration} if for each $A$ in $\Cat{A}$ and $n$ in $\Z$, 
+$\phi_n A$ is a subobject of $A$. An ascending weak filtration 
+$(\Cat{A}_*, \phi_*)$ is a \DEF{strong cofiltration} if $\phi_n A$ 
+is a quotient of $A$ for each $n$ and each $A$ in $\Cat{A}$.
 
-We can similarly define ascending strong filtration and descending
+Similarly, we can define ascending strong filtration and descending
 strong cofiltration on $\Cat{A}$.
 \end{defn}
 
 \begin{ex}
-Let $i_k$ denote the closed immersion of $\P^k$ into $\P^n$ as a
-subscheme identified by the vanishing of the last $k$ homogeneous
-coordinates, and let $j_k$ denote the open immersion of $U_k \defeq 
-\P^n - \P^k$ into $\P^n$. Finally, let $\QCoh$ be the abelian 
-category of quasi-coherent sheaves on $\P^n$. Then there is one 
-strong descending filtrations and one strong ascending 
-cofiltration on $\QCoh$:
+Here is an example of a strong ascending filtration and a strong
+descending filtration on the category $\QCoh$ of quasi-coherent
+sheaves on $\P^n$. Let $i_k$ denote the closed immersion of $\P^k$ 
+into $\P^n$ as a subscheme identified by the vanishing of the last 
+$k$ homogeneous coordinates, and let $j_k$ denote the open 
+immersion of $U_k \defeq \P^n - \P^k$ into $\P^n$. 
 
 Let $\QCoh^k$ be the full subcategory of quasi-coherent sheaves
 supported in $U_k$ and let $\QCoh_k$ denote the full subcategory
@@ -414,10 +468,11 @@ F(V) &\textrm{if }V \subseteq U_k\\
 In this case $(j_k)_!(F)$ is in $\QCoh^k$ and $(i_k)_*(F)$ is in 
 $\QCoh_k$ (see \cite[Ex. 1.19]{Hart}). In fact, $F \mapsto 
 (j_k)_!(F|_{U_k})$ and $F \mapsto (i_k)_*(F|_{\P^k})$ define
-reflection functors from $\QCoh$ to $\QCoh^k$ and $\QCoh_k$
-respectively.
+functors from $\QCoh$ to $\QCoh^k$ and $\QCoh_k$
+respectively. In this case $(j_k)_!$ is right adjoint to 
+inclusion, and $(i_k)_*$ is left adjoint to inclusion.
 
-In general, let $Z_1 \subseteq Z_2 \subseteq \cdots \Z_n$ be
+In general, let $Z_1 \subseteq Z_2 \subseteq \cdots Z_n$ be
 a sequence of subschemes of some scheme $X$, and let $U_k =
 X - Z_k$. Let $\QCoh(X)$ be the abelian category of quasi-coherent 
 sheaves on $X$. Then there exists a strong descending filtration 
@@ -425,21 +480,20 @@ sheaves on $X$. Then there exists a strong descending filtration
 \QCoh^0(X) \supseteq \QCoh^1(X) \supseteq \QCoh^2(X) \supseteq 
    \cdots \supseteq \QCoh^n(X)
 \end{equation}
-where $\QCoh^k(X)$ is the full subcategory of quasi-cohere sheaves
+where $\QCoh^k(X)$ is the full subcategory of quasi-coherent sheaves
 supported on $U_k$, and a strong ascending cofiltration on 
-$\QCoh(X)$. 
-and 
+$\QCoh(X)$
 \begin{equation}\label{eq_qcoh_asc_filt}
 \QCoh_0(X) \subseteq \QCoh_1(X) \subseteq \QCoh_2(X) \subseteq \cdots
 \subseteq \QCoh_n(X)
 \end{equation}
 where $\QCoh_k(X)$ is the full subcategory of quasi-coherent 
-sheaves on $X$ supported on $Z_k$. As above, the reflection 
+sheaves on $X$ supported on $Z_k$. As above, the coreflection 
 functors $\phi^k$ from $\QCoh$ to $\QCoh^k$ are given by $F 
 \mapsto (j_k)_!(F|U_k)$ where $j_k$ is the open immersion $j_k: 
 U_k \to X$; the reflection functors $\phi_k$ from $\QCoh$ to 
 $\QCoh_k$ are given by $F \mapsto (i_k)_*(F|_{Z_k})$, where $i_k: 
-Z_k \to \P^k$ is the evident closed immersion. Since, for each 
+Z_k \to X$ is the evident closed immersion. Since, for each 
 $k$, we have an exact sequence of quasi-coherent sheaves as in
 \eqref{eq_qc_sheaf_ses}, $\phi^k(F)$ is a subobject of $F$ and
 $\phi_k(F)$ is a quotient of $F$ for each $F$ in $\QCoh(X)$.
@@ -447,62 +501,25 @@ The claim that \eqref{eq_qcoh_desc_filt} is a strong filtration
 and \eqref{eq_qcoh_asc_filt} now follows.
 \end{ex}
 
-\begin{rmk}
-The difference between the notion of a strong filtration and 
-the notion of a weak filtration as defined in Definition
-\ref{def_cat_filtration} is that the reflection functors  are
-required to be subobject functors. This is a requirement that
-makes sense only for categories on which one can define
-subobjects.
-\end{rmk}
-
-We will now state the main theorem:
+We will now state the main theorem. Recall from Theorem 
+\ref{thm_corad_equiv_htt} that if $\phi$ is a coradical, the 
+associated torsion theory is a pair of full subcategories
+$(\Cat{T}, \Cat{F})$ where the torsion subcategory $\Cat{T}$ 
+consists of the objects $T$ such that $\phi(T) = 0$, and torsionfree
+subcategory $\Cat{F}$ consists of the objects $F$ such that 
+$\phi(F) = F$.
 
 \begin{thm}\label{thm_main_result}
 There exists a sequence of coradicals $\tlHI{n}, n = 0, 1, 2 
 \cdots$ on $\HI$ such that the associated torsionfree 
-subcategories $\TGHI{*}{\HI}$ form a descending strong filtration
-of $\HI$ and the associated torsion subcategories $\TGHI{*}{\HI}$ 
+subcategories $\TFHI{*}$ form a descending strong filtration
+of $\HI$ and the associated torsion subcategories $\THI{*}$ 
 form a strong cofiltration.
 \end{thm}
 
 Theorem \ref{thm_main_result} will be verified by Propositions
-\ref{prop_TFHI_properties}, \ref{prop_tlHIn_corad}, and 
-\ref{prop_tgHI_reflection} below.
-
-\begin{rmk}\label{rmk_sgHI_is_not_strong_filt}
-We note that $(\HI(*), \sgHI{*})$ does not define a strong 
-filtration of $\HI$. The problem here is that the counit is not 
-injective in general, as demonstrated by the following example.
-
-Let $\Oxn$ be the sheaf of $n$-th power of global units 
-associated to the presheaf where sections of a smooth finite type 
-$k$-scheme $X$ is the abelian subgroup of $\Ox$ given by 
-\[
-\Oxn(X) = \{x : x=y^n\textrm{ for some }y \textrm{ in } \Ox(X)\}.
-\]
-It is clear that $\Oxn \in \HI$. Furthermore, there exists the 
-following exact sequence 
-\[
-0 \to \mu_n \to \Ox \to \Oxn \to 0
-\]
-where $\mu_n$ is the constant sheaf of $n$-th roots of unity.
-In particular, $\RHI{(\mu_n)} = 0$. By Proposition 
-\ref{prop_contract_is_exact}, the functor $F \mapsto \RHI{F}$ is
-exact. Therefore, the map $\RHI{\Ox} \to \RHI{(\Oxn)}$ is an
-isomorphism, and
-\[
-\LHI{\RHI{(\Oxn)}} \cong \LHI{\RHI{\Ox}} = \Ox,
-\]
-and the counit $\LHI{\RHI{(\Oxn)}} \to \Oxn$ is given precisely by
-$x \mapsto x^n$, which has a nontrivial kernel.
-
-We can understand the problem in another way, which is that the 
-categories $\HI(*)$ are too small and do not include all
-the kernels of counits $\LHI[n]{(\RHI[n]{F})} \to F$. This can be 
-fixed by enlarging the filtration at each level, and to do so, we 
-turn to torsion theory.
-\end{rmk}
+\ref{prop_tsubcat_eq_tlHI} and \ref{prop_THI_form_strong_filt} 
+below.
 
 We first define the strong cofiltration, and show that the 
 reflection functors are coradicals. Let $n$ be a natural number, 
@@ -519,8 +536,7 @@ $\TLHI{2}{\HI}$ but not in $\TLHI{1}{\HI}$. By Proposition
 \ref{prop_unit_iso} and by induction, $\LHI[n]{\Ox}$ is in 
 $\TLHI{n + 1}{\HI}$ but not in $\TLHI{n}{\HI}$.
 
-To see that the subcategories $\TLHI{n}{\HI}$ form a cofiltration
-we need to describe the reflection functors $\tlHI{n} : \HI \to 
+We now describe the reflection functors $\tlHI{n} : \HI \to 
 \TLHI{n}{\HI}$. 
 
 \begin{defn}
@@ -530,12 +546,13 @@ Since $\cuHI^n_F$ is natural in $F$, $\tlHI{n}$ is a functor.
 \end{defn}
 
 We will show that $\tlHI{n}$ is the desired reflection functor
-from $\HI$ to $\TLHI{n}{\HI}$. This is established in Proposition
+from $\HI$ to $\TFHI{n}$. This is established in Proposition
 \ref{prop_HI_lower_slice}. We proceed by first considering the
 following lemmas:
 
 \begin{lem}\label{lem_tlHI_in_TLHI}
-The essential image of $\tlHI{n}$ is $\TLHI{n}{\HI}$.
+The essential image of $\HI$ under $\tlHI{n}$ is contained in 
+$\TLHI{n}{\HI}$.
 \end{lem}
 
 \begin{proof}
@@ -546,7 +563,7 @@ By definition, we have
 \[
 \LHI[n]{\RHI[n]{F}} \to F \to \tlHI{n}(F) \to 0
 \]
-Since the functor $F \mapsto \RHI{F}$ is exact (see Proposition
+Since the functor $F \mapsto \RHI[n]{F}$ is exact (see Proposition
 \ref{prop_contract_is_exact} and Remark \ref{rmk_contraction}), we 
 then have the following exact sequence
 \[
@@ -554,21 +571,22 @@ then have the following exact sequence
 \RHI[n]{\tlHI{n}(F)} \to 0.
 \]
 By Proposition \ref{prop_unit_iso}, $\RHI[n]{(\LHI[n]{\RHI[n]{F}})}
-\to \RHI[n]{F}$ is an isomorphism. It follows that $\tlHI{n}(F) = 
-0$ as desired.
+\to \RHI[n]{F}$ is an isomorphism. Hence,
+$\RHI[n]{\tlHI{n}(F)} = 0$ as desired.
 \end{proof}
 
 \begin{lem}\label{lem_tlHI_id}
-The functor $\tlHI{n}$, restricted to $\TLHI{n}{\HI}$ is the 
+The functor $\tlHI{n}$, restricted to $\TFHI{n}$ is the 
 identity. Consequently, the functor $\tlHI{n}$ is idempotent
-(see Definition \ref{def_coradical} (2)).
+(see Definition \ref{def_coradical} (2)), and the essential
+image of $\HI$ under $\tlHI{n}$ is $\TFHI{n}$.
 \end{lem}
-\begin{proof}[Proof of Lemma]
-For $F$ in $\TLHI{n}{\HI}$, we have the following exact sequence:
+\begin{proof}
+For each $F$ in $\TFHI{n}$, we have the following exact sequence:
 \[
 \LHI[n]{\RHI[n]{F}} \to F \to \tlHI{n}(F) \to 0
 \]
-However, since $F \in \TLHI{n}{\HI}$, $\RHI[n]{\tlHI{n}(F)} = 0$, 
+However, since $F \in \TFHI{n}$, $\RHI[n]{\LHI{n}(F)} = 0$, 
 and therefore counit map is $0$. It follows that $\tlHI{n}(F) = F$ 
 as desired.
 
@@ -599,13 +617,16 @@ where $\pi_F$ and $\pi_G$ are surjections. By Lemma
 \[
 \chi : \homHI(F, G) \to \hom_{\TLHI{n}{\HI}}(\tlHI{n}(F), G)
 \]
-by $f \mapsto \pi_G^{-1} \circ \tlHI{n}(f)$. If $\tlHI{n}(f) = 0$, 
+by $f \mapsto \pi_G^{-1} \circ \tlHI{n}(f)$. If $\chi(f) = 0$, 
 then $f = 0$. Therefore $\chi$ is injective. For $g: \tlHI{n}(F) 
 \to G$, set $f' = \pi \comp g$. Since $\chi(f') = g$, $\chi$ is a 
 bijection, as desired.
+
+From the way $\chi$ is defined, it is clear that $\chi$ is 
+functorial in both $F$ and $G$. The proposition now follows.
 \end{proof}
 
-As demonstrated, $\tlHI{n}$ is an idempotent quotient functor
+This shows that $\tlHI{n}$ is an idempotent quotient functor
 for each natural number $n$. In fact, we have the following 
 result:
 
@@ -652,21 +673,129 @@ And the map $q$ is the identity. It follows that $\tlHI{n}(K) = 0$
 as desired.
 \end{proof}
 
-The following is a straightforward consequence of the preceding 
-proposition and Theorem \ref{thm_precorad_eq_tt}, and Corollary
-\ref{cor_tt_ref_and_coref}:
+Since $\tlHI{n}$ is a coradical, by Theorem 
+\ref{thm_precorad_eq_tt}, for each $n$, there exists a torsion 
+theory $(\Cat{T}_n, \Cat{F}_n)$ associated with $\tlHI{n}$. We
+now give another description of the torsionfree subcategories.
 
-\begin{cor}\label{cor_tlHI_prop}
-For $n$, there exists a torsion pair 
+\begin{prop}\label{prop_tsubcat_eq_tlHI}
+For each positive integer $n$, the full subcategory $\TFHI{n}$ and the
+torsion subcategory $\Cat{F}_n$ are the same. Hence, the torsionfree 
+subcategory form an ascending strong cofiltration of $\HI$.
+\end{prop}
+\begin{proof}
+Recall from Proposition \ref{prop_HI_lower_slice} that 
+$\RHI[n]{\tlHI{n}(F)} = 0$ for all $F$ in $\HI$. Hence, if $F$ is 
+in $\Cat{F}_n$, $\RHI[n]{F} = \RHI[n]{\tlHI{n}(F)} = 0$.
+
+Conversely, if $\RHI[n]{F} = 0$, then $\tlHI{n}(F) = F$ by Lemma
+\ref{lem_tlHI_id}. That is, $F \in \TFHI{n}$. Hence, the
+torsion-free subcategory $\Cat{F}_n$ is precisely the full 
+subcategory $\TFHI{n}$ of the sheaves $F$ in $\HI$ for which 
+$\RHI[n]{F} = 0$.
+
+Since $\TFHI{n}$ form an ascending strong cofiltration, the second
+claim now follows.
+\end{proof}
+
+We still have to show that the torsion subcategories $\Cat{T}_n$
+form a strong descending filtration. Let us first introduce a more
+appropriate notation for the torsion subcategory. We will write
+$\THI{n}$ for the torsion subcategory $\Cat{T}_n$. Next, we define 
+the coreflection functors $\HI \to \THI{n}$. 
+
+\begin{defn}\label{def_upper_slice_functor}
+Let $\tgHI{n}$ denote the kernel of the natural surjection $\id 
+\to \tlHI{n}$. By Proposition \ref{prop_rad_eq_corad} and 
+Corollary \ref{cor_tt_ref_and_coref}, $\tgHI{n}$ is an idempotent 
+pre-radical, and is right adjoint to the inclusion of $\THI{n}$ in
+$\HI$.
+\end{defn}
+
+We will now show that $(\THI{*}, \tgHI{*})$ defines a descending 
+strong filtration on $\HI$.
+
+\begin{lem}\label{lem_tgHI_reflection}
+The essential image of $\tgHI{n}$ is $\THI{n}$, and the 
+restriction of $\tgHI{n}$ to $\THI{n}$ is the identity.
+\end{lem}
+\begin{proof}
+Recall from the definition of $\tgHI{n}$ that for each $F$
+in $\HI$, there exists a short exact sequence:
 \[
-(\Cat{T}_n, \Cat{F}_n) = (\TGHI{n}{\HI}, \TLHI{n}{\HI})
-\] 
-where $\TGHI{n}{\HI}$ is the full subcategory of objects $F$ in 
-$\HI$ for which $\tlHI{n}(F) = 0$, and $\TLHI{n}{\HI}$ is the full 
-subcategory of $F$ in $\HI$ such that $\tlHI{n}(F) = F$. 
-Furthermore, $\tlHI{n} : \HI \to \TLHI{n}{\HI}$ is a reflection 
-functor for the inclusion of $\TLHI{n}{\HI}$ into $\HI$.
-\end{cor}
+0 \to \tgHI{n} F \to F \to \tlHI{n} F \to 0.
+\]
+Furthermore, recall from Theorem \ref{thm_precorad_eq_tt} that
+the for all $F$ in $\THI{n}$, $\tlHI{n} F = 0$. The lemma now
+follows.
+\end{proof}
+
+\begin{lem}\label{lem_TFHI_properties}
+For natural numbers $n$ and $m$ such that $m > n$, $\tlHI{m} 
+\tlHI{n} = \tlHI{n}$ and there exist a
+natural isomorphism $\tlHI{n}\tlHI{m} \cong \tlHI{n}$. 
+\end{lem}
+\begin{proof}
+Suppose $F$ is in $\HI$. Since $\TFHI{n}$ is a
+full subcategory of $\TFHI{m}$, if $\tlHI{m}$ is the identity on 
+$\TFHI{m}$ (Lemma \ref{lem_tlHI_id}), then $\tlHI{m}\tlHI{n} = 
+\tlHI{n}$. It remains for us to show that $\tlHI{n}\tlHI{m} \cong
+\tlHI{n}$.
+
+We have the following commutative diagram:
+\begin{equation}\label{eq_sg_nat_diag}
+\begin{tikzcd}
+\sgHI{n}\sgHI{m}(F) \arrow{r}\arrow{d}{\cuHI_{\sgHI{m}(F)}} &
+\sgHI{n}(F) \arrow{r}\arrow{d}{\cuHI_F} &
+\sgHI{n}\tlHI{m}(F) \arrow{r}\arrow{d}{\cuHI_{\tlHI{m}(F)}} &
+0 \\
+\sgHI{m}(F) \arrow{r} &
+F \arrow{r} &
+\tlHI{m}(F) \arrow{r}&
+0,
+\end{tikzcd}
+\end{equation}
+where the vertical arrows are the counits. Furthermore, by the 
+same arguments as in the Snake Lemma, we have the ``snake tail'' 
+exact sequence:
+\[
+\cok \cuHI_{\sgHI{m}(F)} \to \tlHI{n}(F) \to \tlHI{n}\tlHI{m}(F) 
+   \to 0.
+\]
+However, since $\sgHI{m}F \in \LHI[m]{\HI}$, by Proposition
+\ref{prop_unit_iso} $\cuHI_{\sgHI{m}(F)}$ is an isomorphism. 
+Therefore, $\tlHI{n}(F) \cong \tlHI{n}\tlHI{m}(F)$. Since
+\eqref{eq_sg_nat_diag} is natural in $F$, the isomorphism is
+natural.
+\end{proof}
+
+\begin{prop}\label{prop_THI_form_strong_filt}
+The collection $(\THI{*}, \tgHI{*})$ form a descending strong 
+filtration of $\HI$, i.e. we have the following descending
+tower of subcategories
+\[
+\HI = \THI{0} \supseteq \THI{1} \supseteq \cdots \supseteq \THI{n} \supseteq \THI{n + 1}
+\supseteq \cdots
+\]
+and coreflection functors $\tgHI{n} : \HI \to \THI{n}$ such
+that $\tgHI{n}$ restricted to $\THI{n}$ is the identity, and
+$\tgHI{n}(F)$ is a subobject of $F$ for all $n$.
+\end{prop}
+\begin{proof}
+The only claim left to show is that $\THI{m} \subseteq \THI{n}$
+for $n \leq m$.
+
+Let $F$ be an object in $\THI{m}$. Then 
+$\tlHI{m}(F) = 0$, and by Lemma \ref{lem_TFHI_properties}
+\[
+0 = \tlHI{n}\tlHI{m}(F) = \tlHI{n}(F).
+\]
+Thus, $F$ is in $\THI{n}$.
+\end{proof}
+
+We introduce the following notion to describe the strong filtration
+and cofiltration on $\HI$ and its relationship to the coradicals
+$\tlHI{*}$.
 
 \begin{defn}
 We call the strong filtration and cofiltration defined by
@@ -691,101 +820,8 @@ and an ascending strong cofiltration
 \]
 \end{defn}
 
-\begin{rmk}
-We have used the notation $\TLHI{n}{\HI}$ to denote both the full
-subcategory of objects $F$ for which $\RHI[n]{F} = 0$ and also
-the torsionfree subcategory associated to the coradical $\tlHI{n}$
-to highlight the fact that these two full subcategories of $\HI$
-are the same. This is shown in (1) of the following proposition.
-\end{rmk}
-
-\begin{prop}\label{prop_TFHI_properties}
-For natural numbers $n$ and $m$ such that $m > n$
-
-\begin{enumerate}
-\item an object $F$ is in the torsion category $\TFHI{n}$ if and 
-only if $\RHI[n] F = 0$.
-\tinyskip
-
-\item $\tlHI{n}\tlHI{m} = \tlHI{m}\tlHI{n} = \tlHI{n}$.
-\tinyskip
-\end{enumerate}
-\end{prop}
-\begin{proof}
-\pfitem{(1)} : Since $\RHI[n]{\tlHI{n}(F)} = 0$ for all $F$ in 
-$\HI$ (see Proposition \ref{prop_HI_lower_slice}), for all $F$ in
-$\TFHI{n}$, $\RHI[n]{F} = \RHI[n]{\tlHI{n}(F)} = 0$.
-
-Conversely, if $\RHI[n]{F} = 0$, then $\tlHI{n}(F) = F$ by Lemma
-\ref{lem_tlHI_id}. That is, $F \in \TFHI{n}$. In particular, the
-torsion-free subcategory $\TFHI{n}$ is precisely the full 
-subcategory of $F$ in $\HI$ for which $\RHI[n]{F} = 0$.
-
-\pfitem{(2)} : Suppose $F$ is in $\HI$. Since $\TFHI{n}$ is a
-full subcategory of $\TFHI{m}$, if $\tlHI{m}$ is the identity on 
-$\TFHI{m}$ (Lemma \ref{lem_tlHI_id}), then $\tlHI{m}\tlHI{n} = 
-\tlHI{n}$. It remains for us to show that $\tlHI{n}\tlHI{m} = 
-\tlHI{n}$.
-
-We have the following commutative diagram:
-\[
-\begin{tikzcd}
-\sgHI{n}\sgHI{m}(F) \arrow{r}\arrow{d}{\cuHI_{\sgHI{m}(F)}} &
-\sgHI{n}(F) \arrow{r}\arrow{d}{\cuHI_F} &
-\sgHI{n}\tlHI{m}(F) \arrow{r}\arrow{d}{\cuHI_{\tlHI{m}(F)}} &
-0 \\
-\sgHI{m}(F) \arrow{r} &
-F \arrow{r} &
-\tlHI{m}(F) \arrow{r}&
-0,
-\end{tikzcd}
-\]
-where the vertical arrows are the counits. Furthermore, by the 
-same arguments as in the Snake Lemma, we have the ``snake tail'' 
-exact sequence:
-\[
-\cok \cuHI_{\sgHI{m}(F)} \to \tlHI{n}(F) \to \tlHI{n}\tlHI{m}(F) 
-   \to 0.
-\]
-However, since $\sgHI{m}F \in \LHI[m]{\HI}$, by Proposition
-\ref{prop_unit_iso} $\cuHI_{\sgHI{m}(F)}$ is an isomorphism. 
-Therefore, $\tlHI{n}(F) \cong \tlHI{n}\tlHI{m}(F)$. Equality 
-follows from the fact that both are quotients by the image of 
-$\sgHI{n}(F)$ in $F$.
-\end{proof}
-
-The following are a few properties of the functor $\tgHI{*}$:
-
-\begin{prop}\label{prop_tgHI_reflection}
-\begin{enumerate}
-\item $\tgHI{n}$ is an idempotent pre-radical.
-\tinyskip
-
-\item the essential image of $\tgHI{n}$ is $\THI{n}$, and the 
-restriction of $\tgHI{n}$ to $\THI{n}$ is the identity.
-\tinyskip
-
-\item $\tgHI{n}$ is right adjoint to the inclusion $\THI{n}$ into
-$\HI$.
-\tinyskip
-\end{enumerate}
-\end{prop}
-\begin{proof}
-Statement (1) follows from Proposition \ref{prop_rad_eq_corad} and
-the fact that $\tlHI{n}$ is a coradical (and thus an idempotent 
-pre-coradical). To see that $\tgHI{n}$ acts as the identity on 
-$\THI{n}$, note that for any $F$ in $\THI{n}$, $\tlHI{n}(F) = 0$. 
-
-Finally, for $F$ in $\HI$, we have the short exact sequence
-\[
-0 \to (\tgHI{n})^2(F) \to \tgHI{n}(F) \to \tlHI{n} \tgHI{n}(F) 
-\to 0.
-\]
-Since $\tgHI{n}$ is a preradical, $\tlHI{n} \tgHI{n}(F) = 0$. 
-Therefore, $\tgHI{n}(F) \in \THI{n}$ as desired.
-
-Finally, (3) follows from Corollary \ref{cor_tt_ref_and_coref}.
-\end{proof}
+We conclude this section by presenting some additional properties 
+of the torsion subcategories and the functor $\tgHI{n}$:
 
 \begin{prop}\label{prop_THI_properties}
 For all natural numbers $m$ and $n$ such that $m > n$,
@@ -795,17 +831,14 @@ For all natural numbers $m$ and $n$ such that $m > n$,
 $\sgHI{n}(F) \to F$ is onto.
 \tinyskip
 
-\item $\THI{m} \subset \THI{n}$.
-\tinyskip
-
 \item $\HI(n)$ is a proper full subcategory $\THI{n}$.
 \tinyskip
 
-\item $\tgHI{n}\tgHI{m} = \tgHI{m}\tgHI{n} = \tgHI{m}$.
+\item $\tlHI{n}\tgHI{m} \cong \tgHI{m}\tlHI{n}$, and $\tgHI{n}\tlHI{m} 
+= \tlHI{m}\tgHI{n} = 0$ 
 \tinyskip
 
-\item $\tlHI{n}\tgHI{m} = \tgHI{m}\tlHI{n}$, and $\tgHI{n}\tlHI{m} 
-= \tlHI{m}\tgHI{n} = 0$ 
+\item $\tgHI{n}\tgHI{m} \cong \tgHI{m}\tgHI{n} \cong \tgHI{m}$.
 \tinyskip
 \end{enumerate}
 \end{prop}
@@ -818,34 +851,21 @@ following exact sequence
 Therefore, $\tlHI{n}(F) = 0$ if and only if $\sgHI{n}(F) 
 \to F$ is a surjection.
 
-\pfitem{(2)} : Let $F$ be an object in $\THI{m}$. Then 
-$\tlHI{m}(F) = 0$, and by Proposition \ref{prop_TFHI_properties} (3)
-\[
-0 = \tlHI{n}\tlHI{m}(F) = \tlHI{n}(F).
-\]
-Thus, $F \in \THI{m}$.
-
-\pfitem{(3)} : Let $F$ be an object in $\HI(n)$. Then $F = 
+\pfitem{(2)} : Let $F$ be an object in $\HI(n)$. Then $F = 
 \LHI[n]{F'}$ for some $F'$ in $\HI$. By Proposition 
 \ref{prop_counit_iso_for_HIn}, the counit map is an isomorphism. 
 By part (1), $F \in \THI{n}$.
 
-\pfitem{(4)} : By part (2) of the preceding proposition and part 
-(2) of this proposition, it is clear that $\tgHI{n} \tgHI{m} = 
-\tgHI{m}$. For the other part, it is precisely the dual of the 
-argument in Proposition \ref{prop_TFHI_properties} part (3).
-
-\pfitem{(5)} : Let $F$ be a homotopy invariant sheaf with 
+\pfitem{(3)} : Let $F$ be a homotopy invariant sheaf with 
 transfers. Since $\tgHI{m}(F) \in \THI{n}$, $\tlHI{n} \tgHI{m}(F) 
 = 0$ by definition. Furthermore, $\tgHI{m}\tlHI{n}(F) = 0$ since 
-it is the kernel of the $\tlHI{m} \tlHI{n}(F) \to \tlHI{n}(F)$ 
-which is the identity map by part (3) of Proposition
-\ref{prop_tgHI_reflection}.
+it is the kernel of $\tlHI{m} \tlHI{n}(F) \to \tlHI{n}(F)$ 
+which is an isomorphism by Lemma \ref{lem_tgHI_reflection}.
 
 To show that $\tlHI{n} \tgHI{m}$ is naturally isomorphic to
 $\tgHI{m} \tlHI{n}$, let us first consider the following 
 diagram:
-\[
+\begin{equation}\label{eq_sg_tgHI_nat_diag}
 \begin{tikzcd}
 {} &
 \sgHI{m} \tgHI{n}(F) \arrow{r} \arrow{d} &
@@ -858,36 +878,99 @@ F \arrow{r} &
 \tlHI{n}(F) \arrow{r}&
 0
 \end{tikzcd}
-\]
+\end{equation}
 where vertical maps are the counits. Notice that the top row is 
 exact on the right because $\sgHI{m}$ is right exact. This follows 
 from the fact that $\sgHI{m}$ is the composition of the functors 
 $F \mapsto \LHI[m]{F}$, which is right exact, and $F \mapsto 
 \RHI[m]{F}$, which is exact (Proposition \ref{prop_contract_is_exact}).
 
-Since $m > n$, $\RHI[m]{(\tlHI{n}(F))} = 0$ (see Proposition
-\ref{prop_HI_lower_slice}). Therefore, $\sgHI{m}\tlHI{n}(F) = 0$. 
-By the Snake Lemma, we have the following exact sequence
-\[
+Since $m > n$, by Proposition \ref{prop_HI_lower_slice} 
+$\tlHI{n}(F)$ is in $\TFHI{n}$, which is a subcategory of $\TFHI{m}$
+by Proposition \ref{prop_tsubcat_eq_tlHI}. Since $G$ is in $\TFHI{m}$
+if and only if $\RHI[m]{G} = 0$, it follows that 
+$\RHI[m]{(\tlHI{n}(F))} = 0$. Hence, $\sgHI{m}\tlHI{n}(F) = 0$. 
+
+Applying Snake Lemma to \eqref{eq_sg_tgHI_nat_diag}, we obtain the 
+following exact sequence:
+\begin{equation}\label{eq_tlHI_exact_sequence}
 0 \to \tlHI{m}\tgHI{n}(F) \to \tlHI{m}(F) \to \tlHI{m} \tlHI{n}(F) 
    \to 0.
-\]
-Notice that $\tlHI{n} \tlHI{m}(F) = \tlHI{m}(F)$, and the map from
-$\tlHI{m}(F) \to \tlHI{n}(F)$ is precisely the unit map associated
-to the functor $\tlHI{n}$. It follows that
+\end{equation}
+Notice that $\tlHI{n} \tlHI{m}(F) \cong \tlHI{n}(F)$, and the 
+composition $\tlHI{m}(F) \to \tlHI{n}\tlHI{m} (F) \to \tlHI{n}(F)$ 
+is precisely the natural surjection associated to $\tlHI{n}(F)$. It 
+follows that
 \[
 \tlHI{m} \tgHI{n}(F) \cong \tgHI{n} \tlHI{m}(F).
 \]
-Naturality follows from the construction of the isomorphism.
+Since \eqref{eq_sg_tgHI_nat_diag} is natural in $F$, the isomorphism
+is natural in $F$ as well.
+
+\pfitem{(4)} : By Proposition \ref{prop_THI_form_strong_filt},
+$\THI{m} \subseteq \THI{n}$. Since $\tgHI{n}$ restricted to
+$\THI{n}$ is the identity by Lemma \ref{lem_tgHI_reflection}, 
+$\tgHI{n} \tgHI{m} = \tgHI{m}$. 
+
+To show that $\tgHI{n} \tgHI{m} \cong \tgHI{m}$, notice that
+for a given $F$ in $\HI$ and positive integer $n$, there exists a 
+short exact sequence
+\[
+0 \to \tgHI{n}(F) \to F \to \tlHI{n}(F) \to 0,
+\]
+which fits into the following commutative diagram
+\begin{equation}\label{eq_tgHI_tlHI_diag}
+\begin{tikzcd}
+0 \arrow{r} &
+\tgHI{n}(F) \arrow{r} \arrow{d}{\eta_{\tgHI{n}(F)}} &
+F \arrow{r} \arrow{d}{\eta_F} &
+\tlHI{n}(F) \arrow{r} \arrow{d}{\cong} &
+0 \\
+0 \arrow{r} &
+\tlHI{m} \tgHI{n}(F) \arrow{r} &
+\tlHI{m}(F) \arrow{r} &
+\tlHI{m}\tlHI{n}(F) \arrow{r} &
+0.
+\end{tikzcd}
+\end{equation}
+where $\eta$ is the natural surjection $\id \to \tlHI{m}$, and
+the bottom row is precisely the short exact sequence 
+\eqref{eq_tlHI_exact_sequence} of part (3). By Lemma 
+\ref{lem_TFHI_properties}, the map $\tlHI{n}(F) \to \tlHI{n} 
+\tlHI{m}(F)$ is an isomorphism. Therefore, by the Snake Lemma, we 
+have $\tgHI{m} \tgHI{n}(F) \cong \tgHI{m}(F)$. Since 
+\eqref{eq_tgHI_tlHI_diag} is natural in $F$, it follows that the 
+isomorphism $\tgHI{m}\tgHI{n} \to \tgHI{m}$ is natural as well.
 \end{proof}
 
-We conclude this section by relating the filtrations on $\HI$
-to the slice filtration on $\DMeff$. Recall that the slice 
-filtration structure on $\DMeff$ is associated with the (weak) 
-filtration $(\GFiltDM[*]{\DMeff}, \sgDM{*})$ and the (weak) 
-cofiltration $(\LFiltDM[*]{\DMeff}, \slDM{*})$ (see Section
-\ref{sect_slice_filt_dm}).
+\section{Slice Filtration on $\DMeff$ and Torsion Filtration on $\HI$}
 
+In this section, we want to relate the filtrations on $\HI$
+that we have developed with the slice filtration on $\DMeff$. 
+Recall that the slice filtration structure on $\DMeff$ is 
+associated with the weak filtration $(\GFiltDM[*]{\DMeff}, 
+\sgDM{*})$ and the weak cofiltration $(\LFiltDM[*]{\DMeff}, 
+\slDM{*})$ (see Section \ref{sect_slice_filt_dm}). The main result 
+that we will verify is the following:
+
+\begin{prop}\label{prop_H_commute_with_filt}
+For each positive integer $n$, the following diagram of functors 
+commute:
+\[
+\begin{tikzcd}
+\GFiltDM[n]{\DMeff} \arrow{d}{\HH^0} &
+\DMeff \arrow{l}{\sgDM{n}} \arrow{r}{\slDM{n}} \arrow{d}{\HH^0} &
+\LFiltDM[n]{\DMeff} \arrow{d}{\HH^0} \\
+\HI(n) &
+\HI \arrow{l}{\sgHI{n}} \arrow{r}{\tlHI{n}} &
+\TFHI{n}
+\end{tikzcd}
+\]
+and all vertical arrows are essentially surjective.
+\end{prop}
+
+The rest of the section will be devoted to the proof of
+Proposition \ref{prop_H_commute_with_filt}. 
 First, observe that for every positive integer $n$ and every $F$ 
 in $\HI$ (regarded as an object of $\DMeff$), there exists a slice 
 triangle:
@@ -904,15 +987,15 @@ following long exact sequence
 where $\HH^i F \defeq \HH^0F[i]$. In particular, we
 have the following exact sequence
 \begin{equation}\label{eq_slice_DM_exact_seq}
-\HH^0 \slDM{n}(F) \to \HH^0 F \to \HH^0 
-\sgDM{n}(F) \stackrel{\delta_0}{\to} \HH^1 \sgDM{n}(F).
+\HH^0 \sgDM{n}(F) \to \HH^0 F \to \HH^0 
+\slDM{n}(F) \stackrel{\delta_0}{\to} \HH^1 \sgDM{n}(F).
 \end{equation}
 Notice that $\HH^0F = F$ and $\sgDM{n}(F) = 
 \ihomDMf(\Z(1)[1], F)(1)[1]$. By definition, $\HH^0 \sgDM{n}(F) 
 = \LHI[n]{(\RHI[n]{F})}$, and therefore it is clear that
 that the functor $\HH^0 \sgDM{n}$ restricted to $\HI$ is 
 $\sgHI{n}$. In particular, $\HI(n)$ is equal to the essential
-image of $\GFiltDM[n]{\DMeff}$ under $\HH^0$, and the reflection 
+image of $\GFiltDM[n]{\DMeff}$ under $\HH^0$, and the coreflection 
 functors from $\HI$ to $\HI(n)$ is compatible with $\HH^0$.
 
 A comparable statement can be made about the filtration 
@@ -1005,25 +1088,33 @@ and the lemma is established.
 \end{proof}
 
 \begin{lem}\label{lem_H1_sgDM_vanishes}
-For each $F$ in $\HI$, $\HH^1 \sgDM{n}(F) = 0$.
+For each natural number $n$ and $F$ in $\HI$, $\HH^i \sgDM{n}(F) 
+= 0$ for all positive integers $i$.
 \end{lem}
 \begin{proof}
-Applying Lemma \ref{lem_rhomDM_and_contract}, we see that the
-complex
+Applying Lemma \ref{lem_rhomDM_and_contract}, we have the following
+isomorphism:
 \[
-\ihomDMf(\Z(n)[n], F) \tDM \Z(n)[n] \cong \RHI{F} \tDM \Z(n)[n]
+\ihomDMf(\Z(n)[n], F) \tDM \Z(n)[n] \cong \RHI[n]{F} \tDM \Z(n)[n].
 \] 
+Notice that the complex $\ihomDMf(\Z(n)[n], F)$
 is concentrated entirely in negative degrees. It follows that 
-$\HH^i$ vanishes for $i > 0$, and in particular, for $i = 
-1$.
+$\HH^i(\RHI[n]{F} \tDM \Z(n)[n])$ vanishes for $i > 0$. To complete
+the proof, notice that
+\begin{align*}
+\ihomDMf(\Z(n)[n], F) \tDM \Z(n)[n] &\cong
+\ihomDMf(\Z(n), F)[-n] \tDM \Z(n)[n] \\
+&\cong \ihomDMf(\Z(n), F) \tDM \Z(n) \\
+&= \sgDM{n} F.  &\phantom{aai}\qedhere
+\end{align*}
 \end{proof}
 
-This shows that $\TFHI{n}$ is contained in the essential image 
-of $\LFiltDM[n]{\DMeff}$ under $\HH^0$. To show the converse, we 
-need to prove that $\RHI[n]{(\HH^0 M)} = 0$ for $M$ in 
-$\LFiltDM[n]{\DMeff}$. This follows from the definition of 
-$\LFiltDM[n]{\DMeff}$. Indeed, if $M \in \LFiltDM[n]{\DMeff}$, 
-then 
+Using \eqref{eq_slice_DM_exact_seq}, this shows that $\TFHI{n}$ is 
+contained in the essential image of $\LFiltDM[n]{\DMeff}$ under 
+$\HH^0$. To show the converse, we need to prove that 
+$\RHI[n]{(\HH^0 M)} = 0$ for $M$ in $\LFiltDM[n]{\DMeff}$. This 
+follows from the definition of $\LFiltDM[n]{\DMeff}$. Indeed, if 
+$M \in \LFiltDM[n]{\DMeff}$, then 
 \[
 \ihomDMf(\Z(n)[n], M) = 0.
 \] 
@@ -1031,24 +1122,8 @@ Applying Lemma \ref{lem_H_com_ihom_DM}, it follows that
 \[
 0 = \HH^0\ihomDMf(\Z(n)[n], M) = \RHI[n]{(\HH^0(M))}
 \]
-and thus $\HH^0 M \in \TFHI{n}$ by definition. We
-have just proved:
-
-\begin{prop}\label{prop_H_commute_with_filt}
-For each positive integer $n$, the following diagram of functors 
-commute:
-\[
-\begin{tikzcd}
-\GFiltDM[n]{\DMeff} \arrow{d}{\HH^0} &
-\DMeff \arrow{l}{\sgDM{n}} \arrow{r}{\slDM{n}} \arrow{d}{\HH^0} &
-\LFiltDM[n]{\DMeff} \arrow{d}{\HH^0} \\
-\HI(n) &
-\HI \arrow{l}{\sgHI{n}} \arrow{r}{\tlHI{n}} &
-\TFHI{n}
-\end{tikzcd}
-\]
-and all vertical arrows are essentially surjective.
-\end{prop}
+and thus $\HH^0 M \in \TFHI{n}$ by definition. We have just proved 
+Proposition \ref{prop_H_commute_with_filt}.
 
 \section{Fundamental Invariants}
 
@@ -1060,41 +1135,38 @@ exact sequence
 \sgHI{n} \to \sgHI{n - 1} \to \tlHI{n}\sgHI{n - 1} \to 0.
 \]
 \begin{defn}
-We define \DEF{the structure constants on $\HI$} to be the 
-functors $\slice{n} \defeq \tlHI{n + 1}\sgHI{n}$. In this case we 
-call $\slice{n}$ the $n$-th structure constant.
+We define \DEF{$n$-th slice functor on $\HI$} to be the functors 
+$\slice{n} \defeq \tlHI{n + 1}\sgHI{n}$. 
 \end{defn}
 
-Recall the definition of the structure constants of $(\GFiltDM{\DMeff}, 
-\sgDM{*})$ to be the triangulated endofunctor $\sliceDM{*}$ that
+Recall from Definition \ref{def_slice_functors_DMeff} that the 
+$n$-th slice functor of $(\GFiltDM{\DMeff}, 
+\sgDM{*})$ is the triangulated endofunctor $\sliceDM{*}$ that
 fits into the following exact triangle
 \[
 \slDM{n} \to \slDM{n - 1} \to \sliceDM{n - 1} \to \slDM{n}[1].
 \]
 A direct consequence of Proposition \ref{prop_H_commute_with_filt} is 
-that the structure constants of $(\LHI[*]{\HI}, \sgHI{*})$ agree 
-with the structure constants of $(\GFiltDM{\DMeff}, \sgDM{*})$:
+that the slice functors $\slice{n}$ on $\HI$ agree 
+with the slice functors $\sliceDM{n}$ on $\DMeff$ in the following
+sense:
 
 \begin{cor}\label{cor_H_commute_with_slice}
-Let the structure constants $\slice{*}$ for $(\LHI[*]{\HI}, 
-\sgHI{*})$ be defined as above. Then
+For all natural numbers $n$,
 \[
 \HH^0 \sliceDM{n} = \slice{n}.
 \]
 \end{cor}
 
-Before we proceed, let us record for subsequent results the 
-following proposition.
+Let us first consider the following proposition:
 
 \begin{prop}\label{prop_sg_tl_commute}
 For natural numbers $m$ and $n$, $\sgHI{n} \tlHI{m}$ is naturally
 isomorphic to $\tlHI{m} \sgHI{n}$, and are both 0 if $m \leq n$.
 \end{prop}
 \begin{proof}
-Let $F$ be an object in $\HI$. Notice that by Proposition
-\ref{prop_unit_iso}, $\LHI[n]{\RHI[n]{(\LHI[m]{\RHI[m]{F}})}} 
-\cong \LHI[m]{\RHI[m]{(\LHI[n]{\RHI[n]{F}})}}$. Furthermore, the 
-isomorphism fits into a commutative square
+Let $F$ be an object in $\HI$. By Lemma \ref{lem_LR_commute_LR}, 
+we have the commutative square
 \begin{equation}\label{eq_prop_sg_tl_com_sq}
 \begin{tikzcd}
 \sgHI{m}\sgHI{n}(F) \arrow{r}{f} \arrow{d}{\cong} & 
@@ -1103,29 +1175,29 @@ isomorphism fits into a commutative square
 \sgHI{n}(F),
 \end{tikzcd}
 \end{equation}
-where, the map $f$ is counit of $\sgHI{n}(F)$, and the map $g$
-is obtained from applying $\sgHI{n}$ to the counit $\sgHI{m}(F) 
-\to F$.
-
-The cokernel of $f$ is precisely $\tlHI{m} \sgHI{n}(F)$, and we 
-claim that the cokernel of the map on the bottom row map is 
-$\sgHI{n} \tlHI{m}(F)$. Indeed, $\sgHI{n}$ is right exact. Applying 
-$\sgHI{n}$ to the exact sequence
+where $f$ is counit of $\sgHI{m}\sgHI{n}(F) \to \sgHI{n}(F)$ and 
+$g$ is obtained by applying $\sgHI{n}$ to the counit $\sgHI{m}(F) 
+\to F$. The cokernel of $f$ is precisely $\tlHI{m} \sgHI{n}(F)$.
+Since $\sgHI{n}$ is right exact, and the
+following sequence is exact
 \[
 \sgHI{m}(F) \to F \to \tlHI{m}(F) \to 0,
 \]
-we have
+the following sequence is also exact.
 \[
-\sgHI{n} \sgHI{m}(F) \to \sgHI{n}(F) \to \sgHI{n} \tlHI{m}(F) \to 0.
+\sgHI{n} \sgHI{m}(F) \to \sgHI{n}(F) \to \sgHI{n} \tlHI{m}(F) 
+   \to 0.
 \]
-It is clear that $\tlHI{m} \sgHI{n}(F) \cong \sgHI{n} \tlHI{m}(F)$.
-Since the square in \eqref{eq_prop_sg_tl_com_sq} is 
+It follows that the cokernel of $g$ is $\sgHI{n} \tlHI{m}(F)$. 
+By the Five Lemma, $\tlHI{m} \sgHI{n}(F) \cong \sgHI{n} 
+\tlHI{m}(F)$. Since the square in \eqref{eq_prop_sg_tl_com_sq} is 
 functorial, it follows that the isomorphism identified above is
 natural in $F$.
 
-Finally, suppose $m \leq n$. Then $\RHI[n]{\tlHI{m}(F)} = 0$
-(Proposition \ref{prop_HI_lower_slice}). It follows that $\sgHI{n} 
-\tlHI{m}(F) = 0$, and so is true of $\tlHI{m} \sgHI{n}(F)$.
+Finally, suppose $m \leq n$. Then by Proposition 
+\ref{prop_HI_lower_slice} $\RHI[n]{\tlHI{m}(F)} = 0$. It follows 
+that $\sgHI{n} \tlHI{m}(F) = 0$, and $\tlHI{m} \sgHI{n}(F) = 0$ as 
+well.
 \end{proof}
 
 \begin{rmk}
@@ -1136,13 +1208,13 @@ loaf of bread is laid out on a line marked from 0 to $\infty$
 the marked points, and subsequently pick up all the bread lying 
 greater than $n$ or less than $n$. The former action describes the 
 functors $\tgHI{n}$ and $\sgHI{n}$, and therefore, the higher the 
-$n$, the \emph{less} bread one would take; the latter, functors 
-$\tlHI{n}$, wherein the greater the $n$, the \emph{more} bread one 
-would takes.
+$n$, the less bread one would \emph{take}; the latter, functors 
+$\tlHI{n}$, wherein the greater the $n$, the less bread one 
+would \emph{leave}.
 
 If one finds the analogy useful, one might wish to interpret
-Propositions \ref{prop_TFHI_properties} (3), 
-\ref{prop_THI_properties} (4) and (5) with this culinary picture 
+Lemma \ref{lem_TFHI_properties}, and Propositions
+\ref{prop_THI_properties} (3) and (4) with this culinary picture 
 in mind.
 \end{rmk}
 
@@ -1151,28 +1223,30 @@ structure invariants for $(\THI{*}, \tgHI{*})$.
 \begin{defn}
 For each $F$ in $\HI$ and natural number $n$, write $\tconst{n}$ 
 for the functor $\tlHI{n + 1} \tgHI{n}$, which we define to be the 
-\DEF{$n$-th structure invariant of $F$ associated to $\tgHI{*}$}. 
+\DEF{$n$-th fundamental invariant of $F$ associated to $\tgHI{*}$}
+or simply the \DEF{$n$-th fundamental invariant}.
 \end{defn}
 
-As it turns out, this is \emph{not} the same as the structure 
-invariants of $\sgHI{*}$. To see this, consider the example 
-introduced in Remark \ref{rmk_sgHI_is_not_strong_filt}. For $\Oxn$,
-it is easy to see that 
-\[
-\tconst{k}(\Oxn) = \begin{cases}
-\Oxn &\textrm{if }k = 1\\
-0     &\textrm{otherwise},
-\end{cases}
-\]
-while
+As it turns out, the $n$-th fundamental invariant is \emph{not} 
+the same as the $n$-th slice functor on $\HI$. To see this, 
+consider the example introduced in Remark 
+\ref{rmk_sgHI_is_not_strong_filt}. For $\Oxn$, following the
+discussion in \loccit, we have that
 \[
 \slice{k}(\Oxn) = \slice{k}(\Ox) = \begin{cases}
 \Ox &\textrm{if }k = 1\\
 0   &\textrm{otherwise}.
 \end{cases}
 \]
-Nonetheless, the two structure constants are related by the 
-following:
+However, a simple calculation reveals that
+\[
+\tconst{k}(\Oxn) = \begin{cases}
+\Oxn &\textrm{if }k = 1\\
+0     &\textrm{otherwise}.
+\end{cases}
+\]
+Nonetheless, the $n$-th slice functor is related to the $n$-th
+fundamental invariant via the following proposition:
 
 \begin{prop}\label{prop_struct_consts}
 Let $m$ and $n$ be natural numbers such that $m > n$. There exists 
@@ -1181,13 +1255,14 @@ a natural surjection from $\tlHI{m} \sgHI{n}$ to $\tlHI{m}
 surjection $\pi_m: \slice{m} F \to \tconst{m} F$.
 \end{prop}
 \begin{proof}
-Let $F$ be a homotopy invariant sheaf with transfers, and notice that
+Let $F$ be an object of $\HI$. We have the following short exact
+sequence:
 \[
 0 \to \tgHI{n} \tlHI{m}(F) \to \tlHI{m}(F) \to 
   \tlHI{n} \tlHI{m}(F) \to 0.
 \]
-By Proposition \ref{prop_TFHI_properties} part (3), $\tlHI{m} \tlHI{n}(F) 
-= \tlHI{n}(F)$, and notice that $\tgHI{n} \tlHI{m}(F)$ is the kernel 
+By Lemma \ref{lem_TFHI_properties}, $\tlHI{m} \tlHI{n}(F) 
+= \tlHI{n}(F)$, and therefore $\tgHI{n} \tlHI{m}(F)$ is the kernel 
 of the surjection $\tlHI{m}(F) \to \tlHI{n}(F)$.
 
 But the sequence
@@ -1214,9 +1289,9 @@ is functorial in $F$, the surjection is natural.
 
 To prove the first claim of the proposition, notice that 
 $\tgHI{n} \tlHI{m}$ is naturally isomorphic to $\tlHI{m} \tgHI{n}$ 
-(Proposition \ref{prop_THI_properties}) and $\sgHI{n} \tlHI{m}$ is 
-naturally isomorphic to $\tlHI{m} \sgHI{n}$ (Proposition 
-\ref{prop_sg_tl_commute}).
+(Proposition \ref{prop_THI_properties} (3)) and $\sgHI{n} 
+\tlHI{m}$ is naturally isomorphic to $\tlHI{m} \sgHI{n}$ 
+(Proposition \ref{prop_sg_tl_commute}).
 
-The second claim follows from setting $n = m - 1$.
+The second claim follows by setting $n = m - 1$.
 \end{proof}

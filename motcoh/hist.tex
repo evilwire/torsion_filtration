@@ -39,14 +39,10 @@ graphs of the automorphisms in the Galois group $G \defeq \Gal(L,
 \end{ex}
 
 Let $\Cor_{\basefield}$ be the collection of objects and morphisms 
-where 
-\[
-\Obj{Cor_k} = \Obj{\Sm}
-\]
-and
-\[
-\hom_{\Cor_k}(X, Y) = \Cor(X, Y).
-\]
+where the objects of $\Cor_k$ are smooth separated finite type
+$\basefield$-schemes and whose morphisms between any two objects
+$X$ and $Y$ in $\Cor_k$ are $\Cor(X, Y)$.
+
 We claim that $\Cor_{\basefield}$ forms a category. The main 
 missing piece here is a description of the composition of 
 morphisms. This is achieved by pulling back correspondences as 
@@ -171,7 +167,7 @@ on $\Sm$.
 
 \begin{defn}\label{def_etale_sheaf}\label{def_nis_sheaf}
 An \DEF{\'etale sheaf with transfers} (resp. \DEF{Nisnevich sheaf 
-with transfers}) $F$ is a $\PST$ that is also
+with transfers}) $F$ is a presheaf with transfers that is also
 an \'etale (resp. Nisnevich) sheaf. That is, $F$ satisfies the
 following coherence conditions:
 \begin{enumerate}
@@ -190,7 +186,7 @@ $U_\beta$ respectively for each $\alpha, \beta$.
 \end{enumerate}
 
 \noindent We write $\ShEtCor$ (resp. $\ShNisCor$) for the 
-subcategory of \'Etale (resp. Nisnevich) sheaves with transfers.
+subcategory of \'etale (resp. Nisnevich) sheaves with transfers.
 \end{defn}
 
 Since the category of sheaves of any locale is well-powered
@@ -254,7 +250,7 @@ $\Ztr(X)$ is an \'etale sheaf is proven in \cite[6.2]{MVW}.
 \end{ex}
 
 We state the following results without proof, taken from 
-\cite{MVW}. Let $\etale$ (resp $\nis$) denote the \'etale
+\cite{MVW}. Let $\etale$ (resp. $\nis$) denote the \'etale
 (resp. Nisnevich) sheafification of a (general) presheaf
 on $\Sm$. (See \cite[3.1.1]{Tamme}.) Furthermore, for a presheaf 
 with transfers $F$, let $\Etale{F}$ (resp. $\NisSh{F}$) denote the 
@@ -263,11 +259,11 @@ with transfers $F$, let $\Etale{F}$ (resp. $\NisSh{F}$) denote the
 \begin{prop}\label{prop_et_and_nis_sheafification}
 \begin{enumerate}
 \item For $F$ a presheaf with transfers, $\Etale{F}$ emits a 
-unique transfers structure. That is, $\Etale{F}$ is an \'Etale 
+unique transfers structure. That is, $\Etale{F}$ is an \'etale 
 sheaf with transfers.
 
 % 6.17, 6.18
-The functor $\etale$ restricts to $\PST$ defines a left adjoint
+The functor $\etale$ restricted to $\PST$ defines a left adjoint
 to the inclusion of $\ShEtCor$ into $\PST$. 
 
 Likewise, for $F$ in $\PST$, $\NisSh{F}$ is a Nisnevich sheaf with
@@ -379,8 +375,8 @@ chain complex of sheaves with transfers. In particular, for all
 $X$ in $\Sm$, $\suslC \Ztr(X)$ is a chain complex of sheaves.
 
 \begin{defn}\label{def_hSX}
-We write $\hS{X}^{\mathrm{\acute{e}t}}$ (resp. $\hS{X}^{\Nis}$) 
-for the etale (resp. Nisnevich) sheaf associated to $H^0 \suslC 
+We write $\hS{X}^{\mathrm{\acute{e}t}}$ (resp., $\hS{X}^{\Nis}$) 
+for the etale (resp., Nisnevich) sheaf associated to $H^0 \suslC 
 \Ztr(X)$. In the case where the pre-topology is understood, we will
 omit the superscript, and simply write $\hS{X}$ for the associated
 sheaf.
@@ -397,7 +393,7 @@ identity on $X$.
 
 If $X$ and $Y$ are homotopy equivalent, it is not true in general 
 that $\Ztr(X)$ is isomorphic to $\Ztr(Y)$. For example, $\Z$ is
-obvious not isomorphic to $\Ztr(\A^1)$. However, $\suslC \Ztr(X)$
+obviously not isomorphic to $\Ztr(\A^1)$. However, $\suslC \Ztr(X)$
 is quasi-isomorphic to $\suslC \Ztr(Y)$ (see \cite[2.26]{MVW}).
 Therefore, $\hS{X}$ and $\hS{Y}$ are isomorphic sheaves with 
 transfers.

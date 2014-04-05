@@ -10,12 +10,19 @@ Let $\Cat{A}$ be a category. A descending \DEF{weak filtration} of
 $\Cat{A}$ is a ($\Z$-indexed) sequence of subcategories
 \[
 \Cat{A} \cdots \supseteq \Cat{A}_i \supseteq \Cat{A}_{i + 1}
-   \supseteq \cdots \subseteq 
+   \supseteq \cdots \supseteq 
 \]
-together with (co)reflection functors $\phi_i: \Cat{A} \to 
+together with reflection (or coreflection) functors $\phi_i: \Cat{A} \to 
 \Cat{A}_i$ for each $i$ such that $\phi_i$ restricts to 
 the identity on $\Cat{A}_i$. One can similarly define
-ascending weak filtrations.
+ascending weak filtrations. We will represent a weak filtration
+as $(\Cat{A}_*, \phi_*)$, where $\Cat{A}_i$ are the subcategories
+and $\phi_i$ are the reflections/coreflections.
+
+We say that a weak filtration $(\Cat{A}_*, \phi_*)$ is 
+\DEF{degenerate} if all subcategories $\Cat{A}_n$ are equal. If
+$\Cat{A}$ has a zero object, then we say that $(\Cat{A}_*, \phi_*)$
+is \DEF{trivial} if $\Cat{A}_n$ consist of only the zero object.
 \end{defn}
 
 \begin{rmk}
@@ -30,8 +37,9 @@ We show that there are two $\N$-indexed weak filtrations ---
 one ascending, one descending --- on $\DMeff$. The construction 
 is based on the work of Voevodsky, Huber, and Kahn \cite{HuKa}. 
 We then extend the weak filtration on $\DMeff$ to a $\Z$-indexed
-weak filtration on $\DM$. Aside from Proposition 
-\ref{prop_sDM_properties}, all content from the first section
+weak filtration on $\DM$. Aside from Lemmas \ref{lem_LRcommute} 
+and \ref{lem_LR_commute_LR} and Proposition 
+\ref{prop_sDM_properties}, and the content from first two sections 
 is taken from \cite[\S 1]{HuKa}. The extension of the filtrations 
 to $\DM$ are new.
 
@@ -41,9 +49,10 @@ we write $\tZ[n]{M}$ for $M \tDM \Z(n)$, and $\hZ[n]{M}$ for
 $\ihomDMf(\Z(n), M)$. Furthermore, let $\LDMf{n}$ denote the
 functor $- \tDM \Z(n)$, and $\RDMf{n}$ denote the functor 
 $\ihomDMf(\Z(n), -)$. By convention, define $\LDMf{0}$ and 
-$\RDMf{0}$ to be the identity functor. As we have noted at the end 
-of Chapter \ref{sect_dmeff_and_dm}, $(\LDMf{n}, \RDMf{n})$ form an 
-adjoint pair of triangulated functors for each natural numbers $n$.
+$\RDMf{0}$ to be the identity functor. As we have noted in
+the paragraph preceding Theorem \ref{thm_dm_cancellation}, 
+$(\LDMf{n}, \RDMf{n})$ form an adjoint pair of triangulated 
+functors for each natural numbers $n$.
 
 We first describe the descending weak filtrations on $\DMeff$. Fix
 an natural number $n$, let $\GFiltDM[n]{\DMeff}$ be the full 
@@ -81,24 +90,45 @@ triangle
 \begin{equation}\label{eq_slice_triangle_1}
 \sgDM{n}M \to M \to M' \to \sgDM{n}M[1]
 \end{equation}
-for some $M'$ in $\DMeff$, where $\tZ[n]{\hZ[n]{M}} \to M$ is the 
-counit map. Since $\sgDM{n}$ is right adjoint to inclusion,
+for some $M'$ in $\DMeff$. Here $\sgDM{M} \to M$ is the 
+counit map. We claim that $M'$ is defined uniquely up to unique
+isomorphism. By \cite[1.1]{HuKa}, $\sgDM{n}$ is right adjoint to 
+inclusion. Therefore, we have the following isomorphism:
 \[
-\homDMf(\sgDM{n}M, M[1]) \cong \homDMf(\sgDM{n}M, \sgDM{n}M[1])
+\homDMf(\sgDM{n}M, M[k]) \cong \homDMf(\sgDM{n}M, \sgDM{n}M[k])
 \]
-and therefore,
+for all integers $k$. Applying $\homDMf(\sgDM{n}M, -)$ to 
+\eqref{eq_slice_triangle_1}, we have that
 \[
-\homDMf(\sgDM{n}M, M') = 0.
+\homDMf(\sgDM{n}M, M'[k]) = 0
 \]
-It follows that $M'$ is uniquely defined up to unique isomorphism.
-By the naturality of $\sgDM{n} \to \id$, it is clear that
-\eqref{eq_slice_triangle_1} is functorial in $M$, and therefore,
-$M \mapsto M'$ defines a triangulated functor, which is the left 
-adjoint to the inclusion of $\LFiltDM[n]{\DMeff}$ into $\DMeff$. 
-Following the notation in \cite{HuKa}, let $\slDM{n}$ denote this 
-functor. As in the case for $\sgDM{n}$, $\slDM{n}$ is naturally 
-isomorphic to the identity on $\LFiltDM[n]{\DMeff}$ (see 
-\cite[1.4i, ii]{HuKa}). 
+for all $k$. Applying $\homDMf(-,M')$ to 
+\eqref{eq_slice_triangle_1}, we see that 
+\[
+\homDMf(M, M') \cong \homDMf(M', M').
+\]
+If $M''$ is another object in $\DMeff$ fitting into the triangle
+\[
+\sgDM{n}M \to M \to M'' \to \sgDM{n}M[1]
+\]
+then, we also have that
+\[
+\homDMf(M, M'') \cong \homDMf(M',M'').
+\]
+Interpreting the homomorphism in another way, $M'$ is an object
+satisfying the property that for a given map $f: M \to M'$, then
+for every $g: M \to M''$, there exists an unique $h: M' \to M''$ 
+such that $M' \to M''$. It follows that $M'$ is uniquely defined 
+up to unique isomorphism.
+
+Furthermore, by the naturality of $\sgDM{n} \to \id$, it is clear 
+that \eqref{eq_slice_triangle_1} is functorial in $M$. Therefore,
+$M \mapsto M'$ defines a triangulated endofunctor of $\DMeff$.
+This functor is the left adjoint to the inclusion of 
+$\LFiltDM[n]{\DMeff}$ into $\DMeff$. Following the notation in 
+\cite{HuKa}, let $\slDM{n}$ denote this functor. As in the case 
+for $\sgDM{n}$, $\slDM{n}$ is naturally isomorphic to the identity 
+on $\LFiltDM[n]{\DMeff}$ (see \cite[1.4i, ii]{HuKa}). 
 
 We summarize the main results of the above discussion in the 
 following proposition:
@@ -106,7 +136,7 @@ following proposition:
 \begin{prop}\label{prop_slice_DMeff}
 The tower of subcategories in \eqref{eq_gslice_tower_DMeff} 
 defines a descending weak filtration of $\DMeff$, where the
-reflection functors
+coreflection functors
 \[
 \sgDM{n}: \DMeff \to \GFiltDM[n]{\DMeff}
 \] 
@@ -129,29 +159,266 @@ $\DMeff$}.
 
 \section{Fundamental invariants of the slice filtration}
 
-Before we define the slice functors, we have the following 
-properties about the functors $\sgDM{n}$ and $\slDM{n}$.
-This proposition is new.
+In this section, following \cite[1.4 (iv, v)]{HuKa}, we define
+the slice and fundamental invariant functors associated to the
+slice filtration on $\DMeff$. Before we do so, we will show that 
+the functors $\sgDM{n}$ and $\slDM{n}$ satisfy a number of 
+properties described in Proposition \ref{prop_sDM_properties}.
+Lemmas \ref{lem_LRcommute}, \ref{lem_LR_commute_LR} and 
+Proposition \ref{prop_sDM_properties} are new.
+
+We first digress to discuss two results from category theory.
+For the following, let $L$ and $R$ be a pair of adjoint 
+endofunctors on $\Cat{C}$, and suppose that the unit $\eta : \id 
+\to RL$ is a natural isomorphism. Write $L^n$ and $R^n$ for the 
+$n$-th iteration of $L$ and $R$ respectively. Since $L$ and $R$ 
+are adjoint functors, so are $L^n$ and $R^n$. Write $\cuHI^n$ for 
+the counit $L^n R^n \to \id$ and $\eta^n$ for the unit $\id \to 
+R^n L^n$. In this case, $\eta^n$ is also a natural isomorphism for 
+each positive integer $n$. 
+
+\begin{lem}\label{lem_LRcommute}
+For each positive integer $n$, the natural isomorphism 
+$(L^{n + 1} R^n \eta)^{-1}: L^{n + 1}R^{n + 1} L \to
+L(L^n R^n)$ fits into the following commutative diagram of
+natural transformations:
+\begin{equation}\label{eq_Ltl_com_diag}
+\begin{tikzcd}[column sep=80pt]
+L^{n + 1}R^{n + 1}L \arrow{r}{\epsilon^{n + 1}L} \arrow{d} &
+L \arrow[equals]{d} \\
+L(L^{n}R^n) \arrow{r}{L\epsilon^{n}} &
+L.
+\end{tikzcd}
+\end{equation}
+Dually, the natural isomorphism $\eta L^nR^{n + 1}:
+L^nR^n R \to R(L^{n + 1}R^{n + 1})$ fits into the following
+commutative diagram of natural transformations:
+\begin{equation}\label{eq_Rtl_com_diag}
+\begin{tikzcd}[column sep=80pt]
+L^nR^nR \arrow{r}{\epsilon^n R} 
+   \arrow{d}{\eta} &
+R \arrow[equals]{d} \\
+R (L^{n + 1} R^{n + 1}) \arrow{r}{R \epsilon^{n + 1}} &
+R.
+\end{tikzcd}
+\end{equation}
+\end{lem}
+\begin{proof}
+We first show that \eqref{eq_Ltl_com_diag} is commutative.
+To do so, we proceed by induction on $n$. For the case $n = 0$, 
+by the counit-unit adjunction, the following composition is
+the identity transformation:
+\[
+L \stackrel{L(\eta)}{\to} LRL \stackrel{\epsilon L}{\to} 
+   L.
+\]
+Therefore, $\epsilon L = L(\eta^{-1})$, and the
+following diagram commutes:
+\[
+\begin{tikzcd}
+LRL \arrow{r}{\epsilon L} \arrow{d}{L(\eta^{-1})} &
+L \arrow[equals]{d} \\
+L \arrow[equals]{r} & L.
+\end{tikzcd}
+\]
+
+Now assume that for some integer $n$, the following diagram is 
+commutative:
+\begin{equation}\label{eq_induct_hyp_tl_diag}
+\begin{tikzcd}[column sep=80pt]
+L^{n}R^{n}L \arrow{r}{\epsilon^{n}L} \arrow{d}{L^nR^{n - 1}\eta^{-1}} &
+L \arrow[equals]{d} \\
+L(L^{n - 1}R^{n - 1}) \arrow{r}{L\epsilon^{n - 1}} &
+L.
+\end{tikzcd}
+\end{equation}
+Write $\epsilon'$ for the natural transformation $L^n \epsilon R^n:
+L^n R^n \to L^{n - 1} R^{n - 1}$. Applying the naturality of 
+$\epsilon'$ to the natural isomorphism $\eta^{-1}: RL \to \id$, we 
+have the following commutative diagram
+\[
+\begin{tikzcd}[column sep=80pt]
+L^n R^n RL \arrow{r}{\epsilon'RL} 
+   \arrow{d}{L^nR^n \eta^{-1}} &
+L^{n - 1}R^{n - 1} RL
+   \arrow{d}{L^{n - 1}R^{n - 1}\eta^{-1}} \\
+L^nR^n \arrow{r}{\epsilon'} &
+L^{n - 1}R^{n - 1}.
+\end{tikzcd}
+\]
+Now apply $L$ to the above, we have
+\[
+\begin{tikzcd}[column sep=80pt]
+L^{n + 1} R^{n + 1} L \arrow{r}{L\epsilon'RL} 
+   \arrow{d}{L^{n + 1}R^n \eta^{-1}} &
+L^{n}R^n L \arrow{d}{L^nR^{n - 1}\eta^{-1}} \\
+L^{n + 1}R^n \arrow{r}{L\epsilon'} &
+L^{n}R^{n - 1},
+\end{tikzcd}
+\]
+which fits together with \eqref{eq_induct_hyp_tl_diag} to give the 
+following commutative diagram:
+\[
+\begin{tikzcd}[column sep=65pt]
+L^{n + 1} R^{n + 1} L \arrow{r}{L\epsilon' RL} 
+   \arrow{d}{L^{n + 1}R^n(\eta^{-1})} &
+L^{n}R^n L \arrow{d}{L^nR^{n - 1}(\eta^{-1})}
+   \arrow{r}{\epsilon^{n}} &
+L \arrow[equals]{d} \\
+L^{n + 1}R^n \arrow{r}{L\epsilon'} &
+L^{n}R^{n - 1} \arrow{r}{L\epsilon^{n - 1}} &
+L.
+\end{tikzcd}
+\]
+Notice that $\epsilon^n \comp L\epsilon'R = \eta^{n + 1}$ and 
+$\epsilon^{n - 1} \comp \eta' = \epsilon^{n}$. Therefore, in the 
+diagram above, the composition of the two maps in the top row
+is precisely $\epsilon^{n + 1} L$ and the composition of in the
+bottom row is precisely $L \epsilon^n$. By induction, the 
+commutativity of \eqref{eq_Ltl_com_diag} is established. The 
+commutativity of \eqref{eq_Rtl_com_diag} follows by similar 
+arguments.
+\end{proof}
+
+\begin{lem}\label{lem_LR_commute_LR}
+For all positive integers $n$ and $m$, there exists a natural 
+isomorphism $\tau : L^nR^nL^mR^m \to L^mR^mL^nR^n$ such that the 
+following is a commutative diagram of natural transformations:
+\begin{equation}\label{eq_lem_LR_commute_LR}
+\begin{tikzcd}[column sep=75pt]
+L^n R^n L^m R^m \arrow{r}{L^nR^n \epsilon^m} \arrow{d}{\tau} &
+L^nR^n \arrow{d} \\
+L^mR^m L^nR^n \arrow{r}{\epsilon^m L^nR^n} &
+L^nR^n
+\end{tikzcd}
+\end{equation}
+\end{lem}
+\begin{proof}
+We first consider the case $m \leq n$. By the counit-unit 
+adjunction, the composition
+\[
+R^m \xrightarrow{\eta^n R^m}
+R^m L^m R^m \xrightarrow{R^m \cuHI^m}
+R^m
+\]
+is the identity transformation. Applying $L^nR^{n - m}$ to the 
+above, we obtain the following commutative square:
+\[
+\begin{tikzcd}[column sep=75pt]
+L^nR^{n - m}R^mL^mR^m \arrow{r}{L^nR^n\cuHI^m} 
+   \arrow{d}{(L^nR^{n - m}\eta^m R^m)^{-1}} &
+L^nR^{n - m}R^m \arrow[equals]{d} \\
+L^nR^{n - m}R^m \arrow[equals]{r} &
+L^nR^n.
+\end{tikzcd}
+\]
+
+Similarly, by the unit-counit adjunction, the compositions
+\[
+L^m \xrightarrow{L^m \eta^m} L^m R^m L^m 
+   \xrightarrow{\cuHI^m L^m} L^m
+\]
+is also the identity transformation. Applying the above to 
+$L^{n - m}R^n$, we obtain the following commutative square:
+\[
+\begin{tikzcd}[column sep=75pt]
+L^mL^{n - m}R^n \arrow[equals]{r} 
+   \arrow{d}{(L^m\eta^n L^{n - m}R^n)} &
+L^nR^n \arrow[equals]{d} \\
+L^mR^mL^mL^{n - m}R^n \arrow{r}{\cuHI^m L^nR^n} &
+L^mL^{n - m}R^n 
+\end{tikzcd}
+\]
+
+Combining these squares, and setting 
+\[
+\tau \defeq (L^m\eta^n L^{n - m}R^n) \comp
+(L^nR^{n - m}\eta^m R^m)^{-1},
+\]
+we obtain the commuting square \eqref{eq_lem_LR_commute_LR} for 
+$n \geq m$. 
+
+For the case $n < m$, iterating on the results of Lemma 
+\ref{lem_LRcommute}, we have the following commutative diagrams: 
+\begin{equation}\label{eq_R_CD_iter_LR}
+\begin{tikzcd}[column sep=75pt]
+R^nL^mR^m \arrow{r}{R^n \cuHI^m}
+\arrow{d}{(\eta^nL^{m - n}R^{m - n})^{-1}} &
+R^n \arrow[equals]{d} \\
+L^{m - n}R^m \arrow{r}{\cuHI^{m - n}R^n} &
+R^n 
+\end{tikzcd}
+\end{equation}
+and
+\begin{equation}\label{eq_L_CD_iter_LR}
+\begin{tikzcd}[column sep=75pt]
+L^{m + n}R^{m + n}L^n \arrow{r}{\cuHI^m L^n} 
+   \arrow{d}{L^m R^{m - n}\eta^n} &
+L^n \arrow[equals]{d} \\
+L^nL^{m - n}R^{m - n} \arrow{r}{L^n\cuHI^{m - n}} &
+L^n.
+\end{tikzcd}
+\end{equation}
+
+Applying \eqref{eq_L_CD_iter_LR} to $R^n$ and $L^n$ to 
+\eqref{eq_R_CD_iter_LR}, the resulting diagrams fit together to 
+give
+\[
+\begin{tikzcd}[column sep=75pt]
+L^nR^n L^mR^m \arrow{r}{L^nR^n \cuHI^m}
+\arrow{d}{(L^n\eta^nL^{m - n}R^{m - n})^{-1}} &
+L^nR^n \arrow[equals]{d} \\
+L^nL^{m - n} R^{m - n}R^n \arrow{r} 
+\arrow{d}{L^mR^{m - n}\eta^nR^n}&
+L^nR^n \arrow[equals]{d} \\
+L^mR^mL^nR^n \arrow{r}{\cuHI^m L^nR^n} &
+L^nR^n.
+\end{tikzcd}
+\]
+By setting
+\[
+\tau \defeq (L^n\eta^nL^{m - n}R^{m - n})^{-1} \comp
+L^mR^{m - n}\eta^nR^n
+\]
+we see that \eqref{eq_lem_LR_commute_LR} is commutative, and the 
+lemma is established.
+\end{proof}
+
+First notice that, by replacing $M$ by $\sgDM{n} M$ in 
+\eqref{eq_slice_triangle_1}, we get distinguished triangles for 
+all positive integers $m$ and $n$, all of which are functorial in 
+$M$:
+\begin{equation*}\label{eq_slice_triangle_2}
+\sgDM{n}\sgDM{m} M \to \sgDM{m}M \to \slDM{n}\sgDM{m}M \to 
+   \sgDM{n}\sgDM{m} M[1].
+\end{equation*}
 
 \begin{prop}\label{prop_sDM_properties}
 For all nonnegative integers $m, n$, such that $m < n$, and
 for all $M$ in $\DMeff$,
 
 \begin{enumerate}
-\item the following is a distinguished triangle
-\begin{equation*}
-\sgDM{n}\sgDM{m} M \to \sgDM{m}M \to \slDM{n}\sgDM{m}M \to 
-   \sgDM{n}\sgDM{m} M[1].
-\end{equation*}
-The triangle is functorial in $M$.
+\item there is a natural isomorphism
+$\sgDM{n}\sgDM{m} \stackrel{\tau}{\to} \sgDM{m}\sgDM{n}$
+fitting into the following commutative diagram of natural
+transformations:
+\begin{equation}\label{eq_prop_sg_commute_sg}
+\begin{tikzcd}[column sep=65pt]
+\sgDM{n} \sgDM{m} \arrow{r}{\sgDM{n}\epsilon^m} \arrow{d}{\tau} 
+&\sgDM{n} \arrow[equals]{d} \\
+\sgDM{m} \sgDM{n} \arrow{r}{\epsilon^m \sgDM{n}}
+&\sgDM{n},
+\end{tikzcd}
+\end{equation}
+where $\epsilon^m : \sgDM{m} \to \id$ is the unit. Furthermore,
+$\sgDM{n} \epsilon^m$ and $\epsilon^m \sgDM{n}$ are natural
+isomorphisms.
 
-\item $\sgDM{n}\sgDM{m} = \sgDM{m}\sgDM{n} = \sgDM{n}$.
-
-\item $\sgDM{m}\slDM{n} = \slDM{n}\sgDM{m}$.
+\item $\sgDM{m}\slDM{n} \cong \slDM{n}\sgDM{m}$.
 
 \item $\sgDM{n}\slDM{m} = \slDM{m}\sgDM{n} = 0$.
 
-\item $\slDM{m}\slDM{n} = \slDM{n}\slDM{m} = \slDM{m}$.
+\item $\slDM{m}\slDM{n} \cong \slDM{n}\slDM{m} \cong \slDM{m}$.
 
 \item $\tZ[k]{(\sgDM{n}M)} = \sgDM{n + k}\tZ[k]{M}$ for all 
 positive integers $k$.
@@ -160,38 +427,52 @@ positive integers $k$.
 \end{prop}
 \begin{proof}
 \begin{enumerate}
-\item The existence of the triangle follows from setting $M = 
-\sgDM{n} M$ in the slice triangle in \eqref{eq_slice_triangle_1}. 
-Functoriality in $M$ is immediate.
+\item the commutativity of \eqref{eq_prop_sg_commute_sg} is a
+direct consequence of Lemma \ref{lem_LR_commute_LR}. In the
+case that $m < n$, the arguments in the proof of Lemma 
+\ref{lem_LR_commute_LR} shows that $\epsilon^m \sgDM{n}$ and
+$\sgDM{n} \epsilon^m$ are natural isomorphisms.
 
-\item Since $\sgDM{n}M = \tZ[n]{\hZ[n]{M}}$, $\sgDM{m}\sgDM{n} = 
-\sgDM{n}\sgDM{m} = \sgDM{n}$ is immediate.
-
-\item Since $\sgDM{n}$ is a triangulated functor and by part (1),
-we have
+\item By part (1), \eqref{eq_prop_sg_commute_sg} is a commutative
+diagram. Apply the commutative diagram of functors to an object
+$M$ of $\DMeff$, and extend the rows of 
+\eqref{eq_prop_sg_commute_sg} to triangles. We obtain the 
+following commutative diagram:
 \[
 \begin{tikzcd}
 \sgDM{n} \sgDM{m} M \arrow{r} \arrow{d}{\cong} &
 \sgDM{m} M \arrow{r} \arrow[equals]{d} &
 \slDM{n} \sgDM{m} M \arrow{r}{+1} \arrow[dotted]{d} &
-\slDM{n} \sgDM{m} M[1] \arrow{d}{\cong}\\
+\sgDM{n} \sgDM{m} M[1] \arrow{d}{\cong}\\
 \sgDM{m} \sgDM{n} M \arrow{r} &
 \sgDM{m} M \arrow{r} &
 \sgDM{m} \slDM{n} M \arrow{r}{+1} &
 \sgDM{m} \sgDM{n} M[1].
 \end{tikzcd}
 \]
-It follows by the Five Lemma (\cite[10.2.2]{WH}) that 
+By the Five Lemma (\cite[10.2.2]{WH}), we have that
 \[
 \sgDM{m}\slDM{n} M \cong \slDM{n}\sgDM{m} M.
 \]
-Functoriality in $M$ of the rows implies that that this 
-isomorphism is natural in $M$. That is, $\sgDM{m} \slDM{n}$ is 
-naturally isomorphic to $\slDM{n} \sgDM{m}$.
+Since the rows are functorial in $M$ and isomorphism
+$\sgDM{n} \sgDM{m} M \to \sgDM{m}\sgDM{n} M$ is natural,
+for a given map $f: M \to M'$, the induced maps 
+$\slDM{n}\sgDM{m}(f)$ and $\sgDM{m}\slDM{n}(f)$ fit into the 
+following commutative square:
+\[
+\begin{tikzcd}
+\slDM{n} \sgDM{m} M \arrow{r} \arrow{d}
+&\slDM{n} \sgDM{m} M' \arrow{d} \\
+\sgDM{m}\slDM{n} M \arrow{r} &
+\sgDM{m}\slDM{n} M'
+\end{tikzcd}
+\]
+Therefore, $\sgDM{m} \slDM{n}$ is naturally isomorphic to 
+$\slDM{n} \sgDM{m}$.
 
 \item Since $\hZ[n]{(\slDM{m})} = 0$, it is clear that
-$\sgDM{n}\slDM{m} = 0$. On the other hand, by (2), $\sgDM{m}\sgDM{n}
-= \sgDM{n}$. From the slice triangle in part (1)
+$\sgDM{n}\slDM{m} = 0$. On the other hand, by (1), $\sgDM{m}\sgDM{n}
+= \sgDM{n}$. From the following functorial distinguished triangle
 \[
 \sgDM{m} \sgDM{n} \to \sgDM{n} \to \slDM{m} \sgDM{n} \to \sgDM{m} 
    \sgDM{n}[1]
@@ -224,11 +505,10 @@ whence, by (3) we have
 \]
 The fact that $\slDM{n} \slDM{m} M \cong \slDM{m} \slDM{n} M$
 follows from the Five Lemma. Naturality in $M$ now follows from
-naturality in (1 - 3).
+naturality in parts (1) and (2).
 
 \item The case $k = 1$ is established in \cite[Cor. 1.4]{HuKa}.
-The general case follows by induction on $k$.
-
+The general case follows by induction on $k$. \qedhere
 \end{enumerate}
 \end{proof}
 
@@ -240,27 +520,33 @@ triangle
 \end{equation}
 
 \begin{defn}\label{def_slice_functors_DMeff}
-For $M$ in $\DMeff$, we say $\slDM{n}\sgDM{n - 1}M$ is the 
-\emph{$n$-th slice} of $M$, written as $\sliceDM{n}M$. Since
-$\slDM{n}$ and $\sgDM{n}$ are triangulated functors, so is 
-$\sliceDM{n}$.
+For $M$ in $\DMeff$ and positive integer $n$, we say 
+$\slDM{n}\sgDM{n - 1}M$ is the \emph{$n$-th slice} of $M$, written 
+as $\sliceDM{n}M$. Since $\slDM{n}$ and $\sgDM{n}$ are 
+triangulated functors, so is $\sliceDM{n}$. We define the $0$-th
+slice functor to be $\slDM{0}$.
 \end{defn}
 
-By Proposition \ref{prop_sDM_properties} (3), $\sliceDM{n} =
+By Proposition \ref{prop_sDM_properties} (2), $\sliceDM{n} =
 \sgDM{n}\slDM{n - 1}$. In particular, the essential image of
-$\sliceDM{n}$ is in $\GFiltDM[n]{\DMeff}$. That is, for all $M$ in 
-$\DMeff$, $\sliceDM{n}M = \tZ[n]{M'}$. In particular, the following
-holds:
+$\sliceDM{n}$ is in $\GFiltDM[n]{\DMeff}$. That is, for each $M$ in 
+$\DMeff$, there exists some $M'$ such that $\sliceDM{n}M \cong 
+\tZ[n]{M'}$. Setting $M'' \defeq M'[-2n]$, we obtain the following 
+proposition:
 
 \begin{prop}[\cite{HuKa}, 1.4(v)]
 \label{prop_DMeff_slice_fund_invariant}
-For each $n$ and $M$, $\sliceDM{n}M = M'(n)[2n]$ for some $M'$ in
-$\DMeff$.
+For each $n$ and $M$, $\sliceDM{n}M = \tZ[n]{M''}[2n]$ for some 
+unique $M''$ in $\DMeff$. The object $M''$ is defined up to
+unique isomorphism.
 \end{prop}
 
-Following \cite{HuKa}, we call $M'$ in Proposition
-\ref{prop_DMeff_slice_fund_invariant} the \emph{$n$-th fundamental 
-invariant of $M$}, which we write as $\fIDM{n}M$.
+\begin{defn}\label{def_DM_fund_invariant}
+Following \loccit, we call $M''$ in Proposition
+\ref{prop_DMeff_slice_fund_invariant} the \DEF{$n$-th fundamental 
+invariant of $M$}, which we write as $\fIDM{n}M$. For each positive 
+$n$, $\fIDM{n}$ is an endofunctor on $\DMeff$.
+\end{defn}
 
 \begin{ex}\label{ex_sfilt_MPn}
 It is clear that $\Z(n)$ is its own $n$-th slice. Furthermore,
@@ -282,14 +568,24 @@ and
 Therefore, $\sliceDM{k} M(\P^n) = \Z(k)[2k]$, and the $k$-th
 fundamental invariant of $M(\P^n)$ is $\fIDM{k}M(\P^n) = \Z$,
 for $k = 0,1,\dots,n$.
+\comment{
+Lastly, for $A$ an abelian variety, then by -, $X \mapsto 
+\hom_{\Sm}(X, A)$ defines a homotopy invariant sheaf with 
+transfers, which we also represent by $A$. By
+\cite[]{}, the $0$-th slice and the $0$-th fundamental invariant
+of $A$ is given by 
+}
 \end{ex}
 
 \section{Slice filtration on $\DM$}
+\label{sect_slice_filt_on_DM}
 
 In this section, we will extend the slice filtration on $\DMeff$ 
-to $\Z$-indexed filtrations on $\DM$.
+to $\Z$-indexed filtrations on $\DM$. Recall from \cite[9.7]{MVW}
+and the paragraphs after \cite[14.2]{MVW} the following definition
+of the category $\DM$.
 
-\begin{defn}
+\begin{defn}[Taken from \cite{MVW} 14.1]
 Let $\DM$ be the category obtained from $\DMeff$ by inverting
 the operation $M \mapsto \tZ{M}$. That is, the objects of $\DM$
 are pairs $(M, n)$, where $M$ is an object of $\DMeff$, and $n$
@@ -303,15 +599,13 @@ $k + n'$ are positive. We write $\homDM((M, n), (M',n'))$ for the
 hom set of $(M, n)$ and $(M', n')$. 
 \end{defn}
 
-\begin{rmk}
 By induction, we have that $(M, n) \cong (M \tDM \Z(n), 0)$, for 
 any positive integer $n$ and all $M$ in $\DMeff$. In particular,
-$(M, n) \cong (M', n')$ for $n \geq n'$, then $M \cong 
+if $(M, n) \cong (M', n')$ for $n \geq n'$, then $M \cong 
 \tZ[n - n']{M'}$.
-\end{rmk}
 
-\begin{rmk}\label{rmk_homs_in_DM}
-By the Cancellation Theorem (Theorem \ref{thm_dm_cancellation}), 
+Furthermore, by the Cancellation Theorem (Theorem 
+\ref{thm_dm_cancellation}), 
 \[
 \homDMf(M, M') = \homDMf(\tZ[n]{M}, \tZ[n]{M'})
 \]
@@ -319,19 +613,18 @@ for all positive integers. Therefore, the colimit in the
 definition of $\homDM$ is a finite limit. That is, it suffices to 
 take $k > |n| + |n'|$, say.
 
-Furthermore, the localization functor $\spectDM: \DMeff \to \DM$, 
-given by sending $M$ in $\DMeff$ to $(M, 0)$ is fully faithful by
-Theorem \ref{thm_dm_cancellation}. Therefore, we can identify 
-$\DMeff$ as the full subcategory of $\DM$. The functor $\spectDM$ 
-admits a right adjoint, which we represent by $\loopDM$. This 
-functor is defined by 
+By Theorem \ref{thm_dm_cancellation}, the localization functor 
+$\spectDM: \DMeff \to \DM$, given by sending $M$ in $\DMeff$ to 
+$(M, 0)$ is fully faithful. Therefore, we can identify $\DMeff$ as 
+the full subcategory of $\DM$. The functor $\spectDM$ admits a 
+right adjoint, which we represent by $\loopDM$. This functor is 
+defined by 
 \[
 \loopDM(M, n) = \begin{cases}
 \LHI[n]{M} &\textrm{for }n \geq 0 \\
 0 &\textrm{for }n < 0.
 \end{cases}
 \]
-\end{rmk}
 
 We will now give a description of the subcategories in the slice
 filtration on $\DM$. Each subcategory in the slice filtration 
@@ -356,15 +649,15 @@ $\sgDM{n} M$ to be $M$ for all nonpositive integer $n$, and set
 \sgDM{k}(M, n) \defeq (\sgDM{k - n}M, n).
 \]
 This definition is independent of the choice of $n$. Indeed, if
-$(M, n) = (M', n')$ for some integer $n'$ less than $n$, say, then
-$\tZ[n - n']{M} = M'$, and $\sgDM{k - n'}M' = \sgDM{k - n}M$ by
-(6) of Proposition \ref{prop_sDM_properties}. Hence, 
+$(M, n) \cong (M', n')$ for some integer $n'$ less than $n$, say, 
+then $\tZ[n - n']{M} = M'$, and $\sgDM{k - n'}M' = \sgDM{k - n}M$ 
+by (5) of Proposition \ref{prop_sDM_properties}. Hence, 
 $(\sgDM{k - n'}M', n') \cong (\sgDM{k - n}M, n)$.
 
-We show that $\sgDM{k}$ is a triangulated functor which satisfy 
-the condition of a filtration. We verify this claim in the 
-Proposition \ref{prop_sDM_reflection}. We first prove the following
-lemma:
+We show that $\sgDM{k}$ are the triangulated functors from $\DM$
+to $\GFiltDM[k]{\DM}$ that make $(\GFiltDM[k]{\DM}, \sgDM{k})$ 
+into a weak filtration. We verify this claim in the Proposition 
+\ref{prop_sDM_reflection}. We first prove the following lemma:
 
 \begin{lem}\label{lem_triangle_in_DM}
 If $(M_1, n) \to (M_2, n) \to (M_3, n_3) \to (M_1, n)[1]$
@@ -439,14 +732,18 @@ $\sgDM{k}$. Set $\slDM{k} M = 0$ for $k \leq 0$.
 
 \begin{lem}
 For each integer $k$, the object $(M', n')$ in 
-\eqref{eq_DM_slice_triangle} is defined up to unique isomorphism. 
-In particular, $M' = \slDM{k - n} M$.
+\eqref{eq_DM_slice_triangle} is defined up to unique isomorphism.
+In particular, $(M', n')$ is uniquely isomorphic to 
+$(\slDM{k - n} M, n)$.
 \end{lem}
 \begin{proof}
 By definition, $\sgDM{k}(M, n) = (\sgDM{k - n}M, n)$. It follows 
-from Lemma \ref{lem_triangle_in_DM} that we may assume $n' = n$. 
-The Lemma now follows from the uniqueness of $M'$ (see 
-\cite[1.3(i)]{HuKa}).
+from Lemma \ref{lem_triangle_in_DM} that we may assume $n' = n$,
+and $\sgDM{k - n} M \to M \to M' \to \sgDM{k - n}M[1]$ is a 
+distinguished triangle in $\DMeff$. Since $M'$ is uniquely defined 
+up to unique isomorphism (see \cite[1.3(i)]{HuKa}), $M' \cong 
+\slDM{k - n} M$, and $(M', n') \cong (\slDM{k - n}M, n)$ as 
+claimed.
 \end{proof}
 
 Let $\slDM{k}$ denote the association $(M, n) \mapsto (M', n') =
@@ -468,7 +765,7 @@ isomorphic to the identity.
 
 It follows that the towers of subcategories given in 
 \eqref{eq_DM_slice_filt} and \eqref{eq_DM_slice_cofilt} 
-respectively define a descending and an ascending filtrations on 
+respectively define a descending and an ascending filtration on 
 $\DM$.
 
 \section{Extending the fundamental invariants}
@@ -489,11 +786,15 @@ and $\sgDM{k}$ are triangulated functors, so is $\slDM{k + 1}
 
 By similar arguments as in Proposition 
 \ref{prop_DMeff_slice_fund_invariant}, we have that 
-$\sliceDM{k}(M, n) = (M'[2k], k)$ for some $M'$ in $\DMeff$. We 
+$\sliceDM{k}(M, n) \cong (M'[2k], k)$ for some $M'$ in $\DMeff$,
+which is unique up to unique isomorphism. We 
 define the \DEF{$k$-th fundamental invariant} of $(M, n)$ to be
 \[
 \fIDM{k}(M, n) \defeq M'.
 \]
+For each integer $k$, $\fIDM{k}$ is a functor from $\DM$ to
+$\DMeff$.
+
 Notice that for $k \geq 0$, if $(M, n)$ is in $\DMeff$, the 
 definition of $\sliceDM{k}$ recovers the $k$-th slice functor
 in Definition \ref{def_slice_functors_DMeff}. Similarly,
@@ -511,9 +812,11 @@ For $(M, n), (M'. n')$ in $\DM$, define
 \[
 (M, n) \tDM (M', n') = (M \tDM M', n + n'). 
 \]
-Since $\tDM$ is additive and symmetric, so is its extension to 
-$\DM$. In fact, $(\DM, \tDM)$ is an additive symmetric monoidal 
-triangulated category (see \cite[8.4A12]{MVW}).
+As shown in \cite[15.8]{MVW} the cyclic permutation of 
+$\Z(1)^{\tensor 3}$ is the identity in $\DMeff$, by 
+\cite[8.4A12]{MVW} the triangulated category $\DM$ together with 
+$\tDM$ defines $(\DM, \tDM)$ is an additive symmetric monoidal 
+triangulated category.
 
 For $\DMeff$, we have the following graded tensor structure:
 

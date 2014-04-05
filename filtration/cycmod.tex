@@ -25,6 +25,8 @@ is an isomorphism.
 
 We call the morphisms $\susp_n$ and $\deloop_n$ the \DEF{$n$-th 
 suspensions} and the \DEF{$n$-th delooping} respectively.
+
+Let $\HM$ denote the category of $\DEF{homotopy modules}$.
 \end{defn}
 
 The relationship between $\HM$ and $\HI$ is analogous to the 
@@ -103,109 +105,28 @@ R\tlHI{n}(F) \cong \tlHI{n - 1}R(F).
 Both isomorphisms are natural in $F$.
 \end{prop}
 \begin{proof}
-The key is to prove that the diagram
-\begin{equation}\label{eq_Ltl_com_diag}
-\begin{tikzcd}
-L^{n + 1}R^{n + 1}L(F) \arrow{r}{\eta^{n + 1}} \arrow{d} &
-L(F) \arrow[equals]{d} \\
-L(L^{n}R^n(F)) \arrow{r}{L\eta^{n}} &
-L(F).
+By Lemma \ref{lem_LRcommute}, the following diagram, natural in $F$, 
+is commutative:
+\begin{equation}\label{eq_Ltl_com_diag_HI}
+\begin{tikzcd}[column sep=80pt]
+L^{n + 1}R^{n + 1}L \arrow{r}{\cuHI^{n + 1}L} \arrow{d} &
+L \arrow[equals]{d} \\
+L(L^{n}R^n) \arrow{r}{L\cuHI^{n}} &
+L.
 \end{tikzcd}
 \end{equation}
-is commutative. Here, $\eta^n$ denotes the counit $L^nR^n \to \id$,
+Here, $\cuHI^n$ denotes the counit $L^nR^n \to \id$,
 and the vertical map $L^{n + 1}R^{n + 1}L(F) \to L(L^nR^n (F))$ is 
-given by the map $L^{n + 1}R^n \epsilon^{-1}$, where $\epsilon$ is
+given by the map $L^{n + 1}R^n \eta^{-1}$, where $\eta$ is
 the unit $\id \to RL$, which is an isomorphism.
 
-To establish that the above diagram is commutative, we proceed by 
-induction on $n$. The case $n = 0$ follows by the counit-unit 
-adjunction. That is, the composition
-\[
-L(F) \stackrel{L(\epsilon)}{\to} LRL(F) \stackrel{\eta L}{\to} 
-   L(F).
-\]
-is the identity. Therefore, $\eta L = L(\epsilon^{-1})$, and the
-following diagram commutes:
-\[
-\begin{tikzcd}
-LRL(F) \arrow{r}{\eta L} \arrow{d}{L(\epsilon^{-1})} &
-L(F) \arrow[equals]{d} \\
-L(F) \arrow[equals]{r} & L(F).
-\end{tikzcd}
-\]
-
-Now, suppose we have
-\begin{equation}\label{eq_induct_hyp_tl_diag}
-\begin{tikzcd}
-L^{n}R^{n}L(F) \arrow{r}{\eta^{n}} \arrow{d} &
-L(F) \arrow[equals]{d} \\
-L(L^{n - 1}R^{n - 1}(F)) \arrow{r}{L\eta^{n - 1}} &
-L(F).
-\end{tikzcd}
-\end{equation}
-There exists a natural transformation $\eta': L^n R^n \to 
-L^{n - 1} R^{n - 1}$. Applying this to $\epsilon^{-1}: RL(F) \to 
-F$, we have the following commutative diagram
-\[
-\begin{tikzcd}
-L^n R^n RL(F) \arrow{r}{\eta'} 
-   \arrow{d}{L^nR^n \epsilon^{-1}} &
-L^{n - 1}R^{n - 1} RL(F) 
-   \arrow{d}{L^{n - 1}R^{n - 1}\epsilon^{-1}} \\
-L^nR^n(F) \arrow{r}{\eta'} &
-L^{n - 1}R^{n - 1} (F),
-\end{tikzcd}
-\]
-and applying $L$, we have
-\[
-\begin{tikzcd}
-L^{n + 1} R^{n + 1} L(F) \arrow{r}{L\eta'} 
-   \arrow{d}{L^{n + 1}R^n \epsilon^{-1}} &
-L^{n}R^n L(F) \arrow{d}{L^nR^{n - 1}\epsilon^{-1}} \\
-L^{n + 1}R^n(F) \arrow{r}{L\eta'} &
-L^{n}R^{n - 1}(F),
-\end{tikzcd}
-\]
-which fits together with \eqref{eq_induct_hyp_tl_diag} to give the 
-following commutative diagram:
-\[
-\begin{tikzcd}
-L^{n + 1} R^{n + 1} L(F) \arrow{r}{L\eta'} 
-   \arrow{d}{L^{n + 1}R^n(\epsilon^{-1})}
-   \arrow[bend left]{rr}{\eta^{n + 1}} &
-L^{n}R^n L(F) \arrow{d}{L^nR^{n - 1}(\epsilon^{-1})}
-   \arrow{r}{\eta^{n}} &
-L(F) \arrow[equals]{d} \\
-L^{n + 1}R^n(F) \arrow{r}{L\eta'} 
-   \arrow[bend right]{rr}{L\eta^n} &
-L^{n}R^{n - 1}(F) \arrow{r}{L\eta^{n - 1}} &
-L(F).
-\end{tikzcd}
-\]
-Notice that $\eta^n L\eta' = \eta^{n + 1}L$ (the composition of
-the top horizontal arrows is precisely the top bent arrow), and
-$L\eta^{n - 1}L\eta' = L\eta^n$ (the composition of the bottom
-horizontal arrows is precisely the bottom bent arrow). The claim
-follows.
-
-Returning to \eqref{eq_Ltl_com_diag}, which is now shown to 
-be commutative, notice that the cokernel of the top row is 
-$\tlHI{n + 1}L(F)$. Since $L$ is right exact, the cokernel of 
-the bottom row is $L\tlHI{n}(F)$. By the Five Lemma, it is clear 
-that $\tlHI{n + 1}L(F) \cong L\tlHI{n}(F)$.
-
-For the other isomorphism, apply similar arguments to the
-diagram
-\[
-\begin{tikzcd}
-L^{n - 1}R^{n - 1}R(F) \arrow{r}{\eta^n} 
-   \arrow{d}{\eta} &
-R(F) \arrow[equals]{d} \\
-R (L^n R^n(F)) \arrow{r}{R \eta^n} &
-R(F),
-\end{tikzcd}
-\]
-using the fact that the functor $R$ is exact.
+The cokernel of $\cuHI^{n + 1}$ is $\tlHI{n + 1}L(F)$. Since $L$ 
+is right exact, the cokernel of $L\epsilon^n$ is $L\tlHI{n}(F)$. 
+By the Five Lemma, it is clear that $\tlHI{n + 1}L(F) \cong 
+L\tlHI{n}(F)$. Since \eqref{eq_Ltl_com_diag_HI} is natural in $F$,
+the isomorphism $\tlHI{n + 1}L \to L\tlHI{n}$ is natural as well.
+By similar arguments, one can show that $R\tlHI{n}$ is naturally
+isomorphic to $\tlHI{n - 1}R$ as well.
 \end{proof}
 
 We will now define the coradical on $\HM$. Let $(F_*, \deloop_*)$ 
@@ -523,7 +444,7 @@ form a descending strong filtration of $\HM$:
 \]
 \end{cor}
 
-By Corollary \ref{cor_tt_ref_and_coref}, the reflection functors 
+By Corollary \ref{cor_tt_ref_and_coref}, the coreflection functors 
 $\tgHM{n} : \HM \to \THM{n}$ are defined by sending $(F_*, 
 \deloop_*)$ in $\HM$ to the kernel of the unit map 
 $(F_*, \deloop_*) \to \tlHM{n}(F)$. Write $\tgHM{n}(F)$ for this 
@@ -532,7 +453,7 @@ in $\THM{n}$, which follows easily from Theorem
 \ref{thm_precorad_eq_tt}:
 
 \begin{cor}\label{cor_tgHM_prop}
-An object $(F_*, \deloop_*)$ is in $\THM{n}\HM$ if and only
+An object $(F_*, \deloop_*)$ is in $\THM{n}$ if and only
 if $\tgHM{n}(F) = (F_*, \deloop_*)$.
 \end{cor}
 
@@ -672,8 +593,8 @@ by
 \sum_{z|y} \phi_{\resf{z},\resf{x}}^* \comp \res{z} & \textrm{otherwise}.
 \end{cases}
 \]
-Here, following \cite{Rost96}, ``$z|y$'' is taken to mean ``$z$ 
-lies over $y$.'' In particular, if $y \in \subsch{1}{Z}$, the sum 
+Here, following \cite{Rost96}, $z|y$ denotes the relation that $z$ 
+lies over $y$. In particular, if $y \in \subsch{1}{Z}$, the sum 
 is taken over all $z$ lying over $y \in \subsch{1}{Z}$. In this
 case, $\phi_{\resf{z},\resf{y}}^*$ is the corestriction map 
 associated to the finite field extension $\resf{y} \to \resf{z}$.
@@ -844,5 +765,5 @@ of the proposition above:
 
 \begin{cor}\label{cor_graded_mon_struct_HM}
 There exists a graded symmetric monoidal structure on $\HM$ by
-$(\tgHI{*}\HM, \tgHM{*})$.
+$(\THM{*}, \tgHM{*})$.
 \end{cor}

@@ -1,42 +1,47 @@
 \chapter{Introduction} 
 
-The goal of this thesis is to show that the abelian categories
+The goal of this thesis is to show that the abelian categories 
 $\HI$ of homotopy invariant Nisnevich sheaves with transfers and 
-$\CycMod$ of Rost's cycle modules each admits
-three filtrations. Here, a (weak) filtration of a category roughly 
-means a tower of subcategories together with reflection functors 
+$\CycMod$ of Rost's cycle modules each admits three filtrations. 
+Here, a (weak) filtration of a category roughly means a tower of 
+subcategories together with reflection or coreflection functors 
 from the category to each of its subcategories. The filtrations 
 are induced by the slice filtration on the tensor triangulated 
-category $\DMeff$ of Voevodsky's derived category of motive. 
-One of the key ingredients in constructing the three filtrations 
-is a pair of adjoint functors from $\HI$ to itself, coming from the 
+category $\DMeff$ of Voevodsky's derived category of motive. One 
+of the key ingredients in constructing the three filtrations is a 
+sequence of adjoint functors from $\HI$ to itself, coming from the 
 triangulated tensor structure of $\DMeff$. The other key 
 ingredient is torsion theory.
  
-We first revisit the basic definition and results of
-classical torsion theory for well-powered abelian categories, as 
-developed in \cite{BJV} or \cite{DTor}. However, instead of focusing
+We first revisit the basic definition and results of classical 
+torsion theory for well-powered abelian categories, as developed 
+in \cite{BJV} or \cite{DTor}. However, instead of focusing
 on the relationship between torsion theories and radicals, we
 introduce the theory from the perspective of coradicals, which are 
 radicals in the opposite category.  
 
-In Chapter 3 and 4, we summarize the foundational theory in 
-motivic cohomology necessary to understand the tensor triangulated 
-structure on $\DMeff$, and the ``partial'' internal hom bifunctor. 
-These are taken from early lectures in \cite{MVW}. The main 
-results that we highlight in these two chapters are the 
-Cancellation Theorem of Voevodsky and that there exists an object 
-$\Z(1)$ of $\DMeff$ which gives rise to a pair of adjoint endofunctor
-on $\DMeff$. These results provide the necessary scaffold to 
-introduce the slice filtration on $\DMeff$. The slice filtration on
-$\DMeff$ is based on the work of \cite{HuKa}, which in turn is
-inspired by an analogous structure on the stable homotopy category
-of motives (see \cite{VOP}). We extend the work of \cite{HuKa} by
-extending the slice filtration on $\DMeff$ to the category $\DM$, 
-which is obtained from $\DMeff$ by inverting the Tate motive.
+We then summarize the theory in motivic cohomology needed to 
+understand the tensor triangulated structure on $\DMeff$ 
+(Chapters 3 and 4). These are taken from early lectures in 
+\cite{MVW}. The main results that we highlight in these two 
+chapters are the Cancellation Theorem of Voevodsky and that there 
+exists an object $\Z(1)$ of $\DMeff$ which gives rise to a pair of 
+adjoint endofunctor on $\DMeff$. 
 
-In Chapter 6, we note that $\DMeff$ is equipped with a 
-$t$-structure in the sense of \cite{BBD}, and $\HI$ is categorically
+These results provide the necessary scaffold to introduce the 
+slice filtration on $\DMeff$. The term ``slice filtration'' is the
+name of a filtration structure on the stable homotopy category 
+of motives that Voevodsky defined in \cite{VOP}. The analogous
+structure for $\DMeff$ is constructed by Huber and Kahn in 
+\cite{HuKa}. We summarize the main properties of the slice 
+filtration on $\DMeff$ in Chapter 5, and develop an extension of
+the slice filtration to the category of $\DM$, which is the
+triangulated category obtained from $\DMeff$ by inverting the
+Tate motive (see Section \ref{sect_slice_filt_on_DM}).
+
+In Chapter 6, we develop the theory of torsion filtration on
+$\HI$. We first note that $\DMeff$ is equipped with a 
+$t$-structure in the sense of \cite{BBD}, and that $\HI$ is categorically
 equivalent to the heart. An obvious question to ask is whether the
 filtration structure on $\DMeff$ induces a similar structure on
 $\HI$. In fact, the slice filtration on $\DMeff$ does induce two
@@ -44,22 +49,30 @@ filtrations on $\HI$. In addition, the reflection functors from
 one of the filtrations define a sequence of coradicals. Applying
 the results of Chapter 2, we obtain a third filtration, which has
 the additional property that the filtration on $\HI$ induces a 
-functorial filtration for each object of $\HI$. We then extend the 
+functorial filtration for each object of $\HI$. We coin the
+term ``torsion filtration'' to describe the filtrations that
+come from a sequence of coradicals.
+
+We then extend the torsion
 filtrations on $\HI$ to the abelian category $\HI_*$ of homotopy 
-modules (Chapter 6). Using the fact that $\HI_*$ is categorically 
-equivalent to $\CycMod$, we conclude that these filtrations exist 
-on $\CycMod$. 
+modules (Chapter 7). The key is to construct a $\Z$-indexed sequence
+of coradicals on $\HI_*$. Once we have accomplished this, applying
+the results of Chapter 2, we obtain filtrations of $\HI_*$. Using 
+the fact that $\HI_*$ is categorically equivalent to $\CycMod$, we 
+conclude that these filtrations exist on $\CycMod$. 
 
 In the last chapter, we summarize the results of the previous 
 chapters by axiomatizing the conditions on a triangulated with a 
 $t$-structure such that the heart is equipped with a sequence of 
 coradicals whose associated torsion theories form two filtrations 
-on the category. We have decided that the essential ingredient is 
-for a tensor triangulated category with a $t$-structure to be 
-equipped with a Tate object --- an object $S$ in the heart such 
-that the functor given by tensoring with $S$ admits a right 
-adjoint --- such that the Cancellation Theorem holds for $S$. We 
-call such a triangulated category \emph{torsion monoidal}, and we 
-show that the heart of any torsion monoidal category is equipped
-with three filtrations, two of which is induced by a sequence of
-coradicals.
+on the category. The essential ingredient is for a tensor 
+triangulated category with a $t$-structure to be equipped with a 
+Tate object --- an object $S$ in the heart such that the functor 
+given by tensoring with $S$ admits a right adjoint --- such that 
+the Cancellation Theorem holds for $S$. We call such a 
+triangulated category \emph{torsion monoidal}, and we show that 
+the heart of any torsion monoidal category is equipped with three 
+filtrations, two of which are induced by a sequence of coradicals.
+
+For the remainder of the thesis, we assume that $\basefield$ is
+a perfect field.

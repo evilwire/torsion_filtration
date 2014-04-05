@@ -1,3 +1,4 @@
+% search for THESIS_ALT for any mods
 % Les Clowney 
 % ru-thesis document style (LaTeX)
 %  ruthesis.cls is based on the LaTeX documentstyle ruthesis.sty, to which
@@ -444,7 +445,10 @@
                 \Large\bfseries\expandafter{\@title} \large
                 \vskip30bp
                 by \@author\\
-                \ifphd Dissertation\else Thesis\fi\ Director: \@director
+                % if you need advisor on the same line, remove the
+                % newline marker THESIS_ALTER
+                \ifphd Dissertation\else Thesis\fi\ Director: \\
+                \@director
                 \vskip 31bp}
                 \end{center}
                 \@abstract}

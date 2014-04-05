@@ -4,7 +4,7 @@ In this chapter, we develop the basics of torsion theory in a
 categorical setting. The concepts and results here closely follow
 those of \cite{BJV} and \cite{DTor}, except we develop the theory
 from the dual perspective of coradicals. The ideas are not new;
-neither is the methodology. We have included the proof for 
+neither is the methodology. We have included the proofs for 
 convenience of the reader.
 
 \section{Coradicals}
@@ -30,11 +30,14 @@ A_{\Cat{A}} \arrow[hook]{r}{j} & A
 \end{tikzcd}
 \]
 where $B$ is in $\Cat{C}$, there exists a map $B \stackrel{f}{\to} 
-A_{\Cat{C}}$ such that $jf = i$.
+A_{\Cat{C}}$ such that $jf = i$. A choice of $A_{\Cat{C}}$ for 
+each $A$ determines a right adjoint to the inclusion of $\Cat{C}$ 
+in $\Cat{A}$, making $\Cat{C}$ a coreflective subcategory of 
+$\Cat{A}$.
 \end{defn}
 
 \begin{prop}\label{prop_max_subobj}
-For any well-powered abelian category $\Cat{A}$ and any full 
+For an abelian category $\Cat{A}$ and any well-powered full 
 subcategory $\Cat{C}$ closed under sums and quotients, any $A$ in 
 $\Cat{A}$ has a largest $\Cat{C}$-subobject.
 \end{prop}
@@ -49,10 +52,9 @@ of $A$ in $\Cat{C}$.
 We now define some key notions in torsion theory.
 
 \begin{defn}\label{def_coradical}
-Let $\phi: \Cat{A} \to \Cat{A}$ be an endofunctor. 
 \begin{enumerate}
-\item We say that $\phi$ is a \DEF{quotient functor} if there 
-exists a natural surjection $\eta: \id \to \phi$. 
+\item A \DEF{quotient functor} is an endofunctor $\phi : \Cat{A} \to \Cat{A}$
+together with a natural surjection $\eta: \id \to \phi$. 
 
 That is, for every $f: A \to B$, the following diagram commutes.
 \[
@@ -85,20 +87,23 @@ If $0 \to A' \to A \to A'' \to 0$ is an exact sequence, and $\phi$
 is a pre-coradical, exactness can fail at $\phi(A)$.
 \end{rmk}
 
+\begin{defn}\label{def_radical}
+Let $\phi: \Cat{A} \to \Cat{A}$ be an endofunctor of an abelian 
+category $\Cat{A}$. We say that $\phi$ is a \DEF{pre-radical} if 
+there exists a natural monomorphism $\phi \to \id$ (in which case, we
+say that $\phi$ is a \DEF{subobject functor}) such that 
+$\phi(A/\phi(A)) = 0$ for all $A$. If $\phi$ is also left-exact, then
+$\phi$ is a \DEF{radical}.
+\end{defn}
+
 \begin{ex}
 Let $\Ab$ be the category of abelian groups, and let $G$ an
 abelian group, written additively. We write $G_{tor}$ for the 
 torsion subgroup of $G$, and we write $\phi(G)$ for $G/G_{tor}$.
 It is easy to see that $\phi$ defines a pre-coradical.
 
-More generally, let $R$ be a commutative ring, and $S$ be a 
-multiplicatively closed set. For an $R$ module $M$, let ${}_SM$
-be the submodule $M$ of elements annihilated by $S$. We write
-$\phi(M)$ for $M/{}_SM$. Then $\phi$ defines a pre-coradical on
-the category of $R$-modules.
-
-In both of cases, $\phi$ is not a coradical. This can be seen in
-the following example. Consider the short exact sequence
+The quotient functor $\phi$ is pre-coradical but not a coradical. 
+To see this, consider the following short exact sequence
 \[
 0 \to \Z \stackrel{2}{\to} \Z \to \Z/2 \to 0
 \]
@@ -110,20 +115,16 @@ which is not exact in the middle.
 
 On the other hand, it is easy to see that the functors $G \mapsto 
 G_{tor}$ and $M \mapsto {}_SM$ are radicals.
+
+More generally, let $R$ be a commutative ring, and $S$ be a 
+multiplicatively closed set. For an $R$ module $M$, let ${}_SM$
+be the submodule $M$ of elements annihilated by $S$. We write
+$\phi(M)$ for $M/{}_SM$. Then $\phi$ defines a pre-coradical on
+the category of $R$-modules. As in the case for abelian groups,
+the functor $\phi$ is not a coradical.
 \end{ex}
 
-Torsion theory is usually developed for radical functors, which 
-are coradicals in the opposite category of $\Cat{A}$.
-
-\begin{defn}\label{def_radical}
-Let $\phi: \Cat{A} \to \Cat{A}$ be an endofunctor of an abelian 
-category $\Cat{A}$. We say that $\phi$ is a \DEF{radical} if 
-there exists a natural monomorphism $\phi \to \id$ (in which case, we
-say that $\phi$ is a \DEF{subobject functor}) such that 
-$\phi(A/\phi(A)) = 0$ for all $A$. 
-\end{defn}
-
-\begin{rmk}
+\begin{rmk}\label{rmk_mitch_embed}
 In the case where $\Cat{A}$ is small, via Mitchell embedding 
 there exists an embedding of $\Cat{A}$ as a subcategory of $R$-mod
 for some suitable ring $R$. In this case, the subobject functors, 
@@ -131,19 +132,16 @@ quotient functors, idempotence, radicals, and coradicals
 corresponds to their counterparts in the ring theoretic setting.
 \end{rmk}
 
-\begin{rmk}\label{rmk_rad_corad_dual}
-Notice that quotient and subobject functors are dual notions. So 
-are radical and coradicals. In fact, all the results in this 
-chapter for coradicals have an corresponding dual, i.e. a parallel 
-statement for radicals. Throughout this chapter, we mostly 
-consider statements for only (pre-)coradicals functors. We leave 
-some dual statements to the reader to formulate or look up in 
-\cite{DTor}.
-\end{rmk}
+Torsion theory is usually developed for radical functors, which 
+are coradicals in the opposite category of $\Cat{A}$. However, 
+throughout this chapter, we mostly consider statements for
+(pre-)coradicals functors. We leave the dual statements to the 
+reader to formulate or look up in \cite{DTor} or 
+\cite[Section 1.2]{BJV}.
 
 \begin{prop}\label{prop_idempotence}
 Any right exact quotient functor $\phi$ is idempotent. In 
-particular, any coradical is idempotent.
+particular, any coradical is idempotent (\CF \cite[I2.2]{BJV}).
 \end{prop}
 \begin{proof}
 Fix $A$ in $\Cat{A}$, and let $\eta$ denote the natural surjection 
@@ -167,7 +165,7 @@ A \arrow{d}{\eta_A} \\
 \phi(A)
 \end{tikzcd}
 \]
-and notice that since $K \to \phi(K)$ is a surjection,
+and since $K \to \phi(K)$ is a surjection,
 \begin{align*}
 \phi^2(A) &= \cok (\phi(K) \to \phi(A)) \\
           &= \cok (K \to \phi(K) \to \phi(A)) \\
@@ -177,9 +175,9 @@ But $K \to A \to \phi(A)$ is the $0$ map. Therefore, $\phi^2(A) =
 \phi(A)$ as desired.
 \end{proof}
 
-In addition to being dual notions, coradicals (or idempotent 
-pre-radicals) are related to idempotent pre-coradicals in the
-following way:
+In addition to being dual notions, there is a one-to-one 
+correspondence between idempotent pre-radicals and
+idempotent pre-coradicals:
 
 \begin{prop}\label{prop_rad_eq_corad}
 Let $\phi$ be an idempotent pre-coradical, and $\eta$ be its 
@@ -214,7 +212,7 @@ $\kappa(A)$:
 0 \to \kappa(\kappa(A)) \to \kappa(A) 
    \stackrel{\eta_{\kappa(A)}}{\to} \phi(\kappa(A)) \to 0.
 \]
-However, $\phi$ is a pre-coradical, and therefore, 
+Since $\phi$ is a pre-coradical, we have we have that
 \[
 \phi(\kappa(A)) = \phi(\ker(A \to \phi(A))) = 0.
 \]
@@ -226,7 +224,7 @@ idempotent. The proposition follows.
 Let $\phi$ be a pre-coradical of $\Cat{A}$. Suppose $B$ is a 
 quotient of $\phi(A)$, and let $K$ be the kernel of the 
 composition $A \to \phi(A) \to B$. Then $\phi(K)$ is isomorphic 
-to the kernel of the surjection $\phi(A) \to B$.
+to the kernel of the surjection $\phi(A) \to B$ (\CF \cite[I2.3]{BJV}).
 \end{prop}
 \begin{proof}
 Let $\eta$ denote the natural surjection associated to the 
@@ -243,81 +241,75 @@ K \arrow{r}{g} \arrow[twoheadrightarrow]{d}{\eta_K} &
 A \arrow{r}{f} \arrow[twoheadrightarrow]{d}{\eta_A} &
 B \arrow{r} \arrow[equal]{d} &
 0 \\
-& \phi(K) \arrow{r}{\phi(f)} &
+& \phi(K) \arrow{r}{\phi(g)} &
 \phi(A) \arrow{r} &
 B \arrow{r} &
 0
 \end{tikzcd}
 \]
-It suffices to show that $\cok \phi(f) = B$. Indeed, we have
-that $\eta_K: K \to \phi(K)$ is surjective. Therefore, the
+Notice that $\eta_K: K \to \phi(K)$ is surjective. Therefore, the
 cokernel of $\phi(f)$ is the cokernel of $K \to A \to \phi(A)$.
 But the surjection from $A \to B$ factors through $\phi(A)$. It 
-follows that $\cok \phi(f) = B$.
+follows that $\cok \phi(f) = B$. The rest of the claim now 
+follows.
 
-Now consider the following commutative diagram:
-\[
-\begin{tikzcd}
-{}
-&\phi(K) \arrow{r} \arrow[dotted]{d}{h}
-&\phi(A) \arrow{r} \arrow[equals]{d}
-&B \arrow{r} \arrow[equals]{d}
-&0\\
-0 \arrow{r}
-& K' \arrow{r}
-&\phi(A) \arrow{r}
-&B \arrow{r}
-&0
-\end{tikzcd}
-\]
-where $K'$ is the kernel of $\phi(A) \to B$, and the dotted arrow
-follows from the fact that $K'$ is a kernel. Call this map $h$. 
-By the Snake Lemma, the map $\phi(K) \to K'$ is surjective.
-
-Furthermore, we have the following commutative diagram, with
-exact rows:
+Let $L$ be the kernel of $\eta_A$. We claim that $L$ is also the 
+kernel of the $\eta_K$. Since $f$ factors through $A \to \phi(A)$,
+there exists a map from $L$ to $K$, which we call $h$. Applying 
+the Snake Lemma to the following commutative diagram:
 \[
 \begin{tikzcd}
 0 \arrow{r} &
-K \arrow{r} \arrow{d} &
-A \arrow{r} \arrow{d} &
-B \arrow{r} \arrow{d} &
+L \arrow{r} \arrow{d}{h} &
+A \arrow{r} \arrow[equals]{d} &
+\phi(A) \arrow{r}\arrow[twoheadrightarrow]{d} &
 0 \\
 0 \arrow{r} &
-K' \arrow{r} &
-\phi(A) \arrow{r} &
+K \arrow{r} &
+A \arrow{r} &
 B \arrow{r} &
-0.
-\end{tikzcd}
-\]
-Applying Snake Lemma once again, we see that the kernel of $K \to 
-K'$ is isomorphic to the kernel of $A \to \phi(A)$. Let $L$ denote
-this kernel. Since $\phi$ is a pre-coradical, $\phi(L) = 0$.
-
-Furthermore, $h$ fits into the following commutative diagram:
-\[
-\begin{tikzcd}
-0 \arrow{r} &
-L \arrow{r} \arrow{d} &
-K \arrow{r} \arrow{d} &
-K' \arrow{r} \arrow[equals]{d} \arrow[dotted]{ld} &
-0 \\
-& \phi(L) \arrow{r} &
-\phi(K) \arrow{r}{h} &
-K' \arrow{r} &
 0
 \end{tikzcd}
 \]
-where the top row is exact. Thus, the composition $L \to K \to 
-\phi(K)$ is also $0$. However, $K'$ is the cokernel, and 
-therefore, there exists a map $K' \to \phi(K)$ (represented by the 
-dotted arrow in the above diagram). This map must be an injection, 
-since its composition with $h$ is the identity, and it must also 
-be a surjection, since composing with $K \to K'$ equals the 
-surjection $K \to \phi(K)$.
+we have that $L$ is a subobject of $K$. Let $L'$ be the kernel of
+$K \to \phi(K)$. We claim that $L$ is isomorphic to $L'$. Notice
+that we have the following commutative diagram:
+\begin{equation}\label{eq_corad_commuting_sq1}
+\begin{tikzcd}
+0 \arrow{r} &
+L' \arrow{r}{i'} \arrow[dotted]{d}{j} &
+K \arrow{r}{\eta_K} \arrow[equals]{d} &
+\phi(K) \arrow{r}\arrow{d}{\phi(g)} &
+0 \\
+0 \arrow{r} &
+L \arrow{r}{i}\arrow[hookrightarrow]{ru}{h} &
+A \arrow{r}{\eta_A} &
+\phi(A) \arrow{r} &
+0.
+\end{tikzcd}
+\end{equation}
+Since $\eta_A \comp g \comp i' = \phi(g) \comp \eta_K \comp i' = 
+0$, there exists a map $j$ from $L'$ to $L$ (dotted arrow in 
+\eqref{eq_corad_commuting_sq1}) such that $ij = gi'$. Applying the 
+Snake Lemma to \eqref{eq_corad_commuting_sq1}, we see that $j$ is 
+injective.
 
-It follows that $h$ must be an isomorphism as well, and the 
-proposition is established.
+By the naturality of $\eta$, we also have the following 
+commutative square:
+\[
+\begin{tikzcd}
+L \arrow{r}{h} \arrow{d}{\eta_L}&
+K \arrow{d}{\eta_K} \\
+\phi(L) \arrow{r} &
+\phi(K).
+\end{tikzcd}
+\]
+Since $\phi$ is a pre-coradical, $\phi(L) = 0$. Therefore,
+$\eta_K \circ h = 0$. Thus, there exists a map $j': L \to L'$
+such that $j\comp j' = \id_{L}$ and $j'\comp j = \id_{L'}$.
+It follows that $L \cong L'$. Applying the Snake Lemma to
+\eqref{eq_corad_commuting_sq1}, we see that $\phi(K) \to
+\phi(A)$ is injective, as desired.
 \end{proof}
 
 \section{Torsion theories and coradicals}
@@ -328,7 +320,7 @@ Let $\Cat{A}$ be an abelian category. A \emph{torsion theory} for
 $\Cat{A}$ is a pair $(\Cat{T}, \Cat{F})$ of full subcategories 
 called the \emph{torsion subcategory} and \emph{torsion-free 
 subcategory} respectively, where the objects of $\Cat{T}$ are
-objects $T$ such that $\hom_{\Cat{A}}(T, F) = 0$ for every $F$
+the objects $T$ such that $\hom_{\Cat{A}}(T, F) = 0$ for every $F$
 in $\Cat{F}$ and objects of $\Cat{F}$ are objects $F$ such that
 $\hom_{\Cat{A}}(T, F) = 0$ for every object $T$ in $\Cat{T}$.
 \end{defn}
@@ -345,12 +337,11 @@ closed under extensions, direct sums and quotients.
 
 Dually, $\Cat{F}$ is a torsionfree subcategory of $\Cat{A}$ if and 
 only if $\Cat{F}$ is closed under extensions, direct products, and 
-subobjects.
+subobjects. (\CF \cite[I2.6]{BJV})
 \end{prop}
 
 \begin{proof}
 It suffices to verify the statement for torsion subcategories.
-
 Suppose $\Cat{T}$ is a torsion subcategory with $\Cat{F}'$ its 
 corresponding torsionfree subcategory. 
 
@@ -389,9 +380,9 @@ $A$ is in $\Cat{T}$.
 Conversely, suppose $\Cat{T}$ is closed under extensions, direct 
 sums and quotients. Let $\Cat{F}'$ be the full subcategory of $F$ 
 such that $\hom_{\Cat{A}}(T, F) = 0$ for all $T$ in $\Cat{T}$, and 
-$\Cat{T}'$ be the full subcategory of $\Cat{A}$ with objects $T'$ 
-such that $\hom_{\Cat{A}}(T', F) = 0$ for all $F$ in $\Cat{F}$. We 
-proceed by showing that $\Cat{T'} = \Cat{T}.$
+$\Cat{T}'$ be the full subcategory of $\Cat{A}$ whose objects are 
+all $T'$ such that $\hom_{\Cat{A}}(T', F) = 0$ for all $F$ in 
+$\Cat{F}$. We claim that $\Cat{T'} = \Cat{T}.$
 
 Clearly, $\Cat{T}$ is a full subcategory of $\Cat{T'}$. Let $T$ be
 an object of $\Cat{T'}$. By Proposition \ref{prop_max_subobj}, there 
@@ -440,6 +431,7 @@ conditions hold:
 $A_{\Cat{T}}$ of $A$ in $\Cat{T}$ such that $A/A_{\Cat{T}}$ 
 is an object of $\Cat{F}$.
 \end{enumerate}
+(\CF \cite[I2.7]{BJV})
 \end{prop}
 \begin{proof}
 \noindent $\Rightarrow$: Suppose $A$ is $\Cat{T} \cap \Cat{F}$.
@@ -468,7 +460,7 @@ Sending $A$ in $\Cat{A}$ to its largest $\Cat{T}$-subobject
 $A_{\Cat{T}}$ defines an idempotent pre-radical.
 
 Dually, sending $A$ to $A/A_{\Cat{T}}$ defines an idempotent 
-pre-coradical.
+pre-coradical (\CF \cite[I2.8]{BJV}).
 \end{prop}
 \begin{proof}
 In this case, it is easier to prove the statement for idempotent 
@@ -493,6 +485,15 @@ largest suboboject of $\kappa(A)$ is itself: hence $\phi^2(A)) =
 The dual statement follows from Proposition \ref{prop_rad_eq_corad}.
 \end{proof}
 
+\begin{rmk}
+Since a coradical $\phi$ is left adjoint to the inclusion of its 
+associated torsionfree subcategory $\Cat{F}$ in $\Cat{A}$ and its 
+associated idempotent pre-radical $\kappa$ is right adjoint to the
+inclusion of the torsion subcategory $\Cat{T}$ in $\Cat{A}$, $\Cat{T}$
+is a coreflective subcategory, and $\Cat{F}$ is a reflective 
+subcategory of $\Cat{A}$.
+\end{rmk}
+
 \begin{thm}\label{thm_precorad_eq_tt}
 Let $\Cat{A}$ be a well-powered Abelian category. Then there exists
 a one-to-one correspondence between idempotent pre-coradicals and
@@ -500,8 +501,9 @@ torsion theories on $\Cat{A}$ whose full subcategories are defined
 by
 \begin{align*}
 \Cat{T} &= \{ T : \phi(T) = 0 \} \\
-\Cat{F} &= \{ F : \phi(F) = F \}.
+\Cat{F} &= \{ F : \phi(F) = F \}
 \end{align*}
+(\CF \cite[I2.9]{BJV}).
 \end{thm}
 \begin{proof}
 Obtaining an idempotent pre-coradical from a torsion theory is
@@ -521,10 +523,11 @@ in $\Cat{F}$. Since $\phi$ is a pre-coradical, the kernel of $A
 \to \phi(A)$ is in $\Cat{T}$.
 \end{proof}
 
-As we have mentioned in Remark \ref{rmk_rad_corad_dual}, there is
-a result corresponding to Theorem \ref{thm_precorad_eq_tt} for 
-radicals: every idempotent pre-radical $\kappa$ is in one-to-one 
-correspondence with torsion theories on $\Cat{A}$ defined by
+As we have mentioned in the paragraph after Remark 
+\ref{rmk_mitch_embed}, there is a result corresponding to Theorem 
+\ref{thm_precorad_eq_tt} for radicals: every idempotent 
+pre-radical $\kappa$ is in one-to-one correspondence with torsion 
+theories on $\Cat{A}$ defined by 
 \begin{align*}
 \Cat{T} &= \{ T : \kappa(T) = T \} \\
 \Cat{F} &= \{ F : \kappa(F) = 0 \}.
@@ -538,7 +541,7 @@ idempotent pre-radical associated to $\phi$ (see Proposition
 in Theorem \ref{thm_precorad_eq_tt} is the same as the one for
 $\kappa$ as defined above.
 
-In this case, $\phi$ is left adjoint to the inclusion $\Cat{F} \to 
+Moreover, $\phi$ is left adjoint to the inclusion $\Cat{F} \to 
 \Cat{A}$ and $\kappa$ is right adjoint to the inclusion $\Cat{T} 
 \to \Cat{A}$.
 \end{cor}
@@ -588,7 +591,7 @@ $\Cat{F}$ is closed under quotients.
 \begin{thm}\label{thm_corad_equiv_htt}
 Let $\Cat{A}$ be a well-powered Abelian category. Then there 
 exists a one-to-one correspondence between coradicals of $\Cat{A}$ 
-and cohereditary torsion theories on $\Cat{A}$.
+and cohereditary torsion theories on $\Cat{A}$ (\CF \cite[I2.12]{BJV}).
 \end{thm}
 \begin{proof}
 
