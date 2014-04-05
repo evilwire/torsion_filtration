@@ -4,7 +4,7 @@ In this chapter, we develop the basics of torsion theory in a
 categorical setting. The concepts and results here closely follow
 those of \cite{BJV} and \cite{DTor}, except we develop the theory
 from the dual perspective of coradicals. The ideas are not new;
-neither is the methodology. We have included the proofs for 
+neither is the methodology. We have included proofs for 
 convenience of the reader.
 
 \section{Coradicals}
@@ -26,14 +26,14 @@ through $A_{\Cat{C}}$. That is, for every diagram
 \begin{tikzcd}
 {} &
 B \arrow[hook]{d}{i} \arrow[dotted]{ld}{f} \\
-A_{\Cat{A}} \arrow[hook]{r}{j} & A
+A_{\Cat{C}} \arrow[hook]{r}{j} & A
 \end{tikzcd}
 \]
 where $B$ is in $\Cat{C}$, there exists a map $B \stackrel{f}{\to} 
 A_{\Cat{C}}$ such that $jf = i$. A choice of $A_{\Cat{C}}$ for 
 each $A$ determines a right adjoint to the inclusion of $\Cat{C}$ 
 in $\Cat{A}$, making $\Cat{C}$ a coreflective subcategory of 
-$\Cat{A}$.
+$\Cat{A}$. 
 \end{defn}
 
 \begin{prop}\label{prop_max_subobj}
@@ -125,17 +125,17 @@ the functor $\phi$ is not a coradical.
 \end{ex}
 
 \begin{rmk}\label{rmk_mitch_embed}
-In the case where $\Cat{A}$ is small, via Mitchell embedding 
-there exists an embedding of $\Cat{A}$ as a subcategory of $R$-mod
-for some suitable ring $R$. In this case, the subobject functors, 
-quotient functors, idempotence, radicals, and coradicals 
-corresponds to their counterparts in the ring theoretic setting.
+  In the case where $\Cat{A}$ is small, via Mitchell embedding there
+  exists an embedding of $\Cat{A}$ as a subcategory of $R$-mod for
+  some suitable ring $R$. In this case, the notions of the subobject
+  functors, quotient functors, idempotence, radicals, and coradicals
+  corresponds to their counterparts in the ring theoretic setting.
 \end{rmk}
 
 Torsion theory is usually developed for radical functors, which 
 are coradicals in the opposite category of $\Cat{A}$. However, 
 throughout this chapter, we mostly consider statements for
-(pre-)coradicals functors. We leave the dual statements to the 
+(pre-)coradical functors. We leave the dual statements to the 
 reader to formulate or look up in \cite{DTor} or 
 \cite[Section 1.2]{BJV}.
 
@@ -154,9 +154,8 @@ Applying $\phi$, which is right exact, we have
 \[
 \phi(K) \to \phi(A) \to \phi^2(A) \to 0.
 \]
-Thus, $\phi^2(A)$ is the cokernel of $\phi(K) \to \phi(A)$.
-
-Moreover, we have the following commutative diagram:
+Thus, $\phi^2(A)$ is the cokernel of $\phi(K) \to \phi(A)$. Moreover,
+we have the following commutative diagram:
 \[
 \begin{tikzcd}
 K \arrow{r} \arrow{d}{\eta_K} &
@@ -165,7 +164,7 @@ A \arrow{d}{\eta_A} \\
 \phi(A)
 \end{tikzcd}
 \]
-and since $K \to \phi(K)$ is a surjection,
+and, since $K \to \phi(K)$ is a surjection,
 \begin{align*}
 \phi^2(A) &= \cok (\phi(K) \to \phi(A)) \\
           &= \cok (K \to \phi(K) \to \phi(A)) \\
@@ -244,13 +243,13 @@ B \arrow{r} \arrow[equal]{d} &
 & \phi(K) \arrow{r}{\phi(g)} &
 \phi(A) \arrow{r} &
 B \arrow{r} &
-0
+0.
 \end{tikzcd}
 \]
 Notice that $\eta_K: K \to \phi(K)$ is surjective. Therefore, the
-cokernel of $\phi(f)$ is the cokernel of $K \to A \to \phi(A)$.
-But the surjection from $A \to B$ factors through $\phi(A)$. It 
-follows that $\cok \phi(f) = B$. The rest of the claim now 
+cokernel of $\phi(g)$ is the cokernel of $K \to A \to \phi(A)$.
+But the surjection $A \to B$ factors through $\phi(A)$. It 
+follows that $\cok \phi(g) = B$. The rest of the claim now 
 follows.
 
 Let $L$ be the kernel of $\eta_A$. We claim that $L$ is also the 
@@ -278,7 +277,7 @@ that we have the following commutative diagram:
 \begin{tikzcd}
 0 \arrow{r} &
 L' \arrow{r}{i'} \arrow[dotted]{d}{j} &
-K \arrow{r}{\eta_K} \arrow[equals]{d} &
+K \arrow{r}{\eta_K} \arrow[equals]{d}{g} &
 \phi(K) \arrow{r}\arrow{d}{\phi(g)} &
 0 \\
 0 \arrow{r} &
@@ -379,7 +378,7 @@ $A$ is in $\Cat{T}$.
 
 Conversely, suppose $\Cat{T}$ is closed under extensions, direct 
 sums and quotients. Let $\Cat{F}'$ be the full subcategory of $F$ 
-such that $\hom_{\Cat{A}}(T, F) = 0$ for all $T$ in $\Cat{T}$, and 
+such that $\hom_{\Cat{A}}(T, F) = 0$ for all $T$ in $\Cat{T}$, and let 
 $\Cat{T}'$ be the full subcategory of $\Cat{A}$ whose objects are 
 all $T'$ such that $\hom_{\Cat{A}}(T', F) = 0$ for all $F$ in 
 $\Cat{F}$. We claim that $\Cat{T'} = \Cat{T}.$
@@ -435,10 +434,8 @@ is an object of $\Cat{F}$.
 \end{prop}
 \begin{proof}
 \noindent $\Rightarrow$: Suppose $A$ is $\Cat{T} \cap \Cat{F}$.
-Then $\hom_{\Cat{A}}(A,A) = 0$, so the identity is the 0 map, and
-$A = 0$.
-
-Now, for $A$ in $\Cat{A}$, let $A_{\Cat{T}}$ be its maximal
+Then $\hom_{\Cat{A}}(A,A) = 0$, so the identity is the zero map, and
+$A = 0$. Now, for $A$ in $\Cat{A}$, let $A_{\Cat{T}}$ be its maximal
 $\Cat{T}$ subobject. By the same reasoning as in the previous
 proposition, $A/A_{\Cat{T}}$ is an object of $\Cat{F}$.
 
@@ -571,11 +568,11 @@ and $\phi(A) \in \Cat{F}$, $\hom_{\Cat{A}}(\kappa(A), F) = 0$, and
 as desired.
 \end{proof}
 
-It should be evident from Theorem \ref{thm_precorad_eq_tt} that 
-coradicals are not in one-to-one correspondence with torsion 
-theories, although they do give rise to unique torsion theories 
-(see Theorem \ref{thm_corad_equiv_htt}). We now characterize the 
-properties of the torsion theories that arise from coradicals.
+It should be evident from Theorem \ref{thm_precorad_eq_tt} that
+coradicals are not in one-to-one correspondence with torsion theories,
+although they do give rise to unique torsion theories. We now
+characterize the properties of the torsion theories that arise from
+coradicals.
 
 \begin{defn}
 Let $(\Cat{T}, \Cat{F})$ be a torsion theory on $\Cat{A}$. We say 
