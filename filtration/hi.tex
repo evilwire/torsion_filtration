@@ -58,11 +58,11 @@ $\Cat{C} \defeq \DCat^{\geq 0} \cap \DCat^{\leq 0}$.
 \end{defn}
 
 If $\DCat$ is a $t$-category, then the inclusion of $\DCat^{\leq 
-n}$ into $\DCat$ admits a right adjoint $\gltrunc{n}: \DCat \to 
-\DCat^{\leq n}$, and the inclusion of $\DCat^{\geq n}$ admits left 
-adjoint $\ggtrunc{n}: \DCat \to \DCat^{\geq n}$. Furthermore, for 
-all $X$ in $\DCat$, there exists a unique map $d$ in 
-$\hom_{\DCat}(\ggtrunc{1}X, \gltrunc{0}X[1])$ such that
+n}$ in $\DCat$ admits a right adjoint $\gltrunc{n}: \DCat \to 
+\DCat^{\leq n}$, and the inclusion of $\DCat^{\geq n}$ in $\DCat$ 
+admits left adjoint $\ggtrunc{n}: \DCat \to \DCat^{\geq n}$. 
+Furthermore, for all $X$ in $\DCat$, there exists a unique map $d$ 
+in $\hom_{\DCat}(\ggtrunc{1}X, \gltrunc{0}X[1])$ such that
 \[
 \gltrunc{0} X \to X \to \ggtrunc{1} X \stackrel{d}{\to} \gltrunc{0}X[1]
 \]
@@ -199,8 +199,8 @@ particular, since $\Ox \cong \Z(1)[1]$, the partial internal hom on
 $\HI$ defines an endofunctor given by $\ihom(\Ox, -)$. 
 
 \begin{defn}
-  To emphasize the relationship with corresponding operations in
-  $\DMeff$, let us set
+To emphasize the relationship with corresponding operations in
+$\DMeff$, let us set
 \[
 \LHIs{F} \defeq F \tHI \Ox \hspace{10pt} \textrm{and}\hspace{10pt} 
    \RHIs{F} \defeq \ihomHI(\Ox, F).
@@ -236,7 +236,8 @@ In fact, there is no ambiguity here, since the contraction of $F$
 is isomorphic to the sheaf $\ihomHI(\Ox, F)$. This is not 
 difficult to see: for $F$ in $\HI$,
 \begin{align*}
-\RHI{F} &= \mathrm{cok}\left(\ihomDMf(M(\A^1 - 0), F) \to \ihomDMf(\Z, F)\right) \\
+\RHI{F} &= \mathrm{cok}\left(\ihomDMf(M(\A^1 - 0), F) \to 
+   \ihomDMf(\Z, F)\right) \\
 &= \ihomDMf(\Z(1)[1], F) = \ihomHI(\Ox, F),
 \end{align*}
 since $\Z(1)[1] \cong \Ox$ in $\DMeff$ (see \cite[4.1]{MVW}).
@@ -336,9 +337,16 @@ subcategories $\LHI[n]{\HI}$ define a descending weak filtration, we
 need to show that there exist coreflection functors $\sgHI{n}: \HI \to
 \LHI[n]{\HI}.$
 
+\begin{defn}
+Let $\sgHI{n}$ denote the functor $F \mapsto \LHI[n]{(\RHI[n]{F})}$.
+Since $F \mapsto \LHI[n]{F}$ is right exact, and $\RHI[n]{F}$ is
+exact (Proposition \ref{prop_contract_is_exact}), $\sgHI{n}$ is right
+exact. However, $\sgHI{n}$ is \emph{not} left exact (see Example
+\ref{rmk_sgHI_is_not_strong_filt} below).
+\end{defn}
+
 \begin{prop}\label{prop_HI_upper_slice}
-Let $\sgHI{n}$ denote the functor $F \mapsto 
-\LHI[n]{(\RHI[n]{F})}$. Then $\sgHI{n}$ is right adjoint to the 
+The functor $\sgHI{n}$ is right adjoint to the 
 inclusion of $\LHI[n]{\HI}$. In particular, $(\LHI[*]{\HI}, 
 \sgHI{*})$ defines a (nontrivial) weak filtration of $\HI$.
 \end{prop}
@@ -411,7 +419,7 @@ fixed by enlarging the filtration at each level, and to do so, we
 turn to torsion theory.
 \end{ex}
 
-Motivated by Remark \ref{rmk_sgHI_is_not_strong_filt}, we 
+Motivated by Example \ref{rmk_sgHI_is_not_strong_filt}, we 
 introduce the following more stringent criteria on weak
 filtrations.
 
@@ -503,8 +511,9 @@ Z_k \to X$ is the evident closed immersion. Since, for each
 $k$, we have an exact sequence of quasi-coherent sheaves as in
 \eqref{eq_qc_sheaf_ses}, $\phi^k(F)$ is a subobject of $F$ and
 $\phi_k(F)$ is a quotient of $F$ for each $F$ in $\QCoh(X)$.
-The claim that \eqref{eq_qcoh_desc_filt} is a strong filtration
-and \eqref{eq_qcoh_asc_filt} now follows.
+The claim that \eqref{eq_qcoh_desc_filt} defines a strong 
+filtration and \eqref{eq_qcoh_asc_filt} defines a strong 
+cofiltration now follows.
 \end{ex}
 
 We will now state the main theorem. Recall from Theorem 
@@ -885,10 +894,7 @@ F \arrow{r} &
 \end{tikzcd}
 \end{equation}
 where vertical maps are the counits. Notice that the top row is 
-exact on the right because $\sgHI{m}$ is right exact. This follows 
-from the fact that $\sgHI{m}$ is the composition of the functors 
-$F \mapsto \LHI[m]{F}$, which is right exact, and $F \mapsto 
-\RHI[m]{F}$, which is exact (Proposition \ref{prop_contract_is_exact}).
+exact on the right because $\sgHI{m}$ is right exact. 
 
 Since $m > n$, by Proposition \ref{prop_HI_lower_slice} 
 $\tlHI{n}(F)$ is in $\TFHI{n}$, which is a subcategory of $\TFHI{m}$
@@ -980,11 +986,11 @@ triangle:
 \]
 Applying the cohomological functor $\HH^0$, we obtain the
 following long exact sequence
-\[
+\begin{equation}\label{eq_slice_DM_exact_seq}
 \cdots \stackrel{\delta_{-1}}{\to} \HH^0 \sgDM{n}(F) \to 
    \HH^0 F \to \HH^0 \slDM{n}(F)
    \stackrel{\delta_0}{\to} \HH^1 \sgDM{n}(F) \to \cdots
-\]
+\end{equation}
 where $\HH^i F \defeq \HH^0F[i]$. 
 
 Notice that $\HH^0F = F$ and $\sgDM{n}(F) = \ihomDMf(\Z(1)[1],
@@ -1228,7 +1234,7 @@ or simply the \DEF{$n$-th fundamental invariant}.
 
 As it turns out, the $n$-th fundamental invariant is \emph{not} 
 the same as the $n$-th slice functor on $\HI$. To see this, 
-consider the example introduced in Remark 
+consider the example introduced in Example
 \ref{rmk_sgHI_is_not_strong_filt}. For $\Oxn$, following the
 discussion in \loccit, we have that
 \[
