@@ -12,17 +12,17 @@ $\Cat{A}$ is a ($\Z$-indexed) sequence of subcategories
 \Cat{A} \cdots \supseteq \Cat{A}_i \supseteq \Cat{A}_{i + 1}
    \supseteq \cdots \supseteq 
 \]
-together with reflection (or coreflection) functors $\phi_i: \Cat{A} \to 
-\Cat{A}_i$ for each $i$ such that $\phi_i$ restricts to 
-the identity on $\Cat{A}_i$. One can similarly define
-ascending weak filtrations. We will represent a weak filtration
-as $(\Cat{A}_*, \phi_*)$, where $\Cat{A}_i$ are the subcategories
-and $\phi_i$ are the reflections/coreflections.
+together with coreflection functors $\phi_i: \Cat{A} \to \Cat{A}_i$
+for each $i$ such that $\phi_i$ restricts to the identity on
+$\Cat{A}_i$. One can similarly define ascending weak filtrations using
+reflections $(\Cat{A} \to \phi_n\Cat{A})$.  We will represent a weak
+filtration as $(\Cat{A}_*, \phi_*)$, where $\Cat{A}_i$ are the
+subcategories and $\phi_i$ are the coreflections.
 
 We say that a weak filtration $(\Cat{A}_*, \phi_*)$ is 
 \DEF{degenerate} if all subcategories $\Cat{A}_n$ are equal. If
 $\Cat{A}$ has a zero object, then we say that $(\Cat{A}_*, \phi_*)$
-is \DEF{trivial} if $\Cat{A}_n$ consist of only the zero object.
+is \DEF{trivial} if each $\Cat{A}_n$ consists of only the zero object.
 \end{defn}
 
 \begin{rmk}
@@ -82,8 +82,12 @@ $\DMeff$, and
 L^nR^n M = L^nR^n \tZ[n]{M'} \cong L^n M' = M,
 \]
 the functor $L^nR^n$ is naturally isomorphic to the identity on
-$\GFiltDM[n]{\DMeff}$. Following \cite{HuKa}, let $\sgDM{n}$
-denote the triangulated functor $L^nR^n$.
+$\GFiltDM[n]{\DMeff}$. 
+
+\begin{defn}
+Following \cite{HuKa}, let $\sgDM{n}$ denote the triangulated functor
+$L^nR^n$. Thus $\sgDM{n}M=M_n(n)$.
+\end{defn}
 
 Furthermore, for each $M$ in $\DMeff$, we have a distinguished 
 triangle
@@ -454,7 +458,7 @@ By the Five Lemma (\cite[10.2.2]{WH}), we have that
 \[
 \sgDM{m}\slDM{n} M \cong \slDM{n}\sgDM{m} M.
 \]
-Since the rows are functorial in $M$ and isomorphism
+Since the rows are functorial in $M$ and the isomorphism
 $\sgDM{n} \sgDM{m} M \to \sgDM{m}\sgDM{n} M$ is natural,
 for a given map $f: M \to M'$, the induced maps 
 $\slDM{n}\sgDM{m}(f)$ and $\sgDM{m}\slDM{n}(f)$ fit into the 
@@ -585,7 +589,7 @@ to $\Z$-indexed filtrations on $\DM$. Recall from \cite[9.7]{MVW}
 and the paragraphs after \cite[14.2]{MVW} the following definition
 of the category $\DM$.
 
-\begin{defn}[Taken from \cite{MVW} 14.1]
+\begin{defn}
 Let $\DM$ be the category obtained from $\DMeff$ by inverting
 the operation $M \mapsto \tZ{M}$. That is, the objects of $\DM$
 are pairs $(M, n)$, where $M$ is an object of $\DMeff$, and $n$
@@ -613,12 +617,12 @@ for all positive integers. Therefore, the colimit in the
 definition of $\homDM$ is a finite limit. That is, it suffices to 
 take $k > |n| + |n'|$, say.
 
-By Theorem \ref{thm_dm_cancellation}, the localization functor 
-$\spectDM: \DMeff \to \DM$, given by sending $M$ in $\DMeff$ to 
-$(M, 0)$ is fully faithful. Therefore, we can identify $\DMeff$ as 
-the full subcategory of $\DM$. The functor $\spectDM$ admits a 
-right adjoint, which we represent by $\loopDM$. This functor is 
-defined by 
+By the Cancellation Theorem \ref{thm_dm_cancellation}, the
+localization functor $\spectDM: \DMeff \to \DM$, given by sending $M$
+in $\DMeff$ to $(M, 0)$ is fully faithful. Therefore, we can identify
+$\DMeff$ as the full subcategory of $\DM$. The functor $\spectDM$
+admits a right adjoint, which we represent by $\loopDM$. This functor
+is defined by
 \[
 \loopDM(M, n) = \begin{cases}
 \LHI[n]{M} &\textrm{for }n \geq 0 \\
@@ -644,7 +648,7 @@ $\GFiltDM[n]{\DM}$ with $\GFiltDM[n]{\DMeff}$.
 To show that this tower of subcategories constitutes a weak 
 filtration of $\DM$, we construct an extension of the functors 
 $\sgDM{k}$.  By convention, for all $M$ in $\DMeff$, define 
-$\sgDM{n} M$ to be $M$ for all nonpositive integer $n$, and set
+$\sgDM{n} M$ to be $M$ for all nonpositive integers $n$, and set
 \[
 \sgDM{k}(M, n) \defeq (\sgDM{k - n}M, n).
 \]
@@ -654,7 +658,7 @@ then $\tZ[n - n']{M} = M'$, and $\sgDM{k - n'}M' = \sgDM{k - n}M$
 by (5) of Proposition \ref{prop_sDM_properties}. Hence, 
 $(\sgDM{k - n'}M', n') \cong (\sgDM{k - n}M, n)$.
 
-We show that $\sgDM{k}$ are the triangulated functors from $\DM$
+We show that the $\sgDM{k}$ are triangulated functors from $\DM$
 to $\GFiltDM[k]{\DM}$ that make $(\GFiltDM[k]{\DM}, \sgDM{k})$ 
 into a weak filtration. We verify this claim in the Proposition 
 \ref{prop_sDM_reflection}. We first prove the following lemma:
@@ -737,13 +741,12 @@ In particular, $(M', n')$ is uniquely isomorphic to
 $(\slDM{k - n} M, n)$.
 \end{lem}
 \begin{proof}
-By definition, $\sgDM{k}(M, n) = (\sgDM{k - n}M, n)$. It follows 
-from Lemma \ref{lem_triangle_in_DM} that we may assume $n' = n$,
-and $\sgDM{k - n} M \to M \to M' \to \sgDM{k - n}M[1]$ is a 
-distinguished triangle in $\DMeff$. Since $M'$ is uniquely defined 
-up to unique isomorphism (see \cite[1.3(i)]{HuKa}), $M' \cong 
-\slDM{k - n} M$, and $(M', n') \cong (\slDM{k - n}M, n)$ as 
-claimed.
+  By definition, $\sgDM{k}(M, n) = (\sgDM{k - n}M, n)$. By Lemma
+  \ref{lem_triangle_in_DM} we may assume $n' = n$, and $\sgDM{k -
+    n} M \to M \to M' \to \sgDM{k - n}M[1]$ is a distinguished
+  triangle in $\DMeff$. Since $M'$ is uniquely defined up to unique
+  isomorphism (see \cite[1.3(i)]{HuKa}), $M' \cong \slDM{k - n} M$,
+  and $(M', n') \cong (\slDM{k - n}M, n)$ as claimed.
 \end{proof}
 
 Let $\slDM{k}$ denote the association $(M, n) \mapsto (M', n') =
@@ -760,6 +763,9 @@ $\LFiltDM[k]{\DM}$ into $\DM$.
 
 \item the restriction of $\slDM{k}$ to $\LFiltDM[k]{\DM}$ is naturally
 isomorphic to the identity.
+
+\item If $k \gt 0$, the restriction of $\slDM{k}$ to $\DMeff$ is the
+  functor $\slDM{k}$ of \ref{prop_slice_DMeff}.
 \end{enumerate}
 \end{prop}
 
@@ -779,10 +785,10 @@ in $\DM$, and each integer $k$, we have the slice triangle:
 \]
 
 \begin{defn}
-We define $\slDM{k + 1}\sgDM{k}(M, n)$ be the the \DEF{$k$-th 
-slice} of the slice filtration on $\DM$. Since both $\slDM{k + 1}$ 
-and $\sgDM{k}$ are triangulated functors, so is $\slDM{k + 1}
-\sgDM{k}$. We write $\sliceDM{k}$ for this functor. 
+  We define $\slDM{k + 1}\sgDM{k}(M, n)$ to be the \DEF{$k$-th
+    slice} of the slice filtration on $\DM$. Since both $\slDM{k + 1}$
+  and $\sgDM{k}$ are triangulated functors, so is $\slDM{k + 1}
+  \sgDM{k}$. We write $\sliceDM{k}$ for this functor.
 
 By similar arguments as in Proposition 
 \ref{prop_DMeff_slice_fund_invariant}, we have that 
@@ -797,16 +803,15 @@ $\DMeff$.
 
 Notice that for $k \geq 0$, if $(M, n)$ is in $\DMeff$, the 
 definition of $\sliceDM{k}$ recovers the $k$-th slice functor
-in Definition \ref{def_slice_functors_DMeff}. Similarly,
+in Definition \ref{def_slice_functors_DMeff} by \ref{prop_slDM_functor}. Similarly,
 $\fIDM{k}$ is an extension of the $k$-th fundamental invariant
 on $\DMeff$.
 \end{defn}
 
 We conclude this section by discussing the relationship between the
-tensor structure on $\DMeff$ and $\DM$ and their respective slice 
-filtrations. First, we introduce a tensor product on $\DM$ as an 
-extension of the one on $\DMeff$, which we represent by $\tDM$ as
-well.
+tensor structure on $\DMeff$ and $\DM$ and their respective slice
+filtrations. First, we introduce a tensor product on $\DM$ extending
+the one on $\DMeff$, which we represent by $\tDM$ as well.
 
 For $(M, n), (M'. n')$ in $\DM$, define 
 \[
@@ -893,7 +898,7 @@ Define
 \sliceDM{n}(M, m) \tDM \sliceDM{n'}(M',m)
 \to \sliceDM{n + n'}((M, m) \tDM (M',m))
 \]
-by
+to be
 \[
 (\sliceDM{n - m}(M) \tDM \sliceDM{n' - m}, 2m) \to
    (\sliceDM{n + n' - 2m}(M \tDM M'), 2m)
@@ -903,7 +908,7 @@ and
 \fIDM{n}(M, m) \tDM \fIDM{n'}(M',m)
 \to \fIDM{n + n'}((M, m) \tDM (M',m))
 \]
-by
+to be
 \[
 \fIDM{n - m}M[-n] \tDM \fIDM{n' - m}M'[-n']
 \to \fIDM{n + n' - 2m}M[-(n + n')].
