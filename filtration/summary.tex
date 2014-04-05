@@ -93,13 +93,15 @@ Since
 Copying the proof of Proposition \ref{prop_slice_DMeff}, we 
 
 \begin{thm}\label{thm_summary_triang_cat}
-If $\DCat$ is a torsion monoidal category, then there exists
-an $\N$-indexed ascending weak filtration given by
+  If $\DCat$ is a torsion monoidal category, then there exists an
+  $\N$-indexed ascending weak filtration $(\Corad{*}{\DCat},
+  \coradD{*})$ given by
 \[
 0 = \Corad{0}{\DCat} \subseteq \cdots \subseteq \Corad{n}{\DCat}
    \subseteq \Corad{n + 1}{\DCat} \subseteq \cdots
 \]
-and a descending weak filtration given by
+and a descending weak filtration $(\Prerad{*}{\DCat}, \preradD{*})$
+given by
 \[
 \DCat = \Prerad{0}{\DCat} \supseteq \cdots \supseteq \Prerad{n}{\DCat}
 \supseteq \Prerad{n + 1}{\DCat} \supseteq \cdots
@@ -115,8 +117,8 @@ invertible if there exists an object $T$ in $\DCat$ such that $T
 \begin{prop}\label{prop_filt_trivial_cond}
 The following are equivalent:
 \begin{enumerate}
-\item the filtration $(\Corad{*}{\DCat}, \coradD{*})$ is trivial
-(see Definition \ref{def_cat_filtration}).
+\item the filtration $(\Corad{*}{\DCat}, \coradD{*})$ is trivial,
+  i.e., if each $(\Corad{n}{\DCat}$ is zero.
 
 \item the filtration $(\Prerad{*}{\DCat}, \preradD{*})$ is 
 degenerate with $\Prerad{n}{\DCat} = \DCat$ for all $n$.
@@ -131,17 +133,16 @@ that every $M$ in $\DCat$ is isomorphic to $L^n M'$ for some $M'$
 in $\DCat$. However, for every $M$ in $\DCat$, the following is
 a distinguished triangle:
 \[
-L^n R^n M \to M \to M' \to L^n R^n M[1]
+\preradD{*}M \to M \to \coradD{*}M \to \preradD{*} M[1]
 \]
 where $M'$ is in $\Corad{n}{\DCat}$. But the assumption that
 $\Corad{n}{\DCat} = 0$ implies that $M' = 0$. Therefore, $L^n R^n M
 \cong M$. It follows that $M$ is in $\Prerad{n}{\DCat}$, and
-$\Prerad{n}{\DCat} = \DCat$ as desired.
-
-Conversely, if $\Prerad{n}{\DCat} = \DCat$ then for every
-$M$ in $\DCat$, $M \cong L^n M'$ for some $M'$. Suppose $M$ is in
-$\Corad{n}{\DCat}$, then by definition $0 = R^n M = R^nL^n M' \cong M'$.
-Therefore, $M = L^n 0 = 0$, and $\Corad{n}{\DCat} = 0$.
+$\Prerad{n}{\DCat} = \DCat$ as desired. Conversely, if
+$\Prerad{n}{\DCat} = \DCat$ then for every $M$ in $\DCat$, $M \cong
+L^n M'$ for some $M'$. Suppose $M$ is in $\Corad{n}{\DCat}$, then by
+definition $0 = R^n M = R^nL^n M' \cong M'$.  Therefore, $M = L^n 0 =
+0$, and $\Corad{n}{\DCat} = 0$.
 
 Now we show that (2) is equivalent to (3). Indeed, if $S$ is 
 invertible with inverse $T$, then $M = S^{\tensor n} \tensor 
