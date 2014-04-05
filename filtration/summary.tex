@@ -17,8 +17,10 @@ equipped with
 structure $(\ihom, \DCat^{\compact})$ (see Definition
 \ref{def_tensor_triang_cat}).
 
-\item (\itemhead{Tate Object}) a \SemiInvertible object $S$ in the heart
-   of $\DCat$ called the \DEF{Tate object}
+\item (\itemhead{Tate Object}) an object $S$ in both 
+   $\DCat^{\compact}$ and the heart of $\DCat$ called the 
+   \DEF{Tate object}. In particular, $\ihom(S, -)$ is right
+   adjoint to $S \tensor -$.
 \end{enumerate}
 
 \noindent such that the following conditions hold:
@@ -38,7 +40,8 @@ If $\DCat$ is a torsion monoidal category, we will write $\HH^0$
 for the cohomological functor from $\DCat$ to its heart. We also 
 write $L: \DCat \to \DCat$ for the functor sending an object $M$ 
 in $\DCat$ to $M \tensor S$, and $R$ for the functor sending $M$
-to $\ihom(S, M)$, where $S$ is the Tate object. 
+to $\ihom(S, M)$, where $S$ is the Tate object. By assumption,
+$(L, R)$ is an adjoint pair.
 
 Since $\tensor$ is right $t$-exact, it induces a symmetric 
 monoidal and a partial internal hom structure on the heart 
@@ -66,31 +69,27 @@ earlier chapters of this thesis.
 \section{Slice filtration of torsion monoidal categories}
 \label{sect_summary_slice_filt_on_DCat}
 
-We begin by introducing the slice filtrations on $\DCat$. Let 
-$\Corad{n}{\DCat}$ be the full subcategory of $\DCat$ by those 
+We begin by introducing the slice filtrations on $\DCat$. 
+
+\begin{def}
+Let $\Corad{n}{\DCat}$ be the full subcategory of $\DCat$ by those 
 $M$ in $\DCat$ for which $R^n M = 0$. Let $\Prerad{n}{\DCat}$ be 
 the subcategory of objects $M$ such that $M = L^n(M')$ for some 
 $M'$ in $\DCat$. Let $\preradD{n}$ be the functor  $L^nR^n$.
+\end{def}
+
 The arguments in \cite[1.1]{HuKa} generalize to show that 
 $\preradD{n}$ is right adjoint to the inclusion of 
 $\Prerad{n}{\DCat}$ into $\DCat$. The crucial piece that
 allows the arguments to go through is precisely the Cancellation
-property (Definition \ref{def_torsion_monoidal_category} (2)).
+property (Definition \ref{def_torsion_monoidal_category} (3)).
 
 Let $M$ be an object of $\DCat$, and let $\eta^n : \preradD{n} M 
-\to M$ be the counit map. Complete $\eta^n$ to a triangle:
+\to M$ be the counit. Complete $\eta^n$ to a triangle:
 \[
 \preradD{n} M \to M \to M' \to \preradD{n} M'[1].
 \]
-Since $\hom_{\DCat}(L^nR^n M, M) \cong \hom_{\DCat}(L^n M', 
-\preradD{n}M)$ for all $M'$ and $M$ in $\DCat$, it follows that
-\[
-\hom_{\DCat}(\preradD{n}M, M'[1]) = 0,
-\]
-and therefore $M'$ is defined up to unique isomorphism. It follows 
-that $M \mapsto M'$ is functorial, and defines a left adjoint to 
-the inclusion of $\Corad{n}{\DCat}$ into $\DCat$ (\emph{cf.} 
-\cite[1.4]{HuKa}). We have just verified the following theorem.
+Copying the proof of Proposition \ref{prop_slice_DMeff}
 
 \begin{thm}\label{thm_summary_triang_cat}
 If $\DCat$ is a torsion monoidal category, then there exists
