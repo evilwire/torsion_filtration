@@ -4,8 +4,8 @@
 In this chapter, we construct a sequence of subcategories on 
 $\DMeff$ using the tensor and the partial internal hom structure 
 on $\DMeff$ defined in the previous chapter (see Section 
-\ref{sect_TMS_DMeff}). To be more precise, consider the following 
-definition.
+\ref{sect_TMS_DMeff}). In order to be more precise, we introduce
+the following notion.
 
 \begin{defn}\label{def_cat_filtration}
 Let $\Cat{A}$ be a category. A descending \DEF{weak filtration} of 
@@ -30,7 +30,7 @@ is \DEF{trivial} if each $\Cat{A}_n$ consists of only the zero object.
 \begin{rmk}
 An $\N$-indexed descending weak filtration is just a $\Z$-indexed 
 descending weak filtration such that $\Cat{A}_j = \Cat{A}$
-for all negative integers $j$. Likewise, an $\N$-indexed ascending 
+for all $j \leq 0$. Likewise, an $\N$-indexed ascending 
 weak filtration is an ascending weak filtration for which
 $\Cat{A}_j = \Cat{A}_0$ for all negative $j$.
 \end{rmk}
@@ -40,12 +40,14 @@ one ascending, one descending --- on $\DMeff$. The construction
 is based on the work of Voevodsky, Huber, and Kahn \cite{HuKa}. 
 We then extend the weak filtration on $\DMeff$ to a $\Z$-indexed
 weak filtration on $\DM$. Aside from Lemmas \ref{lem_LRcommute} 
-and \ref{lem_LR_commute_LR} and Proposition 
-\ref{prop_sDM_properties}, the content from first two sections 
-is taken from \cite[\S 1]{HuKa}. The the extensions of the 
-filtrations to $\DM$ are new.
+and \ref{lem_LR_commute_LR} and Propositions 
+\ref{prop_sgn_commute_sgm} and \ref{prop_sDM_properties}, the 
+content from the first two sections is taken from 
+\cite[\S 1]{HuKa}. The extensions of the filtrations to $\DM$ are 
+new.
 
 \section{Slice filtration on $\DMeff$}
+\label{sect_slice_filtration_DMeff}
 To simplify notations, following Chapter \ref{sect_dmeff_and_dm},
 we write $\tZ[n]{M}$ for $M \tDM \Z(n)$, and $\hZ[n]{M}$ for 
 $\ihomDMf(\Z(n), M)$. Furthermore, let $\LDMf{n}$ denote the
@@ -88,7 +90,7 @@ $\GFiltDM[n]{\DMeff}$.
 
 \begin{defn}
 Following \cite{HuKa}, let $\sgDM{n}$ denote the triangulated functor
-$L^nR^n$. Thus $\sgDM{n}M=\LHI[n]{\RHI[n]{M}}$. 
+$L^nR^n$. Thus, $\sgDM{n}M=\LHI[n]{\RHI[n]{M}}$. 
 \end{defn}
 \comment{
 By the Cancellation Theorem \ref{thm_dm_cancellation}, the unit
@@ -103,16 +105,15 @@ $\DMeff$ such that the following is a distinguished triangle:
 \begin{equation}\label{eq_slice_triangle_1}
 \sgDM{n}M \to M \to M' \to \sgDM{n}M[1].
 \end{equation}
-It is established in \cite[1.4(i)]{HuKa} that $M'$ is uniquely 
-defined up to unique isomorphism, and that there is a 
-cohomological functor $\slDM{n}$ given by $M \mapsto M'$.
-The functor $\slDM{n}$ is the left adjoint to the inclusion of 
-$\LFiltDM[n]{\DMeff}$ in $\DMeff$ (\cite[1.4(ii)]{HuKa}). If $M$ 
-is in $\LFiltDM[n]{\DMeff}$, then $\sgDM{n} M = 
-\LHI[n]{\RHI[n]{M}} = 0$. Since \eqref{eq_slice_triangle_1} is
-distinguished, $M \cong \slDM{n} M$. To show that this isomorphism
-is natural in $M$, we will prove the stronger result that 
-\eqref{eq_slice_triangle_1} is natural in $M$.
+By \cite[1.4(i, ii)]{HuKa} that $M'$ is uniquely defined up to 
+unique isomorphism, and that there is a cohomological functor 
+$\slDM{n}$ given by $M \mapsto M'$, which is the left adjoint to 
+the inclusion of $\LFiltDM[n]{\DMeff}$ in $\DMeff$. If $M$ is in 
+$\LFiltDM[n]{\DMeff}$, then $\sgDM{n} M = \LHI[n]{\RHI[n]{M}} = 
+0$. Since \eqref{eq_slice_triangle_1} is distinguished, $M \cong 
+\slDM{n} M$. To show that this isomorphism is natural in $M$, we 
+will prove the stronger result that \eqref{eq_slice_triangle_1} is 
+natural in $M$.
 
 Fix a map $f: M \to M'$ in $\DMeff$. By the naturality of the 
 counit $\epsilon: \sgDM{n} \to \id$, we have the following 
@@ -145,9 +146,9 @@ $\LFiltDM[n]{\DMeff}$ into $\DMeff$,
 \homDMf(M, \slDM{n}M') \cong \homDMf(\slDM{n}M, \slDM{n}M').
 \]
 Hence, the induced map from $\slDM{n} M \to \slDM{n} M'$ (the 
-dotted arrow in the diagram above) is the map $\slDM{n} f$. 
-We summarize the main results of the above discussion in the 
-following proposition:
+dotted arrow in the diagram above) is $\slDM{n} f$. We summarize 
+the main results of the above discussion in the following 
+proposition:
 
 \begin{prop}\label{prop_slice_DMeff}
 The tower of subcategories in \eqref{eq_gslice_tower_DMeff} 
@@ -180,8 +181,9 @@ the slice and fundamental invariant functors associated to the
 slice filtration on $\DMeff$. Before we do so, we will show that 
 the functors $\sgDM{n}$ and $\slDM{n}$ satisfy a number of 
 properties described in Proposition \ref{prop_sDM_properties}.
-Lemmas \ref{lem_LRcommute}, \ref{lem_LR_commute_LR} and 
-Proposition \ref{prop_sDM_properties} are new.
+Lemmas \ref{lem_LRcommute} and \ref{lem_LR_commute_LR} and 
+Propositions \ref{prop_sgn_commute_sgm} and 
+\ref{prop_sDM_properties} are new.
 
 We first digress to discuss two results from category theory.
 For the following, let $L$ and $R$ be a pair of adjoint 
@@ -225,7 +227,7 @@ To do so, we proceed by induction on $n$. For the case $n = 0$,
 by the counit-unit adjunction, the following composition is
 the identity transformation:
 \[
-L \stackrel{L(\eta)}{\to} LRL \stackrel{\epsilon L}{\to} 
+L \stackrel{L\eta}{\to} LRL \stackrel{\epsilon L}{\to} 
    L.
 \]
 Therefore, $\epsilon L = L(\eta^{-1})$, and the
@@ -313,7 +315,7 @@ L^nR^n
 We first consider the case $m \leq n$. By the counit-unit 
 adjunction, the composition
 \[
-R^m \xrightarrow{\eta^n R^m}
+R^m \xrightarrow{\eta^m R^m}
 R^m L^m R^m \xrightarrow{R^m \cuHI^m}
 R^m
 \]
@@ -400,21 +402,12 @@ we see that \eqref{eq_lem_LR_commute_LR} is commutative, and the
 lemma is established.
 \end{proof}
 
-First notice that, by replacing $M$ by $\sgDM{n} M$ in 
-\eqref{eq_slice_triangle_1}, we get distinguished triangles for 
-all positive integers $m$ and $n$, all of which are functorial in 
-$M$:
-\begin{equation}\label{eq_slice_triangle_2}
-\sgDM{n}\sgDM{m} M \to \sgDM{m}M \to \slDM{n}\sgDM{m}M \to 
-   \sgDM{n}\sgDM{m} M[1].
-\end{equation}
+Applying Lemma \ref{lem_LR_commute_LR} to the pair of adjoint
+functors $M \mapsto \LHI[n]{M}$ and $M \mapsto \RHI[n]{M}$ on
+$\DMeff$, we obtain the following proposition:
 
-\begin{prop}\label{prop_sDM_properties}
-For all nonnegative integers $m, n$, such that $m < n$, and
-for all $M$ in $\DMeff$,
-
-\begin{enumerate}
-\item there is a natural isomorphism
+\begin{prop}\label{prop_sgn_commute_sgm}
+There is a natural isomorphism
 $\sgDM{n}\sgDM{m} \stackrel{\tau}{\to} \sgDM{m}\sgDM{n}$
 fitting into the following commutative diagram of natural
 transformations:
@@ -429,7 +422,23 @@ transformations:
 where $\epsilon^m : \sgDM{m} \to \id$ is the unit. Furthermore,
 $\sgDM{n} \epsilon^m$ and $\epsilon^m \sgDM{n}$ are natural
 isomorphisms.
+\end{prop}
 
+Notice that, by replacing $M$ by $\sgDM{n} M$ in 
+\eqref{eq_slice_triangle_1}, we get distinguished triangles for 
+all positive integers $m$ and $n$, all of which are natural in 
+$M$:
+\begin{equation}\label{eq_slice_triangle_2}
+\sgDM{n}\sgDM{m} M \to \sgDM{m}M \to \slDM{n}\sgDM{m}M \to 
+   \sgDM{n}\sgDM{m} M[1].
+\end{equation}
+
+\begin{prop}\label{prop_sDM_properties}
+For all nonnegative integers $m, n$, such that $m < n$, and
+for all $M$ in $\DMeff$, there exists the following natural
+isomorphisms:
+
+\begin{enumerate}
 \item $\sgDM{m}\slDM{n} \cong \slDM{n}\sgDM{m}$.
 
 \item $\sgDM{n}\slDM{m} = \slDM{m}\sgDM{n} = 0$.
@@ -443,17 +452,11 @@ positive integers $k$.
 \end{prop}
 \begin{proof}
 \begin{enumerate}
-\item the commutativity of \eqref{eq_prop_sg_commute_sg} is a
-direct consequence of Lemma \ref{lem_LR_commute_LR}. In the
-case that $m < n$, the arguments in the proof of Lemma 
-\ref{lem_LR_commute_LR} shows that $\epsilon^m \sgDM{n}$ and
-$\sgDM{n} \epsilon^m$ are natural isomorphisms.
-
-\item By part (1), \eqref{eq_prop_sg_commute_sg} is a commutative
-diagram. Apply the commutative diagram of functors to an object
-$M$ of $\DMeff$, and extend the rows of 
-\eqref{eq_prop_sg_commute_sg} to triangles. We obtain the 
-following commutative diagram:
+\item Apply the commutative diagram of functors 
+\eqref{eq_prop_sg_commute_sg} in Proposition 
+\ref{prop_sgn_commute_sgm} to an object $M$ of $\DMeff$, and 
+extend the rows to triangles. We obtain the following commutative 
+diagram:
 \[
 \begin{tikzcd}
 \sgDM{n} \sgDM{m} M \arrow{r} \arrow{d}{\cong} &
@@ -476,10 +479,10 @@ for a given map $f: M \to M'$, the induced maps
 $\slDM{n}\sgDM{m}(f)$ and $\sgDM{m}\slDM{n}(f)$ fit into the 
 following commutative square:
 \[
-\begin{tikzcd}
-\slDM{n} \sgDM{m} M \arrow{r} \arrow{d}
-&\slDM{n} \sgDM{m} M' \arrow{d} \\
-\sgDM{m}\slDM{n} M \arrow{r} &
+\begin{tikzcd}[column sep=huge]
+\slDM{n} \sgDM{m} M \arrow{r}{\slDM{n} \sgDM{m}(f)} \arrow{d}{\cong}
+&\slDM{n} \sgDM{m} M' \arrow{d}{\cong} \\
+\sgDM{m}\slDM{n} M \arrow{r}{\sgDM{m} \slDM{n}(f)} &
 \sgDM{m}\slDM{n} M'
 \end{tikzcd}
 \]
@@ -487,8 +490,9 @@ Therefore, $\sgDM{m} \slDM{n}$ is naturally isomorphic to
 $\slDM{n} \sgDM{m}$.
 
 \item Since $\hZ[n]{(\slDM{m})} = 0$, it is clear that
-$\sgDM{n}\slDM{m} = 0$. On the other hand, by (1), $\sgDM{m}\sgDM{n}
-= \sgDM{n}$. From the following functorial distinguished triangle
+$\sgDM{n}\slDM{m} = 0$. On the other hand, by Proposition 
+\ref{prop_sgn_commute_sgm}, $\sgDM{m}\sgDM{n} = \sgDM{n}$. From 
+the following functorial distinguished triangle
 \[
 \sgDM{m} \sgDM{n} \to \sgDM{n} \to \slDM{m} \sgDM{n} \to \sgDM{m} 
    \sgDM{n}[1]
@@ -506,7 +510,9 @@ Applying $\slDM{n}$ to the slice triangle of $M$ gives:
 \slDM{n} \sgDM{m} M \to \slDM{n} M \to \slDM{n} \slDM{m} M \to
 \slDM{n} \sgDM{m} M[1],
 \]
-whence, by (3) we have
+and by part (2), there exists a natural isomorphism $\sgDM{m} \slDM{n} M
+\to \slDM{n} \sgDM{m}$ which fits into the following commutative
+diagram:
 \[
 \begin{tikzcd}
 \sgDM{m} \slDM{n} M \arrow{r} \arrow{d}{\cong} &
@@ -521,21 +527,20 @@ whence, by (3) we have
 \]
 The fact that $\slDM{n} \slDM{m} M \cong \slDM{m} \slDM{n} M$
 follows from the Five Lemma. Naturality in $M$ now follows from
-naturality in parts (1) and (2).
+part (1).
 
 \item The case $k = 1$ is established in \cite[Cor. 1.4]{HuKa}.
 The general case follows by induction on $k$. \qedhere
 \end{enumerate}
 \end{proof}
 
-Setting $m = n - 1$ in \eqref{eq_slice_triangle_2} and using
-Proposition \ref{prop_sDM_properties} (1), we obtain the
-following distinguished triangle:
+Setting $m = n - 1$ in \eqref{eq_slice_triangle_2}, we obtain the
+following functorial distinguished triangle:
 
-\begin{equation*}
-\sgDM{n} M \to \sgDM{n - 1} M \to \slDM{n} \sgDM{n - 1} M
-\to \sgDM{n} M[1].
-\end{equation*}
+\begin{equation}\label{eq_slice_triangle_3}
+\sgDM{n} \to \sgDM{n - 1} \to \slDM{n} \sgDM{n - 1}
+\to \sgDM{n}[1].
+\end{equation}
 
 \begin{defn}\label{def_slice_functors_DMeff}
 For $M$ in $\DMeff$ and positive integer $n$, we say 
@@ -545,8 +550,8 @@ triangulated functors, so is $\sliceDM{n}$. We define the $0$-th
 slice functor to be $\slDM{0}$.
 \end{defn}
 
-By Proposition \ref{prop_sDM_properties} (2), $\sliceDM{n} =
-\sgDM{n}\slDM{n - 1}$. In particular, the essential image of
+By Proposition \ref{prop_sDM_properties} (1), $\sliceDM{n} \cong
+\sgDM{n}\slDM{n - 1}$. In particular, the image of
 $\sliceDM{n}$ is in $\GFiltDM[n]{\DMeff}$. That is, for each $M$ in 
 $\DMeff$, there exists some $M'$ such that $\sliceDM{n}M \cong 
 \tZ[n]{M'}$. Setting $M'' \defeq M'[-2n]$, we obtain the following 
@@ -599,9 +604,8 @@ of $A$ is given by
 \label{sect_slice_filt_on_DM}
 
 In this section, we will extend the slice filtration on $\DMeff$ 
-to $\Z$-indexed filtrations on $\DM$. Recall from \cite[9.7]{MVW}
-and the paragraphs after \cite[14.2]{MVW} the following definition
-of the category $\DM$.
+to $\Z$-indexed filtrations on $\DM$. Recall from \cite[14.2]{MVW} 
+the following definition of the category $\DM$.
 
 \begin{defn}
 Let $\DM$ be the category obtained from $\DMeff$ by inverting
@@ -656,23 +660,24 @@ image of $\GFiltDM[n]{\DMeff}$ under $\spectDM$ coincide with
 $\GFiltDM[n]{\DM}$.
 
 To show that this tower of subcategories constitutes a weak 
-filtration of $\DM$, we construct an extension of the functors 
+filtration of $\DM$, we must construct an extension of the functors 
 $\sgDM{k}$.  By convention, for all $M$ in $\DMeff$, define 
-$\sgDM{n} M$ to be $M$ for all nonpositive integers $n$, and set
+$\sgDM{n} M$ to be $M$ for all $n \leq 0$, and set
 \[
 \sgDM{k}(M, n) \defeq (\sgDM{k - n}M, n).
 \]
-This definition is independent of the choice of $n$. Indeed, if
+This definition preserves isomorphisms. Indeed, if
 $(M, n) \cong (M', n')$ for some integer $n'$ less than $n$, say, 
 then $\tZ[n - n']{M} = M'$, and $\sgDM{k - n'}M' \cong 
-\LHI[n - n']{\sgDM{k - n}M}$ by (5) of Proposition 
+\LHI[n - n']{\sgDM{k - n}M}$ by (4) of Proposition 
 \ref{prop_sDM_properties}. Hence, $(\sgDM{k - n'}M', n') \cong 
-(\sgDM{k - n}M, n)$.
+(\sgDM{k - n}M, n)$. 
 
-We show that the $\sgDM{k}$ are triangulated functors from $\DM$
-to $\GFiltDM[k]{\DM}$ that make $(\GFiltDM[k]{\DM}, \sgDM{k})$ 
-into a weak filtration. We verify this claim in the Proposition 
-\ref{prop_sDM_reflection}. We first prove the following lemma:
+We want to show that the $\sgDM{k}$ are triangulated functors from 
+$\DM$ to $\GFiltDM[k]{\DM}$ that make $(\GFiltDM[k]{\DM}, 
+\sgDM{k})$ into a weak filtration. We will verify this claim in 
+the Proposition \ref{prop_sDM_reflection}. Let us first prove the 
+following lemma:
 
 \begin{lem}\label{lem_triangle_in_DM}
 If $(M_1, n) \to (M_2, n) \to (M_3, n_3) \to (M_1, n)[1]$
@@ -706,7 +711,7 @@ The claim now follows from the Five Lemma.
 Let $k$ be an arbitrary integer.
 
 \begin{enumerate}
-\item the association $(M, n) \mapsto \sgDM{n} (M, n)$ is 
+\item $(M, n) \mapsto \sgDM{k} (M, n)$ defines
 a triangulated functor.
 
 \item $\sgDM{k}$ is a right adjoint to the inclusion of 
@@ -717,12 +722,77 @@ naturally isomorphic to the identity.
 \end{enumerate}
 \end{prop}
 \begin{proof}
-We restrict our attention to the full subcategory $\DM$ of objects 
-$(M, n)$ for which $k > n$, (since otherwise, $\sgDM{k}$ acts as 
-the identity, which is clearly satisfies the properties above). In 
-this case, (1 - 3) follows straightforwardly from the fact that
-$\sgDM{k - n}$ satisfies (1 - 3) for $\DMeff$ (see the discussion
-preceding Proposition \ref{prop_slice_DMeff}).
+If $k \leq n$, then $\sgDM{k}(M, n) = (M, n)$,
+and by definition $(M, n)$ is an object of $\GFiltDM[k]{\DM}$.
+On the other hand, if $k > n$, then as defined, $\sgDM{k}(M, n) = 
+(\sgDM{k - n}M, n)$. By \cite[1.1]{HuKa}, $\sgDM{k - n}M$ is in 
+$\GFiltDM[k - n]{\DMeff}$. Hence, $M \cong M'(k - n)$. Therefore,
+$\sgDM{k}(M, n) \cong (M'(k - n), n) \cong (M', k)$. This shows
+that $\sgDM{k}(M, n)$ is always an object of $\GFiltDM{k}{\DM}$.
+
+Consider a map $f: (M, n) \to (M', n')$. Since we have already
+shown that $\sgDM{k}$ preserves isomorphisms, by replacing either
+$(M, n)$ or $(M', n')$ by an isomorphic object, we may assume that 
+$n = n'$, and $f$ comes from a map $g: M \to M'$ in $\DMeff$. 
+Define $\sgDM{k}(f)$ to be the map given by $\sgDM{k - n}{g}$ in 
+$\DMeff$. This definition preserves the identity map, 
+isomorphisms, and composition. It follows that $\sgDM{k}$ is a 
+functor on $\DM$ whose image lies in $\GFiltDM[k]{\DM}$.
+
+Given a triangle,
+\[
+(M', n') \to (M, n) \to (M'', n'') \to (M', n')[1]
+\]
+we may assume without loss of generality that $n = n' = n''$,
+and that this distinguished triangle comes from the distinguished
+triangle in $\DMeff$:
+\[
+M' \to M \to M'' \to M'[1]
+\]
+Since $\sgDM{k - n}$ is a triangulated functor on $\DMeff$, it
+follows that
+\[
+\sgDM{k - n}M' \to \sgDM{k - n}M \to \sgDM{k - n}M'' \to
+\sgDM{k - n}M'[1]
+\]
+is distinguished, and we obtain the distinguished triangle
+\[
+\sgDM{k}(M', n) \to \sgDM{k}(M, n) \to \sgDM{k}(M'', n)
+   \to \sgDM{k}(M', n)[1].
+\]
+It follows that $\sgDM{k}$ is a triangulated functor. This
+proves part (1) of the proposition.
+
+For part (2), let $(M, n)$ be an object of $\DM$, and
+$(M', n')$ be an object of $\GFiltDM{k}{\DM}$. By replacing
+$(M', n')$ with an isomorphic object, we may assume that
+$n' = k$. In the case $n > k$, notice that $\sgDM{k}(M, n) = 
+(M, n)$, and the adjunction relation is trivially satisfied.
+Otherwise, for some suitably large integer $l$, we have the 
+following equality:
+\[
+\homDM((M', k), (M, n)) = \homDMf(M'(l + k), M(l + n)).
+\]
+Since $M'(l + k) \in \GFiltDM[k + l]{\DMeff}$ and $\sgDM{k + l}$
+is right adjoint to the inclusion of $\GFiltDM[l + k]{\DMeff}$ into
+$\DMeff$,
+\[
+\homDMf(M'(l + k), M(l + n)) \cong \homDMf(M'(l + k), \sgDM{k + l}M(l + n)).
+\]
+Notice that by Proposition \ref{prop_sDM_properties} (4),
+$\sgDM{k + l}M(n + l) \cong (\sgDM{k - n}M)(n + l)$. Therefore,
+\begin{align*}
+\homDM((M', k), (M, n)) &\cong \homDMf(M'(l + k), (\sgDM{k - n}M)(l + n)) \\
+&\cong \homDMf((M', k), \sgDM{k}(M, n)).
+\end{align*}
+Since the isomorphism is functorial in both $(M, n)$ and 
+$(M', k)$, it follows that $\sgDM{k}$ is right adjoint to
+the inclusion of $\GFiltDM[k]{\DM}$ into $\DM$.
+
+For part (3), if $(M, n)$ is an object of $\GFiltDM[k]{\DM}$,
+then $(M, n) \cong (M', k)$ for some $M'$. Furthermore, as defined,
+$\sgDM{k}(M', k) = (M', k)$. As this isomorphism is natural in
+$(M, n)$, we have just established part (3).
 \end{proof}
 
 Next, we define $\LFiltDM[k]{\DM}$ to be the full subcategory of 
@@ -760,23 +830,25 @@ $(\slDM{k - n} M, n)$.
   and $(M', n') \cong (\slDM{k - n}M, n)$ as claimed.
 \end{proof}
 
-Let $\slDM{k}$ denote the association $(M, n) \mapsto (M', n') =
-(\slDM{k - n}M, n)$. The following is a straightforward consequence
-of the properties of the $\sgDM{k}$ of $\DMeff$:
+Copying the proof of $\cite[1.3]{HuKa}$, for each integer $k$ we 
+obtain functors $\slDM{k}$, defined by sending $(M, n) \mapsto 
+(\slDM{k - n}, n)$. These functors satisfy the following 
+properties:
 
 \begin{prop}\label{prop_slDM_functor}
 For each integer $k$,
 \begin{enumerate}
 \item $\slDM{k}$ is a triangulated functor
 
-\item $\slDM{k}$ defines a left adjoint to the inclusion of 
-$\LFiltDM[k]{\DM}$ into $\DM$.
+\item the image of $\slDM{k}$ is $\LFiltDM[k]{\DM}$ and $\slDM{k}$ 
+defines a left adjoint to the inclusion of $\LFiltDM[k]{\DM}$ into 
+$\DM$.
 
 \item the restriction of $\slDM{k}$ to $\LFiltDM[k]{\DM}$ is naturally
 isomorphic to the identity.
 
 \item If $k > 0$, the restriction of $\slDM{k}$ to $\DMeff$ is the
-  functor $\slDM{k}$ of \ref{prop_slice_DMeff}.
+functor $\slDM{k}$ of Proposition \ref{prop_slice_DMeff}.
 \end{enumerate}
 \end{prop}
 

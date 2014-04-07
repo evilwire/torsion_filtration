@@ -2,8 +2,8 @@
 \chapter{Torsion Filtrations on Torsion Monoidal Categories}
 \label{sect_filtration_general}
 
-In this section, we generalize the ideas developed by the last
-two sections by axiomatizing the necessary components to define
+In this chapter, we generalize the ideas developed by the last
+three chapters by axiomatizing the necessary components to define
 torsion filtrations on $t$-categories $\DCat$ with a symmetric
 monoidal structure. Let us begin by defining the following notion:
 
@@ -53,12 +53,16 @@ C \tensor^{\Cat{C}} C' \defeq \HH^0(C \tensor C')
    \;\;\;\textrm{ and }\;\;\;
 \ihom_{\Cat{C}}(C, C') \defeq \HH^0(\ihom(C, C')).
 \]
-We let $L_H$ and $R_H$ denote the endofunctor on 
-$\Cat{C}$ given by $F \mapsto F \tensor^{\Cat{C}} S$ and $F \mapsto
-\ihom_{\Cat{C}}(S, F)$ respectively.
+Since $\ihom(S, -)$ is $t$-exact, $S$ is a \SemiInvertible
+object of $\Cat{C}$, i.e. $\ihom_{\Cat{C}}(S, -)$ is right
+adjoint to $- \tensor^{\Cat{C}} S$. We let $L_H$ and $R_H$ denote 
+the endofunctor on $\Cat{C}$ given by $F \mapsto F 
+\tensor^{\Cat{C}} S$ and $F \mapsto \ihom_{\Cat{C}}(S, F)$ 
+respectively. By definition, $L_H$ is left adjoint to $R_H$.
 
 Let $L^n$ and $R^n$ denote the $n$-th iterations of $L$ and $R$ 
-respectively; we define $L_H^n$ and $R_H^n$ similarly. By induction,
+respectively; we define $L_H^n$ and $R_H^n$ similarly. Since $L$
+is left adjoint to $R$,
 $L^n$ is left adjoint to $R^n$. Furthermore, by Cancellation 
 (Definition \ref{def_torsion_monoidal_category}(2)) implies that 
 $R^nL^n$ is naturally isomorphic to the identity, and the same is 
@@ -69,7 +73,9 @@ earlier chapters of this thesis.
 \section{Slice filtration of torsion monoidal categories}
 \label{sect_summary_slice_filt_on_DCat}
 
-We begin by introducing the slice filtrations on $\DCat$. 
+We begin by constructing the slice filtrations on $\DCat$. This
+will generalize the results in Section 
+\ref{sect_slice_filtration_DMeff}.
 
 \begin{defn}
 Let $\Corad{n}{\DCat}$ be the full subcategory of $\DCat$ by those 

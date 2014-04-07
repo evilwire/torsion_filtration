@@ -345,12 +345,20 @@ $\partial_{n, i} : \Delta^{n - 1} \to \Delta^{n}$ induced by
 \basefield [x_0,\dots,x_n]/\big(\sum_{i} x_i - 1 \big)
 \to \basefield [x_0,\dots,x_{n - 1}]/\big(\sum_{i} x_i - 1 \big)
 \]
-given by $x_j \mapsto x_j (j \neq i)$ and $x_i \mapsto 0$. In
-particular, $\Delta^{\bullet}$ is a cosimplicial scheme, and 
+given by 
+\[
+x_j \mapsto
+\begin{cases}
+x_j & \textrm{if }j < i \\
+0 & \textrm{if }j = i \\
+x_{j - 1} &\textrm{otherwise}.
+\end{cases}
+\]
+In particular, $\Delta^{\bullet}$ is a cosimplicial scheme, and 
 $F( - \times \Delta^\bullet)$ is a simplicial presheaf with
-transfers. Let $\suslC F$ be the associated chain complex. That
-is $\suslC[n] F(X) = F(X \times \Delta^n)$, and the chain map
-is given by
+transfers. Let $\suslC F$ be the associated cochain complex. That
+is $(\suslC F(X))^{-n} \defeq \suslC[n] F(X) = F(X \times 
+\Delta^n)$, and the chain map is given by
 \[
 \partial_{n}^* \defeq \sum_{i = 0}^{n} (-1)^i \partial_{n,i}^*.
 \]
@@ -358,16 +366,16 @@ is given by
 
 Clearly, if $F$ is a homotopy invariant presheaf, then the complex 
 $\suslC F$ is exact except at degree $0$. In particular, the
-inclusion of $F$ as a chain complex concentrated in degree $0$ into
-$\suslC F$ is a quasi-isomorphism of chain complexes of presheaves.
+inclusion of $F$ as a cochain complex concentrated in degree $0$ into
+$\suslC F$ is a quasi-isomorphism of cochain complexes of presheaves.
 In general, for $F$ in $\PST$, write $H^n \suslC F$ for the 
 contravariant functor $U \mapsto H^n \suslC F(U)$. Then $H^n \suslC F$
 is homotopy invariant for all $n$ (\cite[2.19]{MVW}).
 
 If $F$ is a sheaf with transfers, then $\suslC[n] F$ is also a sheaf
 with transfers for all positive $n$. Therefore, $\suslC F$ is a
-chain complex of sheaves with transfers. In particular, for all
-$X$ in $\Sm$, $\suslC \Ztr(X)$ is a chain complex of sheaves.
+cochain complex of sheaves with transfers. In particular, for all
+$X$ in $\Sm$, $\suslC \Ztr(X)$ is a cochain complex of sheaves.
 
 \begin{defn}\label{def_hSX}
 We write $\hS{X}^{\mathrm{\acute{e}t}}$ (resp., $\hS{X}^{\Nis}$) 
@@ -409,17 +417,18 @@ filtrations on $\HI$.
 Let $F$ be a homotopy invariant presheaf with transfers. Write
 $\RHI{F}(X)$ for the cokernel of $F(X \times \A^1) \to F(X \times 
 (\A^1 - 0))$. It is easy to see that $\RHI{F}$ is again a presheaf
-with transfers which we call \DEF{the contraction of $F$}.
+with transfers which we call \DEF{the contraction of $F$}. We will 
+write $\RHI[n + 1]{F}$ for $\RHI{(\RHI[n]{F})}$.
 \end{defn}
 
-It is easy to see that if $F$ is homotopy invariant, then $\RHI{F}$ 
-is also a homotopy invariant. Furthermore, $F(X \times (\A^1 - 0))$
-splits into $F(X) \oplus \RHI{F}(X)$. Thus, if $F$ is a sheaf, then
-$\RHI{F}$ is also a sheaf. Thus, $F \mapsto \RHI{F}$ defines an
+If $F$ is homotopy invariant, then $\RHI{F}$ is also a homotopy 
+invariant. Furthermore, $F(X \times (\A^1 - 0))$ splits into 
+$F(X) \oplus \RHI{F}(X)$. Thus, if $F$ is a sheaf, then $\RHI{F}$ 
+is also a sheaf. In fact, $F \mapsto \RHI{F}$ defines an
 endofunctor on the category of homotopy invariant sheaves with 
 transfers.
 
-\begin{prop}[\cite{DegGenMot} or \cite{MVW}]
+\begin{prop}[\cite{DegGenMot} 3.4.3]
 \label{prop_contract_is_exact}
 The functor $F \mapsto \RHI{F}$ is exact.
 \end{prop}

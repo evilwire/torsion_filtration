@@ -42,33 +42,20 @@ F    &n = 0 \\
 \end{cases}
 \]
 and the $n$-th delooping $F_n \to \RHI{(F_{n + 1})}$ is the unit
-map for $n \geq 0$ and the identity for $n < 0$.
-
-There a fully faithful functor $\spectHI : \HI \to \HM$, given by 
-$F \mapsto (F, 0)$, which realizes $\HI$ as a full subcategory of 
-objects in $\HM$ of the form $(F, n)$ where $n \geq 0$. Just as in
-the case for $\DM$ and $\DMeff$, $\spectHI$ admits a right adjoint
-$\loopHM : \HM \to \HI$ given by 
-\[
-\loopHM(F, n) = \begin{cases}
-\LHI[n]F &\textrm{for }n \geq 0\\
-0 &\textrm{otherwise}.
-\end{cases}
-\]
-Furthermore, $\spectHI$ has a right adjoint $\loopHM: \HM \to
-\HI$ given by $(F_*, \deloop_*) \mapsto F_0$ 
-(see \cite[1.18]{DegModHom}). 
-
+map for $n \geq 0$ and the identity for $n < 0$. Furthermore, 
+$\spectHI$ has a right adjoint $\loopHM: \HM \to \HI$ given by 
+$(F_*, \deloop_*) \mapsto F_0$ (see \cite[1.18]{DegModHom}). 
 Since $\spectHI$ is fully faithful and admits a right adjoint, 
 we can regard $\HI$ a full coreflective subcategory of $\HM$. The
-three filtrations defined in the previous sections also define a 
-$\N$-indexed filtration of $\HM$. The goal is to extend these 
-filtrations to $\Z$-filtrations of $\HM$. In particular, we show
-that there is a $\Z$-indexed sequence of coradicals $\tlHM{n}$
+torsion filtration on $\HI$, defined in the previous sections 
+give rise to two $\N$-indexed weak filtrations of $\HM$. The goal 
+is to extend these filtrations to a $\Z$-indexed strong filtration 
+and a $\Z$-indexed cofiltration of $\HM$. In particular, we show
+that there is a sequence of coradicals $\tlHM{n}$
 on $\HM$ such that for nonnegative $n$, the restriction of 
 $\tlHM{n}$ to $\HI$ is $\tlHI{n}$. In this case, the associated
 torsion theories will define the extension of the torsion 
-filtrations on $\HI$.
+filtrations on $\HI$ to $\HM$.
 
 The following proposition will be crucial to extending the 
 functors $\tlHI{n}$:
