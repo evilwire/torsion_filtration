@@ -160,40 +160,52 @@ given by
 \ihom_{\Cat{C}}(C, C') \defeq \HH^0(\ihom(C, C')).
 \]
 To see that $\ihom_{\Cat{C}}$ defines a partial internal hom,
-notice that for $M$ is in $\DCat^{\leq 0}$ and $M'$ is in 
+notice that for $M$ in $\DCat^{\leq 0}$ and $M'$ in 
 $\DCat^{\geq 0}$,
-\[
+\begin{equation}\label{eq_t_struct_hom_eq_1}
 \hom_{\DCat}(\HH^0(M), M') \cong \hom_{\DCat}(M, M')
-\]
+\end{equation}
 and
-\[
+\begin{equation}\label{eq_t_struct_hom_eq_2}
 \hom_{\DCat}(M, \HH^0(M')) \cong \hom_{\DCat}(M, M').
-\]
-Thus, for any $C_1, C_3$ in $\Cat{C}$ and $C_2$ in $\Cat{C} \cap 
+\end{equation}
+Fix any $C_1, C_3$ in $\Cat{C}$ and $C_2$ in $\Cat{C} \cap 
 \DCat^{\compact}$ such that $\ihom(C_2, -)$ is left $t$-exact (i.e.
-takes objects in $\DCat^{\geq 0}$ to objects in $\DCat^{\geq 0}$),
+takes objects in $\DCat^{\geq 0}$ to objects in $\DCat^{\geq 0}$).
+Since $\C_1 \tensor C_2$ is in $\DCat^{\leq 0}$, using the 
+isomorphism in \eqref{eq_t_struct_hom_eq_1}, we obtain the 
+following:
 \begin{align*}
-\hom_{\Cat{C}}(C_1 \tensor^{\Cat{C}} C_2, C_3) &\cong
-\hom_{\DCat}(C_1 \tensor C_2, C_3) \\
+\hom_{\Cat{C}}(C_1 \tensor^{\Cat{C}} C_2, C_3) 
+\hom(\HH^0(C_1 \tensor C_2), C_3) \\
+   &\cong \hom_{\DCat{C}}(C_1 \tensor C_2, C_3)
+\end{align*}
+Since $- \tensor C_2$ is adjoint to $\ihom(C_2, -)$ and 
+$\ihom(C_2, C_3)$ is in $\DCat^{\geq 0}$, by 
+\eqref{eq_t_struct_hom_eq_2}, we obtain the following
+\begin{align*}
+\hom_{\Cat{C}}(C_1 \tensor^{\Cat{C}} C_2, C_3)
+&\cong \hom_{\DCat}(C_1 \tensor C_2, C_3) \\
 &\cong \hom_{\DCat}(C_1, \ihom(C_2, C_3)) \\
 &\cong \hom_{\DCat}(C_1, \HH^0(\ihom(C_2, C_3))) \\
 &\cong \hom_{\Cat{C}}(C_1, \ihom_{\Cat{C}}(C_2, C_3)).
 \end{align*}
 This shows that the bifunctor $\ihom_{\Cat{C}}$ defines a partial 
-internal hom where the collection of semi-invertible objects of
+internal hom where the collection of semi-representable objects of
 $\ihom_{\Cat{C}}$ contains at least those objects $C$ in $\Cat{C} \cap 
 \DCat^{\compact}$ such that $\ihom(C, -)$ is left $t$-exact.
 
 Applying the above discussion to the category $\DMeff$, we see 
 that there exists a $t$-structure on $\DMeff$, with the abelian 
-category $\HI$ as its heart. We write $\gltrunc{0}\DMeff$ for
-the negative objects of $\DMeff$, and $\ggtrunc{0}\DMeff$ for the
-positive objects of $\DMeff$. We will also let $\gltrunc{0}$, 
-$\ggtrunc{0}$ and $\HH^0$ denote the functors from $\DMeff$ to 
-$\gltrunc{0}\DMeff$, $\ggtrunc{0}\DMeff$ and $\HI$, respectively. 
-Moreover, the triangulated monoidal structure on $\DMeff$ induces 
-a symmetric monoidal bifunctor on $\HI$, which we write as $\tHI$. 
-This bifunctor is uniquely characterized by
+category $\HI$ as its heart (see \cite[5.2]{DegModHom}). We write 
+$\gltrunc{0}\DMeff$ for the negative objects of $\DMeff$, and 
+$\ggtrunc{0}\DMeff$ for the positive objects of $\DMeff$. We will 
+also let $\gltrunc{0}$, $\ggtrunc{0}$ and $\HH^0$ denote the 
+functors from $\DMeff$ to $\gltrunc{0}\DMeff$, $\ggtrunc{0}\DMeff$ 
+and $\HI$, respectively. Moreover, the triangulated monoidal 
+structure on $\DMeff$ induces a symmetric monoidal bifunctor on 
+$\HI$, which we write as $\tHI$. This bifunctor is uniquely 
+characterized by
 \[
 \hS{X} \tHI \hS{Y} = \hS{X \times Y},
 \]
@@ -309,39 +321,22 @@ $\Z(1)[1] \cong \Ox$ in $\DMeff$. Hence, we have that
 \]
 \end{rmk}
 
-Finally, we make the following observations that will be useful
-in subsequent sections.
+Finally, we make some observations that will be useful in 
+subsequent sections.
 
 \begin{prop}\label{prop_LR_commute_with_HH}
-There exists a natural isomorphism
-\[
-\HH^0 \ihomDMf(\Z(n)[n], -) \cong \RHI[n]{\HH^0(-)}.
-\]
-Furthermore, for all negative objects $M$,
+For all negative objects $M$,
 \[
 \HH^0(M \tDM \Z(n)[n]) = \LHI[n]{\HH^0(M)}.
 \]
 \end{prop}
 \begin{proof}
-Using the fact that $\ihomDMf(\Z(n)[n], -)$ is naturally 
-isomorphic to the $n$-th iteration of $\ihomDMf(\Z(1)[1], -)$, the 
-desired natural isomorphism 
-\[
-\HH^0 \ihomDMf(\Z(n)[n], -) \cong \RHI[n]{\HH^0(-)}
-\]
-can be obtained inductively by using the following natural 
-isomorphisms:
-\[
-\HH^0 \ihomDMf(\Z(1)[1], -) \cong \HH^0 \ihomDMf(\Z(1)[1], \HH^0(-))
-\cong \RHI{\HH^0(-)}
-\]
-which is established by Lemma \ref{lem_HH_commutes_with_contract}.
-
-Furthermore, by constructed, the tensor operation $\tDM$ is right 
+By construction, the tensor operation $\tDM$ is right 
 $t$-exact in both factors. Therefore, for negative objects $M$ and 
 $N$ of $\DMeff$, we have that
 \[
-\HH^0(\HH^0(M) \tDM \HH^0(N)) = \HH^0(M \tDM N).
+\HH^0M\tHI \HH^0N = \HH^0(\HH^0(M) \tDM \HH^0(N)) = 
+   \HH^0(M \tDM N).
 \]
 Since $\Z(n)[n] = \Z(n - 1)[n - 1] \tDM \Z(1)[1]$, and $\Z(1)[1] 
 \cong \Ox$, by induction on $n$, $\Z(n)[n]$ is also a negative 
@@ -364,9 +359,9 @@ For $F$ in $\HI$, by the Cancellation Theorem
 \ihomDMf(\Z(n)[n], F(n)[n]) \cong \ihomDMf(\Z, F) 
 \cong F. 
 \]
-Now apply $\HH^0$ to this chain of isomorphisms. Using
-Proposition \ref{prop_LR_commute_with_HH} and the fact
-that $\HH^0(F) = F$, we obtain the desired isomorphism.
+Now apply $\HH^0$ to this chain of isomorphisms. Using Lemma
+\ref{lem_HH_commutes_with_contract} and the fact that $\HH^0(F) = 
+F$, we obtain the desired isomorphism.
 \end{proof}
 
 \begin{prop}\label{prop_counit_iso_for_HIn}
@@ -642,10 +637,10 @@ reflection functors are coradicals.
 
 \begin{defn}\label{def_TFHI}
 Let $n$ be a natural number, and let $\TFHI{n}$ be the full 
-subcategories of objects $F$ in $\HI$ such that $\RHI[n]{F} = 0$. 
+subcategory of objects $F$ in $\HI$ such that $\RHI[n]{F} = 0$. 
 By Proposition \ref{prop_contract_is_exact}, $F \mapsto 
-\RHI[n]{F}$ is exact. Therefore, $\TFHI{n}$ is an abelian category
-closed under extensions.
+\RHI[n]{F}$ is exact. Therefore, $\TFHI{n}$ is an abelian 
+subcategory closed under extensions.
 \end{defn}
 
 By convention, define $\RHI[0]{F}$ to be $F$. Since 
@@ -681,11 +676,10 @@ $\TLHI{n}{\HI}$.
 
 \begin{proof}
 Let $F$ be an object of $\HI$. We need to verify that 
-$\RHI[n]{\tlHI{n}(F)} = 0$.
-
-By definition, we have
+$\RHI[n]{\tlHI{n}(F)} = 0$. By definition, we have an exact
+sequence
 \[
-\LHI[n]{\RHI[n]{F}} \to F \to \tlHI{n}(F) \to 0
+\LHI[n]{\RHI[n]{F}} \to F \to \tlHI{n}(F) \to 0.
 \]
 Since the functor $F \mapsto \RHI[n]{F}$ is exact (see Proposition
 \ref{prop_contract_is_exact} and Remark \ref{rmk_contraction}), we 
@@ -711,9 +705,8 @@ For each $F$ in $\TFHI{n}$, we have the following exact sequence:
 \LHI[n]{\RHI[n]{F}} \to F \to \tlHI{n}(F) \to 0
 \]
 Since $F \in \TFHI{n}$, $\RHI[n]{F} = 0$, and therefore the counit
-map is $0$. It follows that $\tlHI{n}(F) = F$ as desired.
-
-The first statement follows from the fact that $\tlHI{n}(F)$ is in
+map is $0$. It follows that $\tlHI{n}(F) = F$ as desired. The 
+first statement follows from the fact that $\tlHI{n}(F)$ is in
 $\TLHI{n}{\HI}$, which is established in Lemma \ref{lem_tlHI_in_TLHI}.
 \end{proof}
 
@@ -765,14 +758,10 @@ All that remains to show is that for each $F$ in $\HI$,
 \tlHI{n}(\ker (F \to \tlHI{n}(F))) = 0.
 \]
 Fix a positive integer $n$, and let $K$ denote the kernel of the 
-surjection $F \to \tlHI{n}(F)$. We have the following short exact 
-sequence 
-\[
-0 \to K \to F \to \tlHI{n}(F) \to 0
-\]
-Since $\tlHI{n}(F)$ is in $\TLHI{n}{\HI}$, by definition 
-$\RHI[n]{\tlHI{n}(F)} = 0$. Therefore, we have the following
-commutative diagram
+surjection $F \to \tlHI{n}(F)$. Since $\tlHI{n}(F)$ is in 
+$\TLHI{n}{\HI}$, by definition $\RHI[n]{\tlHI{n}(F)} = 0$. 
+Therefore, we have the following commutative diagram with exact
+rows:
 \[
 \begin{tikzcd}
 {} &\sgHI{n} K \arrow{d}{\cuHI_F} \arrow{r}
@@ -783,7 +772,7 @@ commutative diagram
   K \arrow{r}&
   F \arrow{r}&
   \tlHI{n}(F) \arrow{r}&
-  0
+  0.
 \end{tikzcd}
 \]
 By the Snake Lemma, and using the fact that $\cok \cuHI_F = 
@@ -823,11 +812,11 @@ cofiltration, the second claim now follows.
 
 We still have to show that the torsion subcategories $\Cat{T}_n$
 form a strong descending filtration. Let us first introduce a more
-appropriate notation for the torsion subcategory. We will write
-$\THI{n}$ for the torsion subcategory $\Cat{T}_n$. 
+appropriate notation for the torsion subcategory.  
 
 \begin{defn}\label{def_upper_slice_functor}
-Let $\tgHI{n}$ denote the kernel of the natural surjection $\id 
+Let $\THI{n}$ denote the torsion subcategory $\Cat{T}_n$, and
+$\tgHI{n}$ denote the kernel of the natural surjection $\id 
 \to \tlHI{n}$. By Proposition \ref{prop_rad_eq_corad} and 
 Corollary \ref{cor_tt_ref_and_coref}, $\tgHI{n}$ is an idempotent 
 pre-radical, and is right adjoint to the inclusion of $\THI{n}$ in
@@ -1006,19 +995,19 @@ F \arrow{r} &
 \end{equation}
 where vertical maps are the counits. Notice that the top row is 
 exact on the right because $\sgHI{m}$ is right exact.                   %% THESIS_FLAG
-Since $m > n$, by Proposition \ref{prop_HI_lower_slice} 
+Since $m > n$, by Lemma \ref{lem_HH_commutes_with_contract} 
 $\tlHI{n}(F)$ is in $\TFHI{n}$, which is a subcategory of $\TFHI{m}$
 by Proposition \ref{prop_tsubcat_eq_tlHI}. Since $G$ is in $\TFHI{m}$
 if and only if $\RHI[m]{G} = 0$, it follows that 
 $\RHI[m]{(\tlHI{n}(F))} = 0$. Hence, $\sgHI{m}\tlHI{n}(F) = 0$. 
 
-Applying Snake Lemma to \eqref{eq_sg_tgHI_nat_diag}, we obtain the 
+Applying the Snake Lemma to \eqref{eq_sg_tgHI_nat_diag}, we obtain the 
 following exact sequence:
 \begin{equation}\label{eq_tlHI_exact_sequence}
 0 \to \tlHI{m}\tgHI{n}(F) \to \tlHI{m}(F) \to \tlHI{m} \tlHI{n}(F) 
    \to 0.
 \end{equation}
-Notice that $\tlHI{n} \tlHI{m}(F) \cong \tlHI{n}(F)$, and the 
+Now $\tlHI{n} \tlHI{m}(F) \cong \tlHI{n}(F)$, and the 
 composition $\tlHI{m}(F) \to \tlHI{n}\tlHI{m} (F) \to \tlHI{n}(F)$ 
 is precisely the natural surjection associated to $\tlHI{n}(F)$. It 
 follows that
@@ -1047,7 +1036,7 @@ F \arrow{r} \arrow{d}{\eta_F} &
 \tlHI{m} \tgHI{n}(F) \arrow{r} &
 \tlHI{m}(F) \arrow{r} &
 \tlHI{m}\tlHI{n}(F) \arrow{r} &
-0.
+0,
 \end{tikzcd}
 \end{equation}
 where $\eta$ is the natural surjection $\id \to \tlHI{m}$, and
@@ -1137,7 +1126,7 @@ By Lemma \ref{lem_HH_commutes_with_contract}, $\ihomDMf(\Z(n)[n],
 F)$ is isomorphic to $\RHI[n]{F}$, which is an object in the heart 
 of $\DMeff$. Since $\tDM$ is right $t$-exact and
 \[
-\sgDM{n} F \cong \Z(n)[n] \tDM \ihomDMf(\Z(n)[n], F).
+\sgDM{n} F \cong \Z(n)[n] \tDM \ihomDMf(\Z(n)[n], F),
 \] 
 it follows that $\sgDM{n} F$ is a negative object. Therefore, 
 $\HH^1 \sgDM{n} F = 0$, as desired.

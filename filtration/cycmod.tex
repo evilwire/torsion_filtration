@@ -27,7 +27,7 @@ We call the morphisms $\susp_n$ and $\deloop_n$ the \DEF{$n$-th
 suspensions} and the \DEF{$n$-th delooping} respectively.
 
 Let $\HM$ denote the category of $\DEF{homotopy modules}$.
-Ojects in $\HM$ will be represented by $(F_*, \deloop_*)$ where 
+Objects in $\HM$ will be represented by $(F_*, \deloop_*)$ where 
 $F_*$ is the $\Z$-graded homotopy invariant sheaf with transfers, 
 and $\deloop_*$ is the sequence of deloopings.
 \end{defn}
@@ -95,8 +95,11 @@ By similar arguments, one can show that $R\tlHI{n}$ is naturally
 isomorphic to $\tlHI{n - 1}R$ as well.
 \end{proof}
 
-We will now define the coradical on $\HM$. Let $(F_*, \deloop_*)$ 
-be an object of $\HM$, and write $\tlHM{n}(F_*)$ for the graded 
+We will now define the coradical on $\HM$. 
+
+\begin{defn}\label{def_corad_HM}
+Let $(F_*, \deloop_*)$ 
+be an object of $\HM$, and write $\tlHM{n}(F)$ for the graded 
 homotopy invariant sheaf with transfers where
 \[
 (\tlHM{n}(F_*))_k \defeq
@@ -105,15 +108,13 @@ homotopy invariant sheaf with transfers where
    0                 & \textrm{otherwise}.
 \end{cases}
 \]
-For ease of notation, we write $\tlHM{n}(F)$ for the essential 
-image of $F_*$ (dropping the ``$_*$'' on $F$ to avoid 
-redundancy) and we write $\tlHM[k]{n}(F)$ for the $k$-th graded 
-component of $\tlHM{n}(F)$.
+For ease of notation, we will write $\tlHM[k]{n}(F)$ for the 
+$k$-th graded component of $\tlHM{n}(F)$.
+\end{defn}
 
-By the previous proposition, there are two maps that we can
-define between the graded pieces of $\tlHM{n}(F)$. Recognizing
-$L\tlHM[k]{n}(F) \defeq L \tlHI{n + k}(F_k)$ and 
-$\tlHM[k + 1]{n}(F) \defeq \tlHI{n + k + 1}(F_{k + 1})$, let
+By Proposition \ref{prop_tl_L_R}, there are two maps that we can
+define between the graded pieces of $\tlHM{n}(F)$. Using Definition
+\ref{def_corad_HM}, let
 \[
 \suspTL[k]{n} : L\tlHM[k]{n}(F) \to \tlHM[k + 1]{n}(F)
 \]

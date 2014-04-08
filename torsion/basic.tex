@@ -62,10 +62,7 @@ We now define some key notions in torsion theory.
 \begin{enumerate}
 \item A \DEF{quotient functor} is an endofunctor $\phi : \Cat{A} 
 \to \Cat{A}$ together with a natural surjection $\eta: \id \to 
-\phi$. We will drop the reference to $\eta$ and simply represent
-a quotient functor by $\phi$.
-
-That is, for every $f: A \to B$, the following diagram commutes.
+\phi$. That is, for every $f: A \to B$, the following diagram commutes.
 \[
 \begin{tikzcd}
 A \arrow{r}{f} \arrow{d}{\eta_A} &
@@ -74,6 +71,7 @@ B \arrow{d}{\eta_B} \\
 &\phi(B)
 \end{tikzcd}
 \]
+We will often drop the reference to $\eta$. 
 
 \item We say that $\phi$ is \DEF{idempotent} if the natural 
 surjection is the identity on the essential image of $\phi$.
@@ -109,10 +107,9 @@ $\phi$ is a \DEF{radical}.
 Let $\Ab$ be the category of abelian groups, and let $G$ an
 abelian group, written additively. We write $G_{tor}$ for the 
 torsion subgroup of $G$, and we write $\phi(G)$ for $G/G_{tor}$.
-It is easy to see that $\phi$ defines a pre-coradical.
-
-The quotient functor $\phi$ is pre-coradical but not a coradical. 
-To see this, consider the following short exact sequence
+The quotient functor $\phi$ defines a pre-coradical, not a 
+coradical. To see this, consider the following short exact 
+sequence
 \[
 0 \to \Z \stackrel{2}{\to} \Z \to \Z/2 \to 0
 \]
@@ -120,10 +117,8 @@ in the category of $\Ab$. Applying $\phi$, we have
 \[
 0 \to \Z \stackrel{2}{\to} \Z \to 0 \to 0
 \]
-which is not exact in the middle.
-
-On the other hand, it is easy to see that the functors $G \mapsto 
-G_{tor}$ and $M \mapsto {}_SM$ are radicals.
+which is not exact in the middle. On the other hand, it is easy to 
+see that the functors $G \mapsto G_{tor}$ and is a radicals.
 
 More generally, let $R$ be a commutative ring, and $S$ be a 
 multiplicatively closed set. For an $R$ module $M$, let ${}_SM$
@@ -133,13 +128,13 @@ the category of $R$-modules. As in the case for abelian groups,
 the functor $\phi$ is not a coradical.
 \end{ex}
 
-\begin{rmk}\label{rmk_mitch_embed}
+\begin{rmk*}
   In the case where $\Cat{A}$ is small, via Mitchell embedding there
   exists an embedding of $\Cat{A}$ as a subcategory of $R$-mod for
   some suitable ring $R$. In this case, the notions of the subobject
   functors, quotient functors, idempotence, radicals, and coradicals
   corresponds to their counterparts in the ring theoretic setting.
-\end{rmk}
+\end{rmk*}
 
 Torsion theory is usually developed for radical functors, which 
 are coradicals in the opposite category of $\Cat{A}$. However, 
@@ -529,8 +524,8 @@ in $\Cat{F}$. Since $\phi$ is a pre-coradical, the kernel of $A
 \to \phi(A)$ is in $\Cat{T}$.
 \end{proof}
 
-As we have mentioned in the paragraph after Remark 
-\ref{rmk_mitch_embed}, there is a result corresponding to Theorem 
+As we have mentioned in the paragraph preceding Proposition
+\ref{prop_idempotence}, there is a result corresponding to Theorem 
 \ref{thm_precorad_eq_tt} for radicals: every idempotent 
 pre-radical $\kappa$ is in one-to-one correspondence with torsion 
 theories on $\Cat{A}$ defined by 

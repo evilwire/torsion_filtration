@@ -163,18 +163,21 @@ invertible.
 \section{Torsion filtration on the heart}
 
 Let us now focus on the heart $\Cat{C}$ of $\DCat$. Recall from
-an earlier discussion that the endofunctors $L_H^n$ and $R_H^n$ 
-are adjoint. For $F$ in $\Cat{C}$, let $\corad{n} F$ denote the 
-cokernel of the counit map $L^n R^n F \to F$. The proof of 
-Proposition \ref{prop_HI_lower_slice} can be generalized in this 
-setting to show that $\corad{n}$ is a functor. In fact, the 
-arguments for Theorem \ref{thm_main_result} go through to give us
-the following result:
+an earlier discussion that the endofunctors $L_H^n = \HH^0 L^n$ 
+and $R_H^n = \HH^0 R^n$ are adjoint. For $F$ in $\Cat{C}$, let 
+$\corad{n} F$ denote the cokernel of the counit map $L_H^n R_H^n 
+F \to F$. The proof of Proposition \ref{prop_HI_lower_slice} can be 
+generalized in this setting to show that $\corad{n}$ is a functor. 
+Let $\Corad{n}{\Cat{C}}$ be the full subcategory of all objects 
+$C$ in $\Cat{C}$ with $\corad{n}(C) = C$, and let 
+$\Prerad{n}{\Cat{C}}$ be the full subcategory of all objects $C$ 
+in $\Cat{C}$ with $\corad{n}(C) = 0$. The arguments for Theorem 
+\ref{thm_main_result} go through to give us the following result. 
 
 \begin{thm}\label{thm_sum_heart}
 The functors $\corad{n}, n = 1, 2\dots,$ define a sequence of
 coradicals, whose associated torsion theories $(\Cat{T}_n,
-\Cat{F}_i) = (\Prerad{n}{\Cat{C}}, \Corad{n}{\Cat{C}})$ fit together
+\Cat{F}_n) = (\Prerad{n}{\Cat{C}}, \Corad{n}{\Cat{C}})$ fit together
 to define a strong ascending cofiltration of $\Cat{C}$:
 \[
 0 = \Corad{0}{\Cat{C}} \subseteq \cdots \subseteq \Corad{n}{\Cat{C}}
@@ -210,7 +213,7 @@ and $\Prerad{n}{\Cat{C}}$:
 
 \begin{cor}\label{cor_sg_sub_prerad}
 For $F$ in $\SGFilt{n}{\Cat{C}}$, $\hom_{\Cat{C}}(F, G) = 0$ for
-all $G$ in $\Prerad{n}{\Cat{C}}$. In particular, $\SGFilt{n}{\Cat{C}}$
+all $G$ in $\Corad{n}{\Cat{C}}$. In particular, $\SGFilt{n}{\Cat{C}}$
 is a full subcategory of $\Prerad{n}{\Cat{C}}$.
 \end{cor}
 \begin{proof}
@@ -236,10 +239,10 @@ $\HH^0(\Prerad{n}{\DCat}) = \SGFilt{n}{\Cat{C}}$ (\emph{cf}.
 $\Corad{n}{\Cat{C}} = 0$ and $\Prerad{n}{\DCat} = \DCat$ for all $n$.
 However, the converse does not necessarily hold. Rather, the converse
 is related to a weaker condition: we say that $S$ is 
-\DEF{$\tensor^{\Cat{C}}$-invertible} if there exists some $T$ such
+\DEF{$\Cat{C}$-invertible} if there exists some $T$ such
 that $T \tensor^{\Cat{C}} S = \Unit$. Since $\Unit$ is an object of
 $\Cat{C}$ (Definition \ref{def_torsion_monoidal_category} (1)), if
-$S$ is invertible, then $S$ is $\tensor^{\Cat{C}}$-invertible.
+$S$ is invertible, then $S$ is $\Cat{C}$-invertible.
 
 \begin{prop}\label{prop_torsion_filt_degen_cond}
 The following are equivalent:
@@ -253,7 +256,7 @@ for all $n$,
 \item $\Prerad{*}{\Cat{C}}$ is degenerate with $\Prerad{n}{\Cat{C}} = 
 \Cat{C}$ for all $n$,
 
-\item $S$ is $\tensor^{\Cat{C}}$-invertible.
+\item $S$ is $\Cat{C}$-invertible.
 \end{enumerate}
 \end{prop}
 \begin{proof}
@@ -497,11 +500,11 @@ for all $n$,
 \item $\Prerad{*}{\CatLoc{C}{S}}$ is degenerate with 
 $\Prerad{n}{\CatLoc{C}{S}} = \Cat{C}$ for all $n$,
 
-\item $S$ is $\tensor^{\Cat{C}}$-invertible.
+\item $S$ is $\Cat{C}$-invertible.
 \end{enumerate}
 \end{prop}
 \begin{proof}
-Notice that $S$ is $\tensor^{\Cat{C}}$-invertible if and
+Notice that $S$ is $\Cat{C}$-invertible if and
 only if $\CatLoc{C}{S}$ is equivalent to $\CatLoc{C}{S}$.
 Therefore, the equivalence between (1), (2), (3), and (4)
 follows directly from Proposition 
