@@ -154,13 +154,19 @@ monoidal category.
 In addition, if $\DCat$ has a partial internal hom structure
 $(\ihom, \DCat^{\compact})$ as defined in Definition 
 \ref{def_tensor_triang_cat}, then $\Cat{C}$ is also equipped
-with a partial internal hom. Here, the internal hom bifunctor is 
-given by
+with a partial internal hom. For $C, C'$ in $\Cat{C}$, let us
+set
 \[
 \ihom_{\Cat{C}}(C, C') \defeq \HH^0(\ihom(C, C')).
 \]
-To see that $\ihom_{\Cat{C}}$ defines a partial internal hom,
-notice that for $M$ in $\DCat^{\leq 0}$ and $M'$ in 
+\begin{prop}\label{prop_ihomC_is_partial_ihom}
+Let $C$ be an object in $\DCat^{\compact} \cap \Cat{C}$ such that 
+$\ihom(C, -)$ is right $t$-exact. Then $\ihom_{\Cat{C}}(C, -)$ is 
+right adjoint to $C \tensor^{\Cat{C}} -$ as endofunctors on 
+$\Cat{C}$.
+\end{prop}
+\begin{proof}
+Notice that for $M$ in $\DCat^{\leq 0}$ and $M'$ in 
 $\DCat^{\geq 0}$,
 \begin{equation}\label{eq_t_struct_hom_eq_1}
 \hom_{\DCat}(\HH^0(M), M') \cong \hom_{\DCat}(M, M')
@@ -169,43 +175,54 @@ and
 \begin{equation}\label{eq_t_struct_hom_eq_2}
 \hom_{\DCat}(M, \HH^0(M')) \cong \hom_{\DCat}(M, M').
 \end{equation}
-Fix any $C_1, C_3$ in $\Cat{C}$ and $C_2$ in $\Cat{C} \cap 
-\DCat^{\compact}$ such that $\ihom(C_2, -)$ is left $t$-exact (i.e.
-takes objects in $\DCat^{\geq 0}$ to objects in $\DCat^{\geq 0}$).
-Since $\C_1 \tensor C_2$ is in $\DCat^{\leq 0}$, using the 
-isomorphism in \eqref{eq_t_struct_hom_eq_1}, we obtain the 
-following:
+Fix any $C_1, C_2$ in $\Cat{C}$. Since $\tensor$ is right 
+$t$-exact in both factors, $C_1 \tensor C$ is in $\DCat^{\leq 0}$, 
+and using the isomorphism in \eqref{eq_t_struct_hom_eq_1}, we 
+obtain the following isomorphism:
+\[
+\hom_{\Cat{C}}(C_1 \tensor^{\Cat{C}} C, C_2) = 
+\hom_{\Cat{C}}(\HH^0(C_1 \tensor C), C_2) 
+\cong \hom_{\DCat}(C_1 \tensor C, C_3).
+\]
+Since $C$ is in $\DCat^{\compact}$, the functor $- \tensor C$ is 
+left adjoint to $\ihom(C, -)$. By assumption, $\ihom(C, -)$ is 
+right $t$-exact, and since $C_2$ is in the heart, $\ihom(C, C_2)$ 
+is an object in $\DCat^{\geq 0}$. Therefore, using the isomorphism 
+in \eqref{eq_t_struct_hom_eq_2}, we obtain the following chain of
+isomorphisms:
 \begin{align*}
-\hom_{\Cat{C}}(C_1 \tensor^{\Cat{C}} C_2, C_3) 
-\hom(\HH^0(C_1 \tensor C_2), C_3) \\
-   &\cong \hom_{\DCat{C}}(C_1 \tensor C_2, C_3)
+\hom_{\Cat{C}}(C_1 \tensor^{\Cat{C}} C, C_2)
+&\cong \hom_{\DCat}(C_1 \tensor C, C_2) \\
+&\cong \hom_{\DCat}(C_1, \ihom(C, C_2)) \\
+&\cong \hom_{\DCat}(C_1, \HH^0(\ihom(C, C_2))) \\
+&= \hom_{\Cat{C}}(C_1, \ihom_{\Cat{C}}(C, C_2)).
 \end{align*}
-Since $- \tensor C_2$ is adjoint to $\ihom(C_2, -)$ and 
-$\ihom(C_2, C_3)$ is in $\DCat^{\geq 0}$, by 
-\eqref{eq_t_struct_hom_eq_2}, we obtain the following
-\begin{align*}
-\hom_{\Cat{C}}(C_1 \tensor^{\Cat{C}} C_2, C_3)
-&\cong \hom_{\DCat}(C_1 \tensor C_2, C_3) \\
-&\cong \hom_{\DCat}(C_1, \ihom(C_2, C_3)) \\
-&\cong \hom_{\DCat}(C_1, \HH^0(\ihom(C_2, C_3))) \\
-&\cong \hom_{\Cat{C}}(C_1, \ihom_{\Cat{C}}(C_2, C_3)).
-\end{align*}
-This shows that the bifunctor $\ihom_{\Cat{C}}$ defines a partial 
-internal hom where the collection of semi-representable objects of
-$\ihom_{\Cat{C}}$ contains at least those objects $C$ in $\Cat{C} \cap 
-\DCat^{\compact}$ such that $\ihom(C, -)$ is left $t$-exact.
+Since each of the above isomorphism is natural in $C_1$ and $C_2$, 
+the proposition now follows.
+\end{proof}
+
+Proposition \ref{prop_ihomC_is_partial_ihom} shows that the 
+bifunctor $\ihom_{\Cat{C}}$ defines a partial internal hom on the
+category $\Cat{C}$ where the collection of semi-representable 
+objects of $\ihom_{\Cat{C}}$ contains at least those objects $C$ 
+in $\Cat{C} \cap \DCat^{\compact}$ such that $\ihom(C, -)$ is left 
+$t$-exact.
 
 Applying the above discussion to the category $\DMeff$, we see 
 that there exists a $t$-structure on $\DMeff$, with the abelian 
-category $\HI$ as its heart (see \cite[5.2]{DegModHom}). We write 
-$\gltrunc{0}\DMeff$ for the negative objects of $\DMeff$, and 
+category $\HI$ as its heart (see \cite[14.11]{MVW}). 
+
+\begin{defn}\label{def_t_struct_DMeff}
+We write $\gltrunc{0}\DMeff$ for the negative objects of $\DMeff$, and 
 $\ggtrunc{0}\DMeff$ for the positive objects of $\DMeff$. We will 
 also let $\gltrunc{0}$, $\ggtrunc{0}$ and $\HH^0$ denote the 
 functors from $\DMeff$ to $\gltrunc{0}\DMeff$, $\ggtrunc{0}\DMeff$ 
-and $\HI$, respectively. Moreover, the triangulated monoidal 
-structure on $\DMeff$ induces a symmetric monoidal bifunctor on 
-$\HI$, which we write as $\tHI$. This bifunctor is uniquely 
-characterized by
+and $\HI$, respectively. 
+\end{defn}
+
+The triangulated monoidal structure on $\DMeff$ induces a 
+symmetric monoidal bifunctor on $\HI$, which we write as $\tHI$. 
+This bifunctor is uniquely characterized by
 \[
 \hS{X} \tHI \hS{Y} = \hS{X \times Y},
 \]
@@ -218,10 +235,11 @@ Moreover, there is a partial internal hom, defined by
 \]
 for all $G$ in $\HI$, and $F$ in $\HI \cap \DMeffgm$ for which 
 $\ihomDMf(F, -)$ is left $t$-exact. Our first goal is to show that 
-$\Ox$ is \SemiInvertible. This is established by the following 
-lemma. Recall from Definition \ref{def_contract} that for $F$ in
-$\HI$, $\RHI{F}$ is the contraction of $F$, which is the homotopy
-invariant sheaf with transfers defined by
+$\Ox$ is \SemiInvertible with respect to $\ihomHI$ by showing that
+$\ihomDMf(\Ox, -)$ is right $t$-exact. This is established by the 
+following lemma. Recall from Definition \ref{def_contract} that 
+for $F$ in $\HI$, $\RHI{F}$ is the contraction of $F$, which is 
+the homotopy invariant sheaf with transfers defined by
 \[
 X \mapsto \mathrm{cok}(F(X \times \A^1) \to F(X \times 
 (\A^1 - 0)) ).
@@ -383,7 +401,8 @@ that $\cuHI_G L$ is an isomorphism as well. Since $\cuHI_G L$ is the
 counit map for $LG = \LHI[n]{G} = F$, the proposition follows.
 \end{proof}
 
-\section{Torsion filtrations on $\HI$}
+\section{Torsion filtration on $\HI$}
+\label{sect_torsion_filt_on_HI}
 
 We now define the first filtration on $\HI$. Let $\LHI[0]{\HI} = 
 \HI$ and let $\LHI[n]{\HI}$ denote the full subcategory of objects 
@@ -791,10 +810,10 @@ each $\tlHI{n}$. We now give another description of the torsionfree
 subcategories.
 
 \begin{prop}\label{prop_tsubcat_eq_tlHI}
-  For each positive integer $n$, the full subcategory $\TFHI{n}$ and
-  the torsionfree subcategory $\Cat{F}_n$ are the same. Hence, the
-  torsionfree subcategories form an ascending strong cofiltration of
-  $\HI$.
+For each positive integer $n$, the full subcategory $\TFHI{n}$ and
+the torsionfree subcategory $\Cat{F}_n$ are the same. Hence, the
+torsionfree subcategories form an ascending strong cofiltration of
+$\HI$.
 \end{prop}
 \begin{proof}
 Recall from Lemma \ref{lem_tlHI_in_TLHI} that 
@@ -939,8 +958,8 @@ Proposition \ref{prop_HI_upper_slice} that $\sgHI{n}F =
 For all natural numbers $m$ and $n$ such that $m > n$,
 
 \begin{enumerate}
-\item $\THI{n}$ is the full subcategory of objects $F$ such that 
-$\sgHI{n}(F) \to F$ is onto.
+\item $\THI{n}$ is the full subcategory of objects $F$ for which
+the counit map $\sgHI{n}(F) \to F$ is onto.
 \tinyskip
 
 \item $\HI(n)$ is a proper full subcategory $\THI{n}$.
@@ -1050,6 +1069,7 @@ isomorphism $\tgHI{m}\tgHI{n} \to \tgHI{m}$ is natural as well.
 \end{proof}
 
 \section{Slice Filtration on $\DMeff$ and Torsion Filtration on $\HI$}
+\label{sect_relation_sfilt_tfilt}
 
 In this section, we want to relate the filtrations on $\HI$
 that we have developed with the slice filtration on $\DMeff$. 
@@ -1057,82 +1077,84 @@ Recall that the slice filtration structure on $\DMeff$ is
 associated with the weak filtration $(\GFiltDM[*]{\DMeff}, 
 \sgDM{*})$ and the weak cofiltration $(\LFiltDM[*]{\DMeff}, 
 \slDM{*})$ (see Section \ref{sect_slice_filt_dm}). The main result 
-that we will verify is the following:
+that we will verify is Proposition \ref{prop_H_commute_with_filt}.
+Recall from Definition \ref{def_t_struct_DMeff} that 
+$\tau_{\leq 0}\DMeff$ is the full subcategory of negative objects in
+$\DMeff$, i.e. the objects $M$ in $\DMeff$ such that $\HH^nM = 0$
+for all $n > 0$.
 
 \begin{prop}\label{prop_H_commute_with_filt}
 For each positive integer $n$, the following diagram of functors 
-commute:
+commute, with surjective vertical arrows:
 \[
 \begin{tikzcd}
 \GFiltDM[n]{\DMeff} \arrow{d}{\HH^0} &
-\DMeff \arrow{l}{\sgDM{n}} \arrow{r}{\slDM{n}} \arrow{d}{\HH^0} &
+\tau_{\leq 0}\DMeff \arrow{l}{\sgDM{n}} \arrow{r}{\slDM{n}} \arrow{d}{\HH^0} &
 \LFiltDM[n]{\DMeff} \arrow{d}{\HH^0} \\
 \HI(n) &
-\HI \arrow{l}{\sgHI{n}} \arrow{r}{\tlHI{n}} &
-\TFHI{n}
+\HI \arrow{l}{\sgHI{n}}\arrow{r}{\tlHI{n}} &
+\TFHI{n}.
 \end{tikzcd}
 \]
-and all vertical arrows are essentially surjective.
 \end{prop}
 
 The rest of the section will be devoted to the proof of
 Proposition \ref{prop_H_commute_with_filt}. 
-First, observe that for every positive integer $n$ and every $F$ 
-in $\HI$ (regarded as an object of $\DMeff$), there exists a slice 
-triangle:
+First, observe that for every positive integer $n$ and every $M$ 
+in $\tau_{\leq 0}\DMeff$, there exists a slice triangle:
 \[
-\sliceTriangle{n}{F}
+\sliceTriangle{n}{M}
 \]
 Applying the cohomological functor $\HH^0$, we obtain the
 following long exact sequence
 \begin{equation}\label{eq_slice_DM_exact_seq}
-\cdots \stackrel{\delta_{-1}}{\to} \HH^0 \sgDM{n}(F) \to 
-   \HH^0 F \to \HH^0 \slDM{n}(F)
-   \stackrel{\delta_0}{\to} \HH^1 \sgDM{n}(F) \to \cdots
+\cdots \stackrel{\delta_{-1}}{\to} \HH^0 \sgDM{n}(M) \to 
+   \HH^0 M \to \HH^0 \slDM{n}(M)
+   \stackrel{\delta_0}{\to} \HH^1 \sgDM{n}(M) \to \cdots
 \end{equation}
-where $\HH^i F \defeq \HH^0F[i]$. 
+where $\HH^i M \defeq \HH^0M[i]$. 
 
-Notice that $\HH^0F = F$ and $\sgDM{n}(F) = \ihomDMf(\Z(1)[1],
-F)(1)[1]$. By Proposition \ref{prop_LR_commute_with_HH}, $\HH^0 
-\sgDM{n}(F) = \LHI[n]{(\RHI[n]{F})}$, and therefore it is clear 
-that that the functor $\HH^0 \sgDM{n}$ restricted to $\HI$ is 
-$\sgHI{n}$. This shows that the left square of Proposition 
+Since $\ihomDMf(\Z(n)[n], -)$ is $t$-exact as shown in Lemma 
+\ref{lem_HH_commutes_with_contract}, the cochain complex $\ihomDMf(\Z(n)[n], M)$
+is also in $\tau_{\leq 0}\DMeff$. By Proposition \ref{prop_LR_commute_with_HH},
+\begin{align*}
+\HH^0 \sgDM{n}M &= \HH^0 (\ihomDMf(\Z(n)[n], M) \tDM \Z(n)[n]) \\
+&\cong \LHI[n]{\HH^0(\ihomDMf(\Z(n)[n], M))} \\
+&= \LHI[n]{\RHI[n]{\HH^0(M)}} \\
+&= \sgHI{n}\HH^0M.
+\end{align*}
+This shows that the left square of Proposition 
 \ref{prop_H_commute_with_filt} commutes, that $\HI(n)$ is equal to 
-the image of $\GFiltDM[n]{\DMeff}$ under $\HH^0$, and the 
-coreflection functors from $\HI$ to $\HI(n)$ is compatible with
+the image of $\tau_{\leq 0}\GFiltDM[n]{\DMeff}$ under $\HH^0$, and the 
+coreflection functors from $\tau_{\leq 0}\DMeff$ to $\HI(n)$ is compatible with
 $\HH^0$.
 
-A comparable statement can be made about the filtration 
-$(\TFHI{*}, \tlHI{*})$, but the arguments are more involved.
-Notice that, since $\HH^0\sgDM{n}F = \LHI[n]{\RHI[n]{F}}$ we get 
+To prove the commutativity of the right square,
+notice that, for $M$ in $\tau_{\leq 0}\DMeff$, 
+$\HH^0\sgDM{n}M = \LHI[n]{\RHI[n]{(\HH^{0}M)}}$. Hence, we get 
 the following exact sequence from \eqref{eq_slice_DM_exact_seq}
 \[
-\LHI[n]{(\RHI[n]{F})} \to F \to \HH^0{\slDM{n}(F)} 
-   \stackrel{\delta_0}{\to} \HH^1 \sgDM{n}(F).
+\LHI[n]{(\RHI[n]{(\HH^0M)})} \to \HH^0M \to \HH^0{\slDM{n}(M)} 
+   \stackrel{\delta_0}{\to} \HH^1 \sgDM{n}(M).
 \]
-where the map $\LHI[n]{(\RHI[n]{F}} \to F$ is the counit. If we show
-that $\HH^1 \sgDM{n}(F) = 0$, then it is clear that $\HH^0 \slDM{n}(F)
-\cong \tlHI{n}(F)$. This shows that the right square of Proposition
+where the map $\LHI[n]{(\RHI[n]{(\HH^0M)}} \to \HH^0M$ is the counit. If we show
+that $\HH^1 \sgDM{n}(M) = 0$, then it is clear that $\HH^0 \slDM{n}(M)
+\cong \tlHI{n}(\HH^0M)$. This shows that the right square of Proposition
 \ref{prop_H_commute_with_filt} commutes, completing the proof of
 Proposition \ref{prop_H_commute_with_filt}. The vanishing of 
 $\HH^1\sgDM{n}$ is established by the following lemma:
 
 \begin{lem}\label{lem_Hsg_vanishes}
-For all positive integer $n$ and all $F$ in $\HI$, $\HH^1 
-\sgDM{n}(F) = 0$.
+For all positive integer $n$ and all $M$ in $\tau_{\leq 0}\DMeff$, $\HH^1 
+\sgDM{n}(M) = 0$.
 \end{lem}
 \begin{proof}
-By Lemma \ref{lem_HH_commutes_with_contract}, $\ihomDMf(\Z(n)[n], 
-F)$ is isomorphic to $\RHI[n]{F}$, which is an object in the heart 
-of $\DMeff$. Since $\tDM$ is right $t$-exact and
-\[
-\sgDM{n} F \cong \Z(n)[n] \tDM \ihomDMf(\Z(n)[n], F),
-\] 
-it follows that $\sgDM{n} F$ is a negative object. Therefore, 
-$\HH^1 \sgDM{n} F = 0$, as desired.
+Since $\sgDM{n} M = \Z(n)[n] \tDM \ihomDMf(\Z(n)[n], M)$, we have 
+already shown in the preceding discussion that $\sgDM{n} M$
+is a negative object. Therefore, $\HH^1 \sgDM{n} M = 0$, as desired.
 \end{proof}
 
-\section{Fundamental Invariants}
+\section{Fundamental Invariants of the Torsion Filtration}
 
 As in the case of $\DMeff$, we can also define the structure 
 invariants associated to the filtration and cofiltration. In this
@@ -1313,3 +1335,7 @@ isomorphic to $\tlHI{m} \sgHI{n}$ (Proposition
 \ref{prop_sg_tl_commute}). The second claim follows by setting $n = m
 - 1$.
 \end{proof}
+
+\section{Weakly Filtered Monoidal Structure on $\HI$}
+
+\input{filtration/wfmon_hi}

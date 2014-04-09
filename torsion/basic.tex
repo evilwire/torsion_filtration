@@ -107,7 +107,7 @@ $\phi$ is a \DEF{radical}.
 Let $\Ab$ be the category of abelian groups, and let $G$ an
 abelian group, written additively. We write $G_{tor}$ for the 
 torsion subgroup of $G$, and we write $\phi(G)$ for $G/G_{tor}$.
-The quotient functor $\phi$ defines a pre-coradical, not a 
+The quotient functor $\phi$ is a pre-coradical, but is not a 
 coradical. To see this, consider the following short exact 
 sequence
 \[
@@ -118,7 +118,7 @@ in the category of $\Ab$. Applying $\phi$, we have
 0 \to \Z \stackrel{2}{\to} \Z \to 0 \to 0
 \]
 which is not exact in the middle. On the other hand, it is easy to 
-see that the functors $G \mapsto G_{tor}$ and is a radicals.
+see that the functors $G \mapsto G_{tor}$ and is a radical.
 
 More generally, let $R$ be a commutative ring, and $S$ be a 
 multiplicatively closed set. For an $R$ module $M$, let ${}_SM$
@@ -136,10 +136,10 @@ the functor $\phi$ is not a coradical.
   corresponds to their counterparts in the ring theoretic setting.
 \end{rmk*}
 
-Torsion theory is usually developed for radical functors, which 
+Torsion theory is usually developed for radicals, which 
 are coradicals in the opposite category of $\Cat{A}$. However, 
 throughout this chapter, we mostly consider statements for
-(pre-)coradical functors. We leave the dual statements to the 
+(pre-)coradicals. We leave the dual statements to the 
 reader to formulate or look up in \cite{DTor} or 
 \cite[Section 1.2]{BJV}.
 
@@ -497,7 +497,7 @@ subcategory of $\Cat{A}$.
 
 \begin{thm}\label{thm_precorad_eq_tt}
 Let $\Cat{A}$ be a well-powered Abelian category. Then there exists
-a one-to-one correspondence between idempotent pre-coradicals and
+a one-to-one correspondence between isomorphism classes of idempotent pre-coradicals and
 torsion theories on $\Cat{A}$ whose full subcategories are defined 
 by
 \begin{align*}
@@ -526,8 +526,8 @@ in $\Cat{F}$. Since $\phi$ is a pre-coradical, the kernel of $A
 
 As we have mentioned in the paragraph preceding Proposition
 \ref{prop_idempotence}, there is a result corresponding to Theorem 
-\ref{thm_precorad_eq_tt} for radicals: every idempotent 
-pre-radical $\kappa$ is in one-to-one correspondence with torsion 
+\ref{thm_precorad_eq_tt} for radicals: the isomorphism classes of idempotent 
+pre-radical $\kappa$ are in one-to-one correspondence with torsion 
 theories on $\Cat{A}$ defined by 
 \begin{align*}
 \Cat{T} &= \{ T : \kappa(T) = T \} \\
@@ -572,7 +572,8 @@ and $\phi(A) \in \Cat{F}$, $\hom_{\Cat{A}}(\kappa(A), F) = 0$, and
 as desired.
 \end{proof}
 
-It should be evident from Theorem \ref{thm_precorad_eq_tt} that
+It should be evident from Theorem \ref{thm_precorad_eq_tt} that isomorphism
+classes of
 coradicals are not in one-to-one correspondence with torsion theories,
 although they do give rise to unique torsion theories. We now
 characterize the properties of the torsion theories that arise from
@@ -591,7 +592,7 @@ $\Cat{F}$ is closed under quotients.
 
 \begin{thm}\label{thm_corad_equiv_htt}
 Let $\Cat{A}$ be a well-powered Abelian category. Then there 
-exists a one-to-one correspondence between coradicals of $\Cat{A}$ 
+exists a one-to-one correspondence between isomorphism classes of coradicals of $\Cat{A}$ 
 and cohereditary torsion theories on $\Cat{A}$ (\CF \cite[I2.12]{BJV}).
 \end{thm}
 \begin{proof}

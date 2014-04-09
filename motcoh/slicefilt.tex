@@ -642,7 +642,10 @@ $\DMeff$ as a full subcategory of $\DM$.
 We will now give a description of the subcategories in the slice
 filtration on $\DM$. Each subcategory in the slice filtration 
 will be full, and we describe only the objects in these 
-subcategories. For each integer $k$, let the objects of 
+subcategories. 
+
+\begin{defn}\label{def_GFiltDM}
+For each integer $k$, let the objects of 
 $\GFiltDM[k]{\DM}$ consist of objects $(M, n)$ for which $n \geq 
 k$. As defined, $\GFiltDM[n + 1]{\DM} \subseteq \GFiltDM[n]{\DM}$ 
 and therefore, we have the following tower of subcategories:
@@ -650,6 +653,8 @@ and therefore, we have the following tower of subcategories:
 \DM \supseteq \cdots \GFiltDM[-1]{\DM} \supseteq \GFiltDM[0]{\DM}
    \supseteq \GFiltDM[1]{\DM} \supseteq \cdots.
 \end{equation}
+\end{defn}
+
 Notice that for $n \geq 0$, $(M, n) \cong (\tZ[n]{M}, 0)$. 
 Therefore, if $M \cong M'(n)$ for some $M'$ in $\DMeff$, $(M, 0) 
 \cong (M', n)$ in $\DM$. Conversely, if $(M, 0)$ is in 
@@ -671,7 +676,8 @@ for all $M$ in $\DMeff$, define $\sgDM{n} M$ to be $M$ for all $n
 \leq 0$. 
 
 \begin{defn}\label{def_sgDM_DM}
-For integers $n$ and $k$, we set
+For any integer $k$ and a given object $(M, n)$ in $\DM$, we 
+set
 \[
 \sgDM{k}(M, n) \defeq (\sgDM{k - n}M, n).
 \]
@@ -806,7 +812,10 @@ $\sgDM{k}(M', k) = (M', k)$. As this isomorphism is natural in
 $(M, n)$, we have just established part (3).
 \end{proof}
 
-Next, we define $\LFiltDM[k]{\DM}$ to be the full subcategory of 
+Next, we construct the ascending weak filtration on $\DM$.
+
+\begin{defn}\label{def_LFiltDM}
+Let $\LFiltDM[k]{\DM}$ to be the full subcategory of 
 objects $(M, n)$ in $\DM$ for which $\sgDM{k}(M, n) = 0$. Since
 $\sgDM{k}(M, n) = (\sgDM{k - n}M, n) = 0$ implies that 
 $\sgDM{k + 1}(M, n) = (\sgDM{k + 1 - n}M, n) = 0$, 
@@ -817,17 +826,18 @@ we obtain the following tower of subcategories:
    \LFiltDM[1]{\DM} \subseteq \LFiltDM[2]{\DM} \subseteq \cdots 
    \subseteq \DM.
 \end{equation}
+\end{defn}
+
 As expected, the tower also defines a filtration of $\DM$, and
-we define the reflection functors $\slDM{k} : \DM \to 
-\LFiltDM[k]{\DM}$. Notice that for $(M, n)$ in $\DM$, we have the 
-following triangle
+to show this, we will define the reflection functors $\slDM{k} : \DM \to 
+\LFiltDM[k]{\DM}$. These reflection functors will come from
+extending the endofunctor $\slDM{k}$ of $\DMeff$ to endofunctors
+on $\DM$. By convention, for a nonpositive integer $k$, let us
+define the endofunctor $\slDM{k}$ on $\DMeff$ to be $0$. For 
+$(M, n)$ in $\DM$, we have the following triangle
 \begin{equation}\label{eq_DM_slice_triangle}
 \sgDM{k} (M, n) \to (M, n) \to (M', n') \to \sgDM{k} (M, n)[1].
 \end{equation}
-
-Before we proceed, we define an extension of the endofunctor 
-$\slDM{k}$ of $\DMeff$ to nonpositive integers $k$ as we did for 
-$\sgDM{k}$. Set $\slDM{k} M = 0$ for $k \leq 0$.
 
 \begin{lem}
 For each integer $k$, the object $(M', n')$ in 
@@ -836,18 +846,32 @@ In particular, $(M', n')$ is uniquely isomorphic to
 $(\slDM{k - n} M, n)$.
 \end{lem}
 \begin{proof}
-  By definition, $\sgDM{k}(M, n) = (\sgDM{k - n}M, n)$. By Lemma
-  \ref{lem_triangle_in_DM} we may assume $n' = n$, and $\sgDM{k -
-    n} M \to M \to M' \to \sgDM{k - n}M[1]$ is a distinguished
-  triangle in $\DMeff$. Since $M'$ is uniquely defined up to unique
-  isomorphism (see \cite[1.3(i)]{HuKa}), $M' \cong \slDM{k - n} M$,
-  and $(M', n') \cong (\slDM{k - n}M, n)$ as claimed.
+By definition, $\sgDM{k}(M, n) = (\sgDM{k - n}M, n)$. By Lemma
+\ref{lem_triangle_in_DM} we may assume $n' = n$, and $\sgDM{k -
+ n} M \to M \to M' \to \sgDM{k - n}M[1]$ is a distinguished
+triangle in $\DMeff$. Since $M'$ is uniquely defined up to unique
+isomorphism (see \cite[1.3(i)]{HuKa}), $M' \cong \slDM{k - n} M$,
+and $(M', n') \cong (\slDM{k - n}M, n)$ as claimed.
 \end{proof}
 
-Copying the proof of $\cite[1.3]{HuKa}$, for each integer $k$ we 
-obtain functors $\slDM{k}$, defined by sending $(M, n) \mapsto 
-(\slDM{k - n}, n)$. These functors satisfy the following 
-properties:
+Recall the convention that for $k < 0$, $\slDM{k} = 0$ as an
+endofunctor on $\DMeff$. We now define the extension of $\slDM{k}$
+as endofunctors on $\DM$. As we will see in Proposition
+\ref{prop_slDM_functor}, the functors $\slDM{k}$ are the reflection
+from $\DM$ to $\LFiltDM{k}{\DM}$.
+
+\begin{defn}\label{def_slDM_DM}
+For any integer $k$ and a given object $(M, n)$ in $\DM$, we 
+set
+\[
+\slDM{k}(M, n) \defeq (\slDM{k - n}M, n).
+\]
+Copying the proof of \cite[1.3]{HuKa}, $(M, n) \mapsto 
+\slDM{k}(M, n)$ defines a triangulated functor on $\DM$.
+\end{defn}
+
+The arguments of \cite[1.3]{HuKa} can be adapted for $\slDM{k}$
+to show the following proposition.
 
 \begin{prop}\label{prop_slDM_functor}
 For each integer $k$,
@@ -882,9 +906,10 @@ in $\DM$, and each integer $k$, we have the slice triangle:
 \]
 
 \begin{defn}
-Set $\sliceDM{k}(M, n) \defeq \slDM{k + 1}\sgDM{k}(M, n)$. We call
-this functor the \DEF{$k$-th slice} on $\DM$. Since both $\slDM{k + 1}$
-and $\sgDM{k}$ are triangulated, so is $\sliceDM{k}$.
+Let us define $\sliceDM{k}$ to be $\slDM{k + 1}\sgDM{k}$. We call
+this functor the \DEF{$k$-th slice} on $\DM$. Since both 
+$\slDM{k + 1}$ and $\sgDM{k}$ are triangulated, so is 
+$\sliceDM{k}$.
 
 By similar arguments as in Proposition 
 \ref{prop_DMeff_slice_fund_invariant}, we have that 
@@ -906,20 +931,22 @@ $k$-th fundamental invariant on $\DMeff$.
 
 We conclude this section by discussing the relationship between the
 tensor structure on $\DMeff$ and $\DM$ and their respective slice
-filtrations. First, we introduce a tensor product on $\DM$ extending
-the one on $\DMeff$, which we represent by $\tDM$ as well.
+filtrations. First, let us define a tensor product on $\DM$. By 
+abuse of notation, we will also represent this tensor product by 
+$\tDM$.
 
-For $(M, n), (M'. n')$ in $\DM$, define 
-\[
-(M, n) \tDM (M', n') = (M \tDM M', n + n'). 
-\]
-As shown in \cite[15.8]{MVW} the cyclic permutation of 
-$\Z(1)^{\tensor 3}$ is the identity in $\DMeff$, by 
-\cite[8.4A12]{MVW} the triangulated category $\DM$ together with 
+\begin{defn}\label{def_tensor_DM}
+Following \cite[8A]{MVW}, for objects $(M, n), (M', n')$ in $\DM$, we 
+define $(M, n) \tDM (M', n')$ to be $(M \tDM M', n + n')$. As 
+shown in \cite[15.8]{MVW}, the cyclic permutation of 
+$\Z(1)^{\tensor 3}$ is the identity in $\DMeff$. By 
+\cite[8A.12]{MVW} the triangulated category $\DM$ together with 
 $\tDM$ defines $(\DM, \tDM)$ is an additive symmetric monoidal 
-triangulated category.
+triangulated category. 
+\end{defn}
 
-For $\DMeff$, we have the following graded tensor structure:
+Let us first consider the following result, which relate the slice 
+filtration to the tensor product on $\DMeff$.
 
 \begin{prop}[\cite{HuKa} 1.6]\label{prop_tDM_sfilt_DMeff}
 For nonnegative integers $n, n'$, there exists a unique natural

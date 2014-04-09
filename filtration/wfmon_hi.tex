@@ -1,0 +1,84 @@
+We end this chapter by discussing the tensorial properties of the 
+torsion filtration. Let us first consider the following notion:
+
+\begin{defn}\label{def_graded_tensor}
+Let $(\Cat{C}, \tensor, \Unit)$ be a monoidal category. We say 
+that $\Cat{C}$ is a \DEF{weakly filtered monoidal category} if there 
+exists a weak filtration $(\Cat{C}_*, \phi_*)$ such that for all
+integers $m$ and $n$, $\Cat{C}_m \tensor \Cat{C}_n \subseteq
+\Cat{C}_{m + n}$.
+\end{defn}
+
+\begin{ex}
+Here are two examples of weakly filtered monoidal categories
+that we have encountered in this thesis. Recall from Definition 
+\ref{def_GFiltDM} that $\GFiltDM[k]{\DM}$ is the full subcategory
+of the objects $(M, n)$ in $\DM$ such that $n \geq k$. For $(M, n)$
+in $\GFiltDM[k]{\DM}$ and $(M', n')$ in $\GFiltDM[l]{\DM}$, $(M, n) \tDM (M', n')$
+is equal to $(M \tensor M', n + n')$, which is an object in $\GFiltDM[k + l]{\DM}$.
+Therefore, the triangulated tensor product on $\DM$ is weakly filtered
+by $(\GFiltDM[*]{\DMeff}, \sgDM{*})$.
+
+Similarly, $(\HI(*), \sgHI{*})$ defines a graded symmetric 
+monoidal category on $\HI$ under $\tHI$. To see this, recall
+from the first paragraph in Section \ref{sect_torsion_filt_on_HI}
+that $F$ is in $\LHI[n]{\HI}$ if $F \cong \LHI[n]{F'}$. 
+Furthermore, since $\LHI[n]{F} = F \tHI (\Ox)^{\tensor n}$, 
+$\LHI[n]{F} \tHI \LHI[m]{G} = \LHI[n + m]{(F \tHI G)}.$ Therefore, 
+$\LHI[n]{\HI} \tHI \LHI[m]{\HI} \subseteq \LHI[n + m]{\HI}$.
+\end{ex}
+
+We now will show that $(\THI{*}, \tgHI{*})$ defines a weakly filtered 
+monoidal category on $\HI$. We begin by proving the following
+proposition:
+
+\begin{prop}\label{prop_tensor_and_tfilt_HI}
+For $F$ in $\THI{n}$ and $G$ in $\THI{m}$, $F \tHI G$
+is an object of $\THI{n + m}$.
+\end{prop}
+\begin{proof}
+Since $\THI{n + m}$ is the torsion subcategory associated to the
+coradical $\tlHI{n + m}$, to show that $F \tHI G$ is in 
+$\THI{n + m}$, it suffices to show that $\tlHI{n + m}(F \tHI G) = 
+0$. Since $G$ is in $\THI{n}$, by Proposition 
+\ref{prop_THI_properties}(1), the counit $\epsilon: L^mR^m(G) \to 
+G$ is surjective. Since $\tDM$ is right $t$-exact in both factors, 
+the functor $F \tHI -$ is right exact by Proposition 
+\ref{prop_t_exact_implies_exact}, and the following map is surjective:
+\begin{equation}\label{eq_tensor_tfilt_HI_1}
+F \tHI L^mR^m(G) \xrightarrow{\epsilon_F \tHI G} F \tHI L^mR^m(G).
+\end{equation}
+Replacing $F$ by $L^nR^n(F)$, we see that the following map is
+also surjective:
+\begin{equation}\label{eq_tensor_tfilt_HI_2}
+L^nR^n(F) \tHI L^mR^m(G) \xrightarrow{L^nR^n(F) \tHI \epsilon_G}
+L^nR^n(F) \tHI G.
+\end{equation}
+Composing \eqref{eq_tensor_tfilt_HI_1} and 
+\eqref{eq_tensor_tfilt_HI_2}, we obtain a surjection
+\[
+f: L^nR^n(F) \tHI L^mR^m(G) \to F \tHI G.
+\]
+On the other hand, since $L^nR^n(F) \tHI L^mR^m(G) = 
+L^{n + m}(R^n(F) \tHI R^m(G))$, the object $L^nR^n(F) \tHI L^mR^m(G)$
+is in $\LHI[n + m]{\HI}$, and by Proposition
+\ref{prop_THI_properties}, 
+\[
+\tlHI{n + m}(L^nR^n(F) \tHI L^mR^m(G)) = 0. 
+\]
+Since $\tlHI{n + m}$ is a coradical, which is right exact, the map
+\[
+\tlHI{n + m}(f) : \tlHI{n + m}(L^nR^n(F) \tHI L^mR^m(G)) \to
+   \tlHI{n + m}(F \tHI G)
+\]
+is onto. Therefore, $\tlHI{n + m}(F \tHI G) = 0$ and 
+$F \tHI G$ is an object in $\THI{n + m}$, as desired.
+\end{proof}
+
+The following is a direct consequence of Proposition 
+\ref{prop_tensor_and_tfilt_HI}.
+
+\begin{cor}\label{cor_graded_tensor_HI}
+There exists a weakly filtered symmetric monoidal structure on $\HI$ by
+$(\THI{*}, \tgHI{*})$.
+\end{cor}
