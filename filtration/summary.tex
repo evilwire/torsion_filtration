@@ -9,7 +9,7 @@ tensor structure. Let us begin by defining the following notion:
 
 \begin{defn}\label{def_torsion_monoidal_category}
 Let $(\DCat, \tensor, \Unit)$ be a tensor monoidal category with 
-a $t$-structure, and let $\Cat{C}$ be the heart. We say that 
+a $t$-structure, and let $\Cat{C}$ be its heart. We say that 
 $\DCat$ is a \DEF{torsion monoidal category} if $\DCat$ is 
 equipped with 
 \begin{enumerate}
@@ -129,8 +129,8 @@ gives us the desired natural isomorphism, which proves part (4).
 \section{Slice filtration of torsion monoidal categories}
 \label{sect_summary_slice_filt_on_DCat}
 
-We begin by constructing the slice filtrations on $\DCat$. This
-will generalize the results in Section 
+We begin by constructing the slice filtration on $\DCat$. This will
+generalize the results in Section
 \ref{sect_slice_filtration_DMeff}.
 
 \begin{defn}\label{def_slice_filt_general}
@@ -190,7 +190,7 @@ invertible if there exists an object $T$ in $\DCat$ such that $T
 The following are equivalent:
 \begin{enumerate}
 \item the filtration $(\Corad{*}{\DCat}, \coradD{*})$ is trivial,
-  i.e., if each $\Corad{n}{\DCat}$ is zero.
+  i.e., each $\Corad{n}{\DCat}$ is zero.
 
 \item the filtration $(\Prerad{*}{\DCat}, \preradD{*})$ is 
 degenerate with $\Prerad{n}{\DCat} = \DCat$ for all $n$.
@@ -631,11 +631,11 @@ and cofiltration of $\CatLoc{C}{S}$. Recall from Theorem
 torsion subcategory of $\phi$ is the full subcategory $\Cat{T}$
 consisting of the objects $T$ such that $\phi(T) = 0$, and the
 torsionfree subcategory of $\phi$ is the full subcategory $\Cat{F}$
-whose objects are the objects $F$ such that $\phi(F) = 0$. 
+whose objects are the objects $F$ such that $F \to \phi(F)$.
 
 \begin{defn}\label{def_torsion_filt_general}
 Let $\Corad{n}{\CatLoc{C}{S}}$ be the torsionfree subcategory of
-$\corad{n}$, i.e. $C_*$ is an object of $\Corad{n}{\CatLoc{C}{S}}$
+$\corad{n}$, i.e., $C_*$ is an object of $\Corad{n}{\CatLoc{C}{S}}$
 if and only if $\corad{n}(C_*) = C_*$. Let 
 $\Prerad{n}{\CatLoc{C}{S}}$ be the torsion subcategory of $\corad{n}$.
 The objects of $\Prerad{n}{\CatLoc{C}{S}}$ are the $C_*$ in 
@@ -691,9 +691,8 @@ It follows that $(\SGFilt{*}{\CatLoc{C}{S}}, \sgHI{n})$ defines
 a weak filtration of $\CatLoc{C}{S}$. 
 }
 
-The following proposition shows that $S$ is 
-$\Cat{C}$-invertible if and only if each of the
-above weak filtrations are degenerate:
+The following proposition shows that $S$ is $\Cat{C}$-invertible if
+and only if each of the weak filtrations above are degenerate:
 
 \begin{prop}
 The following are equivalent:

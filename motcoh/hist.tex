@@ -48,7 +48,7 @@ pulling back correspondences as given by the following result from
 \cite[1.7]{MVW}.
 
 \begin{lem}\label{lem_cor_composition}
-Let $V$ be elementary correspodences in $\Cor(X, Y)$
+Let $V$ be an elementary correspondence in $\Cor(X, Y)$
 and and $W$ be an elementary correspondence in $\Cor(Y, Z)$. 
 Writing
 \[
@@ -86,12 +86,12 @@ sections.
 
 % 1. define etale topology
 \begin{defn}\label{def_groth_top} (\cite[II.1.3]{SGA4})
-The \DEF{Grothendieck pre-topology} of a category $\Cat{C}$ 
-is a distinguished collection $\Cat{U}$ of \DEF{covering families} 
-indexed by the objects of $\Cat{C}$. Here, for each $X$ in $\Cat{C}$,
-a covering family of $X$ is a collection of sets of morphisms 
-$\{U_\alpha \to X\}_\alpha$ called \DEF{covers of $X$}. Together, 
-the covering families satisfy the following axioms:
+A \DEF{Grothendieck pre-topology} on a category $\Cat{C}$ is a
+collection $\Cat{U}$ of \DEF{covering families} indexed by the objects
+of $\Cat{C}$. Here, for each $X$ in $\Cat{C}$, a covering family of
+$X$ is a collection of sets of morphisms $\{U_\alpha \to X\}_\alpha$
+called \DEF{covers of $X$}. Together, the covering families satisfy
+the following axioms:
 
 \begin{enumerate}
 \item for every map $Y \to X$ in $\Cat{C}$ and every cover 
@@ -110,10 +110,10 @@ cover of $X$.
 \end{defn}
 
 \begin{rmk}
-Grothendieck pre-topology generalizes the notion of a topology on
-a space $X$. Specifically, regarding a topology of $X$ as a 
-category $\Cat{T}_X$ where the objects are open subsets of $X$ and 
-the morphisms are inclusion maps, then the collections $\{V_i 
+The notion of Grothendieck pre-topology generalizes the notion of a
+topology on a space $X$. Specifically, regarding a topology of $X$ as
+a category $\Cat{T}_X$ where the objects are open subsets of $X$ and
+the morphisms are inclusion maps, then the collections $\{V_i
 \subset V\}$ of all covers of $V$, as $V$ ranges over all open 
 subsets of $X$ satisfy the axioms of Definition \ref{def_groth_top} and 
 define a Grothendieck pre-topology on $\Cat{T}_X$.
@@ -129,21 +129,21 @@ surjective} if $\bigcup_{\phi_\alpha \in S} \phi_\alpha(U_\alpha)
 \begin{rmk}
 For each $X$, consider the collection $\Cat{U}_X$ of jointly 
 surjective sets of open immersions $\{U_\alpha \to X\}$. Then
-$\Cat{U}_X$ as $X$ ranges over all finite type $k$ schemes 
+$\Cat{U}_X$ as $X$ ranges over all finite type $k$-schemes 
 form a Grothendieck pre-topology $\Cat{U}$ on the category 
-$\SchCat_k$ of finite type $k$ schemes called the \DEF{large 
+$\SchCat_k$ of finite type $k$-schemes called the \DEF{large 
 Zariski site on $k$-schemes.}
 \end{rmk}
 
 We are interested in two other important Grothendieck 
 pre-topologies on $\Sm$. They are the \'etale site and the 
 Nisnevich site, which we define below. Recall that a morphism 
-$phi: X \to Y$ is \DEF{\'etale} if $\phi$ is a flat and 
+$\phi: X \to Y$ is \DEF{\'etale} if $\phi$ is a flat and 
 unramified. (See \cite[\S 1.3]{Milne}.)
 
 \begin{defn}\label{def_sites}
-The \DEF{large \'etale site} on $\Sm$, is the Grothendieck 
-pre-topology given by jointly surjective \'etale morphisms 
+The \DEF{large \'etale site} on $\Sm$, is the Grothendieck
+pre-topology given by a jointly surjective \'etale morphisms
 $\{U_\alpha \to X\}.$
 
 The \DEF{large Nisnevich site} on $\Sm$ is the Grothendieck 
@@ -220,7 +220,7 @@ map $\Z(X) \to \Z(Y)$ is given by the composition
 
 For the others, let $tr: L \to F$ and $N: L \to F$ denote the 
 trace and norm maps respectively. It is straightforward to see 
-that $tr$ and $N$ restricts to maps from $\O(W) \to \O(X)$. In
+that $tr$ and $N$ restrict to maps from $\O(W) \to \O(X)$. In
 the case of $N$, it is easy to see that $N(f^{-1}) = N(f)^{-1}$.
 Therefore, $N$ restricts to a map $\Ox(W) \to \Ox(X)$.
 
@@ -254,7 +254,7 @@ with transfers $F$, let $\Etale{F}$ (resp. $\NisSh{F}$) denote the
 
 \begin{prop}\label{prop_et_and_nis_sheafification}
 \begin{enumerate}
-\item For $F$ a presheaf with transfers, $\Etale{F}$ emits a 
+\item For $F$ a presheaf with transfers, $\Etale{F}$ admits a 
 unique transfers structure. That is, $\Etale{F}$ is an \'etale 
 sheaf with transfers.
 
@@ -324,10 +324,9 @@ $\Sm$ and their reflection functors:
 \PSh \arrow[bend left]{u}{\nis}
 \end{tikzcd}
 \]
-where $\PSh$ denotes the presheaves on $\Sm$. In the diagram
-above, the reflection functors in the first two columns
-are the restriction of the reflection functor in the right-most
-column.
+where $\PSh$ denotes the presheaves on $\Sm$. In the diagram above,
+the reflection functors in the first two columns are the restrictions
+of the reflection functors in the right-most column.
 \end{rmk}
 
 Of the three sheaves mentioned in Example \ref{ex_Z_O_Ostar}, $\Z$
@@ -406,13 +405,13 @@ transfers.
 \begin{rmk}
 We note that all results of this chapter hold for $\PST(R)$, which
 are presheaves with transfers with values in $R$-modules, where $R$
-is some commutative unital ring. In particular, $\Rtr(X)$ are
-\'etale/Nisnevich sheaves for all $X$ in $\Sm$.
+is some commutative unital ring. In particular, $\Rtr(X)$ is an
+\'etale/Nisnevich sheaf, for every $X$ in $\Sm$.
 \end{rmk}
 
 We conclude this chapter with an endofunctor on the category $\HI$
-that will play an important role in the construction of a 
-filtrations on $\HI$.
+that will play an important role in the construction of filtrations on
+$\HI$.
 
 \begin{defn}\label{def_contract}
 Let $F$ be a homotopy invariant presheaf with transfers. Write

@@ -17,7 +17,7 @@ of the objects $(M, n)$ in $\DM$ such that $n \geq k$. For $(M, n)$
 in $\GFiltDM[k]{\DM}$ and $(M', n')$ in $\GFiltDM[l]{\DM}$, $(M, n) \tDM (M', n')$
 is equal to $(M \tensor M', n + n')$, which is an object in $\GFiltDM[k + l]{\DM}$.
 Therefore, the triangulated tensor product on $\DM$ is weakly filtered
-by $(\GFiltDM[*]{\DMeff}, \sgDM{*})$.
+by $(\GFiltDM[*]{\DM}, \sgDM{*})$.
 
 Similarly, $(\HI(*), \sgHI{*})$ defines a graded symmetric 
 monoidal category on $\HI$ under $\tHI$. To see this, recall
@@ -48,11 +48,11 @@ the functor $F \tHI -$ is right exact by Proposition
 \begin{equation}\label{eq_tensor_tfilt_HI_1}
 F \tHI L^mR^m(G) \xrightarrow{\epsilon_F \tHI G} F \tHI L^mR^m(G).
 \end{equation}
-Replacing $F$ by $L^nR^n(F)$, we see that the following map is
+Similarly, we see that the following map is
 also surjective:
 \begin{equation}\label{eq_tensor_tfilt_HI_2}
-L^nR^n(F) \tHI L^mR^m(G) \xrightarrow{L^nR^n(F) \tHI \epsilon_G}
-L^nR^n(F) \tHI G.
+F \tHI L^mR^m(G) \xrightarrow{L^nR^n(F) \tHI \epsilon_G}
+F \tHI G.
 \end{equation}
 Composing \eqref{eq_tensor_tfilt_HI_1} and 
 \eqref{eq_tensor_tfilt_HI_2}, we obtain a surjection

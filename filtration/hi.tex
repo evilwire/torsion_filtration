@@ -8,9 +8,9 @@ there is a sequence of coradicals (see Definition
 descending strong filtration and an ascending cofiltration (see 
 Definition \ref{def_strong_filtration} below) of $\HI$ by the 
 associated subcategories (see Theorem \ref{thm_main_result}). The 
-key ingredient in the constructions of the filtrations are the 
+key ingredient in the constructions of the filtrations is the 
 tensor monoidal structure on $\HI$ and the partial internal hom. 
-Both of these structures are induced by the tensor and partial 
+These structures are induced by the tensor and partial 
 internal hom operators on $\DMeff$ introduced in Section 
 \ref{sect_TMS_DMeff}. All uncredited results in this section are new.
 
@@ -95,14 +95,14 @@ taking extensions.
 Let $\Cat{A}$ be an abelian category, and $\DCat[D]\Cat{A}$ be its
 derived category. There is a natural $t$-structure on 
 $\DCat[D]\Cat{A}$. The pair $(\DCat[D]\Cat{A}^{\geq 0}, 
-\DCat[D]\Cat{A}^{\leq 0})$ are a pair of full subcategories whose
+\DCat[D]\Cat{A}^{\leq 0})$ is a pair of full subcategories whose
 objects are those with trivial cohomology in the negative and 
 positive degrees respectively. In this case, the functors 
 $\ggtrunc{n}$ and $\gltrunc{n}$ are given by good truncations. 
 
-The heart of this $t$-structure is precisely $\Cat{A}$, regarded
-as a complex concentrated in degree $0$. (See the example 
-following the statement of 1.3.6 in \cite{BBD}.)
+The heart of this $t$-structure is precisely $\Cat{A}$, where an
+object of $\Cat{A}$ is regarded as a complex concentrated in degree
+$0$. (See the example following the statement of 1.3.6 in \cite{BBD}.)
 \end{ex}
 
 \begin{ex}[\cite{BBD} 1.3.16]
@@ -208,9 +208,10 @@ objects of $\ihom_{\Cat{C}}$ contains at least those objects $C$
 in $\Cat{C} \cap \DCat^{\compact}$ such that $\ihom(C, -)$ is left 
 $t$-exact.
 
-Applying the above discussion to the category $\DMeff$, we see 
+The above discussion applies to the category $\DMeff$ since
 that there exists a $t$-structure on $\DMeff$, with the abelian 
-category $\HI$ as its heart (see \cite[14.11]{MVW}). 
+category $\HI$ as its heart (see Theorem 
+\ref{thm_ALocal_eq_DMeff}). 
 
 \begin{defn}\label{def_t_struct_DMeff}
 We write $\gltrunc{0}\DMeff$ for the negative objects of $\DMeff$, and 
@@ -415,7 +416,7 @@ In particular, we have a tower of subcategories
 %\cdots \subset \LHI[2]{\HI} \subset \LHI[1]{\HI} \subset \LHI[0]{\HI} 
 % = \HI 
 \]
-To see that this filtration is not trivial (i.e. $\LHI[n]{\HI} \neq
+To see that this filtration is not trivial (i.e., $\LHI[n]{\HI} \neq
 \LHI[m]{\HI}$ for all natural numbers $n$ and $m$), notice that
 for the constant sheaf $\Z$, it is clear that $\RHI{\Z} = 0$. 
 Then $\Z$ is an object in $\HI$ but not in $\LHI{\HI}$. Indeed, if 
@@ -433,8 +434,8 @@ map
 n: \Ox \to \Ox
 \]
 given by sending $u \in \Ox(X)$ to $u^n$ for each $X$ in $\Sm$.  The
-kernel of this map is sheaf of $n$-th roots of unity $\mu_n$.  But
-$\RHI{(\mu_n)} = 0$. If $\mu_n$ was in $\LHI[n]{\HI}$, then by
+kernel of this map is the sheaf of $n$-th roots of unity $\mu_n$.  But
+$\RHI{(\mu_n)} = 0$. If $\mu_n$ were in $\LHI[n]{\HI}$, then by
 Proposition \ref{prop_counit_iso_for_HIn}, we would have $\mu_n \cong
 \LHI[1]{\RHI[1]{(\mu_n)}} = 0$, which is a contradiction. It follows
 that $\LHI{\HI}$ is not closed under kernels. Similar arguments show
@@ -444,7 +445,7 @@ integer $n$.
 
 Recall from Definition \ref{def_cat_filtration} that a descending weak
 filtration $(\Cat{A}_*, \phi_*)$ is a tower of subcategories
-$\Cat{A}_i$ together with reflection or coreflection functors $\phi_i:
+$\Cat{A}_i$ together with coreflection functors $\phi_i:
 \Cat{A} \to \Cat{A}_i$ such that $\phi_i$ restricted to $\Cat{A}_i$ is
 naturally isomorphic to the identity.  To show that the full
 subcategories $\LHI[n]{\HI}$ define a descending weak filtration, we
@@ -462,7 +463,8 @@ exact. However, $\sgHI{n}$ is \emph{not} always left exact (see Example
 \begin{prop}\label{prop_HI_upper_slice}
 The functor $\sgHI{n}$ is right adjoint to the 
 inclusion of $\LHI[n]{\HI}$. In particular, $(\LHI[*]{\HI}, 
-\sgHI{*})$ defines a (nontrivial) weak filtration of $\HI$.
+\sgHI{*})$ defines a (nontrivial) descending weak filtration of 
+$\HI$.
 \end{prop}
 \begin{proof}
 Let $f: F \to G$ be a map in $\HI$, with $F$ in $\LHI[n]{\HI}$,
@@ -539,7 +541,7 @@ introduce the following more stringent criteria on weak
 filtrations.
 
 \begin{defn}\label{def_strong_filtration}
-  Let $\Cat{A}$ be an abelian category. We say that an $\Z$-indexed
+  Let $\Cat{A}$ be an abelian category. We say that a $\Z$-indexed
   descending weak filtration $(\Cat{A}_*, \phi_*)$ is a \DEF{strong
     filtration} if for each $A$ in $\Cat{A}$ and $n$ in $\Z$, $\phi_n
   A \to A$ is a monomorphism of $A$. An ascending weak filtration
@@ -560,8 +562,8 @@ $k$ homogeneous coordinates, and let $j_k$ denote the open
 immersion of $U_k \defeq \P^n - \P^k$ into $\P^n$. 
 
 Let $\QCoh^k$ be the full subcategory of quasi-coherent sheaves
-supported in $U_k$ and let $\QCoh_k$ denote the full subcategory
-of sheaves supported in $\P^k$. Since 
+supported in $U_k$ and let $\QCoh_k$ denote the full subcategory of
+sheaves on $\P^n$ supported in $\P^k$. Since
 \[
 U_0 \supseteq U_1 \supseteq U_2 \supseteq \cdots \supseteq U_n
 \]
@@ -634,10 +636,10 @@ cofiltration now follows.
 We will now state the main theorem. Recall from Theorem 
 \ref{thm_corad_equiv_htt} that if $\phi$ is a coradical, the 
 associated torsion theory is a pair of full subcategories
-$(\Cat{T}, \Cat{F})$ where the torsion subcategory $\Cat{T}$ 
-consists of the objects $T$ such that $\phi(T) = 0$, and torsionfree
-subcategory $\Cat{F}$ consists of the objects $F$ such that 
-$\phi(F) = F$.
+$(\Cat{T}, \Cat{F})$ where the torsion subcategory $\Cat{T}$ consists
+of the objects $T$ such that $\phi(T) = 0$, and the torsionfree
+subcategory $\Cat{F}$ consists of the objects $F$ such that the map
+$F \to \phi(F)$ is an isomorphism.
 
 \begin{thm}\label{thm_main_result}
 There exists a sequence of coradicals $\tlHI{n}, n = 0, 1, 2 
@@ -649,13 +651,11 @@ form a strong cofiltration.
 
 Theorem \ref{thm_main_result} will be verified by Propositions
 \ref{prop_tsubcat_eq_tlHI} and \ref{prop_THI_form_strong_filt} 
-below.
-
-We first define the strong cofiltration, and show that the 
+below. We first define the strong cofiltration, and show that the 
 reflection functors are coradicals. 
 
 \begin{defn}\label{def_TFHI}
-Let $n$ be a natural number, and let $\TFHI{n}$ be the full 
+If $n$ is a natural number, let $\TFHI{n}$ be the full 
 subcategory of objects $F$ in $\HI$ such that $\RHI[n]{F} = 0$. 
 By Proposition \ref{prop_contract_is_exact}, $F \mapsto 
 \RHI[n]{F}$ is exact. Therefore, $\TFHI{n}$ is an abelian 
@@ -894,8 +894,8 @@ exact sequence:
 \]
 However, since $\sgHI{m}F \in \LHI[m]{\HI}$, by Proposition
 \ref{prop_unit_iso} $\cuHI_{\sgHI{m}(F)}$ is an isomorphism.
-Therefore, the natural map $\tlHI{n}(F) \cong \tlHI{n}\tlHI{m}(F)$ is
-an isomorphism.
+Therefore, the natural map $\tlHI{n}(F) \stackrel{\cong}{\to} 
+\tlHI{n}\tlHI{m}(F)$ is an isomorphism.
 \end{proof}
 
 \begin{prop}\label{prop_THI_form_strong_filt}
@@ -962,7 +962,7 @@ For all natural numbers $m$ and $n$ such that $m > n$,
 the counit map $\sgHI{n}(F) \to F$ is onto.
 \tinyskip
 
-\item $\HI(n)$ is a proper full subcategory $\THI{n}$.
+\item $\HI(n)$ is a proper full subcategory of $\THI{n}$.
 \tinyskip
 
 \item there exists a natural isomorphism between 
@@ -1014,7 +1014,7 @@ F \arrow{r} &
 \end{equation}
 where vertical maps are the counits. Notice that the top row is 
 exact on the right because $\sgHI{m}$ is right exact.                   %% THESIS_FLAG
-Since $m > n$, by Lemma \ref{lem_HH_commutes_with_contract} 
+Since $m > n$, by Lemma \ref{lem_tlHI_in_TLHI},
 $\tlHI{n}(F)$ is in $\TFHI{n}$, which is a subcategory of $\TFHI{m}$
 by Proposition \ref{prop_tsubcat_eq_tlHI}. Since $G$ is in $\TFHI{m}$
 if and only if $\RHI[m]{G} = 0$, it follows that 
@@ -1145,7 +1145,7 @@ Proposition \ref{prop_H_commute_with_filt}. The vanishing of
 $\HH^1\sgDM{n}$ is established by the following lemma:
 
 \begin{lem}\label{lem_Hsg_vanishes}
-For all positive integer $n$ and all $M$ in $\tau_{\leq 0}\DMeff$, $\HH^1 
+For all positive integers $n$ and all $M$ in $\tau_{\leq 0}\DMeff$, $\HH^1 
 \sgDM{n}(M) = 0$.
 \end{lem}
 \begin{proof}
@@ -1164,8 +1164,8 @@ exact sequence
 \sgHI{n} \to \sgHI{n - 1} \to \tlHI{n}\sgHI{n - 1} \to 0.
 \]
 \begin{defn}\label{defn_sliceHI}
-We define \DEF{$n$-th slice functor on $\HI$} to be the functors 
-$\slice{n} \defeq \tlHI{n + 1}\sgHI{n}$. 
+We define \DEF{$n$-th slice functor on $\HI$} to be the functor
+$\slice{n} \defeq \tlHI{n + 1}\sgHI{n}$.
 \end{defn}
 
 Recall from Definition \ref{def_slice_functors_DMeff} that the 
@@ -1219,7 +1219,7 @@ we have the commutative square
 \sgHI{n}(F),
 \end{tikzcd}
 \end{equation}
-where $f$ is counit of $\sgHI{m}\sgHI{n}(F) \to \sgHI{n}(F)$ and 
+where $f$ is the counit of $\sgHI{m}\sgHI{n}(F) \to \sgHI{n}(F)$ and 
 $g$ is obtained by applying $\sgHI{n}$ to the counit $\sgHI{m}(F) 
 \to F$. The cokernel of $f$ is precisely $\tlHI{m} \sgHI{n}(F)$.
 Since $\sgHI{n}$ is right exact, and the

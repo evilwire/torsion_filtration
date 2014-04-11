@@ -48,7 +48,7 @@ new.
 
 \section{Slice filtration on $\DMeff$}
 \label{sect_slice_filtration_DMeff}
-To simplify notations, following Chapter \ref{sect_dmeff_and_dm},
+To simplify notation, following Chapter \ref{sect_dmeff_and_dm},
 we write $\tZ[n]{M}$ for $M \tDM \Z(n)$, and $\hZ[n]{M}$ for 
 $\ihomDMf(\Z(n), M)$. Furthermore, let $\LDMf{n}$ denote the
 functor $- \tDM \Z(n)$, and $\RDMf{n}$ denote the functor 
@@ -58,7 +58,7 @@ the paragraph preceding Theorem \ref{thm_dm_cancellation},
 $(\LDMf{n}, \RDMf{n})$ form an adjoint pair of triangulated 
 functors for each natural numbers $n$.
 
-We first describe the descending weak filtrations on $\DMeff$. Fix
+We first describe the descending weak filtration on $\DMeff$. Fix
 a natural number $n$, let $\GFiltDM[n]{\DMeff}$ be the full 
 subcategory of objects of the form $\tZ[n]{M}$ for some $M$ in 
 $\DMeff$, and let $\LFiltDM[n]{\DMeff}$ be the full subcategory of 
@@ -434,7 +434,7 @@ isomorphisms.
 \end{prop}
 
 \begin{prop}\label{prop_sDM_properties}
-For all nonnegative integers $m, n$, such that $m < n$, and
+For all nonnegative integers $m, n$, such that $m \leq n$, and
 for all $M$ in $\DMeff$, there exists the following natural
 isomorphisms:
 
@@ -543,7 +543,7 @@ following functorial distinguished triangle:
 
 \begin{defn}\label{def_slice_functors_DMeff}
 For $M$ in $\DMeff$ and positive integer $n$, we say 
-$\slDM{n}\sgDM{n - 1}M$ is the \emph{$n$-th slice} of $M$, written 
+$\slDM{n+1}\sgDM{n}M$ is the \emph{$n$-th slice} of $M$, written 
 as $\sliceDM{n}M$. Since $\slDM{n}$ and $\sgDM{n}$ are 
 triangulated functors, so is $\sliceDM{n}$. We define the $0$-th
 slice functor to be $\slDM{0}$.
@@ -911,7 +911,7 @@ this functor the \DEF{$k$-th slice} on $\DM$. Since both
 $\slDM{k + 1}$ and $\sgDM{k}$ are triangulated, so is 
 $\sliceDM{k}$.
 
-By similar arguments as in Proposition 
+By arguments similar to those in the proof of Proposition
 \ref{prop_DMeff_slice_fund_invariant}, we have that 
 $\sliceDM{k}(M, n) \cong (M''[2k], k)$ for some $M''$ in $\DMeff$,
 which is unique up to unique isomorphism. We 

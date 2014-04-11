@@ -21,10 +21,11 @@ A \DEF{homotopy module} is a $\Z$-graded homotopy
 invariant sheaf with transfers $F_*$ such that for every $n$, 
 there exists a map $\susp_n: \LHI{F_n} \to F_{n+1}$ such that the 
 corresponding adjunction map $\deloop_n: F_n \to \RHI{(F_{n+1})}$
-is an isomorphism.
-
-We call the morphisms $\susp_n$ and $\deloop_n$ the \DEF{$n$-th 
-suspensions} and the \DEF{$n$-th delooping} respectively.
+is an isomorphism. We call $\susp_n$ and $\deloop_n$ 
+the \DEF{$n$-th suspension} and the \DEF{$n$-th delooping} 
+respectively. A morphism $F_* \to G_*$ between homotopy module
+is a sequence of morphisms $F_n \to G_n$ of homotopy invariant
+sheaves with transfers that commute with $s_n$ and $w_n$.
 
 Let $\HM$ denote the category of $\DEF{homotopy modules}$.
 Objects in $\HM$ will be represented by $(F_*, \deloop_*)$ where 
@@ -41,20 +42,21 @@ F    &\textrm{if }n = 0 \\
 \RHI[|n|]F &\textrm{otherwise},
 \end{cases}
 \]
-and the $n$-th delooping $F_n \to \RHI{(F_{n + 1})}$ is the unit
-map for $n \geq 0$ and the identity for $n < 0$. Furthermore, 
-$\spectHI$ has a right adjoint $\loopHM: \HM \to \HI$ given by 
-$(F_*, \deloop_*) \mapsto F_0$ (see \cite[1.18]{DegModHom}). 
-Since $\spectHI$ is fully faithful and admits a right adjoint, 
-we can regard $\HI$ a full coreflective subcategory of $\HM$. The
-torsion filtration on $\HI$, defined in the previous sections 
-give rise to two $\N$-indexed weak filtrations of $\HM$. The goal 
+and the $n$-th delooping $F_n \to \RHI{(F_{n + 1})}$ is the unit map
+for $n \geq 0$ and the natural isomorphism for $n < 0$. Furthermore,
+$\spectHI$ has a right adjoint $\loopHM: \HM \to \HI$ given by
+$(F_*, \deloop_*) \mapsto F_0$ (see \cite[1.18]{DegModHom}).  Since
+$\spectHI$ is fully faithful and admits a right adjoint, we can regard
+$\HI$ as a full coreflective subcategory of $\HM$. The torsion
+filtration on $\HI$, defined in Definitions
+\ref{def_upper_slice_functor} and \ref{def_TFHI},
+gives rise to two $\N$-indexed weak filtrations of $\HM$. The goal 
 is to extend these filtrations to a $\Z$-indexed strong filtration 
 and a $\Z$-indexed cofiltration of $\HM$. In particular, we show
 that there is a sequence of coradicals $\tlHM{n}$
 on $\HM$ such that for nonnegative $n$, the restriction of 
 $\tlHM{n}$ to $\HI$ is $\tlHI{n}$. In this case, the associated
-torsion theories will define the extension of the torsion 
+torsion theories will extend the torsion 
 filtrations on $\HI$ to $\HM$.
 
 The following proposition will be crucial to extending the 
@@ -82,11 +84,12 @@ L.
 \end{tikzcd}
 \end{equation}
 Here, $\cuHI^n$ denotes the counit $L^nR^n \to \id$,
-and the vertical map $L^{n + 1}R^{n + 1}L(F) \to L(L^nR^n (F))$ is 
+and the vertical map $L^{n + 1}R^{n + 1}L(F) \to L(L^nR^n (F))$, which is 
 given by the map $L^{n + 1}R^n \eta^{-1}$, where $\eta$ is
-the unit $\id \to RL$, which is an isomorphism.
+the unit $\id \to RL$, is an isomorphism by Proposition 
+\ref{prop_unit_iso}.
 
-The cokernel of $\cuHI^{n + 1}$ is $\tlHI{n + 1}L(F)$. Since $L$ 
+The cokernel of $\cuHI^{n + 1}L$ is $\tlHI{n + 1}L(F)$. Since $L$ 
 is right exact, the cokernel of $L\epsilon^n$ is $L\tlHI{n}(F)$. 
 By the Five Lemma, it is clear that $\tlHI{n + 1}L(F) \cong 
 L\tlHI{n}(F)$. Since \eqref{eq_Ltl_com_diag_HI} is natural in $F$,
@@ -95,7 +98,7 @@ By similar arguments, one can show that $R\tlHI{n}$ is naturally
 isomorphic to $\tlHI{n - 1}R$ as well.
 \end{proof}
 
-We will now define the coradical on $\HM$. 
+We will now define the coradicals on $\HM$. 
 
 \begin{defn}\label{def_corad_HM}
 Let $(F_*, \deloop_*)$ 
@@ -126,7 +129,7 @@ denote the composition
 \end{equation}
 where $\deloop_k: F_{k - 1} \to R(F_k)$ is the $k$-th delooping
 of $(F_*, \deloop_*)$. Since $\deloop_k$ is an isomorphism 
-for all $k$, so is $\deloopTL[k]{n}$. By setting $\suspTL[k]{n}$
+for all $k$, so is $\deloopTL[k]{n}$. Defining $\suspTL[k]{n}$
 to be the adjoint of $\deloopTL[k]{n}$, we immediately have that
 $(\tlHM{n}(F), \deloopTL[k]{n})$ is an object of $\HM$. 
 
@@ -138,9 +141,8 @@ L \tlHI{n + k}(F_{k}) \stackrel{\cong}{\to}
 \tlHI{n + k + 1}L(F_{k}) \xrightarrow{\tlHI{n + k + 1}(s_k)}
 \tlHI{n + k + 1}(F_{k + 1}),
 \]
-where $s_k: LF_k \to F_{k + 1}$ is $k$-th suspension map. Since
-we do not need this fact in this thesis, the proof will be 
-omitted.
+where $s_k: LF_k \to F_{k + 1}$ is $k$-th suspension map. This also
+follows from Proposition \ref{prop_tl_L_R}.
 \end{rmk*}
 
 \begin{lem}\label{lem_tlHM_is_functor}
@@ -150,7 +152,7 @@ For each integer $n$, $\tlHM{n}$ is an endofunctor of $\HM$.
 \begin{proof}
 Let $f_*: (F_*,\deloop_*) \to (G_*, \deloop_*')$ be a map between 
 homotopy modules, and let $\tlHM{n}(f)$ be a map of graded 
-homotopy invariant sheaves with transfers where the map on the 
+homotopy invariant sheaves with transfers whose
 $k$-th graded component is $\tlHM[k]{n}(f) \defeq \tlHI{n + k}(f_k)$. 
 If we can show that $\tlHM{n}(f)$ is a map in $\HM$, then it will
 be clear that $\tlHM{n}$ preserves identity maps and compositions.
@@ -181,10 +183,9 @@ L\tlHI{n + k}(G_k)
 \end{tikzcd}
 \]
 
-It is clear that $\tlHM{n}(f)$ is a map from $\tlHM{n}(F)$ to 
+Here, $\tlHM{n}(f)$ is a map from $\tlHM{n}(F)$ to 
 $\tlHM{n}(G)$ as homotopy modules. The fact that $\tlHM{n}$ 
 respects composition follows from the functoriality of $\tlHI{*}$.
-The lemma is established.
 \end{proof}
 
 We now verify the main result of this section:
@@ -194,7 +195,7 @@ For each integer $n$, $\tlHM{n}$ is a coradical of $\HM$.
 \end{thm}
 
 \begin{proof}
-\pfitem{$\tlHM{n}$ is a quotient functor} : certainly $F_* \to 
+\pfitem{$\tlHM{n}$ is a quotient functor}: certainly $F_* \to 
 \tlHM{n}(F)$ is surjective for each $n$ since it is a surjection 
 at each degree. What we need to verify is that the degree-wise 
 surjection gives rise to a map of homotopy modules. In particular, 
@@ -208,30 +209,28 @@ L \tlHI{n + k}(F_k) \arrow{r}{\susp} &
 \end{tikzcd}
 \]
 
-To see this, notice that the above diagram fits as the outer 
-square of the following diagram:
+To see this, notice that the above diagram is the outer 
+square of the diagram:
 \[
 \begin{tikzcd}
 L(F_k) \arrow{r}{\susp} \arrow{d} &
 F_{k + 1} \arrow{d} \\
 \tlHI{n + k + 1} L(F_k) \arrow{r} \arrow{d}{\lambda^{-1}} &
 \tlHI{n + k + 1} F_{k + 1} \arrow[equals]{d} \\
-L \tlHI{n + k + 1}(F_k) \arrow{r}{\susp} &
+L \tlHI{n + k}(F_k) \arrow{r}{\susp} &
 \tlHI{n + k + 1} F_{k + 1}.
 \end{tikzcd}
 \]
 Here, the top square commutes by the naturality of $\id \to 
-\tlHI{n + k}$, and the bottom square commutes by definition. 
-Indeed, the definition of the suspension map 
-$\susp: L \tlHI{n + k}(F_k) \to \tlHI{n + k + 1}(F_{k + 1})$ is 
-precisely given by the composition 
-$\lambda \tlHI{n + k + 1}(\susp)$.
+\tlHI{n + k}$, and the bottom square commutes by the definition of 
+the suspension map 
+$\susp: L \tlHI{n + k}(F_k) \to \tlHI{n + k + 1}(F_{k + 1})$. 
 
-The fact that $\tlHM{n}$ respects delooping follows precisely by
+The fact that $\tlHM{n}$ respects delooping follows from 
 the duality of the suspension and delooping as established by the
 preceding lemma.
 
-\pfitem{$\tlHM{n}$ is a pre-coradical} : The kernel of $F_* \to 
+\pfitem{$\tlHM{n}$ is a pre-coradical}: The kernel of $F_* \to 
 \tlHM{n}(F)$ is a homotopy module $K_*$ whose $k$-th graded term is 
 \[
 \mathrm{ker}(F_k \to \tlHI{n + k}(F_k)). 
@@ -239,9 +238,9 @@ preceding lemma.
 But $\tlHI{n}$ is a coradical; hence, $\tlHM{n}(K_*) = 
 \tlHI{n + k}(K_k) = 0$. That is $\tlHM{n}(K) = 0$, as desired.
 
-\pfitem{$\tlHM{n}$ is a right exact} : since $\tlHI{n + k}$ is 
-right exact for each $k$, $\tlHM{n}$ for each associated graded 
-term. It follows that $\tlHM{n}$ is right exact.
+\pfitem{$\tlHM{n}$ is a right exact}: since $\tlHI{n + k}$ is 
+right exact for each $k$, $\tlHM[k]{n}$ is right exact for each 
+associated graded term. It follows that $\tlHM{n}$ is right exact.
 \end{proof}
 
 Recall from Theorem \ref{thm_precorad_eq_tt} that if $\phi$ is 
@@ -262,7 +261,7 @@ $\id \to \tlHM{n}$. By preceding remarks, $\tgHM{n}$ is right
 adjoint to the inclusion $\THM{n}$ in $\HM$.
 \end{defn}
 
-The follows is a straightforward consequence of Theorem
+Here is a straightforward consequence of Theorem
 \ref{thm_precorad_eq_tt} and Theorem \ref{thm_tlHM_corad}:
 
 \begin{cor}\label{cor_tgHM_prop}
@@ -323,10 +322,10 @@ exists a map $\Spec E \to X$, and that $E$ is finitely generated
 over $k$.
 
 A \emph{cycle premodule} on $\fields(X)$ is an object function
-that associated to each $E$ in $\fields(X)$ a $\Z$-graded abelian
+that associates to each $E$ in $\fields(X)$ a $\Z$-graded abelian
 group $M(E) = \prod_i M_i(E)$ with the following data:
 
-\begin{enumerate}
+\begin{enumerate}[label=\bfseries D\arabic*.]
 \item[\textbf{D1.}] For each field extension $\phi: E' \to E$, 
 there is a degree 0 map $\phi_*: M(E') \to M(E)$ called the 
 \emph{restriction map associated to $\phi$}
@@ -336,8 +335,8 @@ there is a degree 0 map $\phi^*: M(E) \to M(E')$ called the
 \emph{corestriction map associated to $\phi$}
 
 \item[\textbf{D3.}] For each $E$ in $\fields(X)$, the group $M(E)$ 
-is equipped with a left $\milK_*(E)$-module, where $\milK_*(E)$ is 
-the Milnor $K$-ring of $E$.
+is equipped with a structure as left $\milK_*(E)$-module, where
+$\milK_*(E)$ is the Milnor $K$-ring of $E$.
 
 \item[\textbf{D4.}] For any valuation $v$ of $E$ in $\fields(X)$, 
 there exists maps $\res{v}: M(E) \to M(\resf{v})$ and 
@@ -348,16 +347,16 @@ residue field of $v$ and $\ideal{p}$ is a prime of $v$,
 
 which satisfy the following conditions:
 
-\begin{enumerate}
-\item[\textbf{R1a.}] For each field extension $\phi: E' \to E$ and 
+\begin{enumerate}[label=\bfseries R1\alph*., leftmargin=3em]
+\item For each field extension $\phi: E' \to E$ and 
 field extension $\psi: E \to E''$, $(\psi \comp \phi)_* = \psi_* 
 \comp \phi_*$
 
-\item[\textbf{R1b.}] For each finite extension $\phi: E' \to E$ and 
+\item For each finite extension $\phi: E' \to E$ and 
 finite extension $\psi: E \to E''$, $(\psi \comp \phi)^* = \phi^* 
 \comp \psi^*$
 
-\item[\textbf{R1c.}] For finite extension $\phi: E' \to E$ and any 
+\item For finite extension $\phi: E' \to E$ and any 
 field extension $\psi: E' \to E''$ with $\phi$ finite, define $R = E 
 \otimes_{E'} E''$, and let $\ideal{p}$ be any prime ideal of $R$. (As 
 $R$ is Artin, let $l_p$ be the length of the local ring 
@@ -367,51 +366,53 @@ and $\psi_{\ideal{p}}: E \to R/{\ideal{p}}$ be natural maps.
 \psi_*\comp \phi^* = \sum_{\ideal{p}} l_p \cdot 
 (\phi_{\ideal{p}})^* \comp (\psi_{\ideal{p}})_*.
 \]
-
+\end{enumerate}
+\begin{enumerate}[label=\bfseries R2\alph*., leftmargin=3em]
 \item[\textbf{R2.}] For any extension $\phi: E' \to E$, $x \in 
 \milK_*(E')$, $y \in \milK_*(E)$, $\rho \in M(E')$, and $\mu \in 
 M(E)$, then:
 
-\item[\textbf{R2a.}] $\phi_*(x \cdot \rho) = \phi_*(x) \cdot 
+\item $\phi_*(x \cdot \rho) = \phi_*(x) \cdot 
 \phi_*(\rho)$.
 
-\item[\textbf{R2b.}] if $\phi$ is finite, $\phi^*(\phi_*(x) \cdot 
+\item if $\phi$ is finite, $\phi^*(\phi_*(x) \cdot 
 \mu) = x \cdot \phi^*(\mu)$.
 
-\item[\textbf{R2c.}] if $\phi$ is finite, $\phi^*(y \cdot 
+\item if $\phi$ is finite, $\phi^*(y \cdot 
 \phi_*(\rho)) = \phi^*(y) \cdot \rho$.
-
+\end{enumerate}
+\begin{enumerate}[label=\bfseries R3\alph*., leftmargin=3em]
 \item[\textbf{R3.}] For any field extension $\phi: E' \to E$, $v$ 
 a valuation on $E$ and $w$ and a valuation on $E'$:
 
-\item[\textbf{R3a.}] Suppose $w$ is a nontrivial restriction of 
+\item Suppose $w$ is a nontrivial restriction of 
 $v$ with ramification index $e$. Let $\phib: \resf{w} \to 
 \resf{v}$ be the induced map. Then:
 \[
 \res{v} \comp \phi_* = e \cdot \phib_* \comp \res{w}.
 \]
 
-\item[\textbf{R3b.}] Let $\phi$ be a finite extension, suppose
+\item Let $\phi$ be a finite extension, suppose
 $w$ is an extension of $v$ to $E$. Let $\phi_v: \resf{w} \to 
 \resf{v}$ be the induced map on the residue fields. Then
 \[
 \res{v} \comp \phi^* \sum_{v} \comp \res{v}.
 \]
 
-\item[\textbf{R3c.}] Suppose $v$ restricts to a trivial valuation 
+\item Suppose $v$ restricts to a trivial valuation 
 on $E'$. Then
 \[
 \res{v} \comp \phi_* = 0
 \]
 
-\item[\textbf{R3d.}] Suppose $v$ restricts to a trivial valuation 
+\item Suppose $v$ restricts to a trivial valuation 
 on $E'$, and let $\phib: F \to \resf{v}$ be the induced map on 
 the residue fields. Let $\ideal{p}$ a prime of $v$. Then
 \[
 \Special{v}{\ideal{p}} \comp \phi_* = \phib_*
 \]
 
-\item[\textbf{R3e.}] Let $u$ be an element of $E$ such that 
+\item Let $u$ be an element of $E$ such that 
 $v(u) = 0$. Given $\rho$ in $M(F)$, one has
 \[
 \res{v}(\{u\} \cdot \rho) = -\{\overline{u}\} \cdot \res{v}(\rho).
@@ -420,7 +421,7 @@ $v(u) = 0$. Given $\rho$ in $M(F)$, one has
 \end{defn}
 
 For $X$ a $k$-scheme, let $\subsch{1}{X}$ denote the collection of 
-codimension 1 subscheme. Write $\xi_X$ be the generic point of an
+codimension 1 subschemes. Let $\xi_X$ be the generic point of an
 irreducible $X$ with $K_X = \O_X,\xi_X$. If $X$ is normal, then 
 for $x$ in $\subsch{1}{X}$, the local ring $\O_{x,X}$ is a valuation 
 ring of $K_X$ with residue field $\resf{x}$. Write $M(x)$ for 
@@ -451,14 +452,14 @@ associated to the finite field extension $\resf{y} \to \resf{z}$.
 A cycle module $M$ on $\fields(X)$ is a cycle premodule which
 satisfies the following conditions:
 
-\begin{enumerate}
+\begin{enumerate}[leftmargin=3em]
 \item[\textbf{(FD)}] \itemhead{Finite support of divisors.} 
 $X$ be a normal scheme and $\rho \in M(\xi_X)$. Then $\res{x}: 
 M(\xi_X) \to M(X)$ is 0 for all but finitely many $x \in 
 \subsch{1}{X}$.
 
 \item[\textbf{(C)}] \itemhead{Closedness.} If $X$ is an integral
-local local of dimension 2 with closed point $x_0$, then the map 
+local scheme of dimension 2 with closed point $x_0$, then the map 
 from $M(\xi_X)$ to $M(x_0)$ given by
 \[
 \sum_{x \in \subsch{1}{X}} \ptres{x_0}{x} \comp \ptres{x}{\xi}
@@ -509,7 +510,7 @@ group $F^*$, and $I$ denotes the ideal generated by $a \tensor
 is the $n$-th graded piece of $\milK_*(F)$.
 
 Via \cite[3.7]{DegModHom}, the homotopy module corresponding to 
-$\milK_*$ is $(\Ox)^{\tensor n}$. Therefore, $\milK_n \in
+$\milK_n$ is $(\Ox)^{\tensor n}$. Therefore, $\milK_n \in
 \TFCycMod{n} \cap \TCycMod{n}$.
 \end{ex}
 

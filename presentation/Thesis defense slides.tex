@@ -1,0 +1,1148 @@
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usepackage{amsmath,amscd,amssymb,braket,multicol}
+
+
+\title[On the structure of principal subspaces of standard modules]{On the structure of principal subspaces of standard modules for affine Lie algebras of type A }
+\author[Christopher Sadowski]{Christopher Sadowski}
+\institute{Department of Mathematics\\
+Rutgers University\\
+New Brunswick, NJ, USA\\
+\vspace{0.5in}
+Ph.D. Thesis Defense}
+\date{April 3, 2014}
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+
+
+
+\begin{itemize}
+  \item Preliminaries 
+  \pause
+  \item Principal subspaces of standard modules
+  \pause
+  \item Known presentations and exact sequences
+  \pause
+  \item New results and methods in the $A_2^{(1)}$ case
+  \pause
+  \item A reformulation of the presentation problem
+  \pause
+  \item Exact sequences and multigraded dimensions
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}{The Lie algebra $\frak{sl}(n+1)$}
+ Let $\frak{sl}(n+1)$ be the Lie algebra of $n \times n$ complex matrices with trace $0$. 
+ We have a natural invariant nondegenerate bilinear form $\langle \cdot, \cdot \rangle$.
+ We fix:
+ \begin{multicols}{2}
+ \begin{itemize}
+ \item a Cartan subalgebra $\frak{h}$
+ \pause
+ \item  a set of roots $\Delta \subset \frak{h^*}$ (normalize form so that
+ $\langle \alpha, \alpha \rangle = 2$ for roots $\alpha$)
+ \pause
+ \item a set of simple roots $\{\alpha_1 , \dots , \alpha_n \}$
+ \pause
+ \item a set of positive roots $\Delta_+$
+ \pause
+ \item a set of root vectors $x_\alpha$ for each $\alpha \in \Delta_+$ 
+ \pause
+ \item a set of fundamental weights $\{\lambda_1, \dots, \lambda_n\}$
+ \pause
+ \item $Q = \sum_{i=1}^n \mathbb{Z}\alpha_i$, the root lattice
+ \pause
+ \item $P = \sum_{i=1}^n \mathbb{Z}\lambda_i$, the weight lattice
+ \pause
+ \item a nilpotent subalgebra $\frak{n}= \sum_{\alpha \in \Delta_+} \mathbb{C} x_\alpha$
+\end{itemize}
+\end{multicols}
+\end{frame}
+
+
+
+
+%\begin{frame}{The Lie algebra $\frak{sl}(3)$}
+%We also have fundamental weights $\lambda_1, \lambda_2 \in \frak{h}^* (= \frak{h})$ satisfying $\langle \lambda_i,\alpha_j \rangle = \delta_{ij}$. In particular, we have that 
+%\begin{equation*}
+%\lambda_1 = \frac{2}{3}\alpha_1 + \frac{1}{3}\alpha_2,\ \lambda_2 = \frac{1}{3}\alpha_1 + \frac{2}{3}\alpha_2
+%\end{equation*}
+%and
+%\begin{equation*}
+%\alpha_1 = 2\lambda_1 - \lambda_2, \ \alpha_2 = -\lambda_1 + 2\lambda_2
+%\end{equation*}
+%Let $Q = \mathbb{Z}\alpha_1 + \mathbb{Z}\alpha_2$ be the root lattice.
+%Let $P = \mathbb{Z}\lambda_1 + \mathbb{Z}\lambda_2$ be the weight lattice.
+%\end{frame}
+
+
+\begin{frame}{The untwisted affine Lie algebra $\widehat{\frak{sl}(n+1)}$}
+We have the untwisted affine Lie algebra $$\widehat{\frak{sl}(n+1)} = \frak{sl}(n+1) \otimes \mathbb{C}[t,t^{-1}] \oplus \mathbb{C}c$$ 
+\pause
+with the usual bracket:
+\begin{equation*}
+[ x \otimes t^m, y \otimes t^n ] = [x, y] \otimes t^{m+n} + m \langle x, y \rangle \delta _{m , -n} c,
+\end{equation*}
+\begin{equation*}
+[x \otimes t^m, c] = 0
+\end{equation*}
+where $m,n \in \mathbb{Z}$, $x,y \in \frak{sl}(n+1)$. \\
+\pause
+We may adjoin the degree operator $d$
+$$[d,x\otimes t^m] = m(x\otimes t^m)$$
+to obtain the Kac-Moody algebra $\widetilde{\frak{sl}(n+1)}$ or $A_n^{(1)}$:
+$$\widetilde{\frak{sl}(n+1)} = \widehat{\frak{sl}(n+1)} \oplus \mathbb{C}d$$
+
+\end{frame}
+
+\begin{frame}{The untwisted affine Lie algebra $\widehat{\frak{sl}(n+1)}$}
+
+
+We have the following important subalgebras of $\widehat{\frak{sl}(n+1)}$:
+$$\bar{\frak{n}} = \frak{n}\otimes\mathbb{C}[t,t^{-1}]$$
+$$\bar{\frak{n}}_+ = \frak{n} \otimes \mathbb{C}[t]$$
+$$\widehat{\frak{h}} = \frak{h} \otimes \mathbb{C}[t,t^{-1}]$$
+%$$\widehat{\frak{h}}_{\mathbb{Z}} = \coprod_{m\in\mathbb{Z} \setminus \{0 \}}\frak{h} \otimes t^m,$$
+%the last of which is a Heisenberg algebra.
+\pause
+We may extend our form $\langle \cdot, \cdot \rangle$ to $\frak{h} \oplus \mathbb{C}c \oplus \mathbb{C}d$, and obtain the fundamental weights of $\widehat{\frak{sl}(n+1)}$:
+$$\Lambda_0 = d,\  \Lambda_i = \Lambda_0 + \lambda_i$$
+for each $i=1,\dots,n$.\\
+\vspace{0.1in}
+\pause
+We let $L(\Lambda_0), L(\Lambda_1),\dots L(\Lambda_n)$ denote the level $1$ standard (irreducible integrable highest weight) $\widehat{\frak{sl}(n+1)}$-modules, with highest weight vectors $v_{\Lambda_0}, v_{\Lambda_1},\dots, v_{\Lambda_n}$, respectively.\\
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}{Vertex operator constructions}
+Form the induced $\widehat{\frak{h}}$-module
+$$M(1) = U(\frak{h}) \otimes_{U(\frak{h}\otimes\mathbb{C}[t] + \mathbb{C}c)} \mathbb{C}$$
+where $c$ acts as $1$ and $\frak{h}\otimes\mathbb{C}[t]$ acts trivially.\\
+\pause
+%Take a central extension $\widehat{P}$ of $P$ by a cyclic group of order $s>0$:
+%$$1 \rightarrow \langle \kappa | \kappa^s=1 \rangle \rightarrow \widehat{P} \rightarrow P \rightarrow 1 %$$
+
+%Choose a faithful character $\chi:\langle \kappa \rangle \rightarrow \mathbb{C}^{\times}$ defined by $%\chi(\kappa) = \nu_s$, where $\nu_s$ is a primitive $s$-th root of unity, and form the induced module
+%$$\mathbb{C}\{P\} = \mathbb{C}[\widehat{P}] \otimes_{\mathbb{C}[\langle \kappa \rangle ]} \mathbb{C}_%\chi,$$
+%where $\kappa$ acts as $\nu_s$.
+%\end{frame}
+
+%\begin{frame}{Vertex operator constructions}
+%We may form $$V_P = M(1) \otimes \mathbb{C}\{P\}$$ and $$V_Q = M(1) \otimes \mathbb{C}\{Q\}$$
+
+%$V_Q$ has a natural vertex operator algebra structure, and $V_P$ is naturally a $V_Q$-module. Choosing %a section $e:P\rightarrow \widehat{P}$ satisfying certain conditions, we also make the identification 
+Let
+$$V_P = M(1) \otimes \mathbb{C}[P]$$
+$$V_Q = M(1) \otimes \mathbb{C}[Q]$$
+$$V_Qe^{\lambda_i} = M(1) \otimes \mathbb{C}[Q]e^{\lambda_i}$$
+
+%We also have an associated $2$-cocycle $\epsilon_0:P \times P \rightarrow \mathbb{Z}/s\mathbb{Z}$ and %the map $\epsilon(\lambda,\mu) = \nu_s^{\epsilon_0(\lambda,\mu)}$
+%\end{frame}
+
+%\begin{frame}{Vertex operator constructions}
+
+%We may extend our form $\langle \cdot, \cdot \rangle$ to $\frak{h} \oplus \mathbb{C}c \oplus \mathbb{C}%d$, and obtain the fundamental weights of $A_2^{(1)}$:
+%$$\Lambda_0 = d,\  \Lambda_i = \Lambda_0 + \lambda_i$$
+%for each $i=1,\dots,n$.
+
+%In particular, we have that $$\langle \Lambda_i,c \rangle = 1$$ for each $i=0,1,2$.\\
+%\vspace{0.2in}
+\pause
+%We let $L(\Lambda_0), L(\Lambda_1),\dots L(\Lambda_n)$ denote the level $1$ standard (irreducible %integrable highest weight) $\widehat{\frak{sl}(n+1)}$-modules, with highest weight vectors %$v_{\Lambda_0}, v_{\Lambda_1},\dots, v_{\Lambda_n}$, respectively.\\
+\vspace{0.1in}
+$V_Q$ has the structure of a vertex operator algebra, and $V_P, V_Qe^{\lambda_1},\dots ,V_Q e^{\lambda_n}$
+are vertex operator algebra modules for $V_Q$.\\
+\pause
+\vspace{0.1in}
+As $\widehat{\mathfrak{sl}(n+1)}$-modules, we have that
+$V_Q \simeq L(\Lambda_0), V_Qe^{\lambda_1} \simeq L(\Lambda_1), \dots , V_Qe^{\lambda_n} \simeq L(\Lambda_n)$. 
+%These can be given $\widehat{\frak{h}}$-module structure by defining, for $\alpha \in \frak{h}$ and $n \in \mathbb{Z}$:
+%$$
+%(\alpha\otimes t^0)(v \otimes e^\lambda) = \langle \alpha, \lambda \rangle (v \otimes e^\lambda)
+%$$
+%$$
+%(\alpha \otimes t^n)(v \otimes e^\lambda) = (\alpha\otimes t^n )v \otimes e^\lambda
+%$$
+\end{frame}
+
+\begin{frame}{Vertex operator constructions}
+  We have natural operators 
+\begin{eqnarray*}
+e_{\lambda} \cdot e^{\mu}&=&
+{\epsilon(\lambda, \mu)}e^{\lambda + \mu} 
+\end{eqnarray*}
+for $\lambda, \mu \in P,$  and that 
+$$
+x_\alpha(m) e_\lambda = c(\alpha,\lambda)e_\lambda x_\alpha(m + \langle \alpha, \lambda \rangle)
+$$
+for each $\alpha \in \Delta$ and $m \in \mathbb{Z}$, where 
+$$
+\epsilon: P \times P \rightarrow \mathbb{Z}/2(n+1)^2\mathbb{Z}
+$$
+is defined using 
+a cocycle 
+and 
+$$
+c: P \times P \rightarrow \mathbb{Z}/2(n+1)^2\mathbb{Z}
+$$
+is defined using a commutator map, both of which are 
+ obtained by taking a central extension of $P$ by a cyclic group of order $2(n+1)^2$
+\end{frame}
+
+
+%\begin{frame}{Vertex operator constructions}
+%We give $V_Q$ the structure of a vertex operator algebra as follows:\\
+%\vspace{0.1in}
+%\pause
+%Define
+%$$
+%E^{\pm}(-\lambda,x) = \mathrm{exp}\bigg(\sum_{\pm n \ge 1}\frac{\lambda(n)}{n}x^{-n}\bigg)
+%$$
+%These allow us to define a vertex operator, i.e. a map
+%\begin{eqnarray}
+%\nonumber Y(\cdotp, x) : V_Q & \longrightarrow & \mbox{End}
+%(V_Q)[[x,x^{-1}]] \nonumber \\ v &\mapsto & Y(v,x)=\sum_{n\in
+%\mathbb{Z}}v_nx^{-n-1} \nonumber 
+%\end{eqnarray}
+%by:
+%$$
+%Y(1 \otimes e^{\lambda},x) = E^{-}(-\lambda,x)E^{+}(-\lambda,x)\epsilon_\lambda e^\lambda x^\lambda
+%$$
+%where $\epsilon_\lambda$ is defined by a certain bilinear map and is $\mathbb{C}$-valued.
+
+%\end{frame}
+
+
+%\begin{frame}{Vertex operator constructions}
+
+%Given modules $L(\Lambda_p)$, $L(\Lambda_r)$ and $L(\Lambda_s)$ for the vertex
+%operator algebra $L(\Lambda_0)$, we have intertwining operators of type
+%$$ \left( \begin{array} {c} L(\Lambda_p) \\ \begin{array}{cc} L(\Lambda_r) & L(\Lambda_s)
+%\end{array} \end{array} \right) $$ \Big(i.e. a linear map 
+%\begin{eqnarray*}
+%\nonumber {\cal Y}(\cdotp, x) : L(\Lambda_r) & \longrightarrow & \mbox{Hom}
+%(L(\Lambda_s),L(\Lambda_p))\{x\} 
+%\end{eqnarray*}
+%    \hspace{2in} satisfying certain natural axioms \Big)\\
+%when $r+s = p \mod (n+1)$.%
+
+%\end{frame}
+
+%\begin{frame}{Vertex operator constructions}
+%Intertwining operators satisfy the Jacobi identity:
+% \begin{eqnarray*} \label{Jacobi-intertwining}
+%   \lefteqn{x_0^{-1}\delta \left ( \frac{x_1-x_2}{x_0} \right ) Y(u,
+%   x_1){\cal Y}(w_1, x_2)w_2} \\
+%   &&\hspace{2em}-x_0^{-1}\delta \left ( \frac{x_2-x_1}{x_0} \right
+%   ){\cal Y}(w_1, x_2)Y(u, x_1)w_2 \\
+%   &&\displaystyle{=x_2^{-1}\delta \left ( \frac{x_1-x_0}{x_2} \right
+%   ) {\cal Y}(Y(u, x_0)w_1, x_2)w_2} \\ \end{eqnarray*} for
+%   $u \in L(\Lambda_0)$, $w_1 \in L(\Lambda_r)$ and $w_2 \in L(\Lambda_s)$.
+%In particular, taking $Res_{x_0}$ we have 
+%\begin{equation*}
+%[Y(e^{\alpha}, x_1), {\cal Y}(e^{\lambda_r}, x_2)]=0,
+%\end{equation*}
+%whenever  $\alpha \in \Delta_+$, which means that each coefficient of the series ${\cal
+%Y}(e^{\lambda_r}, x)$ commutes with the action of $x_\alpha(m)$ for positive roots $\alpha$.
+%\end{frame}
+
+%\begin{frame}{Vertex operator constructions}
+%Given such an intertwining operator, we define a map 
+%$${\cal Y}_c(e^{\lambda_r}, x): L(\Lambda_s) \longrightarrow L(\Lambda_p)$$ by
+%$${\cal Y}_c(e^{\lambda_r}, x) = \mathrm{Res}_x x^{-1-\langle \lambda_r , \lambda_s\rangle}{\cal Y}%(e^{\lambda_r}, x)$$%
+%and we have 
+%\begin{equation*}
+%[Y(e^{\alpha}, x_1), {\cal Y}_c(e^{\lambda_r}, x_2)]=0.
+%\end{equation*}
+%In particular, we have that 
+%\begin{equation*}
+%[U(\bar{\frak{n}}),{\cal Y}_c(e^{\lambda_r}, x_2)] = 0
+%\end{equation*}
+%\end{frame}
+
+\begin{frame}{Vertex operator constructions}
+ We have intertwining operators
+\begin{eqnarray*} \label{IntwOp}{ \cal Y}( \cdot , x): L(\Lambda_r) &
+ \longrightarrow & \mbox{Hom}(L(\Lambda_s), L( \Lambda_p))\{ x \} \\ w
+ & \mapsto & {\cal Y}(w, x)=Y(w, x)e^{i\pi\lambda_r}c(\cdot,
+ \lambda_r) \nonumber \end{eqnarray*}
+of type 
+\begin{equation*} 
+\label{type} \left( \begin{array} {c} L(
+ \Lambda_p) \\ \begin{array}{cc} L( \Lambda_r) & L( \Lambda_s)
+ \end{array} \end{array} \right)  
+\end{equation*}
+if and only if $p \equiv r+s \;
+\mbox{mod}\; (n+1)$.
+Given such an intertwining operator, we define a map
+$${\cal Y}_c(e^{\lambda_r}, x): L(\Lambda_s) \longrightarrow
+L(\Lambda_p)$$ by
+$${\cal Y}_c(e^{\lambda_r}, x) = \mathrm{Res}_x x^{-1-\langle
+  \lambda_r , \lambda_s\rangle}{\cal Y}(e^{\lambda_r}, x).$$
+\end{frame}
+
+\begin{frame}{Vertex operator constructions}
+ For each
+$\alpha \in \Delta_+$, we have that
+\begin{equation} \label{calYcommute}
+[Y(e^{\alpha}, x_1), {\cal Y}_c(e^{\lambda_r}, x_2)]=0,
+\end{equation}
+which implies
+\begin{equation} 
+[x_\alpha(m), {\cal Y}_c(e^{\lambda_r}, x_2)]=0
+\end{equation}
+for each $m \in \mathbb{Z}$, a consequence of the Jacobi identity for
+intertwining operators among standard modules.
+\end{frame}
+
+
+
+\begin{frame}{Vertex operator constructions}
+If $\Lambda$ is a dominant integral weight of $\widehat{\frak{sl}(n+1)}$, then it is of the form
+$$\Lambda = k_0 \Lambda_0 + \dots + k_n \Lambda_n$$
+for some nonnegative integers $k_0,\dots ,k_n \in \mathbb{Z}$.\\
+\vspace{0.1in}
+\pause
+We may embed any level $k$ standard module $L(\Lambda)$ with highest weight $\Lambda$ in a tensor product of $k$ level $1$ standard modules.\\
+\vspace{0.1in}
+\pause
+Indeed, 
+$$L(\Lambda) \simeq U(\widehat{\frak{sl}(n+1)})\cdot v_{i_1,\dots,i_k} \subset V_P^{\otimes k},$$
+where $v_{i_1,\dots,i_k} = v_{\Lambda_{i_1}} \otimes \dots \otimes v_{\Lambda_{i_k}}$ with exactly $k_i$ indices equal to $i$ for each $i=0,\dots ,n $. \\
+\pause
+\vspace{0.1in}
+For any fixed positive integer $k$, $L(k\Lambda_0)$ is a vertex operator algebra and
+each $L(\Lambda)$ of level $k$ is an irreducible $L(k\Lambda_0)$-module. 
+\end{frame}
+
+%\begin{frame}{Vertex operator constructions}
+%We also have natural maps
+%$$e_{\lambda}:V_P \rightarrow V_P$$
+%for each $\lambda \in P$, with the properties:
+%$$e_\lambda x_{\alpha}(m) = c x_{\alpha}(m-\langle \alpha, \lambda \rangle) e_\lambda$$ for some %constant $c$ (depending on both $\alpha$ and $\lambda$) and the action
+%$$e_\lambda e^\mu = \epsilon(\lambda,\mu)e^{\lambda + \mu}$$
+%of $\widehat{P}$ on $\mathbb{C}[P]$.\\
+%\vspace{0.2in}
+%We may also define the maps
+%\begin{equation*}
+%e_{\lambda}^{\otimes k}: V_P^{\otimes k} \rightarrow V_P^{\otimes k}
+%\end{equation*}
+%in the obvious way.
+
+%\end{frame}
+
+%\begin{frame}{Vertex operator constructions}
+
+%This allows us, in particular, to define automorphisms
+%$$\tau_{\lambda}: U(\bar{\frak{n}}) \rightarrow U(\bar{\frak{n}})$$ by
+%$$\tau_{\lambda}(x_{\beta_1}(m_1) \dots x_{\beta_r}(m_r)) = x_{\beta_1}(m_1-\langle \beta_1, \lambda %\rangle) \dots x_{\beta_r}(m_r-\langle \beta_r, \lambda \rangle)$$
+%which describe the effect of commuting $e_\lambda^{\otimes k}$ past elements of $U(\bar{\frak{n}})$.\\
+%\vspace{0.2in}
+%Notice that these maps raise conformal weight for $\lambda = \lambda_1$ and $\lambda = \lambda_2$.
+%\end{frame}
+
+
+\begin{frame}{Principal subspaces}
+Recall the subalgebra of $\widehat{\frak{sl}(n+1)}$:
+$$\bar{\frak{n}} = \frak{n}\otimes\mathbb{C}[t,t^{-1}]$$\\
+\vspace{0.1in}
+\pause
+Let $v_\Lambda$ be the highest weight vector of $L(\Lambda)$.  The {\em principal subspace} $W(\Lambda)$ of $L(\Lambda)$ is defined by
+$$W(\Lambda) = U(\bar{\frak{n}})\cdot v_\Lambda.$$ \\
+\vspace{0.1in}
+Principal subspaces were originally defined and studied in [FS] by Feigin and 
+Stoyanovsky.
+
+\end{frame}
+
+\begin{frame}{Principal subspaces}
+
+The principal subspace inherits certain compatible gradings from $L(\Lambda)$. First, we have the 
+{\em conformal weight grading}:
+\begin{equation*} \label{WWeightGrading}
+W(\Lambda) = \coprod_{s \in \mathbb{Z}} W(\Lambda)_{s+h_{\Lambda}},
+\end{equation*}\\
+
+This grading is given by the Virasoro $L(0)$ operator's eigenvalues when acting on $W(\Lambda)$.
+$W(\Lambda)$  also has {\em $\lambda_i$-charge gradings}:
+\begin{equation*} \label{WChargeGrading}
+W(\Lambda) = \coprod_{r_i \in \mathbb{Z}} W(\Lambda)_{r_i+\langle\lambda_i,\Lambda\rangle}
+\end{equation*}
+for each $i=1,\dots, n$.\\
+These gradings are given by the eigenvalues of each $\lambda_i(0)$, $i=1,\dots, n$, acting on 
+$W(\Lambda)$ and ``count" the number of $\alpha_i$'s appearing as subscripts in monomials.
+\end{frame}
+
+\begin{frame}{Principal subspaces}
+These gradings are compatible, and we have that:
+\begin{equation*} \label{WTripleGrading}
+W(\Lambda) = \coprod_{r_1,\dots,r_n,s \in \mathbb{Z}} W(\Lambda)_{r_1+\langle\lambda_1,\Lambda\rangle,\dots,  r_n+\langle\lambda_n,\Lambda\rangle;s+h_{\Lambda}}.
+\end{equation*}
+
+We define the multigraded dimensions of $W(\Lambda)$ by:
+
+$$
+\chi_{W(\Lambda)}=tr_{W(\Lambda)}x_1^{\lambda_1}\cdots x_n^{\lambda_n} q^{L(0)}.
+$$
+\pause
+For convenience, we will use the notation
+$$ W(\Lambda)'_{r_1,\dots,
+  r_n;s}=W(\Lambda)_{r_1+\langle\lambda_1,\Lambda\rangle,\dots,
+  r_n+\langle\lambda_n\Lambda\rangle;s+h_{\Lambda}}
+$$
+and
+\begin{eqnarray*}
+\chi_{W(\Lambda)}'(x_1,\dots,x_n, q)&=& x^{-\langle \lambda_1, \Lambda \rangle} \dots
+x^{-\langle \lambda_n, \Lambda \rangle} q^{-h_\Lambda}\chi_{W(\Lambda)}(x_1,\dots,x_n, q)\\
+&\in& 
+\mathbb{C}[[x_1, \dots x_n, q]] 
+\end{eqnarray*}
+\end{frame}
+
+
+
+\begin{frame}{Principal subspaces}
+We have a natural map
+\begin{eqnarray*} 
+f_{\Lambda}: U(\bar{\frak{n}}) & \longrightarrow &
+W(\Lambda)\\ a & \mapsto & a \cdot v_{\Lambda}. \nonumber
+\end{eqnarray*}\\
+\vspace{0.2in}
+
+We seek a precise description of the
+Kernels $\mbox{Ker} \; f_{\Lambda}$ for every each $\Lambda =k_0\Lambda_0 + \dots + k_n\Lambda_n$, and thus a presentation of the principal subspaces $W(\Lambda)$ for $\widehat{\frak{sl}(n+1)}$.
+\end{frame}
+
+
+
+
+\begin{frame}{Known results}
+In the work of Capparelli, Lepowsky, and Milas ([CLM1]--[CLM2]), certain presentations were assumed and used to obtain exact sequences for the principal subspaces of standard $\widehat{\frak{sl}(2)}$-modules, namely:
+
+\begin{eqnarray*}
+\lefteqn{0 \rightarrow W(k_1\Lambda_0 + k_0\Lambda_1) \rightarrow W(k_0\Lambda_0 + k_1\Lambda_1)}\\
+&& \hspace{0.3in}\rightarrow W((k_0-1)\Lambda_0 + (k_1+1)\Lambda_1) \rightarrow 0
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+0 \rightarrow W(k\Lambda_0) \rightarrow W(k\Lambda_1) \rightarrow 0
+\end{eqnarray*}
+
+\end{frame}
+\begin{frame}{Known results}
+The exact sequences yield recursions:
+\begin{itemize}
+\item In the $k=1$ case, [CLM1] obtained the Rogers-Ramanujan recursion, giving the sum sides of the Rogers-Ramanujan identities as graded dimensions.
+Namely, they interpreted the Rogers-Ramanujan recursion in this context:
+$$
+\chi_{W(\Lambda_0)}(x,q) = \chi_{W(\Lambda_0)}(xq,q) + xq\chi_{W(\Lambda_0)}(xq^2,q),
+$$
+and obtained
+$$
+\chi_{W(\Lambda_0)} = \sum_{n \ge 0} \frac{x^n q^{n^2}}{(q)_n} \hspace{0.5in}
+\chi_{W(\Lambda_1)} = x^{1/2}q^{1/4}\sum_{n \ge 0} \frac{x^n q^{n^2+n}}{(q)_n}
+$$
+\end{itemize}
+In the case $k>1$, [CLM2] obtained the Rogers-Selberg recursions, giving the sum side of the Gordon-Andrews identities as graded dimensions.
+Namely, they interpreted the Rogers-Selberg recursion in this context.
+\end{frame}
+%\begin{frame}{Known results}
+%\begin{itemize}
+%\item In the case $k>1$, [CLM2] obtained the Rogers-Selberg recursions, giving the sum side of the Gordon-Andrews identities as graded dimensions.
+%Namely, they interpreted the Rogers-Selberg recursion in this context, and showed that:
+%\begin{eqnarray*}
+% \lefteqn{{\chi}_{W(i \Lambda_0+(k-i)\Lambda_1)}(x,q)=}\\
+% &&
+%\sum_{m \geq 0} \sum_{\stackrel{N_1+\cdots +N_{k}=m}{N_1 \geq \cdots \geq N_{k}
+%\geq 0}}
+%\frac{x^{m+(k-i)/2} q^{h_{i \Lambda_0+(k-i)\Lambda_1}+N_1^2 + \cdots +
+%N_{k}^2+N_{i+1}+\cdots + N_{k}}}{(q)_{N_1-N_2} \cdots (q)_{N_{k-1}-N_{k}}
+%(q)_{N_{k}}}. \nonumber
+%\end{eqnarray*}
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}{Known results}
+In [CalLM1]-[CalLM2], Calinescu, Lepowsky, and Milas proved the presentations which were assumed in [CLM1]-[CLM2]:
+Define
+$$R_{t} = \sum_{m_1 + \dots + m_{k+1} = -t}x_{\alpha}(m_1)\dots x_{\alpha}(m_{k+1}),$$
+which are the coefficients of $Y(e^{\alpha},x)^{k+1}$.\\
+\vspace{0.1in}
+\pause
+Truncating these sums, define
+$$R_{-1,t} = \sum_{m_1 + \dots + m_{k+1} = -t ; m_i \le -1}x_{\alpha}(m_1)\dots x_{\alpha}(m_{k+1}).$$
+
+Consider the left ideal generated by the  $R_{-1,t}$ and $\bar{\frak{n}}_+$:
+$$I_{k\Lambda_0} = \sum_{t \ge k+1}U(\bar{\frak{n}})R_{-1,t} + U(\bar{\frak{n}})\bar{\frak{n}}_+.$$\\
+\pause
+For each $\Lambda = k_0 \Lambda_0 + k_1 \Lambda_1$ [CalLM1]-[CalLM2] showed that 
+$$\mbox{Ker}f_\Lambda = I_{k\Lambda_0} + U(\bar{\frak{n}})x_{\alpha}(-1)^{k_0+1}.$$
+
+\end{frame}
+\begin{frame}{Known results}
+In [CalLM3], the authors considered the simply laced case when $k=1$. They obtained generalizations of the [CLM1]-[CLM2] and [CalLM1]-[CalLM2] results.
+\pause
+Define the truncated sums
+$$R_{-1,t}^i = \sum_{m_1+m_2 = -t ;m_1,m_2 \le -1}x_{\alpha_i}(m_1)x_{\alpha_i}(m_2)$$
+for each $i=1,2,\dots, n$.
+and the ideals
+$$I_{\Lambda_0} = \sum_{i=1}^n \sum_{t \ge 2} U(\bar{\frak{n}})R_{-1,t}^i + U(\bar{\frak{n}})\bar{\frak{n}}_+$$
+and showed that
+$$\mbox{Ker}f_{\Lambda_i} = I_{\Lambda_0} + U(\bar{\frak{n}})x_{\alpha_i}(-1)$$
+for each $i=1,\dots,n$. Using these presentations, they constructed exact sequences, obtained a recursion involving
+the multigraded dimension of $W(\Lambda_0)$,
+and solved it to find the multigraded dimension of each $W(\Lambda_i)$.
+\end{frame}
+
+%\begin{frame}{Known results}
+%Calinescu, Lepowsky, and Milas showed that 
+%$$
+%\mbox{Ker}f_{\Lambda_i} = I_{\Lambda_i}
+%$$
+%for each $i=0,\dots,n$.\\
+%\pause
+%\vspace{0.1in}
+%They then gave exact sequences:
+%\begin{eqnarray*}
+%0 \rightarrow W(\Lambda_i) \rightarrow W(\Lambda_0) \rightarrow W(\Lambda_i) \rightarrow 0
+%\end{eqnarray*}
+%for each $i=0,1,\dots n$ and obtained a recursion involving the graded dimension of $W(\Lambda_0)$. They also obtained the graded dimensions of each $W(\Lambda_i)$.
+%\end{frame}
+
+\begin{frame}{Known results}
+In [C], Calinescu studied the $\widehat{\frak{sl}(3)}$ case for $k > 1$. In particular, certain presentations were conjectured:
+$$\mbox{Ker }f_{k_0\Lambda_0 + k_i\Lambda_i} = I_{k_0 \Lambda_0 + k_i \Lambda_i} := I_{k\Lambda_0} + U(\bar{\frak{n}})x_{\alpha_i}(-1)^{k_0+1}$$
+for $ i =1,2$ for $k_0 + k_i = k$. 
+\pause
+These were used to obtain exact sequences of the form
+\begin{eqnarray*}
+\lefteqn{0 \rightarrow W(k_1\Lambda_1 + k_2\Lambda_2) \rightarrow W(k_1\Lambda_0 + k_2 \Lambda_1)}\\
+&& \hspace{0.3in}\rightarrow W((k_1-1)\Lambda_0 + (k_2 + 1)\Lambda_1) \rightarrow 0
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+\lefteqn{0 \rightarrow W(k_1\Lambda_1 + k_2\Lambda_2) \rightarrow W(k_2\Lambda_0 + k_1 \Lambda_1)}\\
+&& \hspace{0.3in}\rightarrow W((k_2-1)\Lambda_0 + (k_1 + 1)\Lambda_1) \rightarrow 0
+\end{eqnarray*}
+
+\end{frame}
+
+\begin{frame}{Known results}
+These exact sequences were then used to obtain the graded dimension for $W(k_1\Lambda_1 + k_2 \Lambda_2)$ for $k_1,k_2 > 0$. \\
+\vspace{0.2in}
+
+The graded dimension of $W(k_0\Lambda_0 + k_i \Lambda_i)$ was known due to the work of Georgiev, who constructed combinatorial bases for each $W(k_0\Lambda_0 + k_i \Lambda_i)$ for $\widehat{\frak{sl}(n+1)}$.
+
+\end{frame}
+
+\begin{frame}{New presentations}
+With the above work as motivation, we set out to find presentations for principal subspaces of {\em all} the standard $\widehat{\frak{sl}(3)}$-modules.\\
+\pause
+
+For $i=1,2$, let 
+$$R_{-1,t}^i = \sum_{m_1 + \dots + m_{k+1}; m_i \le -1}x_{\alpha_i}(m_1) \dots x_{\alpha_i}(m_{k+1})$$
+
+Define
+$$I_{k\Lambda_0} = \sum_{i=1,2}\sum_{t \ge k+1} U(\bar{\frak{n}}) R_{-1,t}^i + U(\bar{\frak{n}})\bar{\frak{n}}_+$$
+\pause
+
+\begin{theorem}
+For each $\Lambda = k_0\Lambda_0 + k_1\Lambda_1 + k_2\Lambda_2$, we have: 
+\begin{eqnarray*}
+\lefteqn{\mbox{Ker}f_\Lambda = I_{k\Lambda_0} +  U(\bar{\frak{n}})x_{\alpha_1}(-1)^{k_0+k_2+1}}\\  && + U(\bar{\frak{n}})x_{\alpha_2}(-1)^{k_0+k_1+1} + U(\bar{\frak{n}})x_{\alpha_1 + \alpha_2}(-1)^{k_0+1}
+\end{eqnarray*}
+\end{theorem}
+\end{frame}
+
+%\begin{frame}{New results}
+%We comment on the methods used in the proof. The fact that $I_\Lambda \subset \mbox{Ker}f_\Lambda$ is %straightforward, so we must show $\mbox{Ker}f_\Lambda \subset I_\Lambda$.\\
+%\vspace{0.2in}
+%Consider the set of elements 
+%\begin{eqnarray*}
+%\{ a \in U(\bar{\frak{n}}) | a \in Kerf_\Lambda \  \mbox{and} \ a
+%\notin I_\Lambda \; \;  \mbox{for some} \; \;
+% \Lambda = k_0 \Lambda_0 +
+%k_1\Lambda_1 + k_2 \Lambda_2\}.
+%\end{eqnarray*}
+%We may and do assume that homogeneous elements of this set have positive conformal weight (otherwise we %may show $a \in
+%U(\bar{\frak{n}})\bar{\frak{n}}_+ \subset I_{k\Lambda_0}$).\\
+
+%\vspace{0.2in}
+%Among all
+%elements in this set, we look at those of
+%lowest total charge.  Among all
+%elements of lowest total charge, we choose one of lowest weight. We call
+%this element $a$.
+
+%\end{frame}
+
+%\begin{frame}{New results}
+%First, we show $\Lambda \neq k\Lambda_1$. If $\lambda_1$-charge of $a$ is $\neq 0$, we have
+%\begin{eqnarray*}
+%a\cdot (v_{\lambda_1}\otimes \dots \otimes v_{\lambda_1}) &=& a \cdot (e^{\lambda_1}\otimes \dots %\otimes e^{\lambda_1})\\%
+%&=& e_{\lambda_1}^{\otimes k}(\tau_{\lambda_1}^{-1}(a)\cdot(v_{\Lambda_0} \otimes \dots \otimes %v_{\Lambda_0}))\\
+%&=& 0
+%\end{eqnarray*}
+%which gives us $$\tau_{\lambda_1}^{-1}(a)\cdot (v_{\Lambda_0} \otimes \dots \otimes v_{\Lambda_0}) = 0 %$$
+%since $e_{\lambda_1}^{\otimes k}$ is injective.\\
+%\vspace{0.2in}
+
+%Since $\tau_{\lambda_1}^{-1}(a)$ has lower conformal weight than $a$, we have that $\tau_{\lambda_1}%^{-1}(a) \in I_{k \Lambda_0}$ and, using the fact that $\tau_{\lambda_1}(I_{k\Lambda_0}) \subset I_{k%\Lambda_1}$, we have that $a \in I_{k\Lambda_1}$, a contradiction.
+
+%\end{frame}
+
+%\begin{frame}{New results}
+%If the $\lambda_1$ charge of $a$ is $0$, then the proof becomes more complicated. One can in fact show %that $a \in I_{k\Lambda_0} \subset I_{k\Lambda_1}$ in this case. We use intertwining operators to %``reconstruct" $a$ and obtain eventually that $a \in I_{k\Lambda_0}$, a contradiction, giving us that $%\Lambda \neq k\Lambda_1$.\\
+%\vspace{0.2in}
+%Showing that $\Lambda \neq k\Lambda_2$ is similar. 
+
+%\end{frame}
+
+%\begin{frame}{New results}
+%We use intertwining operators to show certain containments of kernels to eliminate the other cases. For %example, if we've eliminated the case $\Lambda = k\Lambda_1$, we can consider the case $\Lambda = %\Lambda_0 + (k-1)\Lambda_1$. So, 
+%$$a\cdot (v_{\Lambda_0} \otimes v_{\Lambda_1} \otimes \dots \otimes v_{\Lambda_1}) = 0.$$
+%Here, we have that
+%$$a \in \mbox{Ker}f_{\Lambda_0 + (k-1)\Lambda_1} \subset \mbox{Ker}f_{k\Lambda_1}$$
+%Indeed, applying the operator $\mathcal{Y}_C(e^{\lambda_1},x) \otimes Id^{\otimes (k-1)}$, we have that 
+%\begin{eqnarray*}
+%&&(\mathcal{Y}_C(e^{\lambda_1},x) \otimes Id^{\otimes (k-1)})(a \cdot (v_{\Lambda_0} \otimes v_{\Lambda_1} \otimes \dots \otimes v_{\Lambda_1}))\\ && \hspace{0.5in}= a \cdot (v_{\Lambda_1} \otimes \dots \otimes v_{\Lambda_1})\\
+%&& \hspace{0.5in} = 0
+%\end{eqnarray*}
+
+%\end{frame}
+
+%\begin{frame}{New results}
+%Since $\Lambda \neq k\Lambda_1$, we have that 
+%$$a \in I_{k\Lambda_1} = I_{k\Lambda_0} + U(\bar{\frak{n}})x_{\alpha_1}(-1)$$
+%and it's easier to follow through with this ``reconstruction" process, eventually obtaining that $a \in I_{\Lambda_0 + (k-1)\Lambda_1}$, a contradiction. \\
+%\vspace{0.2in}
+%The rest of the proof is similar, eventually eliminating all possible $\Lambda$, showing that no such %``minimal counterexample" exists.
+%\end{frame}
+
+\begin{frame}{A conjecture}
+Consider now the case of $\widehat{\frak{sl}(n+1)}, n \ge 1:$\\
+\pause
+For $i=1, \dots, n$ let  
+$$R_{-1,t}^i = \sum_{m_1 + \dots + m_{k+1}; m_i \le -1}x_{\alpha_i}(m_1) \dots x_{\alpha_i}(m_{k+1}).$$ \\
+\pause
+Define
+$$I_{k\Lambda_0} = \sum_{i=1,\dots, n}\sum_{t \ge k+1} U(\bar{\frak{n}}) R_{-1,t}^i + U(\bar{\frak{n}})\bar{\frak{n}}_+$$
+\begin{alertblock}{Conjecture}\small
+For each $\Lambda = k_0\Lambda_0 \dots + k_n\Lambda_n$, we have: \begin{equation*}
+\mbox{Ker }f_{\Lambda} = I_{k\Lambda_0} +  \sum_{\alpha \in \Delta_+}U(\bar{\frak{n}})x_{\alpha}(-1)^{k+1 - \langle \alpha, \Lambda \rangle}
+\end{equation*}
+In particular, if $k_0 + k_i = k$,
+\begin{eqnarray*}
+ I_{k_0 \Lambda_0 + k_i \Lambda_i} = I_{k\Lambda_0} + U(\bar{\frak{n}})x_{\alpha_i}(-1)^{k_0+1}
+\end{eqnarray*}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{A completion of $U(\bar{\frak{n}})$}
+We now proceed to reformulate both known and conjectured presentations for principal subspaces in
+terms of a completion of $U(\bar{\frak{n}})$, so as to give the operators
+$$
+R_t^i = \sum_{m_1 + \dots +m_{k+1} = -t}x_{\alpha_i}(m_1)\cdots x_{\alpha_i}(m_{k+1})
+$$
+a ``home''.
+\end{frame}
+
+
+
+\begin{frame}{A completion of $U(\bar{\frak{n}})$}
+ Let 
+ $$
+M(\Delta_+) = \cup_{n \ge 0} M(\Delta_+)_n
+$$
+where
+$$
+M(\Delta_+)_n = \mathbb{Z}^n \times \Delta_+^n
+$$
+denote the free monoid on $\mathbb{Z} \times \Delta_+$, where composition is juxtaposition.
+\pause
+The set $\mbox{Map}(M(\Delta_+),\mathbb{C})$ of all functions
+$f: M(\Delta_+) \longrightarrow \mathbb{C}$
+ has the structure of of an algebra given by taking the identity
+element to be the function which is $1$ on $M(\Delta_+)_0$ and $0$ elsewhere,
+and by setting
+$$
+(r\mu)(a) = r(\mu(a)),
+$$
+$$
+(\mu_1 + \mu_2)(a) = \mu_1(a) + \mu_2(a),
+$$
+and
+$$
+(\mu_1\mu_2)(a) = \sum_{a = b \circ c} \mu_1(b) \mu_2(c)
+$$ for $r \in \mathbb{C}$, $\mu, \mu_1, \mu_2 \in
+\mbox{Map}(M(\Delta_+),\mathbb{C})$, and $a \in M(\Delta_+)$.
+ \end{frame}
+
+\begin{frame}{A completion of $U(\bar{\frak{n}})$}
+  Define, for $n \ge 0$, a map
+\begin{eqnarray} \label{tau}
+\tau: \mathbb{Z}^n & \longrightarrow & \mathbb{Z}^n \\ \nonumber
+(i_1,\dots,i_n) & \mapsto & (i_1+\dots+i_n, i_2+\dots+i_n,\dots,i_n). \nonumber
+\end{eqnarray}
+\pause
+For any $b = (n_1,\dots, n_k; \beta_1 , \dots ,\beta_k) \in M(\Delta_+)_k$
+and $i \in \mathbb{Z}$, we write
+$$
+b \le i \ \mbox{if} \ \tau(n_1,\dots,n_k) \le (i,\dots,i),
+$$
+taking the inequality pointwise.\\
+
+
+\end{frame}
+
+
+\begin{frame}{A completion of $U(\bar{\frak{n}})$}
+  For
+each $\mu \in \mbox{Map}(M(\Delta_+),\mathbb{C})$ and $i \in \mathbb{Z}$, we define sets
+$$
+\mbox{Supp}(\mu) = \{a \in M(\Delta_+) | \mu(a) \neq 0 \}
+$$
+\pause
+and
+$$ \mbox{Supp}_i(\mu) = \{ a \in M(\Delta_+) | a \le i \} \cap
+\mbox{Supp}(\mu).
+$$
+Note that
+$$
+\mathrm{Supp}(\mu) = \cup_{i \in \mathbb{Z}} \mbox{Supp}_i(\mu).
+$$
+\pause
+Define $F(\Delta_+) \subset \mbox{Map}(M(\Delta_+),\mathbb{C})$ by
+$$
+F(\Delta_+) := \{ \mu:M(\Delta_+) \longrightarrow \mathbb{C} \  | \  \mathrm{Supp}_i(\mu)\  \mathrm{is \ finite \ 
+for\  all\  } i \in \mathbb{Z} \}
+$$
+and $F_0(\Delta_+) \subset F(\Delta_+)$ by
+$$
+F_0(\Delta_+) := \{ \mu \in F(\Delta_+) \  | \  \mbox{Supp}(\mu) \ \mbox{is finite} \}
+$$
+\end{frame}
+
+
+\begin{frame}{A completion of $U(\bar{\frak{n}})$}
+ We have that
+\begin{theorem} [Lepowksy, Wilson (LW)]
+ $F(\Delta_+)$ is a subalgebra of $\mbox{Map}(M(\Delta_+),\mathbb{C})$, and $F_0(\Delta_+) \subset F(\Delta_+)$ is a 
+ subalgebra of $F(\Delta_+)$. Moreover,  $F_0(\Delta_+)$ is the free algebra on $\mathbb{Z} \times \Delta_+$.
+\end{theorem}
+\pause
+ For each $a \in M(\Delta_+)$, define maps $X(a) \in F_0(\Delta_+)$ by
+$$
+X(a)(b) = \delta_{a,b}.
+$$
+In particular, for $(n;\beta) \in M(\Delta_+)_1$, write 
+$$
+X_\beta(n) = X((n;\beta))
+$$
+We will use these to represent $x_\beta(n) \in \bar{\frak{n}}$ once we impose relations.
+
+\end{frame}
+
+\begin{frame}{A completion of $U(\bar{\frak{n}})$}
+ Extend this so that for any $a = (n_1,\dots,n_k;\beta_1,\dots,\beta_k) \in M(\Delta_+)$
+$$
+X(a) = X_{\beta_1}(n_1)\dots X_{\beta_k}(n_k).
+$$
+\pause
+For any $\mu \in F(\Delta_+)$, we may write
+$$
+\mu = \sum_{a \in \mbox{Supp}(\mu)} \mu(a)X(a).
+$$
+\pause
+Consider the ideal $I$ of $F_0(\Delta_+)$ generated by
+\begin{eqnarray*}
+ [X_\alpha(n),X_\beta(m)] - C_{\alpha,\beta}X_{\alpha + \beta}(m+n)
+\end{eqnarray*}
+for $\alpha, \beta \in \Delta_+$ and $m,n \in \mathbb{Z}$, where
+$C_{\alpha,\beta}$ are structure constants.  We
+have:
+$$U(\bar{\frak{n}}) \simeq F_0(\Delta_+)/I$$
+
+\end{frame}
+
+\begin{frame}{A completion of $U(\bar{\frak{n}})$}
+ We now impose similar natural relations on $F(\Delta_+)$. Consider the ideal
+$\widetilde{I}$ of $F(\Delta_+)$ generated by
+\begin{equation*}
+ [X_\alpha(n),X_\beta(m)] - C_{\alpha,\beta}X_{\alpha + \beta}(m+n)
+\end{equation*}
+for $\alpha, \beta \in \Delta_+$ and $m,n \in \mathbb{Z}$,
+where $C_{\alpha,\beta}$ are structure constants.
+ Define the {\em completion} of $U(\bar{\frak{n}})$ by:
+ 
+ \begin{equation} \label{completion}
+  \widetilde{U(\bar{\frak{n}})} := F(\Delta_+) / \widetilde{I}.
+ \end{equation}
+
+ 
+
+\end{frame}
+\begin{frame}{A completion of $U(\bar{\frak{n}})$}
+We define
+$ \widetilde{U(\bar{\frak{n}}_{-})} 
+$
+to be the set of elements $[\mu] \in \widetilde{U(\bar{\frak{n}})}$ which have at least one coset representative
+$\mu \in F(\Delta_+)$ with
+
+\begin{eqnarray*}
+\mathrm{Supp}(\mu) \subset && \biggl\{ (m_1,\dots,m_k; \beta_1, \dots, \beta_k) \in M(\Delta_+) |\\ &&\hspace{.5in} k
+\in \mathbb{N}, m_i \le -1 \mathrm{ \ for \ each \ }i =1,\dots,k \biggr\}.
+\end{eqnarray*}
+It is easy to prove that 
+$$
+\widetilde{U(\bar{\frak{n}}_{-})} \simeq U(\bar{\frak{n}}_{-})
+$$
+\end{frame}
+
+\begin{frame}{A completion of $U(\bar{\frak{n}})$}
+ Similarly, we define
+$ \widetilde{U(\bar{\frak{n}}_{})} \bar{\frak{n}}_{+}
+$
+to be the set of elements $[\mu] \in \widetilde{U(\bar{\frak{n}}_{})}$ which have at least one coset representative
+$\mu \in F(\Delta_+)$ with
+
+\begin{eqnarray*}
+\mathrm{Supp}(\mu) \subset && \biggl\{ (m_1,\dots,m_k; \beta_1, \dots, \beta_k) \in M(\Delta_+) |\\ &&\hspace{.5in} \ k
+\in \mathbb{N}\ \mathrm{ and\ there\ exists\ } i \le
+k\ \mathrm{with}\\&& \hspace{1.5in} \ m_i + \dots + m_k \ge 0 \biggr\}.
+\end{eqnarray*}
+\pause
+$\widetilde{U(\bar{\frak{n}})}$ has the decomposition
+\begin{equation}\label{compdecomp}
+\widetilde{U(\bar{\frak{n}})} = U(\bar{\frak{n}}_{-}) \oplus
+\widetilde{U(\bar{\frak{n}})\bar{\frak{n}}_{+}}
+\end{equation}
+\end{frame}
+
+\begin{frame}{A reformulation of the presentation problem}
+ As formal sums, the $R_t^i$ are not elements of $\widetilde{U(\bar{\frak{n}})}$.
+ \pause Instead define
+\begin{equation*}\label{-1rep}
+\mathcal{R}_t^i = R_{-1,t}^i + \sum_{\begin{array} {c} m_1 \le \dots
+    \le m_{k+1}, \\ m_1+ \cdots + m_{k+1}=-t, \\ m_{k+1} \ge
+    0 \end{array}}c_{m_1, \dots, m_{k+1}} x_{\alpha_i}(m_1) \cdots
+x_{\alpha_i}(m_{k+1}).
+\end{equation*}
+\pause
+The $\mathcal{R}_t^i$ are elements of $\widetilde{U(\bar{\frak{n}})}$, and as operators we have that
+$R_t^i = \mathcal{R}_t^i$, and the $c_{m_1, \dots, m_{k+1}}$ are integers obtained by
+reordering and collecting terms in $R_t^i$.
+\pause
+ We may also
+write, for each $\mathcal{R}_t^i$,
+\begin{equation}\label{Mrep}
+\mathcal{R}_t^i = R_{M,t}^i + \sum_{\begin{array} {c} m_1 \le \dots
+    \le m_{k+1}, \\ m_1+ \cdots + m_{k+1}=-t, \\ m_{k+1} \ge
+    M+1 \end{array}}c_{m_1, \dots, m_{k+1}} x_{\alpha_i}(m_1) \cdots
+x_{\alpha_i}(m_{k+1}).
+\end{equation}
+\end{frame}
+
+
+
+\begin{frame}{A reformulation of the presentation problem}
+  Let $\mathcal{J}$ be the
+two sided ideal of $\widetilde{U(\bar{\frak{n}})}$ generated by the
+$\mathcal{R}_t^i$, $i=1,\dots,n$ and $t \ge k+1$. We have the following theorem:
+\begin{theorem}\label{compidealequivalence}
+We may describe $I_{k\Lambda_0}$ by:
+\begin{equation}
+I_{k\Lambda_0} \equiv {\mathcal J} \; \; \;
+\mbox{\rm modulo} \; \; \;
+\widetilde{U(\bar{\frak{n}})\bar{\frak{n}}_{+}}.
+\end{equation}
+and moreover,
+for  $I_\Lambda$, we have:
+\begin{equation} \label{equation_2}
+I_{\Lambda}\equiv {\mathcal J} + \sum_{\alpha \in \Delta_+}
+U(\bar{\frak{n}})x_{\alpha}(-1)^{k+1-\langle \alpha , \Lambda \rangle}
+\; \; \; \mbox{\rm modulo} \; \; \;
+\widetilde{U(\bar{\frak{n}})\bar{\frak{n}}_{+}}.
+\end{equation}
+\end{theorem}
+\pause
+Define 
+\begin{equation} \label{equation_2}
+\widetilde{I_{\Lambda}}={\mathcal J} + 
+\widetilde{U(\bar{\frak{n}})\bar{\frak{n}}_{+}} + \sum_{\alpha \in \Delta_+}
+U(\bar{\frak{n}})x_{\alpha}(-1)^{k+1-\langle \alpha , \Lambda \rangle}
+\end{equation}
+\end{frame}
+
+\begin{frame}{A reformulation of the presentation problem}
+ As a consequence, with the
+results of [CalLM1] - [CalLM3] and [S], we have that:
+\begin{theorem}
+In the case where $\mathfrak{g} = \mathfrak{sl}(n+1)$ with:
+\begin{itemize}
+\item $n=1$ and $\Lambda = k_0\Lambda_0 + k_1\Lambda_1$ with $k_0 + k_1 = k\ge 1$
+\item$n=2$ and $\Lambda = k_0 \Lambda_0 + k_1\Lambda_1 + k_2\Lambda_2$  with $k_0 + k_1 + k_2 = k\ge 1$
+\item $n\ge 3$ and $\Lambda = \Lambda_i$ with $i=0,\dots,n$
+\end{itemize}
+or $\mathfrak{g}$ is of type $D$ or $E$  
+with $k=1$
+ we have that 
+$$\mbox{Ker}f_\Lambda \equiv \widetilde{I_\Lambda} \; \; \; \mbox{\rm
+   modulo} \; \; \; \widetilde{U(\bar{\frak{n}})\bar{\frak{n}}_{+}}.$$
+\end{theorem}
+
+\end{frame}
+\begin{frame}{A reformulation of the presentation problem}
+We reformulate Conjecture as follows:
+\begin{alertblock}{Conjecture}
+Suppose $\mathfrak{g} = \mathfrak{sl}(n+1)$,
+$k_0,\dots,k_n,k \in \mathbb{N}$ with $k \ge 1$ and $k_0 + \dots + k_n
+= k$.  For each $\Lambda = k_0\Lambda_0 + \dots + k_n \Lambda_n$, we
+have that
+$$\mbox{Ker}f_\Lambda \equiv \widetilde{I_\Lambda}  \; \; \; \mbox{\rm modulo} \; \; \;
+\widetilde{U(\bar{\frak{n}})\bar{\frak{n}}_{+}}$$
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Exact sequences and multigraded dimensions}
+ Finally, using the conjectured presentations:
+ $$
+ \mbox{Ker}f_{k_0 \Lambda_0 + k_i\Lambda_i} = I_{k\Lambda_0} + U(\bar{\frak{n}})x_{\alpha_i}(-1)^{k_0+1},
+ $$
+ we construct a set of exact sequences which give the multigraded dimensions of
+ $W(k_1\Lambda_1 + k_2\Lambda_2)$ and $W(k_{n-1}\Lambda_{n-1} + k_n\Lambda_n)$.
+\end{frame}
+
+\begin{frame}{Exact sequences and multigraded dimensions}
+For each $j=1,\dots,n$, set $\omega_j = \alpha_j - \lambda_j$. \pause
+For
+each $1 \le i \le n-1$ and
+$k_i,k_{i+1} \in \mathbb{N}$ with $k_i + k_{i+1} = k \ge 1$, define maps
+$$\phi_i = e_{\omega_i}^{\otimes k} \circ (1^{\otimes k_i} \otimes
+\mathcal{Y}_c(e^{\lambda_{i-1}},x)^{\otimes k_{i+1}})$$
+$$\psi_i = e_{\omega_{i+1}}^{\otimes k} \circ (1^{\otimes k_{i}}
+\otimes \mathcal{Y}_c(e^{\lambda_{i+2}},x)^{\otimes k_{i+1}})$$ In the
+case that $i=1$, we take $\phi_1 = e_{\omega_1}^{\otimes k}$ and in
+the case that $i=n-1$ we take $\psi_{n-1} = e_{\omega_n}^{\otimes k}$.
+\end{frame}
+\begin{frame}
+\begin{theorem}
+ For $r_1,\dots , r_n , s \in \mathbb{Z}$,
+\begin{eqnarray}
+\lefteqn{\phi_i:W(k_i\Lambda_i + k_{i+1}\Lambda_{i+1})'_{r_1,\dots ,
+    r_n;s}}\\ && \rightarrow W(k_i\Lambda_0 +
+k_{i+1}\Lambda_i)'_{r_1,\dots,r_i + k_i, \dots ,
+  r_n;s-r_{i-1}+r_i-r_{i+1} + k_i}
+\end{eqnarray}
+and
+\begin{eqnarray}
+\lefteqn{\psi_i:W(k_i\Lambda_i + k_{i+1}\Lambda_{i+1})'_{r_1,\dots ,
+    r_n;s}}\\ && \rightarrow W(k_{i+1}\Lambda_0 +
+k_{i}\Lambda_{i+1})'_{r_1,\dots,r_{i+1} + k_{i+1}, \dots ,
+  r_n;s-r_{i}+r_{i+1}-r_{i+2} + k_i},
+\end{eqnarray}
+where we take $r_0 = r_{n+1} = 0$.
+
+\end{theorem}
+\end{frame}
+
+\begin{frame}{Exact sequences and multigraded dimensions}
+ \begin{theorem} 
+Let $k \ge 1$. 
+For any $i$ with $1 \leq i \leq n-1$ and $k_i, k_{i+1} \in \mathbb{N}$ such that 
+$k_i + k_{i+1} = k$, the sequences
+\begin{eqnarray} 
+\lefteqn{W(k_i \Lambda_i + k_{i+1} \Lambda_{i+1}) \stackrel{\phi_i}
+  \longrightarrow} \\ && W(k_i \Lambda_0 +k_{i+1} \Lambda_i)
+\stackrel{1^{\otimes{k_i-1}} \otimes{\cal
+    Y}_{c}(e^{\lambda_i},x)\otimes 1^{\otimes k_{i+1}}}
+\longrightarrow \nonumber \\ && \hspace{2em} W((k_i-1)
+\Lambda_0+(k_{i+1}+1) \Lambda_i) \longrightarrow 0 \nonumber
+\end{eqnarray}
+when $k_i \ge 1$, and
+\begin{eqnarray} 
+\lefteqn{W(k_i \Lambda_i + k_{i+1} \Lambda_{i+1}) \stackrel{\psi_i}
+  \longrightarrow} \\ && W(k_{i+1} \Lambda_0 + k_i \Lambda_{i+1})
+\stackrel{1^{\otimes{k_{i+1}-1}} \otimes{\cal
+    Y}_{c}(e^{\lambda_{i+1}},x)\otimes 1^{\otimes k_{i}}}
+\longrightarrow \nonumber \\ && \hspace{2em} W((k_{i+1}-1)
+\Lambda_0+(k_i+1) \Lambda_{i+1}) \longrightarrow 0 \nonumber
+\end{eqnarray}
+when $k_{i+1} \ge 1$, are exact.
+\end{theorem}
+\end{frame}
+\begin{frame}{Exact sequences and multigraded dimensions}
+ \begin{corollary}
+In the same setting, the following sequences are exact:
+\begin{eqnarray} \label{seq1}
+\lefteqn{0 \longrightarrow W(k_1 \Lambda_1 + k_2 \Lambda_2)
+  \stackrel{e^{\otimes k}_{\omega_1}} \longrightarrow} \\ && W(k_1
+\Lambda_0 + k_2 \Lambda_1) \stackrel{1^{\otimes{k_i-1}} \otimes{\cal
+    Y}_{c}(e^{\lambda_i},x)\otimes 1^{\otimes k_{i+1}}}
+\longrightarrow \nonumber \\ && \hspace{2em} W((k_1-1)
+\Lambda_0+(k_2+1) \Lambda_1) \longrightarrow 0 \nonumber
+\end{eqnarray}
+and
+\begin{eqnarray}\label{seq2}
+\lefteqn{0 \longrightarrow W(k_{n-1} \Lambda_{n -1} + k_{n}
+  \Lambda_{n}) \stackrel{e^{\otimes k}_{\omega_n}} \longrightarrow}
+\\ && W(k_n \Lambda_0 + k_{n-1} \Lambda_n)
+\stackrel{1^{\otimes{k_i-1}} \otimes{\cal
+    Y}_{c}(e^{\lambda_i},x)\otimes 1^{\otimes k_{i+1}}}
+\longrightarrow \nonumber \\ && \hspace{2em} W((k_n-1)
+\Lambda_0+(k_{n-1}+1) \Lambda_n) \longrightarrow 0 \nonumber
+\end{eqnarray}
+\end{corollary}
+\end{frame}
+\begin{frame}{Exact sequences and multigraded dimensions}
+ We use these exact sequences to obtain
+the multigraded dimensions.
+\begin{theorem}\label{gdimthrm}
+Let $k \ge 1$.\small
+Let $k_1, k_2, k_{n-1}, k_n \in \mathbb{N}$ with $k_1 \ge 1$ and $k_n \ge 1$,
+such that $k_1 + k_2 = k$ and $k_{n-1} + k_n = k$. Then
+\begin{eqnarray} 
+\lefteqn{\chi'_{W(k_1\Lambda_1 + k_2\Lambda_2)}(x_1,\dots,x_n,q) =
+  \nonumber }\\ &=&x_1^{-k_1}\chi'_{W((k_1-1)\Lambda_0 +
+  (k_2+1)\Lambda_1)}(x_1q^{-1},x_2q, x_3\dots,x_n,q)\\ && -
+x_1^{-k_1}\chi'_{W(k_1\Lambda_0 +
+  k_2\Lambda_1)}(x_1q^{-1},x_2q,x_3,\dots,x_n,q)\nonumber
+\end{eqnarray}
+and
+\begin{eqnarray}
+\lefteqn{\chi'_{W(k_{n-1}\Lambda_{n-1} + k_n
+    \Lambda_n)}(x_1,\dots,x_n,q) = \nonumber}
+\\ &=&x_n^{-k_n}\chi'_{W((k_n-1)\Lambda_0 +
+  (k_{n-1}+1)\Lambda_n)}(x_1,\dots,x_{n-1}q,x_nq^{-1},q)\\ && -
+x_n^{-k_n}\chi'_{W(k_n\Lambda_0 +
+  k_{n-1}\Lambda_n)}(x_1,\dots,x_{n-1}q,x_nq^{-1},q).\nonumber
+\end{eqnarray}
+\end{theorem}
+\end{frame}
+\begin{frame}{Exact sequences and multigraded dimensions}
+ Georgiev obtained the multigraded dimensions of $W(k_0\Lambda_0 + k_i \Lambda_i)$ for each
+ $i=1,\dots,n$. Combining his results with the above theorem yields:
+ \begin{corollary}\label{gdim}
+In the same setting, we have\small $$
+\chi'_{W(k_1\Lambda_1 + k_2\Lambda_2)}(x_1,\dots,x_n,q)=
+$$
+$$
+=\sum_{}\;
+\bigg(\frac{q^{{r_{1}^{(1)}}^{2}+ \ldots + {r_{1}^{(k)}}^{2} +
+\sum_{t=k_1+1}^{k} r_{1}^{(t)} + \sum_{t=1}^k r_2^{(t)} - r_1^{(t)} }
+(1-q^{r_1^{(k_1)}})}{(q)_{r_{1}^{(1)} -
+r_{1}^{(2)}} \ldots (q)_{r_{1}^{(k - 1)} - r_{1}^{(k)}}
+(q)_{r_{1}^{(k)}}}\bigg)\times$$ $$
+\times \bigg( \frac{q^{{r_{2}^{(1)}}^{2} + \ldots + {r_{2}^{(k)}}^{2} -
+r_{2}^{(1)} r_{1}^{(1)} - \ldots - r_{2}^{(k)}r_{1}^{(k)}
+ }}{(q)_{r_{2}^{(1)}
+- r_{2}^{(2)}} \ldots (q)_{r_{2}^{(k - 1)}
+- r_{2}^{(k)}} (q)_{r_{2}^{(k)}}}\bigg) \times$$
+$$\times\cdots\times \bigg(
+\frac{q^{{r_{n}^{(1)}}^{2} + \ldots + {r_{n}^{(k)}}^{2} -
+r_{n}^{(1)} r_{n - 1}^{(1)} - \ldots - r_{n}^{(k)}r_{n - 1}^{(k)}
+}}{(q)_{r_{n}^{(1)}
+- r_{n}^{(2)}} \ldots (q)_{r_{n}^{(k - 1)}
+- r_{n}^{(k)}} (q)_{r_{n}^{(k)}}}\bigg) x_1^{-k_1 + \sum_{i=1}^k r_1^{(i)}}\cdots x_n^{\sum_{i=1}^n r_n^{(i)}}$$
+\end{corollary}
+
+\end{frame}
+\begin{frame}{Exact sequences and multigraded dimensions}
+ \begin{corollary}
+  and\small 
+  $$
+\chi'_{W(k_{n-1}\Lambda_{n-1} + k_{n}\Lambda_n)}(x_1,\dots,x_n,q)=
+$$
+$$
+=\sum_{}\;
+\bigg(\frac{q^{{r_{1}^{(1)}}^{2}+ \ldots + {r_{1}^{(k)}}^{2} 
+}}{(q)_{r_{1}^{(1)} -
+r_{1}^{(2)}} \ldots (q)_{r_{1}^{(k - 1)} - r_{1}^{(k)}}
+(q)_{r_{1}^{(k)}}}\bigg)\times$$ $$\times
+\bigg(\frac{q^{{r_{2}^{(1)}}^{2} + \ldots + {r_{2}^{(k)}}^{2} -
+r_{2}^{(1)} r_{1}^{(1)} - \ldots - r_{2}^{(k)}r_{1}^{(k)}+
+}}{(q)_{r_{2}^{(1)}
+- r_{2}^{(2)}} \ldots (q)_{r_{2}^{(k - 1)}
+- r_{2}^{(k)}} (q)_{r_{2}^{(k)}}}\bigg)\times$$
+$$\times\cdots\times
+\bigg(\frac{q^{{r_{n}^{(1)}}^{2} + \ldots + {r_{n}^{(k)}}^{2} -
+r_{n}^{(1)} r_{n - 1}^{(1)} - \ldots - r_{n}^{(k)}r_{n - 1}^{(k)}+
+\sum_{t=k_n+1}^{k} r_{n}^{(t)}
+}
+}{(q)_{r_{n}^{(1)}
+- r_{n}^{(2)}} \ldots (q)_{r_{n}^{(k - 1)}
+- r_{n}^{(k)}} (q)_{r_{n}^{(k)}}}\bigg) \times
+$$
+$$\times q^{\sum_{t=1}^kr_{n-1}^{(t)}-r_{n}^{(t)}}(1-q^{r_n^{(k_n)}})
+x_1^{\sum_{i=1}^k r_1^{(i)}}\cdots x_n^{-k_n + \sum_{i=1}^n r_n^{(i)}}$$
+where the sums are taken over decreasing sequences 
+$r_j^{(1)} \ge r_j^{(2)} \ge \dots \ge r_j^{(k)} \ge 0$ for each $j=1,\dots,n$.
+ \end{corollary}
+\end{frame}
+
+
+\begin{frame}{ }
+\begin{center}
+{\Huge Thank you!}
+\end{center}
+\end{frame}
+
+\begin{frame}{References}
+\begin{tiny}
+$\star$ [C] C. Calinescu, Principal subspaces of higher-level standard $\widehat{\frak{sl}(3)}$-modules. {\em J. Pure Appl. Algebra} {\bf 210} (2007),  559–-575.\\ 
+\vspace{0.1in}
+$\star$[CalLM1]C. Calinescu, J. Lepowsky and A. Milas,
+Vertex-algebraic structure of the principal subspaces of certain $A_1^{(1)}$-modules. I. Level one case. {\em Internat. J. Math.} {\bf 19} (2008), no. 1, 71–-92. \\
+\vspace{0.1in}
+$\star$[CalLM2] C. Calinescu, J. Lepowsky and A. Milas,
+Vertex-algebraic structure of the principal subspaces of certain $A_1^{(1)}$-modules. II. Higher-level case. {\em J. Pure Appl. Algebra} {\bf 212} (2008), 1928–-1950.\\
+\vspace{0.1in}
+
+$\star$[CalLM3] C. Calinescu, J. Lepowsky and A. Milas,
+Vertex-algebraic structure of the principal subspaces of level one modules for the untwisted affine Lie algebras of types $A, D, E$. {\em J. Algebra} {\bf 323} (2010), 167–-192.\\
+\vspace{0.1in}
+
+$\star$[CLM1] S. Capparelli, J. Lepowsky and A. Milas, The
+Rogers-Ramanujan recursion and intertwining operators, {\em
+Comm. in Contemp. Math.}, {\bf 5} (2003), 947-966.\\
+\vspace{0.1in}
+
+$\star$[CLM2] S. Capparelli, J. Lepowsky and A. Milas, The
+Rogers-Selberg recursions, the Gordon-Andrews identities and
+intertwining operators, {\em The Ramanujan J.} {\bf 12} (2006),
+379-397.\\
+\vspace{0.1in}
+
+$\star$[FS] B. Feigin and A. Stoyanovsky, Functional models for
+representations of current algebras and semi-infinite Schubert cells
+(Russian), {\em Funktsional Anal. i Prilozhen.} {\bf 28} (1994),
+68-90; translation in: {\em Funct. Anal. Appl.} {\bf 28} (1994),
+55-72.
+
+\vspace{0.1in}
+$\star$[LW] J. Lepowsky and R. L. Wilson, The structure of
+  standard modules, I: Universal algebras and the Rogers-Ramanujan
+  identities, {\em Invent. Math.} {\bf 77} (1984), 199-290.
+\end{tiny}
+\end{frame}
+
+
+
+
+
+\end{document}
