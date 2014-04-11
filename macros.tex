@@ -7,7 +7,7 @@
 % Cycle Modules - C, C', D
 % Sheaves - F, G
 % Chain complexes: F^*, G^*
-% Functors: 
+% Functors: greek letters
 % Maps between sheaves: f, g
 % Counit, unit: \epsilon, \eta
 % Natural transformations: later lower case greek letters
@@ -47,6 +47,9 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\tensor}{\otimes}
+\newcommand{\compact}{\mathrm{rep}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Unit}{\mathbbm{1}}
 
 % related to exposition
 \newcommand{\DEF}[1]{\emph{#1}}
@@ -54,6 +57,11 @@
 \newcommand{\comment}[1]{}
 \newcommand{\tinyskip}{\vskip 5pt}
 \newcommand{\itemhead}[1]{\textsc{#1}}
+\newcommand{\CF}{\emph{cf}.\;}
+\newcommand{\loccit}{\emph{loc.\,cit.}}
+
+% quasi-invertible
+\newcommand{\SemiInvertible}{semi-representable\,}
 
 % phrases that are often written but should not
 % have to be
@@ -89,12 +97,15 @@
 
 \newcommand{\pfbullet}[1]{
    \vskip 10pt
-   \noindent #1\;}
+   \noindent #1}
 
 % categories, sets, class
+\newcommand{\Ab}{\mathbf{Ab}}
 \newcommand{\Class}[1]{\mathscr{#1}}
 \newcommand{\Cat}[1]{\mathscr{#1}}
+\newcommand{\CatLoc}[2]{\Cat{#1}_{#2}}
 \newcommand{\DCat}[1][D]{\mathbf{#1}}
+\newcommand{\DCatLoc}[2][D]{\DCat[#1][#2^{-1}]}
 \newcommand{\Obj}[1]{\mathrm{Obj}(#1)}
 \renewcommand{\hom}{\mathrm{Hom}}
 \newcommand{\adj}{\dashv}
@@ -102,11 +113,15 @@
 % homological algebra
 \newcommand{\rhom}{\mathrm{RHom}}
 \newcommand{\Tot}{\mathrm{Tot}}
+\newcommand{\gltrunc}[1]{\tau_{\leq #1}}
+\newcommand{\ggtrunc}[1]{\tau_{\geq #1}}
+\newcommand{\HH}{\mathbf{H}}
 
 % algebraic geometry
 \newcommand{\basefield}{k}
 \renewcommand{\O}{\mathcal{O}}
 \newcommand{\Ox}{\O^*}
+\newcommand{\Oxn}[1][n]{\O^{* #1}}
 \newcommand{\sheaf}[1]{\underline{#1}}
 \newcommand{\A}{\mathbb{A}}
 \newcommand{\Gm}{\mathbb{G}_m}
@@ -119,12 +134,19 @@
 \newcommand{\Etale}[1]{#1_{\mathrm{\acute{e}t}}}
 \newcommand{\etale}{a_{\mathrm{\acute{e}t}}}
 \newcommand{\ihom}{\sheaf{\hom}}
+\newcommand{\Pic}{\mathrm{Pic}}
+\newcommand{\CH}{CH}
+\newcommand{\PSh}{PSh}
+\newcommand{\ShEt}{Sh_{\mathrm{\acute{e}t}}}
+\newcommand{\ShNis}{Sh_{\mathrm{Nis}}}
+\newcommand{\QCoh}{\mathbf{QC}}
 
 % sheaves with transfers
 \newcommand{\tL}{\otimes^{\mathbb{L}}}
 \newcommand{\ttr}{\otimes^{\mathrm{tr}}}
 \newcommand{\ttrNis}{\ttr_{\mathrm{Nis}}}
 \newcommand{\tLNis}{\tL_{\mathrm{Nis}}}
+\newcommand{\tAL}{\tensor_{\ALocal}}
 \newcommand{\Cor}{Cor}
 \newcommand{\ShCor}{ShCor}
 \newcommand{\ShEtCor}{Sh_{\mathrm{\acute{e}t}}Cor}
@@ -132,6 +154,7 @@
 \newcommand{\DSh}{\mathbf{DSh}}
 \newcommand{\homDSh}{\rhom_{\DSh}}
 \newcommand{\ihomDSh}{\sheaf{\rhom}_{\DSh}}
+\newcommand{\ihomAL}{\sheaf{\rhom}_{\ALocal}}
 \newcommand{\Ztr}{\Z_{\mathrm{tr}}}
 \newcommand{\Rtr}[1][R]{#1_{\mathrm{tr}}}
 \newcommand{\CZtr}{C_*\Ztr}
@@ -144,10 +167,17 @@
 \newcommand{\PST}{\mathbf{PST}}
 
 % homotopy invariant sheaves with transfers
+\newcommand{\HIPST}{\mathbf{HI}_{pre}}
 \newcommand{\HI}{\mathbf{HI}}
+\newcommand{\HIEt}{\HI_{\mathrm{\acute{e}t}}}
+\newcommand{\HINis}{\HI_{\mathrm{Nis}}}
 \newcommand{\LHI}[2][1]{#2(#1)}
+\newcommand{\LHIs}[2][1]{#2(#1)^{\mathrm{HI}}}
 \newcommand{\RHI}[2][1]{#2_{-#1}}
+\newcommand{\RHIs}[2][1]{#2_{-#1}^{\mathrm{HI}}}
 \newcommand{\tHI}{\,\otimes^H}
+\newcommand{\tHM}{\,\hat{\otimes}^H}
+\newcommand{\hS}[1]{h_{#1}}
 \newcommand{\homHI}{\hom_{\HI}}
 \newcommand{\ihomHI}{\sheaf{\hom}_{\HI}}
 \newcommand{\cuHI}{\epsilon}
@@ -155,16 +185,27 @@
 \newcommand{\spectHI}{\sigma^\infty}
 
 % motives
+\newcommand{\MH}{H}
 \newcommand{\suslC}[1][*]{C_{#1}}
-\newcommand{\DShCor}{\mathrm{D}^-\ShCor}
+\newcommand{\DShCor}{\mathbf{D}^-\mathbf{ST}}
+\newcommand{\ALocal}{\Cat{L}}
 \newcommand{\DM}{\mathbf{DM}}
-\newcommand{\DMeff}{\DM^{\mathrm{eff}}}
+\newcommand{\DMeff}{\DM^{\mathrm{eff},-}}
+\newcommand{\DMeffgm}{\DMeff_{gm}}
 \newcommand{\tDM}{\otimes^L}
+\newcommand{\homDMf}{\hom_{\DMeff}}
+\newcommand{\homDM}{\hom_{\DM}}
 \newcommand{\ihomDM}{\sheaf{\rhom}_{\DM}}
 \newcommand{\ihomDMf}{\sheaf{\rhom}_{\DMeff}}
 \newcommand{\rhomDM}{\rhom_{\DM}}
 \newcommand{\rhomDMf}{\rhom_{\DMeff}}
 \newcommand{\BiMot}{\DMeff_0}
+\newcommand{\tZ}[2][1]{{#2}(#1)}
+\newcommand{\hZ}[2][1]{{#2}_{-#1}}
+\newcommand{\LDMf}[1]{L^{#1}}
+\newcommand{\RDMf}[1]{R^{#1}}
+\newcommand{\spectDM}{\Sigma^\infty}
+\newcommand{\loopDM}{\Omega^\infty}
 
 % homotopy modules
 \newcommand{\HM}{\HI_*}
@@ -194,17 +235,34 @@
 % slice filtration, torsion filtration
 \newcommand{\slice}[1]{s_#1}
 \newcommand{\sgHI}[1]{\sigma^{#1}}
-\newcommand{\tlHI}[1]{\phi^{\leq #1}}
+\newcommand{\tlHI}[1]{\phi^{< #1}}
 \newcommand{\tgHI}[1]{\phi^{\geq #1}}
+\newcommand{\TLHI}[2]{{#2}^{< #1}}
+\newcommand{\TGHI}[2]{{#2}^{\geq #1}}
 \newcommand{\tconst}[1]{\phi_{#1}}
-\newcommand{\THI}[1]{\tgHI{#1}\HI}
-\newcommand{\TFHI}[1]{\tlHI{#1}\HI}
+\newcommand{\THI}[1]{\HI^{\geq #1}}
+\newcommand{\TFHI}[1]{\HI^{< #1}}
+\newcommand{\THM}[1]{\HM^{\geq #1}}
+\newcommand{\TFHM}[1]{\HM^{< #1}}
+\newcommand{\TFCycMod}[1]{\CycMod^{< #1}}
+\newcommand{\TCycMod}[1]{\CycMod^{\geq #1}}
 \newcommand{\TCat}[1]{\mathbf{T}_{#1}}
 \newcommand{\TFCat}[1]{\mathbf{F}_{#1}}
-\newcommand{\slDM}[1]{\nu^{\leq #1}}
+\newcommand{\slDM}[1]{\nu^{< #1}}
 \newcommand{\sgDM}[1]{\nu^{\geq #1}}
 \newcommand{\sliceDM}[1]{\nu_{#1}}
 \newcommand{\fIDM}[1]{c_{#1}}
 \newcommand{\sliceTriangle}[2]{
    \sgDM{#1}#2 \to #2 \to \slDM{#1}#2 \to \sgDM{#1}#2[1]
 }
+\newcommand{\GFiltDM}[2][*]{#2_{\geq #1}}
+\newcommand{\LFiltDM}[2][*]{#2_{< #1}}
+
+% general filtration macros
+\newcommand{\corad}[1]{\phi^{< #1}}
+\newcommand{\Corad}[2]{#2^{< #1}}
+\newcommand{\coradD}[1]{\nu^{< #1}}
+\newcommand{\prerad}[1]{\phi^{\geq #1}}
+\newcommand{\Prerad}[2]{#2^{\geq #1}}
+\newcommand{\preradD}[1]{\nu^{\geq #1}}
+\newcommand{\SGFilt}[2]{#2(#1)}

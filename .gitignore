@@ -30,6 +30,8 @@
 *.vrb
 *.xdy
 *.tdo
+*.back
+*.orig
 
 *.sw*
 *.pdf

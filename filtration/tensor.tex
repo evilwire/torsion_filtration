@@ -1,0 +1,141 @@
+We now discuss the tensor properties of the filtration. Let us
+first consider the following notion:
+
+\begin{defn}\label{def_graded_tensor}
+Let $(\Cat{C}, \tensor, \Unit)$ be a monoidal category. We say 
+that $\Cat{C}$ is a weakly filtered monoidal category if there 
+exists a weak filtration $(\Cat{C}_*, \phi_*)$ such that for all
+integers $m$ and $n$, $\Cat{C}_m \tensor \Cat{C}_n \subseteq
+\Cat{C}_{m + n}$.
+\end{defn}
+
+\begin{ex}
+Here are two examples of weakly filtered monoidal categories
+that we have encountered in this thesis. Recall from Definition 
+\ref{def_GFiltDM} that $\GFiltDM[k]{\DM}$ is the full subcategory
+of the objects $(M, n)$ in $\DM$ such that $n \geq k$. Using the
+description of the tensor product on $\DM$ given in Definition
+\ref{def_tensor_DM}, we see that for $(M, n)$ in $\GFiltDM[k]{\DM}$
+and $(M', n')$ in $\GFiltDM[l]{\DM}$, $(M, n) \tDM (M', n') =
+(M \tensor M', n + n')$ is an object in $\GFiltDM[k + l]{\DM}$.
+
+Similarly, $(\HI(*), \sgHI{*})$ defines a graded symmetric 
+monoidal category on $\HI$ under $\tHI$. To see this, recall
+from the first paragraph in Section \ref{sect_torsion_filt_on_HI}
+that $F$ is in $\LHI[n]{\HI}$ if $F \cong \LHI[n]{F'}$. 
+Furthermore, since $\LHI[n]{F} = F \tHI (\Ox)^{\tensor n}$, 
+$\LHI[n]{F} \tHI \LHI[m]{G} = \LHI[n + m](F \tHI G).$ Therefore, 
+$\LHI[n]{\HI} \tHI \LHI[m]{\HI} \subseteq \LHI[n + m]{\HI}$.
+\end{ex}
+
+We first show that $(\THI{*}, \tgHI{*})$ defines a weakly filtered 
+monoidal category on $\HI$. We begin by proving the following
+proposition:
+
+\begin{prop}\label{prop_tensor_and_tfilt_HI}
+For $F$ in $\THI{n}$ and $G$ in $\THI{m}$, $F \tHI G$
+is an object of $\THI{n + m}$.
+\end{prop}
+\begin{proof}
+Since $\THI{n + m}$ is the torsion subcategory associated to the
+coradical $\tlHI{n + m}$, to show that $F \tHI G$ is in 
+$\THI{n + m}$, it suffices to show that $\tlHI{n + m}(F \tHI G) = 
+0$. Since $G$ is in $\THI{n}$, by Proposition 
+\ref{prop_THI_properties}(1), the counit $\epsilon: L^mR^m(G) \to 
+G$ is surjective. By \cite[5.2]{DegModHom}, $F \tDM -$ is right 
+$t$-exact on $\DMeff$. Therefore, by Proposition 
+\ref{prop_t_exact_implies_exact}, the functor $F \tHI -$ is right 
+exact, and the following map is surjective:
+\begin{equation}\label{eq_tensor_tfilt_HI_1}
+F \tHI L^mR^m(G) \xrightarrow{\epsilon_F \tHI G} F \tHI L^mR^m(G).
+\end{equation}
+Replacing $F$ by $L^nR^n(F)$, we see that the following map is
+also surjective:
+\begin{equation}\label{eq_tensor_tfilt_HI_2}
+L^nR^n(F) \tHI L^mR^m(G) \xrightarrow{L^nR^n(F) \tHI \epsilon_G}
+L^nR^n(F) \tHI G.
+\end{equation}
+Composing \eqref{eq_tensor_tfilt_HI_1} and 
+\eqref{eq_tensor_tfilt_HI_2}, we obtain a surjection
+\[
+f: L^nR^n(F) \tHI L^mR^m(G) \to F \tHI G.
+\]
+On the other hand, since $L^nR^n(F) \tHI L^mR^m(G) = 
+L^{n + m}(R^n(F) \tHI R^m(G))$, the object $L^nR^n(F) \tHI L^mR^m(G)$
+is in $\LHI[n + m]{\HI}$, and by Proposition
+\ref{prop_THI_properties}, 
+\[
+\tlHI{n + m}(L^nR^n(F) \tHI L^mR^m(G)) = 0. 
+\]
+Since $\tlHI{n + m}$ is a coradical, which is right exact, the map
+\[
+\tlHI{n + m}(f) : \tlHI{n + m}(L^nR^n(F) \tHI L^mR^m(G)) \to
+   \tlHI{n + m}(F \tHI G)
+\]
+is onto. Therefore, $\tlHI{n + m}(F \tHI G) = 0$ and 
+$F \tHI G$ is an object in $\THI{n + m}$, as desired.
+\end{proof}
+
+The following is a direct consequence of the proposition above:
+
+\begin{cor}\label{cor_graded_tensor_HI}
+There exists a graded symmetric monoidal structure on $\HI$ by
+$(\THI{*}, \tgHI{*})$.
+\end{cor}
+
+We now show that the weakly filtered symmetric monoidal structure 
+on $\HI$ can be extended to a weakly filtered symmetric monoidal 
+structure on $\HM$. For the following, by abuse of notation, let 
+$F_*$ denote the object $(F_*, \deloop_*)$ in $\HM$. Recall from
+\cite[1.16]{DegModHom} the following definition of the symmetric 
+tensor product on $\HM$:
+
+\begin{defn}
+Let $F_*$ and $G_*$ be two $\Z$-graded homotopy invariant sheaves
+with transfers. We define $F_* \tHM G_*$ to be the $\Z$-graded 
+homotopy invariant sheaf with transfers given by
+\[
+(F_* \tHM G_*)_n \defeq \bigoplus_{p + q = n} F_p \tHI G_q,
+\]
+where $F_p$ and $G_q$ are the $p$-th and $q$-th graded component
+of $F_*$ and $G_*$ respectively. This construction defines a
+symmetric tensor product $\tHM$ on the category of $\Z$-graded
+homotopy invariant sheaves with transfers.
+
+By \cite[1.19]{DegModHom}, $\tHM$ induces a symmetric tensor 
+product on $\HM$, which is uniquely determined by
+\end{defn}
+
+\begin{prop}\label{prop_graded_mon_struct_HM}
+Let $n$ and $m$ be arbitrary integers, and fix $F_*$ in $\THM{n}$ 
+and $G_*$ in $\THM{m}$. Then, $F_* \tHI G_*$ is an object of 
+$\THM{n + m}$.
+\end{prop}
+\begin{proof}
+By Corollary \ref{cor_tgHM_prop}, it suffices to show that $\tgHM{n + m}(F_*
+\tHI G_*) = F_* \tHI G_*$.
+
+Regard the objects of $\HM$ as pairs $(F, k)$, where $F \in \HI$
+and $k$ is an arbitrary integer. It is straightforward to 
+verify from the definition of $\tgHM{*}$ and Proposition \ref{prop_tl_L_R} 
+that
+\[
+\tgHM{n}((F, k)) = \begin{cases}
+(\tgHI{n - k}F, k) &\textrm{if }n > k\\
+(F, k)             &\textrm{otherwise}.
+\end{cases}
+\]
+Therefore, we are reduced to showing that for $F$ and $G$ in
+$\THI{n}$ and $\THI{n}$ respectively, 
+$\tgHI{n + m}(F \tHI G) = F \tHI G$. This follows directly from 
+Corollary \ref{cor_graded_tensor_HI}.
+\end{proof}
+
+Finally, we obtain the following corollary as a direct consequence
+of the proposition above:
+
+\begin{cor}\label{cor_graded_mon_struct_HM}
+There exists a weakly filtered symmetric monoidal structure on $\HM$ by
+$(\THM{*}, \tgHM{*})$.
+\end{cor}
+

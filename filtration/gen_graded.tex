@@ -1,0 +1,82 @@
+\section{Graded monoidal structures on torsion monoidal categories}
+
+Finally, the descending filtrations, together with
+the respective symmetric monoidal structure, give rise to a
+graded monoidal structure (see Definition 
+\ref{def_graded_tensor}). In order to formulate our final set of 
+results, let us first consider the following proposition which 
+follows straightforward from the Cancellation property (Definition
+\ref{def_torsion_monoidal_category} (2)):
+
+\begin{prop}
+There exists a fully faithful $t$-exact functor $i: \DCat \to 
+\DCatLoc{S}$, given by $M \mapsto (M, 0)$ that realizes $\DCat$ 
+as a full subcategory of $\DCatLoc{S}$. The restriction of $i$ 
+to the heart of $\DCat$ induces a corresponding fully faithful 
+functor $i : \Cat{C} \to \CatLoc{C}{S}$.
+\end{prop}
+
+By definition of $i$, $\DCat$ is identified with the full 
+subcategory $\Prerad{0}{\DCatLoc{S}}$ of $\DCatLoc{S}$, and
+$\Cat{C}$ is identified with $\Prerad{0}{\CatLoc{C}{S}}$.
+The following is an easy of the definition:
+
+\begin{thm}\label{thm_graded_monoid_DCat}
+There is a graded monoidal structure on $\DCatLoc{S}$ defined by
+the filtration $(\Prerad{*}{\DCatLoc{S}}, \preradD{*})$ and a 
+graded monoidal structure on $\DCat$ defined by the filtration
+$(\Prerad{*}{\DCat}, \preradD{*})$. The two graded monoidal 
+structures respects the inclusion of $\DCat$ into $\DCatLoc{S}$ in 
+the sense that, for all natural numbers $n$ and $m$, the following 
+functor diagram commutes:
+\[
+\begin{tikzcd}
+\Prerad{n}{\DCat} \tensor \Prerad{m}{\DCat} \arrow{r} \arrow{d}{i} &
+\Prerad{n + m}{\DCat} \arrow{d}{i} \\
+\Prerad{n}{\DCatLoc{S}} \tensor \Prerad{m}{\DCatLoc{S}} \arrow{r} &
+\Prerad{n + m}{\DCatLoc{S}}
+\end{tikzcd}
+\]
+\end{thm}
+
+By applying $\HH^0$ to the diagram in Theorem 
+\ref{thm_graded_monoid_DCat}, we obtain the following:
+
+\begin{cor}
+There is a graded monoidal structure on $\CatLoc{C}{S}$ defined
+by the filtration $(\SGFilt{*}{\CatLoc{C}{S}}, \sgHI{*})$ and a graded 
+monoidal structure on $\Cat{C}$ defined by $(\SGFilt{*}{\Cat{C}}, 
+\sgHI{*})$. That is, for natural numbers $n$ and $m$, the 
+following functor diagram commutes:
+\[
+\begin{tikzcd}
+\SGFilt{n}{\Cat{C}} \tensor \SGFilt{m}{\Cat{C}} \arrow{r} \arrow{d}{i} &
+\SGFilt{n + m}{\Cat{C}} \arrow{d}{i} \\
+\SGFilt{n}{\CatLoc{C}{S}} \tensor \SGFilt{m}{\CatLoc{C}{S}} \arrow{r} &
+\SGFilt{n + m}{\CatLoc{C}{S}}
+\end{tikzcd}
+\]
+\end{cor}
+
+Finally, the arguments for Proposition \ref{prop_graded_mon_struct_HM} go 
+through to show that we also have a graded monoidal structure 
+associated with the torsion filtration:
+
+\begin{thm}
+There is a graded monoidal structure on $\CatLoc{C}{S}$ defined
+by the strong filtration $(\Prerad{*}{\CatLoc{C}{S}}, \prerad{*})$ 
+and a graded monoidal structure on $\Cat{C}$ defined by 
+$(\Prerad{*}{\Cat{C}}, \prerad{*})$. As in the case for $\DCat$ and 
+$\DCatLoc{S}$, the two graded monoidal structures are compatible 
+via the inclusion of $\Cat{C}$ into $\CatLoc{C}{S}$. That is, for 
+natural numbers $n$ and $m$, the following functor diagram 
+commutes:
+\[
+\begin{tikzcd}
+\Prerad{n}{\Cat{C}} \tensor \Prerad{m}{\Cat{C}} \arrow{r} \arrow{d}{i} &
+\Prerad{n + m}{\Cat{C}} \arrow{d}{i} \\
+\Prerad{n}{\CatLoc{C}{S}} \tensor \Prerad{m}{\CatLoc{C}{S}} \arrow{r} &
+\Prerad{n + m}{\CatLoc{C}{S}}.
+\end{tikzcd}
+\]
+\end{thm}

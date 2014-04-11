@@ -8,8 +8,6 @@
 \usepackage{mathrsfs}
 \usepackage{stmaryrd}
 \usepackage{bbm}
-\usepackage{enumerate}
-\usepackage{enumitem}
 
 \usepackage{tikz}
 \usetikzlibrary{matrix}
@@ -36,68 +34,43 @@
 \newtheorem{ex}[equation]{Example}
 \newtheorem{constr}[equation]{Construction}
 
-% no number
-\newtheorem*{rmk*}{Remark}
-
-\input{macros}
-
 \special{papersize=8.5in,11in} %***for A4-default configurations on servers 
 \begin{document} 
 \phd 
 \title{Slice Filtration and Torsion Theory in Motivic Cohomology}
-\author{KNIGHT FU}
+\author{Knight Fu}
 \program{Mathematics} 
-\director{Charles Weibel}
+\director{Professor Charles Weibel}
 \approvals{4} 
 \submissionyear{2014} 
-\submissionmonth{May}
-\input{abstract}
+\submissionmonth{April} 
+\abstract{This is the abstract} 
 
 \beforepreface 
-\input{acknowledge}
+\acknowledgements{The body of the acknowledgements}
 
-\dedication{To my high school math teacher, John Reutershan.}
+\dedication{The body of the dedication} 
 
 \afterpreface 
-\input{intro}
+\chapter{Introduction} 
+Here is the introduction. 
 
-% torsion theory
-\input{torsion/basic}
+\chapter{First chapter} 
+\section{Another section} 
 
-% basic motivic cohomology
-\input{motcoh/hist}
-
-% DMeff and DM
-\input{motcoh/dm}
-
-% Slice filtration on DMeff, DM
-\input{motcoh/slicefilt}
-
-% Cycle Modules and HI_*
-% \input{cycmod/hm}
-
-% Slice filtration on homotopy invariant sheaves
-\input{filtration/hi}
-
-% Slice filtration on cycle modules
-\input{filtration/cycmod}
-
-% Summary
-\input{filtration/summary.tex}
-\input{biblio}
-
-%\begin{vita} 
-%\heading{Knight W. Fu} \vspace{15pt} 
+\subsection{A subsection}
+\begin{vita} 
+\heading{The author of my thesis} \vspace{15pt} 
 % Colleges attended, with dates, subjects, degrees
-%\begin{descriptionlist}{2002-2014} %reverse chronological order 
-%\item[2014] Ph. D. in Mathematics, Rutgers University 
-%\item[2002-08] B. Sc. in Mathematics from Massachusetts Institute of Technology
-%\item[2002] Graduated from Bronx High School of Science
-%\end{descriptionlist} 
-%\medskip 
-%\begin{descriptionlist}{2008-2013} %positions held since BS degree 
-%\item[2009-2013] Teaching assistant, Department of Mathematics, Rutgers University 
-%\end{descriptionlist} 
-%\end{vita} 
+\begin{descriptionlist}{xxxxx-xxxxx} %reverse chronological order 
+\item[2014] Ph. D. in Mathematics, Rutgers University 
+\item[2002-08] B. Sc. in Mathematics from Massachusetts Institute of Technology
+\item[2002] Graduated from Bronx High School of Science
+\end{descriptionlist} 
+\medskip 
+\begin{descriptionlist}{2008-2013} %positions held since BS degree 
+\item[2009-2013] Teaching assistant, Department of Mathematics, Rutgers University 
+\end{descriptionlist} 
+\end{vita} 
 \end{document} 
 %%%%%%%%% End of thesis.tex

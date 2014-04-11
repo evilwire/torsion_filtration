@@ -1,0 +1,744 @@
+\newpage
+\chapter{Torsion Filtrations on Torsion Monoidal Categories}
+\label{sect_filtration_general}
+
+In this chapter, we generalize the key results proven in the last
+three chapters by axiomatizing the necessary components to define
+torsion filtrations on $t$-categories $\DCat$ with a triangulated 
+tensor structure. Let us begin by defining the following notion:
+
+\begin{defn}\label{def_torsion_monoidal_category}
+Let $(\DCat, \tensor, \Unit)$ be a tensor monoidal category with 
+a $t$-structure, and let $\Cat{C}$ be its heart. We say that 
+$\DCat$ is a \DEF{torsion monoidal category} if $\DCat$ is 
+equipped with 
+\begin{enumerate}
+\item (\itemhead{Partial Internal Hom}) a partial internal hom
+structure $(\ihom, \DCat^{\compact})$ (see Definition
+\ref{def_tensor_triang_cat}).
+
+\item (\itemhead{Tate Object}) an object $S$ in both 
+   $\DCat^{\compact}$ and the heart of $\DCat$ called the 
+   \DEF{Tate object}. In particular, $\ihom(S, -)$ is right
+   adjoint to $S \tensor -$.
+\end{enumerate}
+
+\noindent such that the following conditions hold:
+
+\begin{enumerate}
+\item $\Unit$ is an object of $\Cat{C}$,
+
+\item $\tensor$ is right $t$-exact in both factors,
+
+\item (\itemhead{Cancellation}) $\ihom(S, S \tensor M) = M$,
+
+\item $\ihom(S, -)$ is $t$-exact.
+\end{enumerate}
+\end{defn}
+
+If $\DCat$ is a torsion monoidal category, we will write $\HH^0$
+for the cohomological functor from $\DCat$ to its heart. We also 
+write $L: \DCat \to \DCat$ for the functor sending an object $M$ 
+in $\DCat$ to $M \tensor S$, and $R$ for the functor sending $M$
+to $\ihom(S, M)$, where $S$ is the Tate object. By assumption,
+$(L, R)$ is an adjoint pair. Let $L^n$ and $R^n$ denote the $n$-th 
+iterations of $L$ and $R$ respectively. Since $L$ is left adjoint 
+to $R$, $L^n$ is left adjoint to $R^n$. Furthermore, by the
+Cancellation axiom (Definition 
+\ref{def_torsion_monoidal_category}(3)), $R^nL^n$ is naturally 
+isomorphic to the identity.
+
+Since $\tensor$ is right $t$-exact, it induces a symmetric 
+monoidal and a partial internal hom structure on the heart 
+$\Cat{C}$ of $\DCat$, which we represent by $\tensor^{\Cat{C}}$ 
+and $\ihom_{\Cat{C}}$. The tensor and internal hom bifunctors
+are given by
+\[
+C \tensor^{\Cat{C}} C' \defeq \HH^0(C \tensor C') 
+   \;\;\;\textrm{ and }\;\;\;
+\ihom_{\Cat{C}}(C, C') \defeq \HH^0(\ihom(C, C')).
+\]
+
+Since $\ihom(S, -)$ is assumed to be $t$-exact, Proposition 
+\ref{prop_ihomC_is_partial_ihom} states that $S$ is a \SemiInvertible
+object of $\Cat{C}$, i.e. $\ihom_{\Cat{C}}(S, -)$ is right
+adjoint to $- \tensor^{\Cat{C}} S$. We let $L_H$ and $R_H$ denote 
+the endofunctor on $\Cat{C}$ given by $F \mapsto F 
+\tensor^{\Cat{C}} S$ and $F \mapsto \ihom_{\Cat{C}}(S, F)$ 
+respectively. By convention, let $L_H^0$ and $R_H^0$ be the 
+identity functor on $\Cat{C}$, and let $L_H^n$ and $R_H^n$ denote 
+the $n$-th iteration of $L_H$ and $R_H$ respectively. Since $L_H$ 
+is left adjoint to $R_H$, $L_H^n$ is left adjoint to $R_H^n$ for
+every integer $n > 0$.
+
+Here are some additional results about the functors $L_H$ and 
+$R_H$ that we will refer to throughout the remainder of this 
+chapter. The following proposition generalizes results from
+Lemma \ref{lem_HH_commutes_with_contract}, Proposition 
+\ref{prop_LR_commute_with_HH}, and Proposition 
+\ref{prop_unit_iso}.
+
+\begin{prop}\label{prop_LH_RH_properties}
+For all integers $n > 0$,
+\begin{enumerate}
+\item $R_H^n$ is an exact functor,
+
+\item there exists a natural isomorphism between $R^n$
+and $R_H^n$ as endofunctors on $\HI$,
+
+\item there exists a natural isomorphism between $\HH^0L^n$
+and $L_H^n$ as endofunctors of $\HI$,
+
+\item there exists a natural isomorphism from $\id$ to 
+$R_H^nL_H^n$ as endofunctors on $\HI$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Since $R$ is $t$-exact, $R_H = \HH^0 R$ is exact as an endofunctor 
+on $\Cat{C}$ by Proposition \ref{prop_t_exact_implies_exact}. 
+Since composition of exact functors is exact, $R_H^n$ is exact. 
+This proves part (1).
+
+To verify (2), we proceed by induction on $n$. The case $n = 1$
+follows by definition. Now suppose $\HH^0R^{n - 1}$ is naturally
+isomorphic to $R_H^{n - 1}$. Since $R$ is $t$-exact, by 
+\cite[1.3.17(ii)]{BBD}, there exists a natural isomorphism between 
+$\HH^0R$ and $\HH^0R\HH^0$. Therefore, we obtain the following chain
+of natural isomorphisms: $R_H^n \cong \HH^0R\HH^0R^{n - 1} \cong
+\HH^0R^n$. Since $R$ is $t$-exact, so is $R^n$. Furthermore, by
+definition of $t$-exactness, for all $C$ in $\Cat{C}$, $R^n(C)$ is 
+an object of $\Cat{C}$. It follows that $\HH^0 R^n = R^n$.
+
+For (3), since $S$ is in $\Cat{C}$ and $\tensor$ is right 
+$t$-exact in both factors, $\HH^0L$ is naturally isomorphic to 
+$\HH^0L\HH^0$ as functors on $\Cat{C}$ by \cite[1.3.7(ii)]{BBD}. 
+Using similar inductive arguments as in (2), we obtain a natural 
+isomorphism between $\HH^0L^n$ and $L_H^n$. 
+
+Since the unit $\id \to R^nL^n$ is a natural
+isomorphism in $\DCat$, $\HH^0 \to \HH^0R^nL^n$ is also 
+a natural isomorphism. Notice that $\HH^0$ is the identity
+functor on $\Cat{C}$ and by part (2) and (3) $\HH^0R^nL^n$ is
+naturally isomorphic to $R_H^nL_H^n$. The composition
+\[
+\id \to \HH^0R^nL^n \to R_H^nL_H^n
+\] 
+gives us the desired natural isomorphism, which proves part (4).
+\end{proof}
+
+\section{Slice filtration of torsion monoidal categories}
+\label{sect_summary_slice_filt_on_DCat}
+
+We begin by constructing the slice filtration on $\DCat$. This will
+generalize the results in Section
+\ref{sect_slice_filtration_DMeff}.
+
+\begin{defn}\label{def_slice_filt_general}
+Let $\Corad{n}{\DCat}$ be the full subcategory of $\DCat$ consisting of the objects
+$M$ in $\DCat$ for which $R^n M = 0$. Let $\Prerad{n}{\DCat}$ be 
+the subcategory of objects $M$ such that $M = L^n(M')$ for some 
+$M'$ in $\DCat$. Let $\preradD{n}$ be the functor  $L^nR^n$.
+\end{defn}
+
+Notice that the arguments in the proof of \cite[1.1]{HuKa} rely 
+only on the Cancellation axiom of $\DMeff$, which is fulfilled by 
+Definition \ref{def_torsion_monoidal_category}(3) of $\DCat$. 
+Therefore, the proof of \emph{loc. cit.} generalizes to show that 
+$\preradD{n}$ is right adjoint to the inclusion of 
+$\Prerad{n}{\DCat}$ into $\DCat$. 
+
+Let $M$ be an object of $\DCat$, and let $\eta^n : \preradD{n} M 
+\to M$ be the counit. Complete $\eta^n$ to a triangle:
+\[
+\preradD{n} M \to M \to M' \to \preradD{n} M'[1].
+\]
+Copying the proof of \cite[1.3]{HuKa}, we see that $M'$ is 
+uniquely determined up to unique isomorphism, and $M \mapsto
+M'$ defines a triangulated endofunctor $\coradD{n}$ that is
+left adjoint to the inclusion of $\Corad{n}{\DCat}$ in $\DCat$.
+Finally, the discussion in the paragraphs preceding Proposition 
+\ref{prop_slice_DMeff} can be adapted to this more general setting
+to show that $\preradD{n}$ restricted to $\Prerad{n}{\DCat}$ is 
+naturally isomorphic to the identity, and $\coradD{n}$ restricted 
+to $\Corad{n}{\DCat}$ is also naturally isomorphic to the 
+identity. We have just verified the following theorem, which is a 
+generalization of Proposition \ref{prop_slice_DMeff}:
+
+\begin{thm}\label{thm_summary_triang_cat}
+If $\DCat$ is a torsion monoidal category, then there exists an
+$\N$-indexed ascending weak filtration $(\Corad{*}{\DCat},
+\coradD{*})$ given by
+\[
+0 = \Corad{0}{\DCat} \subseteq \cdots \subseteq \Corad{n}{\DCat}
+   \subseteq \Corad{n + 1}{\DCat} \subseteq \cdots
+\]
+and a descending weak filtration $(\Prerad{*}{\DCat}, \preradD{*})$
+given by
+\[
+\DCat = \Prerad{0}{\DCat} \supseteq \cdots \supseteq \Prerad{n}{\DCat}
+\supseteq \Prerad{n + 1}{\DCat} \supseteq \cdots
+\]
+\end{thm}
+
+It is possible that the weak filtrations are degenerate. However, as 
+the following result shows, the filtration being degenerate is 
+related to the invertibility of $S$. Recall that $S$ is 
+invertible if there exists an object $T$ in $\DCat$ such that $T 
+\tensor S = \Unit$.
+
+\begin{prop}\label{prop_filt_trivial_cond}
+The following are equivalent:
+\begin{enumerate}
+\item the filtration $(\Corad{*}{\DCat}, \coradD{*})$ is trivial,
+  i.e., each $\Corad{n}{\DCat}$ is zero.
+
+\item the filtration $(\Prerad{*}{\DCat}, \preradD{*})$ is 
+degenerate with $\Prerad{n}{\DCat} = \DCat$ for all $n$.
+
+\item the Tate object is invertible in $\DCat$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+We first show that (1) is equivalent to (2). To see that (1) implies
+(2), suppose $\Corad{n}{\DCat} = 0$ for all $n$. We need to show
+that every $M$ in $\DCat$ is isomorphic to $L^n M'$ for some $M'$
+in $\DCat$. However, for every $M$ in $\DCat$, the following is
+a distinguished triangle:
+\[
+\preradD{n}M \to M \to \coradD{n}M \to \preradD{n} M[1]
+\]
+where $\coradD{n}M$ is in $\Corad{n}{\DCat}$. But the assumption that
+$\Corad{n}{\DCat} = 0$ implies that $\coradD{n}M = 0$. Therefore, $L^n R^n M
+\cong M$. It follows that $M$ is in $\Prerad{n}{\DCat}$, and
+$\Prerad{n}{\DCat} = \DCat$ as desired. Conversely, if
+$\Prerad{n}{\DCat} = \DCat$ then for every $M$ in $\DCat$, $M \cong
+L^n M'$ for some $M'$. Suppose $M$ is in $\Corad{n}{\DCat}$, then by
+definition $0 = R^n M = R^nL^n M' \cong M'$.  Therefore, $M = L^n 0 =
+0$, and $\Corad{n}{\DCat} = 0$.
+
+Now we show that (2) is equivalent to (3). Indeed, if $S$ is 
+invertible with inverse $T$, then $M = S^{\tensor n} \tensor 
+T^{\tensor n} \tensor M = L^n(T^n \tensor M)$ which is an object 
+of $\Prerad{n}{\DCat}$. Conversely, if $\Prerad{n}{\DCat} = 
+\DCat$, then, in particular, $\Prerad{1}{\DCat} = \DCat$. This
+implies that the unit object $\Unit$ is an object of $\Prerad{1}{\DCat}$.
+In other words, $\Unit = T \tensor S$ for some $T$, which shows
+that $S$ is invertible.
+\end{proof}
+
+\section{Torsion filtration on the heart}
+
+Let us now focus on the heart $\Cat{C}$ of $\DCat$. In this 
+section, we will generalize the results developed in Section
+\ref{sect_torsion_filt_on_HI} for $\HI$. Recall from Proposition 
+\ref{prop_LH_RH_properties} and preceding paragraphs that the 
+endofunctors $L_H^n = \HH^0 L^n$ and $R_H^n = \HH^0 R^n$ are 
+adjoint. For $F$ in $\Cat{C}$, let $\corad{n} F$ denote the 
+cokernel of the counit map $L_H^n R_H^n F \to F$. Since the counit
+is natural in $F$, $F \mapsto \corad{n}F$ defines an endofunctor 
+of $\Cat{C}$. Let $\Corad{n}{\Cat{C}}$ be the full subcategory of 
+all objects $C$ in $\Cat{C}$ with $\corad{n}(C) = C$, and let 
+$\Prerad{n}{\Cat{C}}$ be the full subcategory of all objects $C$ 
+in $\Cat{C}$ with $\corad{n}(C) = 0$. The arguments for Theorem 
+\ref{thm_main_result} go through to give us the following result. 
+
+\begin{thm}\label{thm_sum_heart}
+The functors $\corad{n}, n = 1, 2\dots,$ define a sequence of
+coradicals, whose associated torsion theories $(\Cat{T}_n,
+\Cat{F}_n) = (\Prerad{n}{\Cat{C}}, \Corad{n}{\Cat{C}})$ fit together
+to define a strong ascending cofiltration of $\Cat{C}$:
+\[
+0 = \Corad{0}{\Cat{C}} \subseteq \cdots \subseteq \Corad{n}{\Cat{C}}
+   \subseteq \Corad{n + 1}{\Cat{C}} \subseteq \cdots
+\]
+and a strong descending filtration of $\Cat{C}$:
+\[
+\Cat{C} = \Prerad{0}{\Cat{C}} \supseteq \cdots \supseteq \Prerad{n}{\Cat{C}}
+\supseteq \Prerad{n + 1}{\Cat{C}} \supseteq \cdots.
+\]
+\end{thm}
+
+Following Definition \ref{def_upper_slice_functor}, we define 
+$\prerad{n}$ to be the kernel of the natural surjection $\id \to 
+\corad{n}$. By Proposition \ref{prop_rad_eq_corad} and Corollary 
+\ref{cor_tt_ref_and_coref}, $\prerad{n}$ is an idempotent 
+pre-radical, and is right adjoint to the inclusion of 
+$\Prerad{n}{\Cat{C}}$ in $\Cat{C}$. Furthermore, an object $F$
+is in $\Prerad{n}{\Cat{C}}$ if and only if $\prerad{n}{F} = F$.
+
+As in the case for $\HI$, we can define $\SGFilt{n}{\Cat{C}}$ to be
+the full subcategory of objects $F$ such that $F \cong L_H^nF'$
+for some $F'$ in $\Cat{C}$. As defined, $\SGFilt{n}{\Cat{C}}
+\subseteq \SGFilt{m}{\Cat{C}}$ if $n < m$. The arguments of 
+Proposition \ref{prop_HI_upper_slice} go through to give us the 
+following proposition:
+
+\begin{prop}
+The tower of full subcategories
+\[
+\Cat{C} = \SGFilt{0}{\Cat{C}} \supseteq \cdots \supseteq \SGFilt{n - 1}{\Cat{C}}
+\supseteq \SGFilt{n}{\Cat{C}} \supseteq \cdots
+\]
+defines a weak filtration on $\Cat{C}$.
+\end{prop}
+
+Drawing on the analogy with $\HI$, the coreflection functor from 
+$\Cat{C}$ to $\SGFilt{n}{\Cat{C}}$ is given by $F \mapsto 
+L_H^n R_H^n F$. We also have the following relationship between 
+$\SGFilt{n}{\Cat{C}}$ and $\Prerad{n}{\Cat{C}}$:
+
+\begin{cor}\label{cor_sg_sub_prerad}
+For $F$ in $\SGFilt{n}{\Cat{C}}$, $\hom_{\Cat{C}}(F, G) = 0$ for
+all $G$ in $\Corad{n}{\Cat{C}}$. In particular, $\SGFilt{n}{\Cat{C}}$
+is a full subcategory of $\Prerad{n}{\Cat{C}}$.
+\end{cor}
+\begin{proof}
+If $F$ is an object of $\SGFilt{n}{\Cat{C}}$, then $F = L_H^n F'$ for
+some $F'$ in $\Cat{C}$. Since $R_H^n G = 0$ for all $G$ in 
+$\Corad{n}{\Cat{C}}$,
+\[
+\hom_{\Cat{C}}(F, G) = \hom_{\Cat{C}}(L_H^n F', G) = \hom_{\Cat{C}}(F', R_H^n G) = 0
+\]
+for all $G$ in $\Corad{n}{\Cat{C}}$. The first statement of the 
+corollary is now proven. The second statement follows from the 
+definition of $\Prerad{n}{\Cat{C}}$ as the torsion subcategory of 
+$\Corad{n}{\Cat{C}}$.
+\end{proof}
+
+The filtrations on $\Cat{C}$ may also be trivial. Proposition
+\ref{prop_torsion_filt_degen_cond} and Corollary 
+\ref{cor_invert_implies_C_invert} below show that, as in the case 
+for $\DCat$, the degeneracy of the filtrations are related to the 
+the invertibility of $S$. Let us first consider the following 
+lemma. Recall from Definition \ref{def_slice_filt_general} that 
+for a given $n$, $\Prerad{n}{\DCat}$ is the full subcategory of 
+$\DCat$ whose objects are the objects $M$ in $\DCat$ such that $M 
+\cong L^nM'$ for some $M'$ in $\DCat$, and $\Corad{n}{\DCat}$ is 
+the full subcategory of $\DCat$ whose objects are the objects $M$ 
+in $\DCat$ such that $R^nM = 0$.
+
+\begin{lem}\label{lem_trivial_and_trivial}
+If $\Corad{n}{\DCat} = 0$ then $\Corad{n}{\Cat{C}} = 0$.
+\end{lem}
+\begin{proof}
+Recall from Proposition \ref{prop_LH_RH_properties}(2) that $R_H^n$
+is naturally isomorphic to $R^n$ on $\Cat{C}$. Therefore, if 
+$R_H^n C = 0$, then $R^n C = 0$. Hence, $\Corad{n}{\Cat{C}} 
+\subset \Prerad{n}{\DCat}$.
+\end{proof}
+
+If $S$ is invertible in $\DCat$, then by Proposition 
+\ref{prop_filt_trivial_cond}, $\Corad{n}{\DCat} = 0$ for all $n$, 
+and by the preceding lemma, $\Corad{n}{\Cat{C}} = 0$ for all $n$. 
+As we will see in Proposition \ref{prop_torsion_filt_degen_cond}, 
+$\Corad{n}{\Cat{C}} = 0$ for all $n$ implies $\Prerad{n}{\Cat{C}} = 
+\Cat{C}$ for all $n$. This shows that if $S$ is invertible in $\DCat$,
+then the strong filtration and cofiltration are degenerate. 
+However, the converse does not necessarily hold. Rather, the 
+converse is related to a weaker condition. 
+
+\begin{defn}
+We say that $S$ is \DEF{$\Cat{C}$-invertible} if there exists some 
+$T$ in $\Cat{C}$ such that $T \tensor^{\Cat{C}} S = \Unit$. 
+\end{defn}
+
+\begin{prop}\label{prop_torsion_filt_degen_cond}
+The following are equivalent:
+\begin{enumerate}
+\item $\SGFilt{*}{\Cat{C}}$ is degenerate with $\SGFilt{n}{\Cat{C}} = 
+\Cat{C}$ for all $n$,
+
+\item $\Corad{*}{\Cat{C}}$ is trivial,
+for all $n$,
+
+\item $\Prerad{*}{\Cat{C}}$ is degenerate with $\Prerad{n}{\Cat{C}} = 
+\Cat{C}$ for all $n$,
+
+\item $S$ is $\Cat{C}$-invertible.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+We first show that (1), (2), and (4) are equivalent. The proof 
+that (1) and (4) are equivalent is the same as the proof that (2) 
+and (3) of Proposition \ref{prop_filt_trivial_cond} are 
+equivalent. To see that (2) implies (1), let $F$ be an object in 
+$\Cat{C}$, and let $K$ be the kernel of the counit $L_H^n R_H^n F 
+\to F$. We have the following exact sequence:
+\[
+0 \to K \to L_H^n R_H^n F \to F \to \corad{n} F \to 0.
+\]
+By Proposition \ref{prop_LH_RH_properties}(1), $R_H^n$ is exact. 
+Applying $R_H^n$, we obtain the following exact sequence:
+\[
+0 \to R_H^n K \to R_H^n L_H^n R_H^n F \to R_H^n F \to R_H^n \corad{n} F \to 0.
+\]
+But since $R_H^n L_H^n \cong \id$, $R_H^n L_H^n R_H^n F \to R_H^n F$ is 
+an isomorphism. Therefore, $R_H^n K = R_H^n \corad{n} F = 0$. That is,
+$K$ and $\corad{n} F$ are in $\Corad{n}{\Cat{C}}$. It follows that
+$K = \corad{n} F = 0$, and therefore $F = L_H^n R_H^n F$. It follows that
+$\SGFilt{n}{\Cat{C}} = \Cat{C}$.
+
+To show that (4) implies (2), suppose $F$ is in 
+$\Corad{n}{\Cat{C}}$. Then by (4), $F \cong S^{\tensor n} 
+\tensor^{\Cat{C}} T^{\tensor n}$ for some $T$ in $\Cat{C}$. Therefore,
+$L_H^n R_H^n F \cong F$. However, this means that $\corad{n} F = 0$.
+By Theorem \ref{thm_precorad_eq_tt}, $\corad{n} F = F$. Therefore,
+$F = 0$ and $\Corad{n}{\Cat{C}} = 0$.
+
+To show that (3) is equivalent to the rest, we first show that (2) 
+implies (3). Suppose $\Corad{n}{\Cat{C}}$ is trivial. Since 
+for all $F$, $\corad{n} F$ is an object of $\Corad{n}{\Cat{C}}$, it 
+follows that $\corad{n}F = 0$. Therefore, $\prerad{n}F = F$. Thus, 
+$\Prerad{n}{\Cat{C}} = \Cat{C}$, as desired.
+
+Finally, to show that (3) implies (2), suppose 
+$\Prerad{n}{\Cat{C}} = \Cat{C}$. By Proposition \ref{prop_tt_suff_cond}, 
+$\Prerad{n}{\Cat{C}} \cap \Corad{n}{\Cat{C}} = 0$. Hence,
+$\Corad{n}{\Cat{C}} = 0$, as desired.
+\end{proof}
+
+The following corollary is a direct direct consequence of Lemma 
+\ref{lem_trivial_and_trivial} and Proposition 
+\ref{prop_torsion_filt_degen_cond}.
+
+\begin{cor}\label{cor_invert_implies_C_invert}
+If $S$ is invertible in $\DCat$, then $S$ is $\Cat{C}$-invertible.
+\end{cor}
+
+\section{Slice filtration on the localization of $\DCat$ by $S$}
+
+Next, for a torsion monoidal category $\DCat$, we can form the
+localization $\DCatLoc{S}$ of $\DCat$ by $S$ (see \cite[8A]{MVW}). 
+The objects of $\DCatLoc{S}$ are pairs $(M, n)$, where $M$ is 
+in $\DCat$, and $n$ is some integer, and $(M, n + 1) \cong (LM, 
+n)$ for all $M$ and $n$. Morphisms between $(M, n)$ and $(M', n')$
+are elements of the direct limit $\varinjlim_{k} \hom(M(n + k),
+M'(n' + k))$. The relationship between $\DCat$ and $\DCatLoc{S}$
+is analogous to the relationship between $\DMeff$ and $\DM$. In
+particular, by the Cancellation axiom (Definition 
+\ref{def_torsion_monoidal_category}(3)) the localization functor 
+$\Sigma^\infty: \DCat \to \DCatLoc{S}$ which sends an object $M$ 
+in $\DCat$ to the object $(M, 0)$ is fully faithful. Therefore, 
+we can identify $\DCat$ as a full subcategory of $\DCatLoc{S}$. 
+
+There is also a tensor product on $\DCatLoc{S}$, given by
+\[
+(M, n) \tensor (M', n') = (M \tensor M', n + n')
+\]
+(see \cite[8A]{MVW}). In the case that the cyclic permutation of 
+$(S, 0)^{\tensor 3}$ is the identity in $\DCatLoc{S}$, by 
+\cite[8A.10, 8A.11]{MVW} the tensor product is a
+triangulated symmetric tensor on $\DCatLoc{S}$. In this case, 
+$\DCatLoc{S}$ is also a torsion monoidal category. However, since 
+$S$ is invertible in $\DCatLoc{S}$, defining the weak filtrations as we have done 
+in Section \ref{sect_summary_slice_filt_on_DCat} will result in 
+trivial weak filtrations, as we have shown in Proposition 
+\ref{prop_filt_trivial_cond}. Nonetheless, we can still construct
+weak filtrations on $\DCatLoc{S}$ as follows.
+
+\begin{defn}\label{def_GFiltDLoc_general}
+Let $\Prerad{n}{\DCatLoc{S}}$ be the full subcategory of 
+$\DCatLoc{S}$ with objects $(M, k)$ such that $(M, k) \cong
+(M', n)$ for some $M'$ in $\DCat$. Since $(M, n + 1) \cong 
+(LM, n)$, we have the following descending tower of full 
+subcategories:
+\[
+\DCatLoc{S} \supseteq \cdots \supseteq \Prerad{0}{\DCatLoc{S}}
+   \supseteq \cdots \supseteq \Prerad{n}{\DCatLoc{S}} \supseteq 
+   \Prerad{n + 1}{\DCatLoc{S}} \supseteq \cdots.
+\]
+\end{defn}
+
+To show that the nested sequence of subcategories is a descending 
+weak filtration, we need to show that for each integer $n$, there 
+exists a coreflection $\preradD{n}: \DCatLoc{S} \to 
+\Prerad{n}{\DCatLoc{S}}$. Copying the definition of the functor 
+$\preradD{n}$ on $\DM$ as given in Definition \ref{def_sgDM_DM}, 
+we define $\preradD{k}$ by setting
+\[
+\preradD{k}(M, n) \defeq \begin{cases}
+(\preradD{k - n}M, n) &\textrm{if }k > n\\
+(M, n) &\textrm{otherwise}.
+\end{cases}
+\]
+Copying the proof of Proposition \ref{prop_sDM_reflection}, we
+see that $\preradD{k}$ is right adjoint to the inclusion of
+$\Prerad{k}{\DCatLoc{S}}$ into $\DCatLoc{S}$. Furthermore,
+the restriction of $\preradD{k}$ to $\Prerad{k}{\DCatLoc{S}}$
+is the identity. This shows that $(\Prerad{*}{\DCatLoc{S}},
+\preradD{*})$ is a descending weak filtration of $\DCatLoc{S}$.
+
+\begin{rmk}
+Since $(M, 0) \cong (M', n)$ if and only if $M \cong L^nM'$, the 
+image of $\Prerad{n}{\DCat}$ under $\Sigma^\infty$ is precisely
+$\Prerad{n}{\DCatLoc{S}}$. In particular, we can identify $\DCat$
+with the full subcategory $\Prerad{0}{\DCatLoc{S}}$, and the 
+preceding discussion shows that $\preradD{0}$ is a right
+adjoint to $\Sigma^\infty$.
+\end{rmk}
+
+Next, let $\Corad{n}{\DCatLoc{S}}$ be the full subcategory of
+objects $(M, k)$ where $\preradD{n}(M, k) = 0$. Since 
+$\preradD{k}(M, n) = 0$ implies that $\preradD{k + 1}(M, n) = 0$,
+we obtain the following ascending tower of full subcategories of
+$\DCatLoc{S}$:
+\[
+\cdots \subseteq \Corad{0}{\DCatLoc{S}} \subseteq \cdots \subseteq 
+   \Corad{n}{\DCatLoc{S}} \subseteq \Corad{n + 1}{\DCatLoc{S}}
+   \subseteq \cdots \DCatLoc{S}.
+\]
+We want to show that this tower of full subcategories defines
+a weak filtration of $\DCatLoc{S}$ by showing that, for each $n$,
+there exists a reflection $\coradD{n}: \DCatLoc{S} \to 
+\Corad{n}{\DCatLoc{S}}$. Copying the definition of the functor
+$\coradD{k}$ on $\DM$ as given in Definition \ref{def_slDM_DM},
+we define $\coradD{k}$ by setting:
+\[
+\coradD{k}(M, n) = \begin{cases}
+(\coradD{n - k}M, n) &\textrm{if }n > k\\
+0                    &\textrm{otherwise}.
+\end{cases}
+\]
+The arguments for \cite[1.3(i)]{HuKa} go through
+in this general setting to show that for each $k$, $\coradD{k}$ is 
+a triangulated functor that is right adjoint to the inclusion of 
+$\Corad{k}{\DCatLoc{S}}$ into $\DCatLoc{S}$. Moreover, the 
+restriction of $\coradD{k}$ to $\Corad{k}{\DCatLoc{S}}$ is 
+naturally isomorphic to the identity (\CF Proposition 
+\ref{prop_slDM_functor}). We have just proved the following
+theorem, which generalizes the results in Section 
+\ref{sect_slice_filt_on_DM}. 
+
+\begin{thm}\label{thm_summary_dloc}
+The category of $\DCatLoc{S}$ is equipped with a descending 
+weak filtration given by $(\Prerad{*}{\DCatLoc{S}}, \prerad{*})$
+and an ascending weak filtration given by $(\Corad{*}{\DCatLoc{S}},
+\corad{*})$.
+\end{thm}
+
+The following proposition, which is a consequence of Proposition 
+\ref{prop_filt_trivial_cond}, relate the degeneracy of the weak 
+filtrations that we defined above with the invertibility of the
+Tate object $S$.
+
+\begin{prop}
+The following are equivalent:
+\begin{enumerate}
+\item the categories $\Corad{n}{\DCatLoc{S}}$ are trivial,
+
+\item the categories $\Prerad{n}{\DCatLoc{S}}$ is degenerate with
+$\Prerad{n}{\DCatLoc{S}} = \DCatLoc{S}$ for all $n$,
+
+\item $S$ is invertible in $\DCat$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+If $S$ is invertible, then $\DCatLoc{S}$ is equivalent to $\DCat$.
+The fact (3) implies (1) and (2) follows directly from Proposition 
+\ref{prop_filt_trivial_cond}.
+
+To show that (1) implies (2), suppose $\Corad{n}{\DCatLoc{S}} = 0$
+for all $n$. For any object $(M, k)$ of $\DCatLoc{S}$ and any integer
+$n$, we have the following distinguished triangle
+\[
+\preradD{n}(M, k) \to (M, k) \to \coradD{n}(M, k) \to \preradD{n}(M, k)[1].
+\]
+Notice that $\coradD{n}(M, k)$ is an object of $\Corad{n}{\DCatLoc{S}}$
+and $\preradD{n}(M, k)$ is an object of $\Prerad{n}{\DCatLoc{S}}$. By
+the assumption that $\Corad{n}{\DCatLoc{S}} = 0$, we see that
+$(M, k) \cong \preradD{n}(M, k)$, and therefore $(M, k)$ is in
+$\Prerad{n}{\DCatLoc{S}}$. Therefore, $\Prerad{n}{\DCatLoc{S}} = 
+\DCatLoc{S}$ for all $n$.
+
+To show that (2) implies (3), suppose $\Prerad{n}{\DCatLoc{S}} = 
+\DCatLoc{S}$ for all $n$. In particular, $\Prerad{1}{\DCatLoc{S}}
+= \DCatLoc{S}$. This implies that $(\Unit, 0)$ is an object of
+$\Prerad{1}{\DCatLoc{S}}$. By definition of $\Prerad{1}{\DCatLoc{S}}$, 
+$(\Unit, 0) \cong (T, 1)$ for some $T$. Therefore, $\Unit \cong
+LT = S \tensor T$, and $S$ is invertible in $\DCat$.
+\end{proof}
+
+\section{Torsion Filtration on the Stable Localization of 
+$\Cat{C}$ by $S$}
+
+In this section, we generalize the results of Section 
+\ref{sect_torsion_filt_HM}. Copying the construction of $\HM$, we
+define the stable localization of $\Cat{C}$ as follows:
+
+\begin{defn}\label{def_C_loc_S}
+Let $\CatLoc{C}{S}$ denote the category whose objects are 
+the $\Z$-graded objects $C_*$ in $\Cat{C}$ such that for every $n$,
+there exists a map $s_n: L_HC_n \to C_{n + 1}$, and the 
+corresponding adjunction map $w_k: C_{n + 1} \to R_HC_n$ is an
+isomorphism. Following Section \ref{sect_torsion_filt_HM}, we call
+$s_n$ the \DEF{$n$-th suspension map}, and $w_n$ the \DEF{$n$-th
+delooping map}. We will represent an object of $\CatLoc{C}{S}$ by
+$(C_*, w_*)$ or simply $C_*$ if the collection of delooping maps 
+are clear.
+\end{defn}
+
+By the Cancellation axiom, $C \mapsto L_HC$ is fully faithful,
+and therefore, the arguments in \cite[1.8]{DegModHom} go through
+for $\CatLoc{C}{S}$ to show that there is a fully faithful 
+functor $\sigma^\infty$ from $\Cat{C}$ to $\CatLoc{C}{S}$ given by
+$C \mapsto (C_*, w_*)$, where the $n$-th graded component of $C_*$
+is given by
+\[
+C_n \defeq \begin{cases}
+L_H^nC &\textrm{if }n > 0\\
+C      &\textrm{if }n = 0\\
+R_H^{|n|} C &\textrm{otherwise},
+\end{cases}
+\]
+and the $n$-th delooping $w_n: C_n \to R_H(C_{n + 1})$ is the unit
+map for $n \geq 0$ and the identity for $n < 0$. As in the case for
+$\HM$, $\sigma^\infty$ has a right adjoint $\omega^\infty: \Cat{C}
+\to \CatLoc{C}{S}$, given by $(C_*, w_*) \mapsto C_0$. Thus, we
+can view $\Cat{C}$ as a full coreflective subcategory of 
+$\CatLoc{C}{S}$ whose objects are the $(C_*, w_*)$ such that 
+$C_n = L_H^nC_0$ for all $n > 0$. 
+
+\begin{defn}\label{def_corad_loc_gen}
+Copying the definition of $\corad{n}$ in Definition 
+\ref{def_corad_HM}, for an object $(C_*, w_*)$ of $\CatLoc{C}{S}$,
+we define $\corad{n}(C_*)$ to be the object in 
+$\CatLoc{C}{S}$ where
+\[
+(\corad{n}(C_*))_k \defeq
+\begin{cases}
+\corad{n + k}(C_k) &\textrm{if }n + k > 0\\
+0  &\textrm{otherwise}.
+\end{cases}
+\]
+For ease of notation, we will write $\corad{n}_k(C_*)$ for the 
+$k$-th graded component of $\corad{n}(C_*)$.
+\end{defn}
+
+As the arguments of Theorem \ref{thm_tlHM_corad} are 
+entirely formal, replacing $\HM$ by $\CatLoc{C}{S}$ and $\tlHM{k}$ by
+$\corad{k}$, we obtain the following proposition
+which is needed in the construction of the strong filtration and
+cofiltration on $\CatLoc{C}{S}$. 
+
+\begin{prop}\label{prop_corad_loc_general}
+For each integer $n$, $\corad{n}$ is a coradical of the category
+$\CatLoc{C}{S}$.
+\end{prop}
+
+We can now define the full subcategories in the strong filtration
+and cofiltration of $\CatLoc{C}{S}$. Recall from Theorem
+\ref{thm_precorad_eq_tt} that if $\phi$ is a coradical, then the
+torsion subcategory of $\phi$ is the full subcategory $\Cat{T}$
+consisting of the objects $T$ such that $\phi(T) = 0$, and the
+torsionfree subcategory of $\phi$ is the full subcategory $\Cat{F}$
+whose objects are the objects $F$ such that $F \to \phi(F)$.
+
+\begin{defn}\label{def_torsion_filt_general}
+Let $\Corad{n}{\CatLoc{C}{S}}$ be the torsionfree subcategory of
+$\corad{n}$, i.e., $C_*$ is an object of $\Corad{n}{\CatLoc{C}{S}}$
+if and only if $\corad{n}(C_*) = C_*$. Let 
+$\Prerad{n}{\CatLoc{C}{S}}$ be the torsion subcategory of $\corad{n}$.
+The objects of $\Prerad{n}{\CatLoc{C}{S}}$ are the $C_*$ in 
+$\CatLoc{C}{S}$ such that $\corad{n}(C_*) = 0$.
+\end{defn}
+
+Copying the proof for Corollary \ref{cor_tor_filt_on_HM} we obtain 
+the following theorem.
+
+\begin{thm}
+\label{thm_sum_heart_loc}
+The sequence of functors $\corad{n}, n = \dots, -1, 0, 1, \dots$ on
+$\CatLoc{C}{S}$ is a $\Z$-indexed sequence of coradicals whose 
+associated torsion theories 
+\[
+(\Cat{T}_n, \Cat{F}_n) = (\Prerad{n}{\CatLoc{C}{S}}, \Corad{n}{\CatLoc{C}{S}})
+\]
+define an ascending strong cofiltration
+\[
+\cdots \subseteq \Corad{0}{\CatLoc{C}{S}} \subseteq \cdots \subseteq 
+   \Corad{n}{\CatLoc{C}{S}} \subseteq \Corad{n + 1}{\CatLoc{C}{S}}
+   \subseteq \cdots
+\]
+and a strong descending filtration
+\[
+\CatLoc{C}{S} \supseteq \cdots \supseteq \Prerad{0}{\CatLoc{C}{S}}
+   \supseteq \cdots \supseteq \Prerad{n}{\CatLoc{C}{S}} \supseteq 
+   \Prerad{n + 1}{\CatLoc{C}{S}} \supseteq \cdots.
+\]
+on $\CatLoc{C}{S}$.
+\end{thm}
+
+\comment{
+Notice that we can extend the weak filtration $(\SGFilt{*}{\Cat{C}},
+\sgHI{*})$ to a weak filtration on $\CatLoc{C}{S}$. Let 
+$\SGFilt{n}{\Cat{C}}$ be the full subcategory of objects $(C_*, w_*)$ 
+such that $k \geq n$. As defined, we have a tower of subcategories
+\[
+\CatLoc{C}{S} \supseteq \SGFilt{-1}{\CatLoc{C}{S}} \supseteq 
+   \SGFilt{0}{\CatLoc{C}{S}} \subseteq \cdots \supseteq 
+   \SGFilt{n - 1}{\CatLoc{C}{S}} 
+   \supseteq \SGFilt{n}{\CatLoc{C}{S}} \supseteq \cdots.
+\]
+Furthermore, $\SGFilt{n}{\CatLoc{C}{S}}$ is the essential image 
+under $\HH^0$ of $\Prerad{n}{\DCatLoc{S}}$. The coreflection functor
+$\preradD{n}: \DCatLoc{S} \to \Prerad{n}{\DCatLoc{S}}$ induces a
+coreflection functor $\sgHI{n}$ from $\CatLoc{C}{S}$ to 
+$\Prerad{n}{\Cat{C}{S}}$ given by
+\[
+(F, k) \mapsto \HH^0\preradD{n}(F, k) = (\prerad{n - k}F, k).
+\]
+It follows that $(\SGFilt{*}{\CatLoc{C}{S}}, \sgHI{n})$ defines
+a weak filtration of $\CatLoc{C}{S}$. 
+}
+
+The following proposition shows that $S$ is $\Cat{C}$-invertible if
+and only if each of the weak filtrations above are degenerate:
+
+\begin{prop}
+The following are equivalent:
+
+\begin{enumerate}
+\comment{\item $\SGFilt{*}{\CatLoc{C}{S}}$ is degenerate with 
+$\SGFilt{n}{\CatLoc{C}{S}} = \Cat{C}$ for all $n$,}
+
+\item $\Corad{*}{\CatLoc{C}{S}}$ is trivial,
+for all $n$,
+
+\item $\Prerad{*}{\CatLoc{C}{S}}$ is degenerate with 
+$\Prerad{n}{\CatLoc{C}{S}} = \Cat{C}$ for all $n$,
+
+\item $S$ is $\Cat{C}$-invertible.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+To see that (1) implies (2), suppose $\Corad{n}{\CatLoc{C}{S}} = 
+0$ for all integers $n$. Then $\corad{n}(C_*) = 0$ for all $C_*$
+in $\CatLoc{C}{S}$, and therefore $\corad{n} = 0$ for all $n$.
+Since $C_*$ is in $\Prerad{n}{\CatLoc{C}{S}}$ if and only if
+$\corad{n}(C_*) = 0$ (see Definition 
+\ref{def_torsion_filt_general}), it follows that $\Prerad{n}{\CatLoc{C}{S}}
+= \CatLoc{C}{S}$ for all $n$.
+
+Now, assume $\Prerad{n}{\CatLoc{C}{S}} = \CatLoc{C}{S}$ for
+all $n$. By Proposition \ref{prop_tt_suff_cond}, $\Corad{n}{\CatLoc{C}{S}}
+\cap \Prerad{n}{\CatLoc{C}{S}} = 0$. Hence, $\Corad{n}{\CatLoc{C}{S}} = 0$
+for all $n$. This shows that (2) implies (1).
+
+To show that (1) implies (3), suppose $\Corad{n}{\CatLoc{C}{S}} = 0$
+for all $n$. As we have shown in the proof of (1) implies (2), 
+$\corad{n} = 0$ as an endofunctor on $\CatLoc{C}{S}$ for all $n$, 
+which further implies that $\corad{n} = 0$ as an endofunctor on
+$\Cat{C}$ for all $n > 0$. This implies that $\Corad{n}{\Cat{C}} = 0$
+for all $n$, and by Proposition \ref{cor_sg_sub_prerad}, $S$ is
+invertible in $\Cat{C}$.
+
+To see that (3) implies (1), suppose $S$ is invertible in
+$\Cat{C}$. Then by Proposition \ref{cor_sg_sub_prerad},
+$\Corad{n}{\Cat{C}} = 0$ for all $n$. Therefore, $\corad{n}(C) = 0$
+for all $C$ in $\Cat{C}$ and $n > 0$. Hence, $\corad{n}(C_*) = 0$
+for all $C_*$ in $\CatLoc{C}{S}$ and integer $n$. It follows that
+the torsionfree categories are trivial, i.e. 
+$\Corad{n}{\CatLoc{C}{S}} = 0$ for all integer $n$.
+\end{proof}
+
+%\input{filtration/gen_graded}
