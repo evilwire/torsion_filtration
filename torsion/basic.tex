@@ -10,15 +10,13 @@ in this chapter for the convenience of the reader.
 \section{Coradicals}
 \label{sect_coradicals}
 
-For the remainder of the chapter, let $\Cat{A}$ be a well-powered 
-abelian category, such that all small sums exists in $\Cat{A}$.
-That is, for every object $A$ in $\Cat{A}$, the collection of 
-subobjects of $A$ forms a set. The assumption that $\Cat{A}$ is
-well-powered will be crucial for the following definition. 
+For the remainder of the chapter, let $\Cat{A}$ be a cocomplete 
+well-powered abelian category. That is, for every object $A$ in 
+$\Cat{A}$, the collection of subobjects of $A$ forms a set.  
 
 \begin{defn}
-Let $\Cat{C}$ be a subcategory of an abelian category $\Cat{A}$, 
-and let $A$ be an object of $\Cat{A}$. We say $A_{\Cat{C}}$ is the 
+For a given subcategory $\Cat{C}$ of an abelian category $\Cat{A}$, 
+and an object $A$ in $\Cat{A}$, we say $A_{\Cat{C}}$ is a
 \emph{largest $\Cat{C}$-subobject of $A$} if $A_{\Cat{C}}$ is a 
 subobject of $A$ belonging to $\Cat{C}$ such that for all 
 subobjects $B$ in $\Cat{C}$, the monomorphism $B \into A$ factors
@@ -44,8 +42,12 @@ the inclusion of $\Cat{C}$ in $\Cat{A}$, making $\Cat{C}$ a
 coreflective subcategory of $\Cat{A}$. 
 \end{defn}
 
+The assumption that $\Cat{A}$ is cocomplete and well-powered will 
+be crucial for the following result.
+
 \begin{prop}\label{prop_max_subobj}
-For any full subcategory $\Cat{C}$ of $\Cat{A}$, closed under sums 
+For a cocomplete well-powered abelian category $\Cat{A}$ and
+any full subcategory $\Cat{C}$ of $\Cat{A}$, closed under sums 
 and quotients in $\Cat{A}$, any $A$ in $\Cat{A}$ has a largest 
 $\Cat{C}$-subobject.
 \end{prop}
@@ -60,11 +62,9 @@ of $A$ in $\Cat{C}$.
 We now define some key notions in torsion theory.
 
 \begin{defn}\label{def_coradical}
-Let $\Cat{C}$ be an abelian category.
-
 \begin{enumerate}
-\item A \DEF{quotient functor} is an endofunctor $\phi : \Cat{C} 
-\to \Cat{C}$ together with a natural epimorphism $\eta: \id \to 
+\item A \DEF{quotient functor} is an endofunctor $\phi : \Cat{A} 
+\to \Cat{A}$ together with a natural epimorphism $\eta: \id \to 
 \phi$. That is, for every $f: A \to B$, the following diagram commutes.
 \[
 \begin{tikzcd}
@@ -82,7 +82,7 @@ That is, $\eta_{\phi(A)}: \phi(A) \to \phi^2(A)$ is a natural
 isomorphism.
 
 \item A quotient functor $\phi$ is a \DEF{pre-coradical} if for all
-$A$ in $\Cat{C}$, $\phi$ applied to the kernel of the epimorphism 
+$A$ in $\Cat{A}$, $\phi$ applied to the kernel of the epimorphism 
 $A \to \phi(A)$ is $0$.
 
 \item Finally, a pre-coradical $\phi$ is a \DEF{coradical} if $\phi$ is
@@ -98,7 +98,7 @@ is a pre-coradical, exactness can fail at $\phi(A)$.
 \end{rmk}
 
 \begin{defn}\label{def_radical}
-Let $\phi: \Cat{C} \to \Cat{C}$ be an endofunctor of an abelian 
+Let $\phi: \Cat{A} \to \Cat{A}$ be an endofunctor of an abelian 
 category $\Cat{C}$. We say that $\phi$ is a \DEF{pre-radical} if 
 there exists a natural monomorphism $\phi \to \id$ (in which case, we
 say that $\phi$ is a \DEF{subobject functor}) such that 
@@ -140,11 +140,11 @@ reader to formulate or look up in \cite{DTor} or
 
 \begin{prop}\label{prop_idempotence}
 Any right exact quotient functor $\phi$ of an abelian category 
-$\Cat{C}$ is idempotent. In particular, any coradical is 
+$\Cat{A}$ is idempotent. In particular, any coradical is 
 idempotent (\CF \cite[I2.2]{BJV}).
 \end{prop}
 \begin{proof}
-Fix $A$ in $\Cat{C}$, and let $\eta$ denote the natural epimorphism 
+Fix $A$ in $\Cat{A}$, and let $\eta$ denote the natural epimorphism 
 associated to the quotient functor $\phi$. Let $K$ be the kernel 
 of $\eta_A: A \to \phi(A)$, and consider the sequence
 \[
@@ -180,7 +180,7 @@ idempotent pre-coradicals:
 
 \begin{prop}\label{prop_rad_eq_corad}
 Let $\phi$ be an idempotent pre-coradical of an abelian category
-$\Cat{C}$, and $\eta$ be its 
+$\Cat{A}$, and $\eta$ be its 
 corresponding natural epimorphism. Write $\kappa(A)$ for $\ker (A 
 \stackrel{\eta_A}{\to} \phi(A))$. Then $\kappa$ is a pre-radical.
 
@@ -196,7 +196,7 @@ the dual assertion. We proceed as follows:
 The fact that $\kappa$ is functorial follows from the naturality 
 of $\eta$. Moreover, it is clear that $\kappa$ is a subobject 
 functor. To see that $\kappa$ is also a pre-radical, we need to 
-show that $\kappa(A/\kappa(A)) = 0$ for all $A$ in $\Cat{C}$. Fix 
+show that $\kappa(A/\kappa(A)) = 0$ for all $A$ in $\Cat{A}$. Fix 
 such an $A$, and notice that $A/\kappa(A) = \phi(A)$. Then we have 
 the associated short exact sequence:
 \[
@@ -220,7 +220,7 @@ idempotent. The proposition follows.
 \end{proof}
 
 \begin{prop}
-Let $\phi$ be a pre-coradical of an abelian category $\Cat{C}$. Suppose $B$ is a 
+Let $\phi$ be a pre-coradical of an abelian category $\Cat{A}$. Suppose $B$ is a 
 quotient of $\phi(A)$, and let $K$ be the kernel of the 
 composition $A \to \phi(A) \to B$. Then $\phi(K)$ is isomorphic 
 to the kernel of the epimorphism $\phi(A) \to B$ (\CF \cite[I2.3]{BJV}).
@@ -314,23 +314,22 @@ It follows that $L \cong L'$. Applying the Snake Lemma to
 \label{sect_tt_and_corads}
 
 \begin{defn}
-Let $\Cat{C}$ be an abelian category. A \emph{torsion theory} for
-$\Cat{C}$ is a pair $(\Cat{T}, \Cat{F})$ of full subcategories,
+A \emph{torsion theory} for an abelian category $\Cat{A}$ is a 
+pair $(\Cat{T}, \Cat{F})$ of full subcategories,
 called the \emph{torsion subcategory} and the \emph{torsion-free 
 subcategory} respectively, where the objects of $\Cat{T}$ are
-the objects $T$ such that $\hom_{\Cat{C}}(T, F) = 0$ for every $F$
+the objects $T$ such that $\hom_{\Cat{A}}(T, F) = 0$ for every $F$
 in $\Cat{F}$ and the objects of $\Cat{F}$ are the objects $F$ such 
-that $\hom_{\Cat{C}}(T, F) = 0$ for every object $T$ in $\Cat{T}$.
+that $\hom_{\Cat{A}}(T, F) = 0$ for every object $T$ in $\Cat{T}$.
 \end{defn}
 
 Certainly $0 \in \Cat{T} \cap \Cat{F}$. Therefore, neither 
 subcategory is empty. We also have the following characterization
-of the torsion and torsionfree subcategories. Recall our assumption
-that $\Cat{A}$ is a well-powered abelian category, closed under
-arbitrary sums.
+of the torsion and torsionfree subcategories. 
 
 \begin{prop}\label{prop_tt_properties}
-Suppose $\Cat{T}$ and $\Cat{F}$ are two full subcategories. Then 
+Suppose $\Cat{T}$ and $\Cat{F}$ are two full subcategories of a
+cocomplete well-powered abelian category $\Cat{A}$. Then 
 $\Cat{T}$ is the torsion subcategory of a torsion theory of 
 $\Cat{A}$ if and only if $\Cat{T}$ is closed under extensions, 
 direct sums and quotients.
@@ -420,6 +419,7 @@ $T/T_{\Cat{T}} \in \Cat{F}$, and $T \in \Cat{T}$.
 
 \begin{prop}\label{prop_tt_suff_cond}
 Let $(\Cat{T}, \Cat{F})$ be a pair of full subcategories of
+a cocomplete well-powered abelian category
 $\Cat{A}$. Then $(\Cat{T}, \Cat{F})$ is
 a torsion theory if and only if the following conditions hold:
 \begin{enumerate}
@@ -451,7 +451,8 @@ $F/F_{\Cat{T}} = F$ which is in $\Cat{F}$.
 \end{proof}
 
 \begin{prop}\label{prop_tt_to_corad}
-Let $(\Cat{T}, \Cat{F})$ be a torsion theory on $\Cat{A}$. 
+Let $(\Cat{T}, \Cat{F})$ be a torsion theory for a well-powered
+cocomplete abelian category $\Cat{A}$. 
 Sending $A$ in $\Cat{A}$ to its largest $\Cat{T}$-subobject 
 $A_{\Cat{T}}$ defines an idempotent pre-radical.
 
@@ -491,8 +492,9 @@ subcategory of $\Cat{A}$.
 \end{rmk}
 
 \begin{thm}\label{thm_precorad_eq_tt}
+Let $\Cat{A}$ be a cocomplete well-powered abelian category.
 There is a one-to-one correspondence between isomorphism 
-classes of idempotent pre-coradicals and torsion theories on 
+classes of idempotent pre-coradicals of $\Cat{A}$ and torsion theories for
 $\Cat{A}$. If $\phi$ is a pre-coradical, and $\eta$ is its 
 associated natural surjection, then the torsion theories are 
 defined by
@@ -507,7 +509,7 @@ defined by
 Obtaining an idempotent pre-coradical from a torsion theory is
 established by Proposition \ref{prop_tt_to_corad}. Therefore, it suffices
 to show that $(\Cat{T}, \Cat{F})$ as given in the statement of the
-theorem defines a torsion theory on $\Cat{A}$, and the associations
+theorem defines a torsion theory on $\Cat{A}$, and that the associations
 define quasi-inverses of one another.
 
 To do this, we appeal to Proposition \ref{prop_tt_suff_cond}. It is 
@@ -591,6 +593,7 @@ $\Cat{F}$ is closed under quotients.
 \end{defn}
 
 \begin{thm}\label{thm_corad_equiv_htt}
+Let $\Cat{A}$ be a cocomplete well-powered abelian category.
 There is a one-to-one correspondence between isomorphism 
 classes of coradicals of $\Cat{A}$ and cohereditary torsion 
 theories on $\Cat{A}$ (\CF \cite[I2.12]{BJV}).
@@ -720,9 +723,10 @@ the theorem.
 \end{proof}
 
 \begin{rmk}
-Notice, in particular, that if $\phi$ is a coradical, then 
-$\Cat{F}$ is a \emph{Serre subcategory} of $\Cat{A}$. In the case 
-when $\Cat{A}$ has enough $\Cat{F}$-covers, then the torsion 
+Notice that if $\phi$ is a coradical, then 
+$\Cat{F}$ is a \emph{Serre subcategory} of $\Cat{A}$. In particular,
+$\Cat{F}$ is an abelian category. In the case 
+when $\Cat{A}$ has ``enough $\Cat{F}$-covers'', then the torsion 
 subcategory $\Cat{T}$ is precisely the localization of $\Cat{A}$ 
 by $\Cat{F}$ in the sense of \cite{Swan}, and the associated 
 idempotent radical $\kappa$ is an exact radical.
