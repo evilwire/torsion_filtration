@@ -153,7 +153,7 @@ monoidal category.
 
 In addition, if $\DCat$ has a partial internal hom structure
 $(\ihom, \DCat^{\compact})$ as defined in Definition 
-\ref{def_tensor_triang_cat}, then $\Cat{C}$ is also equipped
+\ref{def_partial_internal_hom}, then $\Cat{C}$ is also equipped
 with a partial internal hom. For $C, C'$ in $\Cat{C}$, let us
 set
 \[
@@ -201,12 +201,11 @@ Since each of the above isomorphism is natural in $C_1$ and $C_2$,
 the proposition now follows.
 \end{proof}
 
-Proposition \ref{prop_ihomC_is_partial_ihom} shows that the 
-bifunctor $\ihom_{\Cat{C}}$ defines a partial internal hom on the
-category $\Cat{C}$ where the collection of semi-representable 
-objects of $\ihom_{\Cat{C}}$ contains at least those objects $C$ 
-in $\Cat{C} \cap \DCat^{\compact}$ such that $\ihom(C, -)$ is left 
-$t$-exact.
+Proposition \ref{prop_ihomC_is_partial_ihom} shows that the functor
+$\ihom_{\Cat{C}}$ defines a partial internal hom on the category
+$\Cat{C}$ where the collection of semi-representable objects of
+$\ihom_{\Cat{C}}$ contains at least those objects $C$ in $\Cat{C} \cap
+\DCat^{\compact}$ such that $\ihom(C, -)$ is left $t$-exact.
 
 The above discussion applies to the category $\DMeff$ since
 there exists a $t$-structure on $\DMeff$, with the abelian 
@@ -558,12 +557,12 @@ Here is an example of a strong ascending filtration and a strong
 descending filtration on the category $\QCoh$ of quasi-coherent
 sheaves on $\P^n$. Let $i_k$ denote the closed immersion of $\P^k$ 
 into $\P^n$ as a subscheme identified by the vanishing of the last 
-$k$ homogeneous coordinates, and let $j_k$ denote the open 
+$n-k$ homogeneous coordinates, and let $j_k$ denote the open 
 immersion of $U_k \defeq \P^n - \P^k$ into $\P^n$. 
 
-Let $\QCoh^k$ be the full subcategory of quasi-coherent sheaves
-supported in $U_k$ and let $\QCoh_k$ denote the full subcategory of
-sheaves on $\P^n$ supported in $\P^k$. Since
+Let $\QCoh^k$ be the full subcategory of quasi-coherent sheaves on
+$\P^n$ supported in $U_k$ and let $\QCoh_k$ denote the full
+subcategory of sheaves on $\P^n$ supported in $\P^k$. Since
 \[
 U_0 \supseteq U_1 \supseteq U_2 \supseteq \cdots \supseteq U_n
 \]
@@ -713,20 +712,21 @@ $\RHI[n]{\tlHI{n}(F)} = 0$ as desired.
 \end{proof}
 
 \begin{lem}\label{lem_tlHI_id}
-The functor $\tlHI{n}$, restricted to $\TFHI{n}$ is the 
-identity. Consequently, the functor $\tlHI{n}$ is idempotent
-(see Definition \ref{def_coradical} (2)), and the image of $\HI$ 
-under $\tlHI{n}$ is $\TFHI{n}$.
+  The functor $\tlHI{n}$, restricted to $\TFHI{n}$ is naturally
+  isomorphic to the identity. Consequently, the functor $\tlHI{n}$ is
+  idempotent (see Definition \ref{def_coradical} (2)), and the image
+  of $\HI$ under $\tlHI{n}$ is $\TFHI{n}$.
 \end{lem}
 \begin{proof}
 For each $F$ in $\TFHI{n}$, we have the following exact sequence:
 \[
 \LHI[n]{\RHI[n]{F}} \to F \to \tlHI{n}(F) \to 0
 \]
-Since $F \in \TFHI{n}$, $\RHI[n]{F} = 0$, and therefore the counit
-map is $0$. It follows that $\tlHI{n}(F) = F$ as desired. The 
-first statement follows from the fact that $\tlHI{n}(F)$ is in
-$\TLHI{n}{\HI}$, which is established in Lemma \ref{lem_tlHI_in_TLHI}.
+Since $F \in \TFHI{n}$, $\RHI[n]{F} = 0$, and therefore the counit map
+is $0$. It follows that the natural map $F \to \tlHI{n}(F)$ is a
+natural isomorphism as desired. The first statement follows from the
+fact that $\tlHI{n}(F)$ is in $\TLHI{n}{\HI}$, which is established in
+Lemma \ref{lem_tlHI_in_TLHI}.
 \end{proof}
 
 \begin{prop}\label{prop_HI_lower_slice}
