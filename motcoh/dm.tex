@@ -74,8 +74,9 @@ cochain complexes in $\DCat^-\PST$ inducing quasi-isomorphisms
 on the associated complex of Nisnevich sheaves. Since 
 $\Cat{W}_{\Nis}$ are the morphisms whose cone is in a thick
 subcategory, $\Cat{W}_{\Nis}$ is saturated multiplicative system.
-The bounded above derived category $\DCat^-\ShCor$ of Nisnevich
-sheaves with transfers is obtained from $\DCat^- \PST$ by localizing
+We will write $\DCat^-\ShCor$, or more simply $\DShCor$, for the
+bounded above derived category of Nisnevich sheaves with 
+transfers, which is obtained from $\DCat^- \PST$ by localizing
 with respect to $\Cat{W}_{\Nis}$.
 
 \comment{
@@ -101,7 +102,7 @@ $f \in \Cat{S}_{\A}$.
 
 We write $\DMeff$ for the localization 
 $\DShCor [\Cat{S}_{\A}^{-1}]$. The category that we have
-just defined is the derived category of motives, whose objects are
+just defined is the derived category of effective motives, whose objects are
 called \DEF{motives}.
 \end{defn}
 
@@ -110,7 +111,7 @@ $\DCat^-$ by the $\A^1$-weak equivalences, we can identify
 $\DMeff$ with a subcategory of $\DShCor$.
 
 \begin{defn}\label{def_ALocal}
-Let $F^*$ be an object of $\DShCor$. We say that $F^*$ is 
+Let $F^*$ be a cochain regarded as an object of $\DShCor$. We say that $F^*$ is 
 \DEF{$\A^1$-local} if $\hom_{\DShCor}(-, F^*)$ sends $\A^1$-weak 
 equivalences to isomorphisms. We write $\ALocal$ for the full 
 subcategory of $\A^1$-local objects in $\DShCor$.
@@ -129,17 +130,18 @@ $\DShCor$ with homotopy invariant cohomology presheaves.
 % define suslin C^*
 \begin{defn}
 For $F^*$ a bounded above cochain complex of sheaves with transfers,
-let $\suslC[] F^*$ denote the total complex of the double complex
+let $\suslC[] F^*$ denote the direct sum total complex of the double complex
 $\suslC[*] F^*$. Here, the $(p,q)$ spot of the double complex
 $\suslC[*] F^*$ is $\suslC[-p] F^q$. Therefore, $\suslC[]F^*$ again is
 an object of $\DShCor$.
 \end{defn}
 
-We make the following observations: since $F^*$ is bounded above, by
-shifting sufficiently, we may assume that $F^*$ is concentrated in
-strictly nonnegative degrees. Therefore, indexing the double complex
+Since $F^*$ is bounded above, by
+shifting sufficiently, we may assume that $F^n = 0$ for $n > 0$. 
+Therefore, indexing the double complex
 cohomologically, $\suslC F^*$ is a third quadrant double
-complex. Filtering the total complex $\suslC[] F^*$ by rows, we obtain
+complex. Filtering the double complex $\suslC[p] F^q$ by the first index
+$p$, we obtain
 a third quadrant spectral sequence converging to the cohomology of
 $\suslC[] F^*$. Since the cohomology of the complex $\suslC G$ for a
 sheaf with transfers $G$ is homotopy invariant (see \cite[2.19]{MVW})
@@ -147,8 +149,8 @@ the terms in the first page of the spectral sequence are all homotopy
 invariant. It follows that $\suslC[] F^*
 \in \ALocal$.
 
-The significance of the construction defined above is explained
-in the next proposition:
+The following proposition relates the construction defined above
+and the category $\ALocal$.
 
 \begin{prop}\label{prop_suslC_ALocal}
 The functor $\suslC : \DShCor \to \ALocal$ is a left adjoint to
@@ -226,9 +228,9 @@ symmetric closed monoidal structure generalized to the setting of
 a triangulated category:
 
 \begin{defn}\label{def_tensor_triang_cat}
-Let $\DCat[D]$ be a triangulated category. We say that $\DCat[D]$ 
-is a \DEF{tensor triangulated category} if there exists a bifunctor
-$- \tensor -$, together with two natural isomorphisms 
+Let $(\DCat, \tensor, \Unit)$ be a triangulated category. We say that $\DCat$ 
+is a \DEF{tensor triangulated category} if there exists a pair of
+natural isomorphisms 
 \[
 \begin{tikzcd}
 (M[1]) \tensor N \arrow{r}{l_{M, N}}&
@@ -275,9 +277,9 @@ monoidal category} if
 \left(\bigoplus M_i\right) \tensor N = \bigoplus_i (M_i \tensor N)
 \]
 for all $N$ in $\DCat$ and all family $\{M_i\}$ of objects of 
-$\DCat$ such that $\oplus_i M_i \in \DCat$. 
+$\DCat$ such that the direct sum $\oplus_i M_i$ exists in $\DCat$. 
 
-Finally, we say that $\DCat$ \DEF{has a partial internal hom} if 
+We say that $\DCat$ \DEF{has a partial internal hom} if 
 there exists a full subcategory $\DCat^{\compact}$ of $\DCat$, 
 containing $\Unit$ and a bifunctor $\ihom(-,-) : 
 (\DCat^{\compact})^{op} \times \DCat \to \DCat$ such that for
