@@ -40,28 +40,28 @@ graphs of the automorphisms in the Galois group $G \defeq \Gal(L,
 
 Let $\Cor_{\basefield}$ be the collection of objects and morphisms
 where the objects of $\Cor_k$ are smooth separated finite type
-$\basefield$-schemes and whose morphisms between any two objects $X$
-and $Y$ in $\Cor_k$ are $\Cor(X, Y)$. We claim that
-$\Cor_{\basefield}$ forms a category. The main missing piece here is a
-description of the composition of morphisms. This is achieved by
-pulling back correspondences as given by the following result from
-\cite[1.7]{MVW}.
-
-\begin{lem}\label{lem_cor_composition}
-Let $V$ be an elementary correspondence in $\Cor(X, Y)$
-and and $W$ be an elementary correspondence in $\Cor(Y, Z)$. 
-Writing
-\[
-V = \sum_i n_i V_i, \;\;\textrm{and}\;\; W = \sum_j m_i W_i
-\]
-where $V_i$ and $W_j$ are elementary correspondences, then
-the pushforward of
-\[
-\sum_{i, j} n_im_j (V_i \times Z) \cap (X \times W_j)
-\]
-in along $X \times Y \times Z \to X \times Z$ defines a finite 
-correspondence from $X$ to $Z$.
-\end{lem}
+$\basefield$-schemes and whose morphisms from $X$ to $Y$ in 
+$\Cor_k$ are given by $\Cor(X, Y)$. We claim that
+$\Cor_{\basefield}$ forms a category. The main missing piece here 
+is a description of the composition of morphisms. We can define 
+the composition of a finite correspondence $V$ in $\Cor(X, Y)$
+with a finite correspondence $W$ in $\Cor(Y, Z)$ via
+the following construction taken from the discussion preceding 
+\cite[1.5]{MVW} and \cite[1.7]{MVW}. Reduce to the case where $X$ 
+and $Y$ are connected, and suppose that $V$ and $W$ are 
+irreducible closed subsets of $X \times Y$ and $Y \times Z$ 
+respectively. Let $\tilde{V}$ and $\tilde{W}$ be the underlying 
+integral schemes associated to $V$ and $W$. Then $\tilde{V} \times 
+X$ and $X \times \tilde{W}$ define cycles in $X \times Y \times Z$ 
+intersecting properly in the sense of \cite[2.4]{Ful84}. Let $T$
+be the image of $\tilde{V} \times_Y \tilde{W}$ in $X \times Y \times Z$.
+Each irreducible component $T_i$ of $T$ is finite and surjective
+over $X$ by \cite[1.7]{MVW}. Furthermore, the image of $T_i$ along
+$p: X \times Y \times Z \to X \times Z$ is an irreducible closed
+subscheme of $X \times Z$ by \cite[1.4]{MVW}. Let $[T]$ be the 
+cycle corresponding to $T$ in $X \times Y \times Z$. The 
+push-forward $p_*([T])$ defines a finite correspondence from $X$ 
+to $Z$, which we define to be the composition $V \comp W$.
 
 \begin{defn}\label{def_pst}
 A \DEF{presheaf with transfers} is a contravariant functor from 
@@ -79,7 +79,7 @@ The term ``with transfers'' comes from the existence of
 morphism $\phi : W \to X$ of smooth schemes, there exists a
 map $\phi_*: F(W) \to F(X)$ induced by the graph of $\phi$,
 regarded as an elementary correspondence from $W$ to $X$.
-We call $\phi^*$ the \DEF{transfer map}. Notice that $\phi^*$
+We call $\phi_*$ the \DEF{transfer map}. Notice that $\phi_*$
 is in the ``opposite direction'' as the induced maps between
 sections.
 \end{rmk}
@@ -201,13 +201,14 @@ are some prominent examples.
 
 \begin{ex}\label{ex_Z_O_Ostar}
 The constant sheaf $\Z$, the structure sheaf $\O$, and the sheaf
-of global units $\Ox$ satisfy the conditions given in Definition
-\ref{def_etale_sheaf}, and are both \'etale and Nisnevich sheaves.
-To see that $\Z, \O,$ and $\Ox$ are \'etale and Nisnevich sheaves
-with transfers, we must specify what the transfer structures are
-on each respective sheaf.
+of global units $\Ox$ are examples of \'etale and Nisnevich sheaves
+with transfers as defined in Definition
+\ref{def_etale_sheaf}. To see that $\Z, \O,$ and $\Ox$ are \'etale 
+and Nisnevich sheaves with transfers, we need to define the map 
+$\phi^*: \Z(Y) \to \Z(X)$ (resp., $\O(Y) \to \O(X)$, $\Ox(Y) \to 
+\Ox(X)$) for every finite correspondence in $\Cor(X, Y)$.
 
-For this purpose, assume that $X$ and $Y$ are integral schemes
+Assume that $X$ and $Y$ are integral schemes
 in $\Sm$, and $W$ is an elementary correspondence from $X$ to $Y$. 
 Then, $W$ is given by an integral scheme finite over $X$, which we 
 also represent by $W$. Let $F$ and $L$ be the function fields of 
@@ -217,12 +218,11 @@ map $\Z(X) \to \Z(Y)$ is given by the composition
 \[
 \Z(Y) \to \Z(W) \stackrel{n}{\to} \Z(X).
 \]
-
 For the others, let $tr: L \to F$ and $N: L \to F$ denote the 
-trace and norm maps respectively. It is straightforward to see 
-that $tr$ and $N$ restrict to maps from $\O(W) \to \O(X)$. In
-the case of $N$, it is easy to see that $N(f^{-1}) = N(f)^{-1}$.
-Therefore, $N$ restricts to a map $\Ox(W) \to \Ox(X)$.
+trace and norm maps respectively. Since $X$ is normal and $W$ is
+finite over $X$, $tr$ and $N$ restrict to maps from $\O(W) \to 
+\O(X)$. Since $N$ is a group homomorphism, $N(f^{-1}) = 
+N(f)^{-1}$. Thus, $N$ restricts to a map $\Ox(W) \to \Ox(X)$.
 
 Hence, the map $\O(Y) \to \O(X)$ is given by the composition
 \[
@@ -254,9 +254,9 @@ with transfers $F$, let $\Etale{F}$ (resp. $\NisSh{F}$) denote the
 
 \begin{prop}\label{prop_et_and_nis_sheafification}
 \begin{enumerate}
-\item For $F$ a presheaf with transfers, $\Etale{F}$ admits a 
-unique transfers structure. That is, $\Etale{F}$ is an \'etale 
-sheaf with transfers.
+\item For $F$ a presheaf with transfers, $\Etale{F}$ can be
+realized as a presheaf with transfers in a unique way. That is, 
+$\Etale{F}$ is an \'etale sheaf with transfers.
 
 % 6.17, 6.18
 The functor $\etale$ restricted to $\PST$ defines a left adjoint
@@ -310,21 +310,22 @@ commutative diagram detailing the subcategories of presheaves on
 $\Sm$ and their reflection functors:
 \[
 \begin{tikzcd}[column sep=large, row sep=large]
-\HIEt \arrow[hookrightarrow]{r} \arrow[hookrightarrow]{d} &
-\ShEtCor \arrow[hookrightarrow]{r} \arrow[hookrightarrow]{d} &
+\HIEt \arrow{r} \arrow[hookrightarrow]{d} &
+\ShEtCor \arrow{r} \arrow[hookrightarrow]{d} &
 \ShEt \arrow[hookrightarrow]{d} \\
-\HINis \arrow[hookrightarrow]{r} \arrow[hookrightarrow]{d} 
+\HINis \arrow{r} \arrow[hookrightarrow]{d} 
 \arrow[bend left]{u}{\etale}&
-\ShNisCor \arrow[hookrightarrow]{r} \arrow[hookrightarrow]{d} 
+\ShNisCor \arrow{r} \arrow[hookrightarrow]{d} 
 \arrow[bend left]{u}{\etale}&
 \ShNis \arrow[hookrightarrow]{d} 
 \arrow[bend left]{u}{\etale}\\
-\HIPST \arrow[hookrightarrow]{r} \arrow[bend left]{u}{\nis} &
-\PST \arrow[hookrightarrow]{r} \arrow[bend left]{u}{\nis}&
+\HIPST \arrow{r} \arrow[bend left]{u}{\nis} &
+\PST \arrow{r} \arrow[bend left]{u}{\nis}&
 \PSh \arrow[bend left]{u}{\nis}
 \end{tikzcd}
 \]
 where $\PSh$ denotes the presheaves on $\Sm$. In the diagram above,
+the horizontal arrows represent forgetful functors, and
 the reflection functors in the first two columns are the restrictions
 of the reflection functors in the right-most column.
 \end{rmk}
@@ -416,9 +417,10 @@ $\HI$.
 \begin{defn}\label{def_contract}
 Let $F$ be a homotopy invariant presheaf with transfers. Write
 $\RHI{F}(X)$ for the cokernel of $F(X \times \A^1) \to F(X \times 
-(\A^1 - 0))$. It is easy to see that $\RHI{F}$ is again a presheaf
-with transfers which we call \DEF{the contraction of $F$}. We will 
-write $\RHI[n + 1]{F}$ for $\RHI{(\RHI[n]{F})}$.
+(\A^1 - 0))$. If $F$ is a Nisnevich sheaf with transfers, then 
+$\RHI{F}$ is again a Nisnevich sheaf with transfers by 
+\cite[23.5]{MVW}. We call $\RHI{F}$ the \DEF{the contraction of 
+$F$}. We will write $\RHI[n + 1]{F}$ for $\RHI{(\RHI[n]{F})}$.
 \end{defn}
 
 If $F$ is homotopy invariant, then $\RHI{F}$ is also a homotopy 
