@@ -11,8 +11,8 @@ the following notion.
 Let $\Cat{A}$ be a category. A descending \DEF{weak filtration} of 
 $\Cat{A}$ is a ($\Z$-indexed) sequence of subcategories
 \[
-\Cat{A} \cdots \supseteq \Cat{A}_i \supseteq \Cat{A}_{i + 1}
-   \supseteq \cdots \supseteq 
+\Cat{A} \supseteq \cdots \supseteq \Cat{A}_i \supseteq \Cat{A}_{i + 1}
+   \supseteq \cdots
 \]
 together with coreflection functors $\phi_i: \Cat{A} \to \Cat{A}_i$
 for each $i$ such that $\phi_i$ restricts to the identity on
@@ -35,16 +35,17 @@ weak filtration is an ascending weak filtration for which
 $\Cat{A}_j = \Cat{A}_0$ for all negative $j$.
 \end{rmk}
 
-We show that there are two $\N$-indexed weak filtrations --- 
-one ascending, one descending --- on $\DMeff$. The construction 
-is based on the work of Voevodsky, Huber, and Kahn \cite{HuKa}. 
-We then extend the weak filtration on $\DMeff$ to a $\Z$-indexed
-weak filtration on $\DM$. Aside from Lemmas \ref{lem_LRcommute} 
-and \ref{lem_LR_commute_LR} and Propositions 
-\ref{prop_sgn_commute_sgm} and \ref{prop_sDM_properties}, the 
-content from the first two sections is taken from 
-\cite[\S 1]{HuKa}. The extensions of the filtrations to $\DM$ are 
-new.
+We show that there are two $\N$-indexed weak filtrations --- one
+ascending, one descending --- on $\DMeff$. The construction is based
+on the work of Voevodsky, Huber, and Kahn \cite{HuKa}.  We then extend
+the two weak filtrations on $\DMeff$ defined below in
+\eqref{eq_gslice_tower_DMeff} and \eqref{eq_lslice_tower_DMeff} to a
+$\Z$-indexed weak filtration on the category $\DM$ defined below in
+Definition \ref{def_DM}. Aside from Lemmas \ref{lem_LRcommute} and
+\ref{lem_LR_commute_LR} and Propositions \ref{prop_sgn_commute_sgm}
+and \ref{prop_sDM_properties}, the content from the first two sections
+is taken from \cite[\S 1]{HuKa}. The extensions of the filtrations to
+$\DM$ are new.
 
 \section{Slice filtration on $\DMeff$}
 \label{sect_slice_filtration_DMeff}
@@ -606,7 +607,7 @@ In this section, we will extend the slice filtration on $\DMeff$
 to $\Z$-indexed filtrations on $\DM$. Recall from \cite[14.2]{MVW} 
 the following definition of the category $\DM$.
 
-\begin{defn}
+\begin{defn}\label{def_DM}
 Let $\DM$ be the category obtained from $\DMeff$ by inverting
 the operation $M \mapsto \tZ{M}$. That is, the objects of $\DM$
 are pairs $(M, n)$, where $M$ is an object of $\DMeff$, and $n$
