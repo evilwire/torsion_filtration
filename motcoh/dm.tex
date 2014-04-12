@@ -278,34 +278,52 @@ monoidal category} if
 \]
 for all $N$ in $\DCat$ and all family $\{M_i\}$ of objects of 
 $\DCat$ such that the direct sum $\oplus_i M_i$ exists in $\DCat$. 
+\end{defn}
 
-We say that $\DCat$ \DEF{has a partial internal hom} if 
-there exists a full subcategory $\DCat^{\compact}$ of $\DCat$, 
-containing $\Unit$ and a bifunctor $\ihom(-,-) : 
-(\DCat^{\compact})^{op} \times \DCat \to \DCat$ such that for
-all $F$ in $\DCat^{\compact}$, $F \tensor -$ is left adjoint to 
+Recall that for a symmetric monoidal category $(\Cat{C}, \tensor, 
+\Unit)$, an internal hom in $\Cat{C}$ is a bifunctor
+\[
+\ihom: \Cat{C}^{\OP} \times \Cat{C} \to \Cat{C},
+\]
+such that for all $C$ in $\Cat{C}$, the endofunctor $\ihom(C, -)$
+is right adjoint to the functor $- \tensor C$; in this case, we
+say that $\Cat{C}$ is a \DEF{closed monoidal category}.  Not every 
+symmetric monoidal category admits an internal hom, although it is
+possible for $- \tensor C$ to admit right adjoints for some
+objects $C$ of $\Cat{C}$. We introduce the following definition to
+describe this notion:
+
+\begin{defn}\label{def_partial_internal_hom}
+For a symmetric monoidal category $(\Cat{C}, \Unit, \tensor)$,
+we say that $\Cat{C}$ \DEF{has a partial internal hom} if 
+there exists a full subcategory $\Cat{C}^{\compact}$ of $\Cat{C}$
+containing $\Unit$, and a bifunctor $\ihom(-,-) : 
+(\Cat{C}^{\compact})^{op} \times \Cat{C} \to \Cat{C}$ such that for
+all $F$ in $\Cat{C}^{\compact}$, $F \tensor -$ is left adjoint to 
 $\ihom(F, -)$. 
 
-In this case, we call $\DCat^{\compact}$ the \DEF{\SemiInvertible
-objects} of $\DCat$, and $\ihom$ the partial internal hom (bi)functor
-on $\DCat$. We call the pair $(\ihom,
-\DCat^{\compact})$ the \DEF{partial internal hom structure on 
-$\DCat$}.
+In this case, we call $\Cat{C}^{\compact}$ the \DEF{\SemiInvertible
+objects} of $\Cat{C}$, and $\ihom$ the partial internal hom 
+in $\Cat{C}$. We call the pair $(\ihom, \Cat{C}^{\compact})$ the 
+\DEF{partial internal hom structure on $\Cat{C}$}.
 \end{defn}
 
 Following \cite{MVW}, we show that $\DMeff$ is equipped with an 
-additive symmetric monoidal structure with a partial internal hom. 
-To do so, we first define the tensor and internal hom operators on 
-$\PST$. The tensor structure will be determined by these 
-requirements: 
+additive symmetric monoidal structure and a partial internal hom
+structure. Let us first define the tensor and internal hom operators on 
+$\PST$. By Yoneda Lemma, $\hom_{\PST}(\Ztr(X), \Ztr(Y)) 
+\cong \Cor(X, Y)$ for all $X$ and $Y$ in $\Sm$, i.e. we can 
+identify a morphism between representable presheaves as a finite
+correspondence. The tensor structure will be determined by the following
+requirements. 
 
 \begin{enumerate}
 \item $\Ztr(X) \ttr \Ztr(Y) \defeq \Ztr(X \times Y)$, 
 
-\item for each map $\phi$ in $\hom_{\PST}(\Ztr(X), \Ztr(Y))$ which
-equals $\Cor(Y, X)$ identified with the correspondence $W$, $\phi 
-\tensor \Ztr(Z): \Ztr(X) \ttr \Ztr(Z) \to \Ztr(Y) \ttr \Ztr(Z)$ is 
-the correspondence $W \times Z$. 
+\item for each map $\phi$ in $\hom_{\PST}(\Ztr(X), \Ztr(Y))$, let
+$W$ be its corresponding finite correspondence in $\Cor(X, Y)$. Then 
+$\phi \tensor \Ztr(Z): \Ztr(X) \ttr \Ztr(Z) \to \Ztr(Y) \ttr \Ztr(Z)$
+corresponds to the finite correspondence $W \times Z$. 
 \end{enumerate}
 \noindent It is clear that we can extend the bifunctor $\ttr$ to 
 arbitrary direct sums of representable presheaves.  
@@ -322,9 +340,9 @@ choice of $P^*$ and $Q^*$.
 In particular, $H^0(F \tL G)$ is well-defined. Define the tensor 
 operation on $\PST$ to be
 \[
-F \tensor G \defeq F \tL G,
+F \tensor G \defeq H^0(F \tL G),
 \]
-and define internal hom by
+and define internal hom presheaf by
 \[
 \ihom(F, G): X \mapsto \hom_{\PST}(F \tensor \Ztr(X), G).
 \]
@@ -355,7 +373,7 @@ is defined up to unique quasi-isomorphism.
 In particular, $\tL$ is well-defined as a bi-functor on 
 $\DCat[D]^-\PST$. Indeed, let $F^*$ and ${F'}^*,$ be two 
 quasi-isomorphic bounded above complexes in $\PST$. Then for any 
-bounded above $G^*$ in $\PST$, $F^* \tL G^* \cong {F'}^* \tL G^*$. 
+bounded above cochain $G^*$ in $\PST$, $F^* \tL G^* \cong {F'}^* \tL G^*$. 
 (see \cite[8.7]{MVW}) To show that $\DCat^-\PST$ is equipped
 with a tensor triangulated structure, we make the following 
 observation.
