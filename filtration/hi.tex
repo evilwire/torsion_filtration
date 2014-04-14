@@ -676,7 +676,7 @@ $\TLHI{n + 1}{\HI}$ but not in $\TLHI{n}{\HI}$.
 We now describe the reflection functors $\tlHI{n} : \HI \to 
 \TLHI{n}{\HI}$. 
 
-\begin{defn}
+\begin{defn}\label{def_tlHI}
 Let $n$ be a positive integer, and let $\tlHI{n}(F)$ denote the 
 cokernel of the counit $\cuHI^n_F: \LHI[n]{\RHI[n]{F}} \to F$. 
 Since $\cuHI^n_F$ is natural in $F$, $\tlHI{n}$ is a functor.
@@ -1282,9 +1282,7 @@ discussion in \loccit, we have that
 0   &\textrm{otherwise}.
 \end{cases}
 \]
-However, notice that $\tlHI{1}(\Oxn) = \tgHI{2}(\Oxn) = \Oxn$
-and $\tgHI{k}(\Oxn) \tlHI{l}(\Oxn) = 0$ for all positive integers
-$k \neq 2$ and $l \neq 1$.
+However, a simple calculation reveals that
 \[
 \tconst{k}(\Oxn) = \begin{cases}
 \Oxn &\textrm{if }k = 1\\
