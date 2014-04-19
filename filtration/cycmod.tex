@@ -313,17 +313,10 @@ Proposition \ref{prop_THI_properties}(4) and Corollary
 \end{proof}
 
 \begin{ex}\label{ex_TFHI_eq_TFHM}
-Suppose $F$ is a homotopy invariant sheaf with transfers. The
-image of $F$ under $\spectHI$ (see the paragraph after
-Definition \ref{def_hm}) is the homotopy module $F_*$ where
-\[
-F_k \defeq \begin{cases}
-\LHI[k]{F} & \textrm{if }k > 0\\
-F &\textrm{if }k = 0\\
-\RHI[|k|]{F} &\textrm{otherwise}.
-\end{cases}
-\]
-By Proposition \ref{prop_tl_L_R}, there are natural isomorphisms 
+Suppose $F$ is a homotopy invariant sheaf with transfers, and
+let $F_*$ denote the image of $F$ under $\spectHI$ (see the paragraph after
+Definition \ref{def_hm}). By Proposition \ref{prop_tl_L_R}, there are natural isomorphisms 
+in $\HI$:
 \[
 \tlHI{n + k}(\LHI[k]{F}) \cong \LHI[k]{(\tlHI{n}F)} \;\;\textrm{ and }\;\; 
 \tlHI{n}(\RHI[k]{F}) \cong \RHI[k]{(\tlHI{n + k}F)}.
@@ -336,9 +329,9 @@ $\THI{n}$ under $\spectHI$ is $\THM{n}$ and $\TFHI{n}$ under
 $\spectHI$ is $\TFHM{n}$ for each positive integer $n$.
 \end{ex}
 
-The following result relates the coradicals $\tlHI{n}$ on $\HI$ 
+The following result show that $\spectHI$ relates the coradicals $\tlHI{n}$ on $\HI$ 
 defined in Definition \ref{def_tlHI} to the coradicals $\tlHM{n}$ 
-on $\HM$. Recall the assumption from the opening paragraph of this
+on $\HM$. Recall the notation from the opening paragraph of this
 chapter that $L$ is the functor $F \mapsto \LHI{F}$, and $R$ is
 the functor $F \mapsto \RHI{F}$.
 
@@ -358,71 +351,82 @@ F &\textrm{if }k = 0\\
 R^{|k|}F &\textrm{if }k < 0.
 \end{cases}
 \]
-First, suppose $n$ is nonpositive. As defined in
-Definition \ref{def_corad_HM}, $\tlHM[k]{n}(F) = 0$ for all $k \leq 0$.
-Therefore, it suffices to show $\tlHM[k]{n}(F) = \tlHI{n + k} = 0$ for all $k > 0$.
-Notice that $F_k = L^kF$, which is an object in $\THI{k}$ by Proposition
+First, suppose $n \leq 0$. By
+Definition \ref{def_corad_HM}, $\tlHM[k]{n}(F) = 0$ for all $k \leq -n$.
+We claim that $\tlHM[k]{n}(F_*) = \tlHI{n + k}(F_k) = 0$ for all $k > -n$.
+Notice that $F_k = L^kF$ is an object in $\THI{k}$ by Proposition
 \ref{prop_THI_properties}(2). Since $\THI{k}$ is the torsion
 subcategory of the coradical $\tlHI{k}$, $\tlHI{k}(L^kF) = 0$. On the other 
-hand, since $n + k < k$, by Lemma \ref{lem_TFHI_properties}, $\tlHM{n + k}(F) = 
-\tlHI{n + k}\tlHI{k}(L^kF) = 0$. This proves the first statement in the proposition.
+hand, since $n + k \leq k$, $\tlHI{n + k}(L^k F) = 
+\tlHI{n + k}\tlHI{k}(L^kF) = 0$ by Lemma \ref{lem_TFHI_properties}. 
+This proves the first statement in the proposition.
 
-To see that there exists a natural isomorphism $\spectHI \tlHI{n}
-\stackrel{\cong}{\to} \tlHM{n}\spectHI$, we need to show that
-there exists a sequence of natural isomorphism 
-$\tau_k: \spectHI(\tlHI{n}(F))_k \to \tlHM[k]{n}\spectHI(F)$ that is
+Now suppose that $n > 0$.
+To define a natural isomorphism 
+\[
+\spectHI (\tlHI{n} F)
+\stackrel{\cong}{\to} \tlHM{n}(\spectHI F),
+\]
+we need to define a sequence of natural isomorphisms
+$\tau_k: \spectHI(\tlHI{n}F)_k \to \tlHM[k]{n}(\spectHI F)$ in $\HI$ that is
 compatible with the delooping maps. That is, for each integer $k$, the 
-following diagram commutes:
+following diagram commutes in $\HI$:
 \[
 \begin{tikzcd}[column sep=large]
-R\tlHM[k + 1]{n}(\spectHI(F)) \arrow{r}{\tlHM{n}\deloop_k}\arrow{d}{R\tau_{k + 1}} &
-\tlHM[k]{n}(\spectHI(F)) \arrow{d}{\tau_k} \\
-R\spectHI(\tlHI{k}(F))_{k + 1} \arrow{r}{\deloop_k} &
-\spectHI(\tlHI{k})_k.
+\spectHI(\tlHI{k} F)_k \arrow{r}{\deloop_k} \arrow{d}{\tau_k} &
+R\spectHI(\tlHI{k} F)_{k + 1} \arrow{d}{R\tau_{k + 1}} \\
+\tlHM[k]{n}(\spectHI F) \arrow{r}{\tlHM{n}\deloop_k} &
+R\tlHM[k + 1]{n}(\spectHI F).
 \end{tikzcd}
 \]
 Notice that the $k$-th graded component of 
 $\spectHI(\tlHI{n}(F))$ is given by
 \[
-\spectHI(\tlHI{n}(F))_k = \begin{cases}
-L^k\tlHI{n}F &\textrm{if }k > 0\\
+\spectHI(\tlHI{n} F)_k = \begin{cases}
+L^k(\tlHI{n}F) &\textrm{if }k > 0\\
 \tlHI{n}F    &\textrm{if }k = 0\\
-R^{|k|}\tlHI{n}F & \textrm{if }k < 0,
+R^{|k|}(\tlHI{n}F) & \textrm{if }k < 0,
 \end{cases}
 \]
 and by definition of $\tlHM{n}$,
 \[
 \tlHM[k]{n}(F) = 
 \begin{cases}
-\tlHI{n + k}L^kF &\textrm{if }k > 0\\
+\tlHI{n + k}(L^kF) &\textrm{if }k > 0\\
 \tlHI{n}F &\textrm{if }k = 0\\
-\tlHI{n + k}R^{|k|}F &\textrm{otherwise}.
+\tlHI{n + k}(R^{|k|}F) &\textrm{if }k < 0\textrm{ and }k > -n\\
+0 &\textrm{otherwise}.
 \end{cases}
 \]
+Notice that for $k < 0$ and $k + n \leq 0$, $R^{|k|}(\tlHI{n}F) = 0$ by Proposition 
+\ref{lem_tlHI_in_TLHI}. In this case, $\spectHI (\tlHI{n}F)_k = 
+\tlHM{n}(\spectHI F)_k = 0$, and by setting $\tau_k = 0$, we
+obtain natural isomorphisms for all $k < 0$ with $k + n \leq 0$.
+
 To complete the proof of the proposition, we need to show that
 for each $k \geq 0$, there exists a natural isomorphism $\tau_k : 
 L^k\tlHI{n} \stackrel{\cong}{\to} \tlHI{n + k}L^k$
 such that the following diagram commutes:
 \begin{equation}\label{eq_prop_spectHI_commute_1}
 \begin{tikzcd}
-RL^{k + 1}\tlHI{n} \arrow{r}{\deloop_k} \arrow{d}{R\tau_{k + 1}} &
-L^k\tlHI{n} \arrow{d}{\tau_k} \\
-R\tlHI{n + k + 1}L^{k + 1} \arrow{r}{\deloop_k'} &
-\tlHI{n + k}L^k. 
+L^k\tlHI{n} \arrow{r}{\deloop_k} \arrow{d}{\tau_{k}} &
+RL^{k + 1} \tlHI{n} \arrow{d}{R\tau_{k + 1}} \\
+\tlHI{n + k}L^k \arrow{r}{\deloop_k'} &
+R\tlHI{n + k + 1}L^{k + 1}.
 \end{tikzcd}
 \end{equation}
-Here, $\deloop_k$ is the natural isomorphism given by the inverse
-of the unit $\id \to RL$ and $\deloop_k'$ is the natural isomorphism 
+Here, $\deloop_k$ is the natural isomorphism given by the unit 
+$\id \to RL$ and $\deloop_k'$ is the natural isomorphism 
 corresponding to the $k$-th deloopings of $\tlHM{n}\spectHI$.
-We must also show that for each $k < 0$, there exists a natural isomorphism
-$\tau_k : L\tlHI{n + k}R^{|k|} \to LR^{|k|}\tlHI{n}$ such that the
-following diagram commutes:
+We must also show that for each $k < 0$ with $n + k > 0$, there 
+exists a natural isomorphism $\tau_k : \tlHI{n + k}R^{|k|} \to 
+R^{|k|}\tlHI{n}$ such that the following diagram commutes:
 \begin{equation}\label{eq_prop_spectHI_commute_2}
 \begin{tikzcd}
-R^{|k|}\tlHI{n} \arrow[equals]{r} \arrow{d}{R\tau_{k + 1}} & 
-R^{|k|}\tlHI{n} \arrow{d}{\tau_k}\\
-R\tlHI{n + k + 1}R^{|k + 1|} \arrow{r}{\deloop_k'} &
-\tlHI{n + k}R^{|k|} 
+R^{|k|}\tlHI{n} \arrow[equals]{r} \arrow{d}{\tau_{k}} & 
+R^{|k|}\tlHI{n} \arrow{d}{R\tau_{k + 1}}\\
+\tlHI{n + k}R^{|k|} \arrow{r}{\deloop_k'}&
+R\tlHI{n + k + 1}R^{|k + 1|} 
 \end{tikzcd}
 \end{equation}
 where $\deloop_k'$ is the natural isomorphism corresponding to the 
@@ -432,9 +436,10 @@ We proceed by first defining the natural isomorphisms $\tau_k$.
 For $k \geq 0$, let $\tau_k$ be the natural isomorphism 
 $L^k\tlHI{n} \to \tlHI{n + k}L^k$ given by 
 \eqref{eq_prop_tl_L_eq} of Proposition \ref{prop_tl_L_R};
-for $k < 0$, let $\tau_k$ be the natural isomorphism
-$R^{|k|}\tlHI{n} \to \tlHI{n + k} R^{|k|}$ given by 
-\eqref{eq_prop_tl_R_eq}. To see that \eqref{eq_prop_spectHI_commute_1} is commutative for
+for $k < 0$ and $k + n > 0$, let $\tau_k$ be the natural 
+isomorphism $R^{|k|}\tlHI{n} \to \tlHI{n + k} R^{|k|}$ given by 
+\eqref{eq_prop_tl_R_eq}.  
+To see that \eqref{eq_prop_spectHI_commute_1} is commutative for
 all $k \geq 0$, notice that the inductive step in the proof of 
 Proposition \ref{prop_tl_L_R} shows that $R\tau_{k + 1}$ factors
 as the composition
@@ -448,26 +453,29 @@ where $\tau'$ is the natural isomorphism given by
 the following diagram is commutative:
 \begin{equation}\label{eq_prop_spectHI_L_commute_1}
 \begin{tikzcd}
-RLL^k\tlHI{n} \arrow[equals]{r} \arrow{d}{R\tau_{k + 1}} &
-RL^{k + 1}\tlHI{n} \arrow{d}{RL\tau_k} \\
-R\tlHI{n + k + 1}L^{k + 1} \arrow{r}{(R\tau')^{-1}} &
-RL\tlHI{n + k}L^k.
+RL^{k + 1}\tlHI{n} \arrow[equals]{r} \arrow{d}{RL\tau_{k}} &
+RLL^{k}\tlHI{n} \arrow{d}{R\tau_{k + 1}} \\
+RL\tlHI{n + k}L^k \arrow{r}{R\tau'} &
+R\tlHI{n + k + 1}L^{k + 1}.
 \end{tikzcd}
 \end{equation}
-By the naturality of the inverse of the unit transformation,
+By the naturality of the unit transformation,
 we also have the following commutative square:
 \begin{equation}\label{eq_prop_spectHI_L_commute_2}
 \begin{tikzcd}[column sep=60pt]
-RL^{k + 1}\tlHI{n} \arrow{r}{\deloop_k} \arrow{d}{RL\tau_k} &
-L^k\tlHI{n} \arrow{d}{\tau_k} \\
-RL\tlHI{n + k}L^k \arrow{r}{\eta\tlHI{n + k}L^k} &
-\tlHI{n + k}L^k.
+L^k\tlHI{n} \arrow{d}{\tau_k} \arrow{r}{\deloop_k}  &
+RL^{k + 1}\tlHI{n} \arrow{d}{RL\tau_k}\\
+\tlHI{n + k}L^k \arrow{r}{\eta\tlHI{n + k}L^k} &
+RL\tlHI{n + k}L^k.
 \end{tikzcd}
 \end{equation}
-Furthermore, notice that $\deloop_k$ factors as 
+Furthermore, notice that $\deloop_k'$ factors as 
 \[
-R\tlHI{n + k + 1}L^{k + 1} \xrightarrow{(R\tau')^{-1}} RL\tlHI{n + k} L^k
-\xrightarrow{\phantom{aa}\eta\tlHI{n + k}L^k \phantom{aa}} \tlHI{n + k}L^k.
+\tlHI{n + k}L^k
+\xrightarrow{\phantom{aa}\eta\tlHI{n + k}L^k \phantom{aa}}
+RL\tlHI{n + k} L^k
+\xrightarrow{R\tau'}
+R\tlHI{n + k + 1}L^{k + 1}.
 \]
 The commutative squares \eqref{eq_prop_spectHI_L_commute_1} 
 and \eqref{eq_prop_spectHI_L_commute_2} fit together to give us the
